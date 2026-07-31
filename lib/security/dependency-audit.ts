@@ -4,7 +4,6 @@
  */
 
 import { execSync } from 'child_process'
-import { readFileSync } from 'fs'
 import { join } from 'path'
 
 export interface DependencyAuditResult {
@@ -157,10 +156,11 @@ export function checkOutdatedDependencies(): {
 /**
  * Check for duplicate dependencies
  */
-export function checkDuplicateDependencies(): {
+export async function checkDuplicateDependencies(): Promise<{
   duplicates: { name: string; versions: string[] }[]
-} {
+}> {
   try {
+    const { readFileSync } = await import('node:fs')
     const packageJsonPath = join(process.cwd(), 'package.json')
     const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8')) as {
       dependencies?: Record<string, string>
@@ -178,22 +178,22 @@ export function checkDuplicateDependencies(): {
 /**
  * Run full dependency audit
  */
-export function runDependencyAudit(): {
+export async function runDependencyAudit(): Promise<{
   vulnerabilities: DependencyAuditResult
   outdated: ReturnType<typeof checkOutdatedDependencies>
-  duplicates: ReturnType<typeof checkDuplicateDependencies>
-} {
+  duplicates: Awaited<ReturnType<typeof checkDuplicateDependencies>>
+}> {
   return {
     vulnerabilities: runNpmAudit(),
     outdated: checkOutdatedDependencies(),
-    duplicates: checkDuplicateDependencies(),
+    duplicates: await checkDuplicateDependencies(),
   }
 }
 
 /**
  * Print audit results to console
  */
-export function printAuditResults(audit: ReturnType<typeof runDependencyAudit>): void {
+export function printAuditResults(audit: Awaited<ReturnType<typeof runDependencyAudit>>): void {
   console.log('\n📦 Dependency Security Audit\n')
 
   // Vulnerabilities

@@ -1,4 +1,3 @@
-import fs from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
 import { siteConfig } from '@/config/site'
@@ -8,7 +7,7 @@ import { absoluteUrl } from '@/lib/seo/metadata'
 export const dynamic = 'force-static'
 
 export async function GET() {
-  const entries = getInsightEntries()
+  const entries = await getInsightEntries()
   const items = entries
     .sort((a, b) => dateValue(b.publishedAt) - dateValue(a.publishedAt))
     .map(
@@ -47,7 +46,8 @@ function dateValue(value?: string) {
   return value ? new Date(value).getTime() : 0
 }
 
-function getInsightEntries() {
+async function getInsightEntries() {
+  const fs = await import('node:fs')
   const directory = path.join(process.cwd(), 'content', 'insights')
   if (!fs.existsSync(directory)) return []
 
