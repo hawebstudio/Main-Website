@@ -16,4 +16,8 @@ node_modules
 .next-dev.log
 .DS_Store
 
-reports/
+.pnpm-store
+
+.next-build-manifest.json
+
+/reports/

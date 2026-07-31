@@ -1,12 +1,17 @@
 import { markdownTable, readContentEntries, writeText } from '../shared/toolkit.ts'
 
+interface FrontmatterData {
+  seo?: { canonical?: string }
+}
+
 const rows = [['URL', 'Title length', 'Description length', 'Canonical']]
 for (const entry of await readContentEntries()) {
+  const data = entry.data as FrontmatterData
   rows.push([
     entry.url,
     String(entry.title.length),
     String(entry.description.length),
-    String(entry.data.seo?.canonical ?? entry.url),
+    String(data.seo?.canonical ?? entry.url),
   ])
 }
 

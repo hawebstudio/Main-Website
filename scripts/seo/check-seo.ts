@@ -1,5 +1,9 @@
 import { absoluteUrl, pathExists, printResult, readContentEntries, type AuditMessage } from '../shared/toolkit.ts'
 
+interface FrontmatterData {
+  seo?: { canonical?: string }
+}
+
 const messages: AuditMessage[] = []
 const titles = new Map<string, string>()
 const descriptions = new Map<string, string>()
@@ -13,7 +17,8 @@ for (const entry of await readContentEntries()) {
   if (!entry.description) messages.push({ level: 'issue', message: `${entry.relativePath}: missing SEO description` })
   if (entry.title.length > 70) messages.push({ level: 'warning', message: `${entry.url}: title is ${entry.title.length} characters` })
   if (entry.description.length > 170) messages.push({ level: 'warning', message: `${entry.url}: description is ${entry.description.length} characters` })
-  if (entry.data.seo?.canonical && !String(entry.data.seo.canonical).startsWith('http')) {
+  const data = entry.data as FrontmatterData
+  if (data.seo?.canonical && !data.seo.canonical.startsWith('http')) {
     messages.push({ level: 'issue', message: `${entry.url}: canonical must be absolute (${absoluteUrl(entry.url)} expected)` })
   }
   track(titles, entry.title, entry.url, 'title')

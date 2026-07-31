@@ -6,7 +6,8 @@ for (const entry of await readContentEntries()) {
   if (entry.collection === 'services') candidates.push('Service', 'FAQPage')
   if (entry.collection === 'insights') candidates.push('Article')
   if (entry.collection === 'case-studies' || entry.collection === 'work') candidates.push('CreativeWork')
-  if ((entry.data.faqs ?? []).length) candidates.push('FAQPage')
+  const faqs = (entry.data.faqs as unknown[]) ?? []
+  if (faqs.length) candidates.push('FAQPage')
   rows.push([entry.url, [...new Set(candidates)].join(', ')])
 }
 

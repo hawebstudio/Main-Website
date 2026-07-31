@@ -24,6 +24,19 @@ export interface ContentEntry {
   content: string
 }
 
+interface StructuredItem {
+  slug: string
+  title?: string
+  description?: string
+  scope?: string
+  context?: string
+  challenge?: string
+  solution?: string
+  faqs?: Array<{ question: string; answer: string }>
+  seo?: { title?: string; description?: string }
+  [key: string]: unknown
+}
+
 export const root = process.cwd()
 export const reportsDir = 'reports'
 export const generatedDir = 'public/generated'
@@ -145,7 +158,7 @@ export async function readContentEntries(): Promise<ContentEntry[]> {
     const filePath = resolveRoot(collection.file)
     if (!fs.existsSync(filePath)) continue
     const mod = await import(pathToFileURL(filePath).href)
-    const items = (mod[collection.exportName] ?? []) as Record<string, unknown>[]
+    const items = (mod[collection.exportName] ?? []) as StructuredItem[]
 
     for (const item of items) {
       if (!item?.slug) continue
@@ -165,7 +178,7 @@ export async function readContentEntries(): Promise<ContentEntry[]> {
           item.context,
           item.challenge,
           item.solution,
-          ...(item.faqs ?? []).flatMap((faq: { question: string; answer: string }) => [faq.question, faq.answer]),
+          ...(item.faqs ?? []).flatMap((faq) => [faq.question, faq.answer]),
         ].filter(Boolean).join('\n\n'),
       })
     }

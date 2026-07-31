@@ -5,8 +5,8 @@ const titles = new Map<string, string>()
 const descriptions = new Map<string, string>()
 
 for (const entry of await readContentEntries()) {
-  track(titles, entry.data.title, entry.relativePath, 'title')
-  track(descriptions, entry.data.description, entry.relativePath, 'description')
+  track(titles, entry.title, entry.relativePath, 'title')
+  track(descriptions, entry.description, entry.relativePath, 'description')
 }
 
 printResult('Content duplicate check', messages)
