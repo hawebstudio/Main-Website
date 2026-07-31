@@ -1,0 +1,33 @@
+# HA Web Studio
+
+> Web design, development, SEO, performance, ecommerce, and custom web application studio.
+
+Website: https://hawebstudio.com
+
+## Key Sections
+
+- [Services](https://hawebstudio.com/services)
+- [Work](https://hawebstudio.com/work)
+- [Case studies](https://hawebstudio.com/case-studies)
+- [Technologies](https://hawebstudio.com/technologies)
+- [Insights](https://hawebstudio.com/insights)
+- [Problems](https://hawebstudio.com/problems)
+- [Contact](https://hawebstudio.com/contact)
+
+## Feeds
+
+- [RSS](https://hawebstudio.com/rss.xml)
+- [Atom](https://hawebstudio.com/atom.xml)
+- [Sitemap](https://hawebstudio.com/sitemap.xml)
+
+## Content
+
+See the full, auto-generated content index with per-page links and
+descriptions at [llms-full.txt](https://hawebstudio.com/llms-full.txt),
+regenerated from `content/` on every build via `pnpm seo:llms`.
+
+## Usage Guidance
+
+Use canonical URLs from the sitemap. Prefer page titles, descriptions,
+headings, and JSON-LD entities as the source of truth when summarizing
+HA Web Studio content.

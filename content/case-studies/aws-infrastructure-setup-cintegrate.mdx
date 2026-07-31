@@ -1,0 +1,191 @@
+---
+slug: aws-infrastructure-setup-cintegrate
+title: AWS Infrastructure Setup for a Media-Heavy SaaS Platform
+description: >-
+  How Cintegrate's backend was built around AWS S3 storage and a containerized
+  deploy path from day one, instead of bolting cloud storage on after launch.
+caseStudyType: technical-investigation
+category: infrastructure
+implementationStatus: in-progress
+difficulty: intermediate
+summary: >-
+  A technical case study on designing cloud storage and deployment
+  infrastructure for a video platform where media assets, not page content,
+  are the primary storage and bandwidth concern.
+projectLabel: Cintegrate Infrastructure
+year: 2026
+technologiesUsed:
+  - AWS S3
+  - Docker
+  - Node.js
+  - Express
+  - MongoDB
+  - GitHub Actions
+businessGoal: >-
+  Give an AI-assisted video platform a storage and deployment foundation that
+  can hold growing media volume without a re-architecture once usage scales.
+background: >-
+  Cintegrate turns a story idea into scenes, narration, and eventually
+  rendered video through one pipeline. Every stage after the story step
+  produces binary media — audio, images, scene assets — that a typical
+  database-backed app doesn't need to plan around.
+challenge: >-
+  Decide where and how media assets live, and how the backend deploys, before
+  the AI generation and rendering stages (which multiply asset volume) are
+  built out.
+constraints:
+  - "No fabricated client claims, metrics, or testimonials."
+  - Project is in active development; rendering and AI provider integrations are not yet live.
+  - Media volume will grow substantially once generation and rendering stages ship.
+risks:
+  - Treating storage as a database concern instead of an object storage concern.
+  - Coupling the backend to a single hosting environment, making later scaling harder.
+requirements:
+  - Object storage that scales independently of the application server.
+  - A deployment process that behaves the same in development and production.
+  - Environment-based configuration so credentials and buckets aren't hardcoded.
+investigation: >-
+  The core question was where media files should live relative to the
+  MongoDB-backed application data. Storing binaries directly in the database
+  or on the application server's own disk were both considered against
+  storing them in object storage referenced by the database.
+optionsConsidered:
+  - option: Store media on the application server's local disk
+    decision: rejected
+    rationale: >-
+      Ties storage capacity to server capacity and breaks if the app ever
+      runs on more than one instance.
+  - option: Store media as binary data in MongoDB
+    decision: rejected
+    rationale: >-
+      Databases are not built for large binary payloads; it inflates backup
+      size and slows down unrelated queries.
+  - option: AWS S3-compatible object storage referenced by document metadata
+    decision: selected
+    rationale: >-
+      Storage scales independently of the app server, and the database only
+      has to hold a reference, not the file itself.
+decisionMaking: >-
+  Local disk storage was rejected early because it's the option that looks
+  simplest on day one and becomes the hardest to undo later — moving off it
+  means a data migration, not a config change. Object storage was selected
+  specifically because the backend was still small enough that switching
+  early cost almost nothing, while switching after the rendering pipeline
+  ships would mean migrating live media under active use.
+solution: >-
+  AWS S3 was set up as the object storage layer for media assets, with the
+  backend holding references (keys, not files) in MongoDB, and the whole
+  service containerized so the same image runs in development and production.
+architecture: >-
+  A modular Node.js/Express backend with a dedicated assets domain handles
+  upload and storage calls to S3 via the AWS SDK, while MongoDB stores
+  project, story, scene, and narration data with references to the stored
+  assets rather than the assets themselves. The service is built with
+  separate Docker and docker-compose configurations for development and
+  production, so the same container behavior is verified locally before it
+  runs anywhere else.
+implementation: >-
+  Backend routes for media asset upload were built as their own module,
+  independent from the story/scene/narration modules that reference them.
+  Environment variables carry storage credentials and configuration so
+  nothing provider-specific is hardcoded into application logic, and GitHub
+  Actions workflows run against the repository to catch issues before a
+  container is built for deployment.
+implementationSteps:
+  - phase: Storage Layer
+    details: >-
+      Set up AWS S3 as the object store for media assets, separate from the
+      MongoDB document layer.
+  - phase: Asset Module
+    details: >-
+      Built a dedicated backend module for media asset upload and retrieval,
+      decoupled from the story/scene/narration domains that reference assets.
+  - phase: Containerization
+    details: >-
+      Wrote separate Dockerfile and docker-compose configurations for
+      development and production so the deploy environment matches local
+      testing.
+  - phase: CI Checks
+    details: >-
+      Added GitHub Actions workflows to the repository so changes are
+      checked before a production image is built.
+outcomes:
+  - >-
+    Media storage that scales independently of the application server, ahead
+    of the AI generation and rendering stages that will multiply asset volume.
+  - >-
+    A single container image path for development and production, reducing
+    "works on my machine" deployment risk.
+  - >-
+    A backend structured so new storage-heavy features don't require
+    re-architecting the assets layer.
+metricsNote: >-
+  Cintegrate is in active development; no public storage-volume or
+  performance metrics are published.
+lessonsLearned:
+  - >-
+    The cheapest time to move storage off local disk is before there's much
+    to move.
+  - >-
+    Keeping storage references in the database, and files in object storage,
+    keeps the database backup small and the storage layer swappable.
+tradeOffs:
+  - >-
+    Object storage adds a network call and a provider dependency that local
+    disk storage doesn't have.
+  - >-
+    Containerizing both environments takes more setup time up front than
+    running the app directly on a dev machine.
+whatToDoDifferently:
+  - >-
+    Add automated checks for orphaned S3 objects (assets with no surviving
+    database reference) before volume grows.
+nextSteps: >-
+  As AI generation and rendering providers are integrated, the same
+  asset-module pattern will extend to cover generated media, keeping storage
+  logic in one place rather than duplicated per provider.
+relatedServiceSlugs:
+  - custom-web-application-development
+  - third-party-api-integrations
+  - website-maintenance-support
+relatedSolutionLinks:
+  - label: Need AI Features
+    href: /problems#need-ai-features
+relatedTechnologySlugs:
+  - nodejs
+relatedProjectSlugs:
+  - cintegrate
+cta:
+  label: Discuss Your Infrastructure Needs
+  href: /contact
+author:
+  name: HA Web Studio
+  role: Infrastructure and Operations
+publishedAt: "2026-07-27"
+updatedAt: "2026-07-27"
+version: 1
+---
+
+# AWS Infrastructure Setup for a Media-Heavy SaaS Platform
+
+## Background
+
+HA Web Studio is a web design and development agency, and [Cintegrate](/work/cintegrate) is one of the platforms we've built and operate — an AI-assisted video creation tool that turns a story idea into scenes, narration, and eventually rendered video through one connected pipeline. Every stage past the initial story step produces media files, which makes storage a first-class architecture decision rather than an afterthought.
+
+## Investigation
+
+The question wasn't whether to use object storage — it was how early to commit to it. Local disk storage or storing binaries in MongoDB both would have worked for a prototype with a handful of test assets. Neither would have survived the platform reaching real usage without a rework.
+
+## Solution
+
+AWS S3 was set up as the storage layer for media assets, with MongoDB holding references rather than the files themselves. The backend was containerized with separate development and production Docker configurations, so the same deploy path is exercised locally before it's ever used for a real release.
+
+## Lessons Learned
+
+The cheapest point to move storage off local disk is before there's much stored to move. Deciding this before the AI generation and rendering stages ship — the parts of the product that will actually multiply asset volume — meant the decision cost almost nothing to make and would have cost real migration effort to delay.
+
+## Why This Applies to Client Projects
+
+This is the same principle we apply to [custom web application development](/services/custom-web-application-development) work generally: storage, hosting, and deployment decisions are cheapest to get right before a project has real data and real users depending on them. For any client project that handles file uploads, generated content, or other binary media — not just video — we default to object storage referenced by the database rather than storing files where the app happens to run, and we containerize the deploy so "it works in development" and "it works in production" are the same claim, not two separate ones.
+
+The trade-off is upfront setup time: containerizing two environments and wiring up a storage provider takes longer on day one than just writing files to disk. We take that trade deliberately, because the alternative — migrating live media out of a server's local disk after the fact — is a far more expensive problem to have.

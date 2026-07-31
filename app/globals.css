@@ -1,0 +1,234 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   HA WEB STUDIO — THEME SYSTEM
+   Dark-first "liquid glass" design language.
+   All colors flow through semantic tokens. Never use raw
+   colors (bg-white, text-black) in components.
+   ============================================================ */
+
+@theme inline {
+  /* Semantic color tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Surface system — layered elevations for glass stacking */
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-glass: var(--glass);
+  --color-glass-strong: var(--glass-strong);
+  --color-glass-border: var(--glass-border);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Typography */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Radius system */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Motion principles — use for all transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ------------------------------------------------------------
+   Dark theme (default) — liquid glass on deep neutral
+   Palette: deep charcoal, glass whites, electric cyan accent
+   ------------------------------------------------------------ */
+:root {
+  color-scheme: dark;
+  --background: oklch(0.13 0.008 260);
+  --foreground: oklch(0.97 0.004 260);
+  --card: oklch(0.18 0.01 260);
+  --card-foreground: oklch(0.97 0.004 260);
+  --popover: oklch(0.17 0.01 260);
+  --popover-foreground: oklch(0.97 0.004 260);
+  --primary: oklch(0.78 0.13 215);
+  --primary-foreground: oklch(0.15 0.02 240);
+  --secondary: oklch(1 0 0 / 8%);
+  --secondary-foreground: oklch(0.97 0.004 260);
+  --muted: oklch(1 0 0 / 6%);
+  --muted-foreground: oklch(0.7 0.01 260);
+  --accent: oklch(1 0 0 / 10%);
+  --accent-foreground: oklch(0.97 0.004 260);
+  --destructive: oklch(0.65 0.2 25);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.78 0.13 215 / 60%);
+
+  /* Surface / glass system */
+  --surface-1: oklch(0.16 0.01 260);
+  --surface-2: oklch(0.2 0.012 260);
+  --surface-3: oklch(0.24 0.014 260);
+  --glass: oklch(1 0 0 / 5%);
+  --glass-strong: oklch(1 0 0 / 9%);
+  --glass-border: oklch(1 0 0 / 14%);
+
+  --chart-1: oklch(0.78 0.13 215);
+  --chart-2: oklch(0.7 0.01 260);
+  --chart-3: oklch(0.55 0.01 260);
+  --chart-4: oklch(0.42 0.01 260);
+  --chart-5: oklch(0.3 0.01 260);
+
+  --radius: 1rem;
+
+  --sidebar: oklch(0.16 0.01 260);
+  --sidebar-foreground: oklch(0.97 0.004 260);
+  --sidebar-primary: oklch(0.78 0.13 215);
+  --sidebar-primary-foreground: oklch(0.15 0.02 240);
+  --sidebar-accent: oklch(1 0 0 / 8%);
+  --sidebar-accent-foreground: oklch(0.97 0.004 260);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.78 0.13 215 / 60%);
+}
+
+/* ------------------------------------------------------------
+   Light mode readiness — activate with class="light" on <html>
+   ------------------------------------------------------------ */
+.light {
+  color-scheme: light;
+  --background: oklch(0.98 0.002 260);
+  --foreground: oklch(0.17 0.01 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.17 0.01 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.17 0.01 260);
+  --primary: oklch(0.55 0.13 225);
+  --primary-foreground: oklch(0.98 0.002 260);
+  --secondary: oklch(0 0 0 / 5%);
+  --secondary-foreground: oklch(0.17 0.01 260);
+  --muted: oklch(0 0 0 / 4%);
+  --muted-foreground: oklch(0.45 0.01 260);
+  --accent: oklch(0 0 0 / 6%);
+  --accent-foreground: oklch(0.17 0.01 260);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0 0 0 / 10%);
+  --input: oklch(0 0 0 / 10%);
+  --ring: oklch(0.55 0.13 225 / 60%);
+  --surface-1: oklch(0.96 0.002 260);
+  --surface-2: oklch(0.94 0.002 260);
+  --surface-3: oklch(0.91 0.002 260);
+  --glass: oklch(1 0 0 / 55%);
+  --glass-strong: oklch(1 0 0 / 75%);
+  --glass-border: oklch(0 0 0 / 10%);
+}
+
+/* ------------------------------------------------------------
+   Glass utilities — the core visual primitive of the system
+   ------------------------------------------------------------ */
+@utility glass {
+  background-color: var(--glass);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid var(--glass-border);
+}
+
+@utility glass-strong {
+  background-color: var(--glass-strong);
+  backdrop-filter: blur(28px) saturate(1.6);
+  -webkit-backdrop-filter: blur(28px) saturate(1.6);
+  border: 1px solid var(--glass-border);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(circle at top left, color-mix(in oklch, var(--primary) 12%, transparent), transparent 32%),
+      radial-gradient(circle at 85% 0%, color-mix(in oklch, var(--foreground) 8%, transparent), transparent 24%),
+      linear-gradient(180deg, transparent, transparent);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 28%, transparent);
+    color: var(--primary-foreground);
+  }
+
+  @keyframes badge-slide {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(-4px, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Reduced motion support — global */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Focus visibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Page-transition loading cursor — toggled by RouteTransitionCursor
+     while a navigation is in flight, so clicking a link never feels
+     like the site has stopped responding. */
+  html.is-navigating,
+  html.is-navigating * {
+    cursor: progress !important;
+  }
+}

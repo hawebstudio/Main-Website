@@ -1,0 +1,203 @@
+---
+slug: payment-gateway-integration
+title: "Payment Gateway Integration: Creating Secure, Reliable, and Frictionless Online Payment Experiences"
+description: >-
+  How Razorpay and Stripe checkout flows are built around server-side
+  signature verification and webhook handling, so payment confirmation
+  never depends on trusting the client alone.
+caseStudyType: technical-investigation
+category: ecommerce
+implementationStatus: live
+difficulty: intermediate
+summary: >-
+  A practical case study on integrating payment gateways so checkout is fast
+  for the customer and verifiable on the backend, illustrated through a
+  Razorpay-based storefront implementation.
+projectLabel: HA Web Studio Payment Integration
+year: 2026
+technologiesUsed:
+  - Razorpay
+  - Stripe
+  - Node.js
+  - Express.js
+  - Next.js
+  - React
+businessGoal: >-
+  Let a business accept online payments securely and reliably, with order
+  status that updates automatically instead of requiring manual
+  verification.
+background: >-
+  A payment gateway is one of the most critical components of any ecommerce
+  platform or online service. It has to provide a seamless checkout
+  experience while ensuring transactions are secure, reliable, and easy to
+  manage — and the two goals pull in different directions if the
+  integration isn't designed carefully.
+challenge: >-
+  Businesses commonly face the same payment problems: complicated checkout
+  experiences, payment failures and abandoned carts, limited payment
+  options, inconsistent order status updates, manual payment verification,
+  poor refund management, and security or compliance concerns.
+constraints:
+  - No fabricated client claims, metrics, or testimonials.
+  - Payment confirmation cannot rely on the client reporting success; the backend has to verify it independently.
+  - Sensitive payment information must stay with the payment provider, not the application server.
+risks:
+  - Trusting a client-side "payment successful" callback without server-side verification, which is spoofable.
+  - Missing or unvalidated webhooks leaving orders stuck in an inconsistent state.
+  - Storing card or payment details on the application server instead of leaving them with the provider.
+requirements:
+  - Server-side verification of every payment, not just client-side confirmation.
+  - Automated order status updates tied to verified payment events, not manual checks.
+  - Regional payment method coverage (UPI, cards, net banking for India via Razorpay; cards, Apple Pay, Google Pay internationally via Stripe).
+investigation: >-
+  The core design question was where trust boundaries sit in the payment
+  flow: what the client is allowed to report versus what only the gateway
+  and the backend are allowed to confirm. Razorpay was evaluated for
+  India-focused checkout (UPI, net banking, EMI); Stripe was evaluated for
+  international card and subscription billing.
+optionsConsidered:
+  - option: Trust client-side payment confirmation directly
+    decision: rejected
+    rationale: >-
+      A client-reported "success" is spoofable. An order marked paid based
+      on client state alone isn't actually verified.
+  - option: Razorpay for India-focused checkout
+    decision: selected
+    rationale: >-
+      UPI, net banking, and EMI coverage match how Indian customers actually
+      pay, with signature verification available server-side.
+  - option: Stripe for international and subscription billing
+    decision: deferred
+    rationale: >-
+      Best fit for SaaS and subscription products serving international
+      customers — Payment Intents and recurring billing cover that case
+      when a project needs it.
+decisionMaking: >-
+  Client-side payment confirmation was rejected outright, not weighed as a
+  trade-off: it's the one option that looks like it works during testing
+  and fails silently in production the moment someone tampers with a
+  request. The order was only marked as paid after the backend
+  independently verified the payment signature against the gateway's
+  response — the same HMAC-SHA256 verification pattern used for a real
+  storefront checkout, so payment confirmation never depends on trusting
+  the client.
+solution: >-
+  A production-ready payment workflow was implemented with server-side order
+  creation, signature verification, and webhook handling, so checkout stays
+  fast for the customer while payment confirmation is independently verified
+  on the backend.
+architecture: >-
+  Checkout initiates an order on the backend, which requests a payment
+  session from the gateway (Razorpay or Stripe). After the customer
+  completes payment, the gateway's response is verified server-side —
+  signature verification for Razorpay, webhook validation for Stripe —
+  before the order status changes. Sensitive payment data stays with the
+  provider; the application only stores transaction references and status.
+implementation: >-
+  Implemented server-side order creation with signature-verified payment
+  confirmation, so a payment is only marked successful after the backend
+  independently validates it against the gateway, not because the frontend
+  says so. Failed and cancelled payments, duplicate-payment prevention, and
+  webhook handling were built as first-class flows, not edge cases handled
+  after launch.
+implementationSteps:
+  - phase: Order Creation
+    details: >-
+      Customer initiates checkout; the backend creates an order and
+      generates a payment request through the gateway.
+  - phase: Payment Completion
+    details: >-
+      Customer completes payment through the gateway's checkout interface.
+  - phase: Server-Side Verification
+    details: >-
+      The backend independently verifies the transaction via signature
+      verification (Razorpay) or webhook validation (Stripe) before
+      trusting the payment result.
+  - phase: Order & Notification Sync
+    details: >-
+      Order status updates automatically on verified payment, and
+      confirmation is sent to the customer, with failed or cancelled
+      payments handled explicitly.
+outcomes:
+  - Secure, server-verified transactions rather than client-trusted ones.
+  - Automated order status updates without manual payment verification.
+  - Multiple payment method coverage matched to the business's actual market.
+  - A checkout flow tested against failure, cancellation, and duplicate-payment cases before launch.
+metricsNote: >-
+  No transaction volume, conversion, or revenue figures are published for
+  this implementation.
+lessonsLearned:
+  - >-
+    A payment integration isn't done when checkout succeeds in testing —
+    it's done when failed, cancelled, and duplicate payments are all
+    handled explicitly.
+  - >-
+    Verifying payment server-side, independent of the client, is not
+    optional hardening — it's the difference between a real integration and
+    one that only works when nothing goes wrong.
+tradeOffs:
+  - >-
+    Server-side verification adds a round trip to the checkout flow that a
+    purely client-side confirmation wouldn't have.
+  - >-
+    Supporting both Razorpay and Stripe (rather than one gateway) means
+    maintaining two verification paths when a project genuinely needs both
+    markets.
+whatToDoDifferently:
+  - Build webhook replay/testing tooling earlier, rather than only verifying webhook handling manually before launch.
+nextSteps: >-
+  As projects expand into subscription or recurring billing, Stripe's
+  Payment Intents and recurring billing APIs extend the same
+  server-verification pattern rather than introducing a separate trust
+  model.
+relatedServiceSlugs:
+  - ecommerce-development
+  - business-website-development
+  - custom-web-application-development
+  - third-party-api-integrations
+relatedSolutionLinks:
+  - label: Need a Website
+    href: /problems#need-a-website
+relatedTechnologySlugs:
+  - nextjs
+  - react
+relatedProjectSlugs:
+  - ms-signature-scents
+cta:
+  label: Discuss Payment Integration
+  href: /contact
+author:
+  name: HA Web Studio
+  role: Engineering and Content Systems
+publishedAt: "2026-07-27"
+updatedAt: "2026-07-27"
+version: 1
+---
+
+# Payment Gateway Integration: Creating Secure, Reliable, and Frictionless Online Payment Experiences
+
+## Background
+
+HA Web Studio is a web design and development agency, and a payment gateway is one of the components we treat as security-critical by default, not just functionally complete. It has to provide a seamless checkout experience while ensuring every transaction is verifiable, reliable, and easy to manage on the backend.
+
+## Challenge
+
+Businesses commonly face the same payment problems: complicated checkout experiences, payment failures and abandoned carts, limited payment options, inconsistent order status updates, manual payment verification, poor refund management, and security or compliance concerns.
+
+## Solution
+
+**Razorpay** — integrated for businesses operating in India, covering UPI, cards, net banking, digital wallets, EMI, payment links, order management, and refund processing. Suited to ecommerce stores, service businesses, subscription platforms, and appointment booking.
+
+**Stripe** — integrated for businesses serving international customers, covering cards, Apple Pay, Google Pay, Payment Intents, subscription and recurring billing, and customer management. Suited to SaaS products, global ecommerce, and membership platforms.
+
+Both integrations follow the same non-negotiable rule: the backend independently verifies a payment before an order is marked paid. The customer never has to wait for that verification — it happens server-side, in the background, as part of the same checkout flow.
+
+## Lessons Learned
+
+A payment integration isn't finished when checkout succeeds in testing. It's finished when failed payments, cancelled payments, and duplicate-payment attempts are all handled explicitly — and when payment confirmation depends on server-side verification, not on trusting whatever the client reports back.
+
+## Why This Applies to Client Projects
+
+Our [MS Signature Scents](/work/ms-signature-scents) storefront is the real implementation this pattern comes from: server-side Razorpay order creation with HMAC-SHA256 signature verification, so a payment is only confirmed after the backend checks it against Razorpay's response — not because the browser said "success." That same discipline carries into our [ecommerce development](/services/ecommerce-development), [custom web application development](/services/custom-web-application-development), and [third-party API integration](/services/third-party-api-integrations) work generally: checkout has to feel instant to the customer while staying independently verifiable to us.
+
+The trade-off is a small amount of added complexity — server-side verification and webhook handling add a round trip that pure client-side confirmation wouldn't need. We treat that as non-negotiable rather than optional, because the alternative is an order system that trusts the client to tell the truth about money changing hands.

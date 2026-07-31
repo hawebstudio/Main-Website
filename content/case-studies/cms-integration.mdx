@@ -1,0 +1,209 @@
+---
+slug: cms-integration
+title: "CMS Integration: Building Flexible Content Management Systems for Modern Websites"
+description: >-
+  How CMS choice — Sanity, Payload, or WordPress — is matched to a project's
+  content complexity and technical requirements instead of defaulted to one
+  platform for every build.
+caseStudyType: technical-investigation
+category: architecture
+implementationStatus: live
+difficulty: intermediate
+summary: >-
+  A practical case study on selecting and implementing a CMS around a
+  project's actual content and technical requirements, illustrated through a
+  Sanity-backed ecommerce catalogue build.
+projectLabel: HA Web Studio CMS Implementation
+year: 2026
+technologiesUsed:
+  - Sanity CMS
+  - Payload CMS
+  - WordPress
+  - Next.js
+  - React
+  - TypeScript
+businessGoal: >-
+  Let a business update its own website — products, pages, blog posts, media
+  — without needing a developer for every content change.
+background: >-
+  A CMS should empower non-technical teams to publish and update content.
+  Whether that's products, blog posts, landing pages, or media, the CMS
+  needs to be intuitive, scalable, and match the project's technical
+  architecture — which is a different answer for a marketing site than for
+  a SaaS admin panel.
+challenge: >-
+  Businesses commonly run into the same content management issues: needing
+  a developer for simple updates, difficult publishing workflows, limited
+  flexibility for custom content, a poor editor experience, a CMS tightly
+  coupled to the frontend, and inconsistent content across pages. These
+  problems raise maintenance cost and slow down publishing.
+constraints:
+  - No fabricated client claims, metrics, or testimonials.
+  - CMS choice has to hold up for both the initial build and years of non-developer editing.
+  - Content model needs to stay consistent across pages as the site grows.
+risks:
+  - Choosing a CMS by familiarity rather than fit, then outgrowing it.
+  - A content model loose enough to let editors create inconsistent page structures.
+  - Tight coupling between CMS and frontend that blocks a future redesign or replatform.
+requirements:
+  - A CMS matched to the project's content complexity and technical stack, not chosen by default.
+  - A structured content model that stays consistent as pages and collections are added.
+  - An editorial workflow usable by non-technical staff without developer involvement.
+investigation: >-
+  Rather than standardizing on one CMS for every project, the choice is
+  scoped per project: a headless, schema-driven CMS for a Next.js
+  application versus a self-hosted, backend-heavy CMS for a platform needing
+  custom collections and role permissions, versus a familiar admin
+  interface for a business that will manage its own content long-term with
+  a small team.
+optionsConsidered:
+  - option: Sanity CMS (headless, schema-driven)
+    decision: selected
+    rationale: >-
+      Structured content modeling, a real-time visual studio, and
+      API-driven delivery fit React/Next.js applications that need
+      editor-friendly content without giving up frontend control.
+  - option: Payload CMS (self-hosted, backend-heavy)
+    decision: deferred
+    rationale: >-
+      Best fit for projects needing full backend control, custom
+      collections, and role-based permissions — SaaS platforms and internal
+      dashboards more than a marketing storefront.
+  - option: WordPress (familiar, plugin-driven)
+    decision: deferred
+    rationale: >-
+      Best fit for businesses that want a widely-adopted, self-manageable
+      platform with a large plugin ecosystem, rather than a custom
+      React/Next.js frontend.
+decisionMaking: >-
+  For a catalogue-driven storefront, Sanity was selected over WordPress and
+  Payload for a specific reason: the frontend was already committed to
+  Next.js Server Components, and Sanity's API-driven content delivery let
+  the catalogue stay editable by non-technical staff without coupling the
+  CMS to the rendering layer. The same choice would go differently for a
+  SaaS admin panel needing custom collections and permissions, or a small
+  business site better served by WordPress's plugin ecosystem — the CMS is
+  chosen for the project, not the other way around.
+solution: >-
+  A CMS was selected based on the project's goals, content complexity, and
+  technical requirements, then implemented with a structured content model
+  and an editorial workflow usable without developer involvement.
+architecture: >-
+  For a Next.js/React application, the CMS sits behind an API layer —
+  structured content types delivered via GROQ (Sanity) or REST/GraphQL
+  (Payload) — keeping content management decoupled from presentation so the
+  frontend can change without a CMS migration. For WordPress builds, the
+  platform's own templating and plugin ecosystem carries more of that
+  responsibility directly.
+implementation: >-
+  Content types were modeled first — pages, posts, services, projects, team
+  members, testimonials, FAQs, categories, navigation, and site settings —
+  so the structure stays consistent as new content is added, rather than
+  improvised page by page. The CMS interface was then configured for
+  non-technical editors: organized collections, rich text editing, image
+  uploads, draft/publish workflows, validation rules, and reusable content
+  blocks.
+implementationSteps:
+  - phase: CMS Selection
+    details: >-
+      Matched CMS choice to the project's content complexity, technical
+      stack, and who will be editing content long-term.
+  - phase: Content Modeling
+    details: >-
+      Defined structured content types (pages, posts, services, projects,
+      team members, testimonials, FAQs, categories, navigation, site
+      settings) for consistency across the site.
+  - phase: Editorial Configuration
+    details: >-
+      Set up collections, rich text editing, image uploads, draft/publish
+      workflows, and validation rules for non-technical editors.
+  - phase: Frontend Integration
+    details: >-
+      Connected the CMS to the frontend via API-driven content fetching,
+      supporting static generation and incremental updates without coupling
+      presentation to the content platform.
+  - phase: QA Before Launch
+    details: >-
+      Validated content accuracy, API responses, media rendering, navigation
+      consistency, responsive layouts, SEO metadata, editor permissions, and
+      the publishing workflow end to end.
+outcomes:
+  - Faster content publishing without developer involvement for routine updates.
+  - A consistent content model across pages that scales as the site grows.
+  - A CMS decoupled enough from the frontend to survive a future redesign.
+metricsNote: >-
+  No publishing-volume or editor-efficiency metrics are published for this
+  implementation.
+lessonsLearned:
+  - >-
+    The CMS decision matters more before launch than after — retrofitting
+    structure onto an unstructured content model is far more work than
+    modeling it up front.
+  - >-
+    A CMS chosen for the team that will use it, not just the stack it's
+    built on, gets used correctly long after launch.
+tradeOffs:
+  - >-
+    A headless CMS like Sanity gives frontend flexibility but requires
+    building the presentation layer yourself, unlike WordPress's built-in
+    templating.
+  - >-
+    Structured content modeling takes longer up front than letting editors
+    create free-form pages, but prevents inconsistency later.
+whatToDoDifferently:
+  - Document the content model itself as reference material for future editors, not just as CMS schema code.
+nextSteps: >-
+  As new content types are needed, they're added to the existing model
+  rather than created as one-off page structures, keeping the content
+  system consistent as the site grows.
+relatedServiceSlugs:
+  - business-website-development
+  - website-redesign
+  - ecommerce-development
+  - custom-web-application-development
+relatedSolutionLinks:
+  - label: Need a Website
+    href: /problems#need-a-website
+relatedTechnologySlugs:
+  - nextjs
+  - react
+relatedProjectSlugs:
+  - ms-signature-scents
+cta:
+  label: Discuss Your CMS Needs
+  href: /contact
+author:
+  name: HA Web Studio
+  role: Engineering and Content Systems
+publishedAt: "2026-07-27"
+updatedAt: "2026-07-27"
+version: 1
+---
+
+# CMS Integration: Building Flexible Content Management Systems for Modern Websites
+
+## Background
+
+HA Web Studio is a web design and development agency, and a CMS is one of the decisions we make deliberately per project, not by default. A Content Management System should let a business update its website — products, blog posts, landing pages, media — without needing a developer for every change, and that means matching the CMS to the project rather than picking one platform for everything.
+
+## Challenge
+
+Businesses commonly run into the same problems: needing a developer for simple content updates, difficult publishing workflows, limited flexibility for custom content, a poor editor experience, a CMS tightly coupled to the frontend, and inconsistent content across pages. These issues raise maintenance cost and slow down publishing.
+
+## Solution
+
+**Sanity CMS** — implemented as a headless CMS for React/Next.js applications, with structured content modeling, a real-time visual studio, and API-driven content delivery. Best suited for marketing sites, ecommerce catalogues, blogs, documentation, and portfolios.
+
+**Payload CMS** — implemented for projects needing full backend control and self-hosted infrastructure: authentication, custom collections, role-based permissions, REST and GraphQL APIs, and TypeScript support. Best suited for SaaS platforms, internal dashboards, and custom business platforms.
+
+**WordPress** — implemented for businesses that want a familiar, widely-adopted platform: page management, blog publishing, a large plugin ecosystem, and built-in SEO tooling. Best suited for service businesses and content-focused sites that don't need a custom React/Next.js frontend.
+
+## Lessons Learned
+
+The CMS decision matters more before launch than after. A content model structured up front — pages, posts, services, projects, testimonials, FAQs, categories, navigation, site settings — stays consistent as the site grows; retrofitting structure onto years of free-form pages is a much bigger project than modeling it correctly the first time.
+
+## Why This Applies to Client Projects
+
+Our [MS Signature Scents](/work/ms-signature-scents) build is a working example of this: a Next.js storefront with Sanity CMS managing the product catalogue and editorial content via GROQ, so a non-technical team can update products without a redeploy, while the checkout and order logic stay in application code where they belong. That same decision — CMS matched to the project, not the other way around — carries into our [business website development](/services/business-website-development), [website redesign](/services/website-redesign), and [ecommerce development](/services/ecommerce-development) work.
+
+The trade-off is real: a headless CMS like Sanity gives frontend flexibility but means building the presentation layer yourself, unlike WordPress's built-in templating. We make that call project by project, based on who's actually going to be editing the content and what the frontend already needs to do.

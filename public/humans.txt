@@ -1,0 +1,13 @@
+/* TEAM */
+
+Studio: HA Web Studio
+Site: https://hawebstudio.com
+Contact: contact@hawebstudio.com
+
+/* SITE */
+
+Language: English
+Standards: HTML, CSS, TypeScript
+Framework: Next.js
+Accessibility target: WCAG AA
+Performance target: Core Web Vitals passing

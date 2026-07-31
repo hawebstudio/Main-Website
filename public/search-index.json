@@ -1,0 +1,296 @@
+[
+  {
+    "title": "AI Search Strategy and Citation Readiness",
+    "description": "Technical strategy case study for answer-engine visibility, entity relationships, and citation-friendly content architecture.",
+    "url": "/case-studies/ai-search-strategy-foundation",
+    "category": "Case Study"
+  },
+  {
+    "title": "Dashboard Extension Engineering Case Study",
+    "description": "Designing and shipping a Chrome extension architecture for dashboard-heavy workflows.",
+    "url": "/case-studies/dashboard-extension-engineering",
+    "category": "Case Study"
+  },
+  {
+    "title": "Email and DNS Infrastructure Foundation",
+    "description": "Technical investigation and implementation of domain email routing, verification, and reliability foundations.",
+    "url": "/case-studies/email-dns-infrastructure-foundation",
+    "category": "Case Study"
+  },
+  {
+    "title": "Google Business Visibility Foundation",
+    "description": "Implementation case study on profile setup, verification dependencies, and local visibility readiness.",
+    "url": "/case-studies/google-business-visibility-foundation",
+    "category": "Case Study"
+  },
+  {
+    "title": "HA Web Studio Platform Architecture",
+    "description": "How the studio website evolved into a connected system across Services, Solutions, Work, Technologies, and Insights.",
+    "url": "/case-studies/ha-web-studio-architecture",
+    "category": "Case Study"
+  },
+  {
+    "title": "Online Compiler Platform Architecture (Judge0)",
+    "description": "Engineering case study for browser-based code execution workflow design and API orchestration.",
+    "url": "/case-studies/online-compiler-architecture",
+    "category": "Case Study"
+  },
+  {
+    "title": "Search Visibility Foundation for HA Web Studio",
+    "description": "How technical SEO, indexing controls, schema groundwork, and AI search planning were implemented as a connected foundation.",
+    "url": "/case-studies/search-visibility-foundation",
+    "category": "Case Study"
+  },
+  {
+    "title": "Services and Solutions Architecture Planning",
+    "description": "Case study on restructuring commercial information architecture from feature-first pages to problem-first pathways.",
+    "url": "/case-studies/service-and-solution-architecture-planning",
+    "category": "Case Study"
+  },
+  {
+    "title": "Website Performance Foundation with Next.js",
+    "description": "Internal performance case study on rendering strategy, asset handling, and maintainable optimization decisions.",
+    "url": "/case-studies/website-performance-foundation",
+    "category": "Case Study"
+  },
+  {
+    "title": "Chrome Extension APIs",
+    "description": "Browser APIs for building extension-based functionality and workflow overlays.",
+    "url": "/technologies/chrome-extension-apis",
+    "category": "Technology"
+  },
+  {
+    "title": "Cloudflare",
+    "description": "Edge platform for DNS, caching, and web traffic controls.",
+    "url": "/technologies/cloudflare",
+    "category": "Technology"
+  },
+  {
+    "title": "DNS",
+    "description": "Domain Name System configuration used for routing, verification, and infrastructure reliability.",
+    "url": "/technologies/dns",
+    "category": "Technology"
+  },
+  {
+    "title": "Google Search Console",
+    "description": "Search performance and indexing diagnostics platform for website visibility management.",
+    "url": "/technologies/google-search-console",
+    "category": "Technology"
+  },
+  {
+    "title": "Google Workspace",
+    "description": "Business productivity and email platform used for domain-based communication workflows.",
+    "url": "/technologies/google-workspace",
+    "category": "Technology"
+  },
+  {
+    "title": "Judge0",
+    "description": "Execution API for compiling and running code in multiple programming languages.",
+    "url": "/technologies/judge0",
+    "category": "Technology"
+  },
+  {
+    "title": "Next.js",
+    "description": "The React Framework for the Web.",
+    "url": "/technologies/nextjs",
+    "category": "Technology"
+  },
+  {
+    "title": "Node.js",
+    "description": "JavaScript runtime used for servers, tooling, and API orchestration.",
+    "url": "/technologies/nodejs",
+    "category": "Technology"
+  },
+  {
+    "title": "React",
+    "description": "A component-based library for building interactive user interfaces.",
+    "url": "/technologies/react",
+    "category": "Technology"
+  },
+  {
+    "title": "Why Website Performance Matters",
+    "description": "How Core Web Vitals impact your bottom line and SEO.",
+    "url": "/insights/why-performance-matters",
+    "category": "Insight"
+  },
+  {
+    "title": "Low Conversion Rate",
+    "description": "Visitors are coming to the site but not taking action.",
+    "url": "/problems/low-conversion-rate",
+    "category": "Problem"
+  },
+  {
+    "title": "Business Websites",
+    "description": "Professional websites built to strengthen positioning, trust, and lead generation.",
+    "url": "/services/business-websites",
+    "category": "Service"
+  },
+  {
+    "title": "eCommerce",
+    "description": "Online store services focused on conversion, checkout quality, and scalable growth.",
+    "url": "/services/ecommerce",
+    "category": "Service"
+  },
+  {
+    "title": "Website Performance",
+    "description": "Optimization services that improve speed, experience, and conversion opportunity.",
+    "url": "/services/website-performance",
+    "category": "Service"
+  },
+  {
+    "title": "SEO & Search Visibility",
+    "description": "Search-focused services for discoverability across search engines and AI retrieval systems.",
+    "url": "/services/seo-search-visibility",
+    "category": "Service"
+  },
+  {
+    "title": "Google Business",
+    "description": "Google Business Profile and Maps visibility support for stronger local discovery.",
+    "url": "/services/google-business",
+    "category": "Service"
+  },
+  {
+    "title": "Analytics",
+    "description": "Measurement and tracking services for clearer insights and better decisions.",
+    "url": "/services/analytics",
+    "category": "Service"
+  },
+  {
+    "title": "Custom Web Applications",
+    "description": "Custom functionality and integration work for business-specific digital workflows.",
+    "url": "/services/custom-web-applications",
+    "category": "Service"
+  },
+  {
+    "title": "Website Management",
+    "description": "Maintenance, migration, and technical support for long-term website stability.",
+    "url": "/services/website-management",
+    "category": "Service"
+  },
+  {
+    "title": "Business Website Development",
+    "description": "Professional business websites built for trust, clarity, and lead generation.",
+    "url": "/services/business-website-development",
+    "category": "Service"
+  },
+  {
+    "title": "Website Redesign",
+    "description": "Modern redesigns that improve clarity, performance, and business outcomes.",
+    "url": "/services/website-redesign",
+    "category": "Service"
+  },
+  {
+    "title": "Landing Page Development",
+    "description": "Focused landing pages designed for campaigns, offers, and conversion.",
+    "url": "/services/landing-page-development",
+    "category": "Service"
+  },
+  {
+    "title": "eCommerce Development",
+    "description": "End-to-end ecommerce builds optimized for conversion and growth.",
+    "url": "/services/ecommerce-development",
+    "category": "Service"
+  },
+  {
+    "title": "Shopify Development",
+    "description": "Shopify implementation for businesses that need speed and managed infrastructure.",
+    "url": "/services/shopify-development",
+    "category": "Service"
+  },
+  {
+    "title": "WooCommerce Development",
+    "description": "WooCommerce implementation for stores that need flexibility and deeper customization.",
+    "url": "/services/woocommerce-development",
+    "category": "Service"
+  },
+  {
+    "title": "Website Performance Optimization",
+    "description": "Speed and UX optimization for stronger retention and conversion performance.",
+    "url": "/services/website-performance-optimization",
+    "category": "Service"
+  },
+  {
+    "title": "Conversion Rate Optimization",
+    "description": "Conversion-focused improvements to increase the value of existing traffic.",
+    "url": "/services/conversion-rate-optimization",
+    "category": "Service"
+  },
+  {
+    "title": "Technical SEO Setup",
+    "description": "Technical foundations for crawlability, indexing, and search visibility.",
+    "url": "/services/technical-seo-setup",
+    "category": "Service"
+  },
+  {
+    "title": "Search Visibility Setup",
+    "description": "Search visibility strategy and implementation built around business growth.",
+    "url": "/services/search-visibility-setup",
+    "category": "Service"
+  },
+  {
+    "title": "Local SEO Foundations",
+    "description": "Local-focused search setup for location-based business discovery.",
+    "url": "/services/local-seo-foundations",
+    "category": "Service"
+  },
+  {
+    "title": "Structured Data & Schema Setup",
+    "description": "Schema implementation that improves content understanding by search systems.",
+    "url": "/services/structured-data-schema-setup",
+    "category": "Service"
+  },
+  {
+    "title": "AI Search Visibility & Answer Engine Optimization",
+    "description": "Content and structure optimization for AI retrieval and answer engine visibility.",
+    "url": "/services/ai-search-visibility-answer-engine-optimization",
+    "category": "Service"
+  },
+  {
+    "title": "Google Business & Maps Visibility",
+    "description": "Google Business Profile optimization for stronger map and local search presence.",
+    "url": "/services/google-business-maps-visibility",
+    "category": "Service"
+  },
+  {
+    "title": "Analytics & Tracking Setup",
+    "description": "Tracking implementation for traffic, behavior, and conversion measurement.",
+    "url": "/services/analytics-tracking-setup",
+    "category": "Service"
+  },
+  {
+    "title": "Custom Web Application Development",
+    "description": "Custom web applications for business workflows and specialized functionality.",
+    "url": "/services/custom-web-application-development",
+    "category": "Service"
+  },
+  {
+    "title": "Frontend Development",
+    "description": "Modern frontend engineering for high-quality interfaces and interactions.",
+    "url": "/services/frontend-development",
+    "category": "Service"
+  },
+  {
+    "title": "Third-Party & API Integrations",
+    "description": "Integration services connecting websites and apps to external systems.",
+    "url": "/services/third-party-api-integrations",
+    "category": "Service"
+  },
+  {
+    "title": "Website Maintenance & Support",
+    "description": "Ongoing maintenance and technical support to keep websites healthy and secure.",
+    "url": "/services/website-maintenance-support",
+    "category": "Service"
+  },
+  {
+    "title": "Website Migration & Replatforming",
+    "description": "Safe migration planning and execution for platform changes and replatforming.",
+    "url": "/services/website-migration-replatforming",
+    "category": "Service"
+  },
+  {
+    "title": "Website Audit & Technical Fixes",
+    "description": "Technical audits and implementation fixes for quality, stability, and performance.",
+    "url": "/services/website-audit-technical-fixes",
+    "category": "Service"
+  }
+]

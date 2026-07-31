@@ -1,0 +1,591 @@
+# HA Web Studio
+
+> Web design, development, SEO, performance, ecommerce, and custom web application studio.
+
+Website: https://hawebstudio.com
+
+## Content
+
+- [Analytics & Tracking Implementation](https://hawebstudio.com/case-studies/analytics-tracking-implementation): How GA4, Microsoft Clarity, and custom event tracking were installed together as one measurement layer instead of three disconnected tools.
+- [AWS Infrastructure Setup for a Media-Heavy SaaS Platform](https://hawebstudio.com/case-studies/aws-infrastructure-setup-cintegrate): How Cintegrate's backend was built around AWS S3 storage and a containerized deploy path from day one, instead of bolting cloud storage on after launch.
+- [Cloudflare Deployment: Building a Secure, Fast, and Reliable Delivery Layer](https://hawebstudio.com/case-studies/cloudflare-deployment): How DNS, SSL, CDN, and caching were configured together as one edge delivery layer, instead of DNS records and a CDN toggle treated as separate afterthoughts.
+- [CMS Integration: Building Flexible Content Management Systems for Modern Websites](https://hawebstudio.com/case-studies/cms-integration): How CMS choice — Sanity, Payload, or WordPress — is matched to a project's content complexity and technical requirements instead of defaulted to one platform for every build.
+- [Email and DNS Infrastructure Foundation](https://hawebstudio.com/case-studies/email-dns-infrastructure-foundation): How HA Web Studio treats email and DNS reliability as part of a website build, not a separate handoff left for the client to figure out.
+- [Google Business Visibility Foundation](https://hawebstudio.com/case-studies/google-business-visibility-foundation): How HA Web Studio pairs Google Business Profile setup with website architecture so local visibility and site content stay consistent.
+- [HA Web Studio Platform Architecture](https://hawebstudio.com/case-studies/ha-web-studio-architecture): How HA Web Studio's own site evolved from a standard agency site into a connected system across Services, Work, Technologies, and Insights.
+- [Payment Gateway Integration: Creating Secure, Reliable, and Frictionless Online Payment Experiences](https://hawebstudio.com/case-studies/payment-gateway-integration): How Razorpay and Stripe checkout flows are built around server-side signature verification and webhook handling, so payment confirmation never depends on trusting the client alone.
+- [Technical SEO and AI Search Visibility Foundation](https://hawebstudio.com/case-studies/search-visibility-and-ai-search-foundation): How HA Web Studio built one connected foundation for technical SEO, structured data, and AI search visibility — not two separate efforts.
+- [Website Performance Foundation with Next.js](https://hawebstudio.com/case-studies/website-performance-foundation): Internal case study on how HA Web Studio treats website performance as an architecture decision, not a one-off Core Web Vitals tuning pass.
+- [AI Search Optimization: Preparing Your Website for AI-Powered Search](https://hawebstudio.com/insights/ai-search-optimization): Why websites need to be structured for AI systems like ChatGPT, Google AI Overviews, and Perplexity — not just traditional search rankings.
+- [Choosing the Right CMS: WordPress vs Sanity vs Payload CMS](https://hawebstudio.com/insights/choosing-the-right-cms): How CMS fit depends on your content, technical stack, and who's actually editing — not which platform is currently popular.
+- [Cloudflare Explained: How a CDN Improves Website Speed, Security, and Reliability](https://hawebstudio.com/insights/cloudflare-explained): What Cloudflare actually does — DNS, CDN, SSL, caching, and security — and why unconfigured Cloudflare barely helps at all.
+- [Conversion Rate Optimization (CRO): Turning More Visitors Into Customers](https://hawebstudio.com/insights/conversion-rate-optimization-guide): Why more traffic isn't the fix for a website that struggles to convert the visitors it already has — and what actually moves conversion rate.
+- [Understanding DNS, Domains & SSL: A Practical Guide for Business Owners](https://hawebstudio.com/insights/dns-domains-ssl-guide): What actually happens between typing a domain and a page loading — domain, DNS, hosting, SSL, and CDN explained without the jargon.
+- [Google Analytics 4: Measuring What Matters on Your Website](https://hawebstudio.com/insights/google-analytics-4): How GA4's event-based model works, what to actually track, and why it's more useful paired with qualitative tools like Microsoft Clarity.
+- [Microsoft Clarity: Understanding How Visitors Actually Use Your Website](https://hawebstudio.com/insights/microsoft-clarity): How session recordings, heatmaps, and friction signals like rage clicks show what analytics numbers alone can't explain.
+- [Choosing the Right Payment Gateway: Razorpay vs Stripe](https://hawebstudio.com/insights/razorpay-vs-stripe): How market and business model — not feature count — should decide between Razorpay and Stripe, illustrated through a real Razorpay integration.
+- [Shopify vs WooCommerce: Which Ecommerce Platform Is Right for Your Business?](https://hawebstudio.com/insights/shopify-vs-woocommerce): How platform choice comes down to managed simplicity versus ownership and customization — not which one is more popular.
+- [Structured Data & Schema: Helping Search Engines Understand Your Website](https://hawebstudio.com/insights/structured-data-schema): What Schema Markup is, the common types worth implementing, and how it supports both traditional search and AI interpretation.
+- [Technical SEO Checklist for Every Business Website](https://hawebstudio.com/insights/technical-seo-checklist): A practical checklist for crawlability, indexability, structure, and metadata — the technical foundation every other SEO effort depends on.
+- [Website Launch Checklist: What Every Business Should Do Before Going Live](https://hawebstudio.com/insights/website-launch-checklist): The technical, performance, SEO, analytics, and security review every website needs before launch — and what to monitor in the weeks after.
+- [How to Plan a Successful Website Project: A Guide for Business Owners](https://hawebstudio.com/insights/website-project-planning-guide): Why website projects go over budget and past deadline — and the planning steps (goals, structure, content, SEO) that actually prevent it.
+- [Website Security Basics: 10 Essentials Every Business Website Should Have](https://hawebstudio.com/insights/website-security-basics): The ten practical safeguards — HTTPS, strong auth, backups, monitoring — that prevent most real-world website security incidents.
+- [Why Website Performance Matters for Business Growth](https://hawebstudio.com/insights/why-performance-matters): How Core Web Vitals impact your bottom line and SEO.
+- [Customers Can't Find My Business](https://hawebstudio.com/problems/customers-cant-find-my-business): Your business isn't appearing in local search results, Google Maps, or location-based searches, making it difficult for nearby customers to discover your services.
+- [Low Conversion Rate](https://hawebstudio.com/problems/low-conversion-rate): Visitors are reaching your website but leaving without enquiring, booking, or buying.
+- [Need AI Features for My Business](https://hawebstudio.com/problems/need-ai-features): Your business wants to automate repetitive work, improve customer experience, or integrate AI into existing systems.
+- [Need a Business Website](https://hawebstudio.com/problems/need-business-website): Your business needs a professional website that builds credibility, attracts customers, and supports long-term growth.
+- [Need a Custom Web Application](https://hawebstudio.com/problems/need-custom-web-application): Your business has outgrown spreadsheets or off-the-shelf software and needs a solution designed around your workflow.
+- [Need an Ecommerce Website](https://hawebstudio.com/problems/need-ecommerce-website): You want to start selling products online or upgrade your current online store with a secure, scalable ecommerce solution.
+- [Need Third-Party Integrations](https://hawebstudio.com/problems/need-third-party-integrations): Your website needs to connect with payment gateways, CRM systems, booking platforms, email marketing tools, analytics, or other business software.
+- [Need Website Maintenance & Support](https://hawebstudio.com/problems/need-website-maintenance): Your website is live, but it requires ongoing updates, monitoring, backups, security improvements, and technical support to remain reliable.
+- [No Website Analytics & Tracking](https://hawebstudio.com/problems/no-website-analytics): Your website is live, but you have no reliable data to understand visitor behavior, marketing performance, or business results.
+- [Not Showing Up on Google](https://hawebstudio.com/problems/not-showing-up-on-google): Your website exists, but potential customers can't find it through Google or other search engines.
+- [Website Is Difficult to Update](https://hawebstudio.com/problems/website-difficult-to-update): Updating your website takes too much time, requires a developer for simple changes, or relies on an outdated content management system.
+- [Website Is Slow](https://hawebstudio.com/problems/website-is-slow): Your website takes too long to load, creating a poor user experience and reducing conversions.
+- [Need to Migrate My Website](https://hawebstudio.com/problems/website-migration): You're moving your website to a new platform, hosting provider, CMS, or developer and want to preserve performance, SEO, and business continuity.
+- [Website Needs a Redesign](https://hawebstudio.com/problems/website-redesign): Your current website no longer reflects your business, performs poorly, or fails to convert visitors into customers.
+- [Website Security Concerns](https://hawebstudio.com/problems/website-security-concerns): Your website may be vulnerable to attacks, malware, spam, or data breaches because security isn't being actively managed.
+- [AI Search Visibility & Answer Engine Optimization](https://hawebstudio.com/services/ai-search-visibility-answer-engine-optimization): Content and structure optimization for AI retrieval and answer engine visibility.
+- [Analytics & Tracking Setup](https://hawebstudio.com/services/analytics-tracking-setup): Tracking implementation for traffic, behavior, and conversion measurement.
+- [Business Website Development](https://hawebstudio.com/services/business-website-development): Professional business websites built for trust, clarity, and lead generation.
+- [Conversion Rate Optimization](https://hawebstudio.com/services/conversion-rate-optimization): Conversion-focused improvements to increase the value of existing traffic.
+- [Custom Web Application Development](https://hawebstudio.com/services/custom-web-application-development): Custom web applications for business workflows and specialized functionality.
+- [eCommerce Development](https://hawebstudio.com/services/ecommerce-development): End-to-end ecommerce builds optimized for conversion and growth.
+- [Analytics](https://hawebstudio.com/services/families/analytics): Measurement and tracking services for clearer insights and better decisions.
+- [Business Websites](https://hawebstudio.com/services/families/business-websites): Professional websites built to strengthen positioning, trust, and lead generation.
+- [Custom Web Applications](https://hawebstudio.com/services/families/custom-web-applications): Custom functionality and integration work for business-specific digital workflows.
+- [eCommerce](https://hawebstudio.com/services/families/ecommerce): Online store services focused on conversion, checkout quality, and scalable growth.
+- [Google Business](https://hawebstudio.com/services/families/google-business): Google Business Profile and Maps visibility support for stronger local discovery.
+- [SEO & Search Visibility](https://hawebstudio.com/services/families/seo-search-visibility): Search-focused services for discoverability across search engines and AI retrieval systems.
+- [Website Management](https://hawebstudio.com/services/families/website-management): Maintenance, migration, and technical support for long-term website stability.
+- [Website Performance](https://hawebstudio.com/services/families/website-performance): Optimization services that improve speed, experience, and conversion opportunity.
+- [Frontend Development](https://hawebstudio.com/services/frontend-development): Modern frontend engineering for high-quality interfaces and interactions.
+- [Google Business & Maps Visibility](https://hawebstudio.com/services/google-business-maps-visibility): Google Business Profile optimization for stronger map and local search presence.
+- [Landing Page Development](https://hawebstudio.com/services/landing-page-development): Focused landing pages designed for campaigns, offers, and conversion.
+- [Local SEO Foundations](https://hawebstudio.com/services/local-seo-foundations): Local-focused search setup for location-based business discovery.
+- [Search Visibility Setup](https://hawebstudio.com/services/search-visibility-setup): Search visibility strategy and implementation built around business growth.
+- [Shopify Development](https://hawebstudio.com/services/shopify-development): Shopify implementation for businesses that need speed and managed infrastructure.
+- [Structured Data & Schema Setup](https://hawebstudio.com/services/structured-data-schema-setup): Schema implementation that improves content understanding by search systems.
+- [Technical SEO Setup](https://hawebstudio.com/services/technical-seo-setup): Technical foundations for crawlability, indexing, and search visibility.
+- [Third-Party & API Integrations](https://hawebstudio.com/services/third-party-api-integrations): Integration services connecting websites and apps to external systems.
+- [Website Audit & Technical Fixes](https://hawebstudio.com/services/website-audit-technical-fixes): Technical audits and implementation fixes for quality, stability, and performance.
+- [Website Maintenance & Support](https://hawebstudio.com/services/website-maintenance-support): Ongoing maintenance and technical support to keep websites healthy and secure.
+- [Website Migration & Replatforming](https://hawebstudio.com/services/website-migration-replatforming): Safe migration planning and execution for platform changes and replatforming.
+- [Website Performance Optimization](https://hawebstudio.com/services/website-performance-optimization): Speed and UX optimization for stronger retention and conversion performance.
+- [Website Redesign](https://hawebstudio.com/services/website-redesign): Modern redesigns that improve clarity, performance, and business outcomes.
+- [WooCommerce Development](https://hawebstudio.com/services/woocommerce-development): WooCommerce implementation for stores that need flexibility and deeper customization.
+- [Chrome Extension APIs](https://hawebstudio.com/technologies/chrome-extension-apis): Browser APIs for building extension-based functionality and workflow overlays.
+- [Cloudflare](https://hawebstudio.com/technologies/cloudflare): Edge platform for DNS, caching, and web traffic controls.
+- [DNS](https://hawebstudio.com/technologies/dns): Domain Name System configuration used for routing, verification, and infrastructure reliability.
+- [Google Search Console](https://hawebstudio.com/technologies/google-search-console): Search performance and indexing diagnostics platform for website visibility management.
+- [Google Workspace](https://hawebstudio.com/technologies/google-workspace): Business productivity and email platform used for domain-based communication workflows.
+- [Judge0](https://hawebstudio.com/technologies/judge0): Execution API for compiling and running code in multiple programming languages.
+- [Next.js](https://hawebstudio.com/technologies/nextjs): The React Framework for the Web.
+- [Node.js](https://hawebstudio.com/technologies/nodejs): JavaScript runtime used for servers, tooling, and API orchestration.
+- [React](https://hawebstudio.com/technologies/react): A component-based library for building interactive user interfaces.
+- [Cintegrate](https://hawebstudio.com/work/cintegrate): An AI-assisted video creation platform that turns a story idea into structured scenes, narration, and video output through one pipeline.
+- [HA UI Design System](https://hawebstudio.com/work/ha-ui-design-system): Internal design system project focused on reusable components, consistency, and accessibility.
+- [HA Web Studio Website](https://hawebstudio.com/work/ha-web-studio-website): The studio platform that powers HA Web Studio marketing, services, solutions, and publishing workflows.
+- [MS Signature Scents](https://hawebstudio.com/work/ms-signature-scents): A full-stack ecommerce storefront for a fine attar fragrance brand, with a CMS-driven catalogue and Razorpay checkout.
+- [Omnivy Web Clipper](https://hawebstudio.com/work/omnivy-web-clipper): A browser-first web clipper that turns any page into clean, editable Markdown and saves it into Obsidian, Notion, or your cloud drive.
+
+## Full Summaries
+
+### Analytics & Tracking Implementation
+
+URL: https://hawebstudio.com/case-studies/analytics-tracking-implementation
+
+How GA4, Microsoft Clarity, and custom event tracking were installed together as one measurement layer instead of three disconnected tools.
+
+### AWS Infrastructure Setup for a Media-Heavy SaaS Platform
+
+URL: https://hawebstudio.com/case-studies/aws-infrastructure-setup-cintegrate
+
+How Cintegrate's backend was built around AWS S3 storage and a containerized deploy path from day one, instead of bolting cloud storage on after launch.
+
+### Cloudflare Deployment: Building a Secure, Fast, and Reliable Delivery Layer
+
+URL: https://hawebstudio.com/case-studies/cloudflare-deployment
+
+How DNS, SSL, CDN, and caching were configured together as one edge delivery layer, instead of DNS records and a CDN toggle treated as separate afterthoughts.
+
+### CMS Integration: Building Flexible Content Management Systems for Modern Websites
+
+URL: https://hawebstudio.com/case-studies/cms-integration
+
+How CMS choice — Sanity, Payload, or WordPress — is matched to a project's content complexity and technical requirements instead of defaulted to one platform for every build.
+
+### Email and DNS Infrastructure Foundation
+
+URL: https://hawebstudio.com/case-studies/email-dns-infrastructure-foundation
+
+How HA Web Studio treats email and DNS reliability as part of a website build, not a separate handoff left for the client to figure out.
+
+### Google Business Visibility Foundation
+
+URL: https://hawebstudio.com/case-studies/google-business-visibility-foundation
+
+How HA Web Studio pairs Google Business Profile setup with website architecture so local visibility and site content stay consistent.
+
+### HA Web Studio Platform Architecture
+
+URL: https://hawebstudio.com/case-studies/ha-web-studio-architecture
+
+How HA Web Studio's own site evolved from a standard agency site into a connected system across Services, Work, Technologies, and Insights.
+
+### Payment Gateway Integration: Creating Secure, Reliable, and Frictionless Online Payment Experiences
+
+URL: https://hawebstudio.com/case-studies/payment-gateway-integration
+
+How Razorpay and Stripe checkout flows are built around server-side signature verification and webhook handling, so payment confirmation never depends on trusting the client alone.
+
+### Technical SEO and AI Search Visibility Foundation
+
+URL: https://hawebstudio.com/case-studies/search-visibility-and-ai-search-foundation
+
+How HA Web Studio built one connected foundation for technical SEO, structured data, and AI search visibility — not two separate efforts.
+
+### Website Performance Foundation with Next.js
+
+URL: https://hawebstudio.com/case-studies/website-performance-foundation
+
+Internal case study on how HA Web Studio treats website performance as an architecture decision, not a one-off Core Web Vitals tuning pass.
+
+### AI Search Optimization: Preparing Your Website for AI-Powered Search
+
+URL: https://hawebstudio.com/insights/ai-search-optimization
+
+Why websites need to be structured for AI systems like ChatGPT, Google AI Overviews, and Perplexity — not just traditional search rankings.
+
+### Choosing the Right CMS: WordPress vs Sanity vs Payload CMS
+
+URL: https://hawebstudio.com/insights/choosing-the-right-cms
+
+How CMS fit depends on your content, technical stack, and who's actually editing — not which platform is currently popular.
+
+### Cloudflare Explained: How a CDN Improves Website Speed, Security, and Reliability
+
+URL: https://hawebstudio.com/insights/cloudflare-explained
+
+What Cloudflare actually does — DNS, CDN, SSL, caching, and security — and why unconfigured Cloudflare barely helps at all.
+
+### Conversion Rate Optimization (CRO): Turning More Visitors Into Customers
+
+URL: https://hawebstudio.com/insights/conversion-rate-optimization-guide
+
+Why more traffic isn't the fix for a website that struggles to convert the visitors it already has — and what actually moves conversion rate.
+
+### Understanding DNS, Domains & SSL: A Practical Guide for Business Owners
+
+URL: https://hawebstudio.com/insights/dns-domains-ssl-guide
+
+What actually happens between typing a domain and a page loading — domain, DNS, hosting, SSL, and CDN explained without the jargon.
+
+### Google Analytics 4: Measuring What Matters on Your Website
+
+URL: https://hawebstudio.com/insights/google-analytics-4
+
+How GA4's event-based model works, what to actually track, and why it's more useful paired with qualitative tools like Microsoft Clarity.
+
+### Microsoft Clarity: Understanding How Visitors Actually Use Your Website
+
+URL: https://hawebstudio.com/insights/microsoft-clarity
+
+How session recordings, heatmaps, and friction signals like rage clicks show what analytics numbers alone can't explain.
+
+### Choosing the Right Payment Gateway: Razorpay vs Stripe
+
+URL: https://hawebstudio.com/insights/razorpay-vs-stripe
+
+How market and business model — not feature count — should decide between Razorpay and Stripe, illustrated through a real Razorpay integration.
+
+### Shopify vs WooCommerce: Which Ecommerce Platform Is Right for Your Business?
+
+URL: https://hawebstudio.com/insights/shopify-vs-woocommerce
+
+How platform choice comes down to managed simplicity versus ownership and customization — not which one is more popular.
+
+### Structured Data & Schema: Helping Search Engines Understand Your Website
+
+URL: https://hawebstudio.com/insights/structured-data-schema
+
+What Schema Markup is, the common types worth implementing, and how it supports both traditional search and AI interpretation.
+
+### Technical SEO Checklist for Every Business Website
+
+URL: https://hawebstudio.com/insights/technical-seo-checklist
+
+A practical checklist for crawlability, indexability, structure, and metadata — the technical foundation every other SEO effort depends on.
+
+### Website Launch Checklist: What Every Business Should Do Before Going Live
+
+URL: https://hawebstudio.com/insights/website-launch-checklist
+
+The technical, performance, SEO, analytics, and security review every website needs before launch — and what to monitor in the weeks after.
+
+### How to Plan a Successful Website Project: A Guide for Business Owners
+
+URL: https://hawebstudio.com/insights/website-project-planning-guide
+
+Why website projects go over budget and past deadline — and the planning steps (goals, structure, content, SEO) that actually prevent it.
+
+### Website Security Basics: 10 Essentials Every Business Website Should Have
+
+URL: https://hawebstudio.com/insights/website-security-basics
+
+The ten practical safeguards — HTTPS, strong auth, backups, monitoring — that prevent most real-world website security incidents.
+
+### Why Website Performance Matters for Business Growth
+
+URL: https://hawebstudio.com/insights/why-performance-matters
+
+How Core Web Vitals impact your bottom line and SEO.
+
+### Customers Can't Find My Business
+
+URL: https://hawebstudio.com/problems/customers-cant-find-my-business
+
+Your business isn't appearing in local search results, Google Maps, or location-based searches, making it difficult for nearby customers to discover your services.
+
+### Low Conversion Rate
+
+URL: https://hawebstudio.com/problems/low-conversion-rate
+
+Visitors are reaching your website but leaving without enquiring, booking, or buying.
+
+### Need AI Features for My Business
+
+URL: https://hawebstudio.com/problems/need-ai-features
+
+Your business wants to automate repetitive work, improve customer experience, or integrate AI into existing systems.
+
+### Need a Business Website
+
+URL: https://hawebstudio.com/problems/need-business-website
+
+Your business needs a professional website that builds credibility, attracts customers, and supports long-term growth.
+
+### Need a Custom Web Application
+
+URL: https://hawebstudio.com/problems/need-custom-web-application
+
+Your business has outgrown spreadsheets or off-the-shelf software and needs a solution designed around your workflow.
+
+### Need an Ecommerce Website
+
+URL: https://hawebstudio.com/problems/need-ecommerce-website
+
+You want to start selling products online or upgrade your current online store with a secure, scalable ecommerce solution.
+
+### Need Third-Party Integrations
+
+URL: https://hawebstudio.com/problems/need-third-party-integrations
+
+Your website needs to connect with payment gateways, CRM systems, booking platforms, email marketing tools, analytics, or other business software.
+
+### Need Website Maintenance & Support
+
+URL: https://hawebstudio.com/problems/need-website-maintenance
+
+Your website is live, but it requires ongoing updates, monitoring, backups, security improvements, and technical support to remain reliable.
+
+### No Website Analytics & Tracking
+
+URL: https://hawebstudio.com/problems/no-website-analytics
+
+Your website is live, but you have no reliable data to understand visitor behavior, marketing performance, or business results.
+
+### Not Showing Up on Google
+
+URL: https://hawebstudio.com/problems/not-showing-up-on-google
+
+Your website exists, but potential customers can't find it through Google or other search engines.
+
+### Website Is Difficult to Update
+
+URL: https://hawebstudio.com/problems/website-difficult-to-update
+
+Updating your website takes too much time, requires a developer for simple changes, or relies on an outdated content management system.
+
+### Website Is Slow
+
+URL: https://hawebstudio.com/problems/website-is-slow
+
+Your website takes too long to load, creating a poor user experience and reducing conversions.
+
+### Need to Migrate My Website
+
+URL: https://hawebstudio.com/problems/website-migration
+
+You're moving your website to a new platform, hosting provider, CMS, or developer and want to preserve performance, SEO, and business continuity.
+
+### Website Needs a Redesign
+
+URL: https://hawebstudio.com/problems/website-redesign
+
+Your current website no longer reflects your business, performs poorly, or fails to convert visitors into customers.
+
+### Website Security Concerns
+
+URL: https://hawebstudio.com/problems/website-security-concerns
+
+Your website may be vulnerable to attacks, malware, spam, or data breaches because security isn't being actively managed.
+
+### AI Search Visibility & Answer Engine Optimization
+
+URL: https://hawebstudio.com/services/ai-search-visibility-answer-engine-optimization
+
+Content and structure optimization for AI retrieval and answer engine visibility.
+
+### Analytics & Tracking Setup
+
+URL: https://hawebstudio.com/services/analytics-tracking-setup
+
+Tracking implementation for traffic, behavior, and conversion measurement.
+
+### Business Website Development
+
+URL: https://hawebstudio.com/services/business-website-development
+
+Professional business websites built for trust, clarity, and lead generation.
+
+### Conversion Rate Optimization
+
+URL: https://hawebstudio.com/services/conversion-rate-optimization
+
+Conversion-focused improvements to increase the value of existing traffic.
+
+### Custom Web Application Development
+
+URL: https://hawebstudio.com/services/custom-web-application-development
+
+Custom web applications for business workflows and specialized functionality.
+
+### eCommerce Development
+
+URL: https://hawebstudio.com/services/ecommerce-development
+
+End-to-end ecommerce builds optimized for conversion and growth.
+
+### Analytics
+
+URL: https://hawebstudio.com/services/families/analytics
+
+Measurement and tracking services for clearer insights and better decisions.
+
+### Business Websites
+
+URL: https://hawebstudio.com/services/families/business-websites
+
+Professional websites built to strengthen positioning, trust, and lead generation.
+
+### Custom Web Applications
+
+URL: https://hawebstudio.com/services/families/custom-web-applications
+
+Custom functionality and integration work for business-specific digital workflows.
+
+### eCommerce
+
+URL: https://hawebstudio.com/services/families/ecommerce
+
+Online store services focused on conversion, checkout quality, and scalable growth.
+
+### Google Business
+
+URL: https://hawebstudio.com/services/families/google-business
+
+Google Business Profile and Maps visibility support for stronger local discovery.
+
+### SEO & Search Visibility
+
+URL: https://hawebstudio.com/services/families/seo-search-visibility
+
+Search-focused services for discoverability across search engines and AI retrieval systems.
+
+### Website Management
+
+URL: https://hawebstudio.com/services/families/website-management
+
+Maintenance, migration, and technical support for long-term website stability.
+
+### Website Performance
+
+URL: https://hawebstudio.com/services/families/website-performance
+
+Optimization services that improve speed, experience, and conversion opportunity.
+
+### Frontend Development
+
+URL: https://hawebstudio.com/services/frontend-development
+
+Modern frontend engineering for high-quality interfaces and interactions.
+
+### Google Business & Maps Visibility
+
+URL: https://hawebstudio.com/services/google-business-maps-visibility
+
+Google Business Profile optimization for stronger map and local search presence.
+
+### Landing Page Development
+
+URL: https://hawebstudio.com/services/landing-page-development
+
+Focused landing pages designed for campaigns, offers, and conversion.
+
+### Local SEO Foundations
+
+URL: https://hawebstudio.com/services/local-seo-foundations
+
+Local-focused search setup for location-based business discovery.
+
+### Search Visibility Setup
+
+URL: https://hawebstudio.com/services/search-visibility-setup
+
+Search visibility strategy and implementation built around business growth.
+
+### Shopify Development
+
+URL: https://hawebstudio.com/services/shopify-development
+
+Shopify implementation for businesses that need speed and managed infrastructure.
+
+### Structured Data & Schema Setup
+
+URL: https://hawebstudio.com/services/structured-data-schema-setup
+
+Schema implementation that improves content understanding by search systems.
+
+### Technical SEO Setup
+
+URL: https://hawebstudio.com/services/technical-seo-setup
+
+Technical foundations for crawlability, indexing, and search visibility.
+
+### Third-Party & API Integrations
+
+URL: https://hawebstudio.com/services/third-party-api-integrations
+
+Integration services connecting websites and apps to external systems.
+
+### Website Audit & Technical Fixes
+
+URL: https://hawebstudio.com/services/website-audit-technical-fixes
+
+Technical audits and implementation fixes for quality, stability, and performance.
+
+### Website Maintenance & Support
+
+URL: https://hawebstudio.com/services/website-maintenance-support
+
+Ongoing maintenance and technical support to keep websites healthy and secure.
+
+### Website Migration & Replatforming
+
+URL: https://hawebstudio.com/services/website-migration-replatforming
+
+Safe migration planning and execution for platform changes and replatforming.
+
+### Website Performance Optimization
+
+URL: https://hawebstudio.com/services/website-performance-optimization
+
+Speed and UX optimization for stronger retention and conversion performance.
+
+### Website Redesign
+
+URL: https://hawebstudio.com/services/website-redesign
+
+Modern redesigns that improve clarity, performance, and business outcomes.
+
+### WooCommerce Development
+
+URL: https://hawebstudio.com/services/woocommerce-development
+
+WooCommerce implementation for stores that need flexibility and deeper customization.
+
+### Chrome Extension APIs
+
+URL: https://hawebstudio.com/technologies/chrome-extension-apis
+
+Browser APIs for building extension-based functionality and workflow overlays.
+
+### Cloudflare
+
+URL: https://hawebstudio.com/technologies/cloudflare
+
+Edge platform for DNS, caching, and web traffic controls.
+
+### DNS
+
+URL: https://hawebstudio.com/technologies/dns
+
+Domain Name System configuration used for routing, verification, and infrastructure reliability.
+
+### Google Search Console
+
+URL: https://hawebstudio.com/technologies/google-search-console
+
+Search performance and indexing diagnostics platform for website visibility management.
+
+### Google Workspace
+
+URL: https://hawebstudio.com/technologies/google-workspace
+
+Business productivity and email platform used for domain-based communication workflows.
+
+### Judge0
+
+URL: https://hawebstudio.com/technologies/judge0
+
+Execution API for compiling and running code in multiple programming languages.
+
+### Next.js
+
+URL: https://hawebstudio.com/technologies/nextjs
+
+The React Framework for the Web.
+
+### Node.js
+
+URL: https://hawebstudio.com/technologies/nodejs
+
+JavaScript runtime used for servers, tooling, and API orchestration.
+
+### React
+
+URL: https://hawebstudio.com/technologies/react
+
+A component-based library for building interactive user interfaces.
+
+### Cintegrate
+
+URL: https://hawebstudio.com/work/cintegrate
+
+An AI-assisted video creation platform that turns a story idea into structured scenes, narration, and video output through one pipeline.
+
+### HA UI Design System
+
+URL: https://hawebstudio.com/work/ha-ui-design-system
+
+Internal design system project focused on reusable components, consistency, and accessibility.
+
+### HA Web Studio Website
+
+URL: https://hawebstudio.com/work/ha-web-studio-website
+
+The studio platform that powers HA Web Studio marketing, services, solutions, and publishing workflows.
+
+### MS Signature Scents
+
+URL: https://hawebstudio.com/work/ms-signature-scents
+
+A full-stack ecommerce storefront for a fine attar fragrance brand, with a CMS-driven catalogue and Razorpay checkout.
+
+### Omnivy Web Clipper
+
+URL: https://hawebstudio.com/work/omnivy-web-clipper
+
+A browser-first web clipper that turns any page into clean, editable Markdown and saves it into Obsidian, Notion, or your cloud drive.

@@ -1,0 +1,61 @@
+---
+slug: website-security-basics
+title: "Website Security Basics: 10 Essentials Every Business Website Should Have"
+description: >-
+  The ten practical safeguards — HTTPS, strong auth, backups, monitoring —
+  that prevent most real-world website security incidents.
+publishedAt: "2026-07-27"
+readingTime: 9
+featured: false
+category:
+  name: Development
+  slug: development
+keyTakeaways:
+  - Website security is a combination of technical safeguards and routine maintenance, not a single feature to enable.
+  - Most security incidents trace back to preventable causes — weak passwords, missing backups, outdated plugins, expired certificates.
+  - A backup is only useful if restoring from it has actually been tested.
+  - Security should be built in from the start of a project, not added after an incident.
+estimatedSkillLevel: Intermediate
+relatedServiceSlugs:
+  - website-maintenance-support
+  - website-audit-technical-fixes
+  - technical-seo-setup
+  - website-migration-replatforming
+relatedTechnologySlugs:
+  - cloudflare
+relatedArticleSlugs:
+  - cloudflare-explained
+  - dns-domains-ssl-guide
+  - website-launch-checklist
+version: 1
+author:
+  name: HA Web Studio
+  role: Editorial Team
+---
+
+# Website Security Basics: 10 Essentials Every Business Website Should Have
+
+Website security is often overlooked until something goes wrong — a hacked site, stolen customer data, malware, or downtime damages reputation and disrupts operations. Security isn't a single feature; it's a combination of technical safeguards, regular maintenance, and good operational practice, applied from the start of a project rather than bolted on after an incident.
+
+See the connected [website maintenance & support](/services/website-maintenance-support) service for how this is maintained on an ongoing basis.
+
+## The Ten Essentials
+
+1. **HTTPS everywhere** — every page over a valid SSL/TLS certificate, no exceptions for "just this one page."
+2. **Strong authentication** — unique passwords, a password manager, MFA, separate admin accounts, least privilege.
+3. **Regular software updates** — CMS, plugins, themes, frameworks, and backend dependencies, tested before deploying to production.
+4. **Regular backups** — automated, covering database and media, stored off-site, and periodically restore-tested. A backup that's never been restored is a guess, not a safety net.
+5. **Firewall protection** — a WAF filtering malicious traffic before it reaches the site, alongside secure development practice, not instead of it.
+6. **Spam & bot protection** — honeypot fields, rate limiting, and server-side validation on public forms.
+7. **Secure HTTP headers** — CSP, HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy.
+8. **Access control** — every user limited to what their role actually needs, so a compromised account has a bounded blast radius.
+9. **Monitoring & alerts** — failed logins, uptime, traffic anomalies, error logs, SSL expiration, and file changes, watched continuously rather than checked occasionally.
+10. **Secure infrastructure** — CDN/Cloudflare protection, secure DNS, automatic SSL renewal, and a protected deployment workflow underneath all of the above.
+
+## Practical Takeaway
+
+Most security incidents are preventable, not sophisticated: weak admin passwords, missing backups, outdated plugins, expired certificates, exposed admin panels, excessive permissions, and no monitoring account for the majority of real-world problems — not zero-day exploits.
+
+## Implementation Notes
+
+Security is continuous, not a launch checkbox: regular audits, dependency updates, backup testing, access reviews, and infrastructure checks should recur on a schedule. See [Understanding DNS, Domains & SSL](/insights/dns-domains-ssl-guide) for the infrastructure layer these safeguards sit on top of, and [Cloudflare Explained](/insights/cloudflare-explained) for the edge-layer piece of this list.

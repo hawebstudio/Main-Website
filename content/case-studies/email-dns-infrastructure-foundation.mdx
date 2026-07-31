@@ -1,0 +1,144 @@
+---
+slug: email-dns-infrastructure-foundation
+title: Email and DNS Infrastructure Foundation
+description: >-
+  How HA Web Studio treats email and DNS reliability as part of a website
+  build, not a separate handoff left for the client to figure out.
+seo:
+  title: "Email & DNS Infrastructure Foundation Case Study"
+  description: >-
+    How HA Web Studio treats email deliverability and DNS reliability as
+    part of every website build, not a separate handoff left for the client.
+caseStudyType: technical-investigation
+category: infrastructure
+implementationStatus: live
+difficulty: intermediate
+summary: >-
+  A technical case study covering DNS records, email routing decisions,
+  verification requirements, and operational safeguards.
+projectLabel: HA Web Studio Infrastructure
+year: 2026
+technologiesUsed:
+  - Google Workspace
+  - Cloudflare
+  - DNS
+  - MX Records
+businessGoal: >-
+  Create reliable business email delivery and verification readiness across key
+  tools.
+background: >-
+  Before publishing and outreach workflows could scale, email delivery, sender
+  trust, and domain-level routing needed to be stable.
+challenge: >-
+  Coordinate DNS and email provider settings without breaking existing domain
+  behavior.
+constraints:
+  - Propagation delays make validation non-instant.
+  - Multiple providers require aligned DNS records.
+  - Misconfiguration can cause delivery failure.
+risks:
+  - Incorrect MX and TXT records causing mail disruption.
+  - Partial verification causing inconsistent delivery reputation.
+requirements:
+  - Stable MX configuration.
+  - Clear verification path for operational tools.
+  - Documented rollback-safe workflow.
+investigation: >-
+  The setup process was broken into sequence-driven checkpoints: DNS authority
+  verification, MX planning, TXT verification records, and post-change
+  validation. Multiple ordering strategies were tested to reduce downtime risk.
+optionsConsidered:
+  - option: Single-pass DNS updates across all records
+    decision: rejected
+    rationale: Too risky when rollback context is unclear.
+  - option: Phased updates with validation checkpoints
+    decision: selected
+    rationale: Reduced blast radius and made troubleshooting easier.
+decisionMaking: >-
+  A single-pass update across every record was rejected for the same reason
+  we don't launch an untested redesign straight to production: DNS
+  propagation delays mean a mistake isn't visible until it's already
+  affecting mail delivery, and by then the blast radius is the whole domain.
+  Phased updates with a validation checkpoint after each record group were
+  selected so a bad change is caught at the group it was made in, not
+  discovered days later in a client's inbox.
+solution: >-
+  Used phased DNS updates with explicit validation checkpoints after each record
+  group.
+architecture: >-
+  Domain DNS as source of truth, provider-side verification dependencies tracked
+  as sequential tasks, and post-change checks captured in documentation.
+implementation: >-
+  Implemented record changes in controlled batches and validated each stage
+  before advancing to the next dependency.
+implementationSteps:
+  - phase: DNS Baseline
+    details: Verified current records and ownership boundaries before applying changes.
+  - phase: Mail Routing Setup
+    details: Configured MX records and tested provider acceptance.
+  - phase: Verification Records
+    details: Added TXT records required for domain verification and sender trust.
+  - phase: Validation and Documentation
+    details: Checked propagation state and documented known-good configuration.
+outcomes:
+  - More reliable email infrastructure foundation.
+  - Clearer operational checklist for future domain changes.
+  - Lower troubleshooting overhead for provider verification.
+metricsNote: No public delivery-rate metrics are published.
+lessonsLearned:
+  - Order of operations matters as much as record values.
+  - Change logs reduce confusion when propagation delays occur.
+tradeOffs:
+  - Phased approach takes longer than one-pass updates.
+whatToDoDifferently:
+  - Automate pre-change record snapshotting.
+nextSteps: >-
+  Pre-change record snapshotting is being added so every DNS change has a
+  known-good rollback point captured automatically, rather than reconstructed
+  from documentation after the fact.
+relatedServiceSlugs:
+  - third-party-api-integrations
+  - website-maintenance-support
+relatedSolutionLinks:
+  - label: Need AI Features
+    href: /problems#need-ai-features
+  - label: Website Is Slow
+    href: /problems#website-is-slow
+relatedTechnologySlugs:
+  - google-workspace
+  - cloudflare
+  - dns
+cta:
+  label: Discuss Infrastructure Setup
+  href: /contact
+author:
+  name: HA Web Studio
+  role: Infrastructure and Operations
+publishedAt: "2026-07-13"
+updatedAt: "2026-07-27"
+version: 2
+---
+
+# Email and DNS Infrastructure Foundation
+
+## Background
+
+HA Web Studio is a web design and development agency, and reliable email and DNS are part of what "the site works" means to us — not a separate handoff we leave a client's IT contact to sort out after launch.
+
+## Investigation
+
+The main focus was choosing an implementation sequence that minimized routing errors during DNS propagation.
+
+## Solution
+
+A phased process with explicit validation checkpoints was used instead of high-risk bulk changes.
+
+## Lessons Learned
+
+Infrastructure stories are valuable case studies when they explain the why behind engineering order and safeguards.
+
+## Why This Applies to Client Projects
+
+This is the same phased, checkpoint-based approach we bring to [website maintenance & support](/services/website-maintenance-support) and [third-party API integrations](/services/third-party-api-integrations): changes that touch a domain's mail routing or connected services get staged and validated in groups, not pushed all at once. A client shouldn't have to know what an MX record is to trust that their email won't break during a rebuild.
+
+The trade-off is time — phased changes take longer than a single bulk update. We take that trade because the alternative failure mode isn't a broken page you can revert in a minute, it's lost mail during a propagation window that can take hours to fully resolve.

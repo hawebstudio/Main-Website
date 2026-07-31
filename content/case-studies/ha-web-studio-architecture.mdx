@@ -1,0 +1,166 @@
+---
+slug: ha-web-studio-architecture
+title: HA Web Studio Platform Architecture
+description: >-
+  How HA Web Studio's own site evolved from a standard agency site into a
+  connected system across Services, Work, Technologies, and Insights.
+seo:
+  title: "HA Web Studio Platform Architecture Case Study"
+  description: >-
+    How HA Web Studio's own site evolved from a standard agency template
+    into a connected system across Services, Work, Technologies, and Insights.
+caseStudyType: internal
+category: architecture
+implementationStatus: live
+difficulty: advanced
+summary: >-
+  An internal architecture case study covering information architecture, domain
+  modeling, and knowledge-graph style linking in a Next.js App Router system.
+projectLabel: HA Web Studio Internal Platform
+year: 2026
+technologiesUsed:
+  - Next.js
+  - TypeScript
+  - Tailwind CSS
+  - MDX
+businessGoal: >-
+  Build a premium commercial website that is also maintainable, searchable, and
+  reusable as a long-term knowledge system.
+background: >-
+  The website started as a standard agency site but needed to support deeper
+  technical storytelling and cross-domain discovery for buyers and developers.
+challenge: >-
+  Balance editorial quality, conversion pathways, and technical maintainability
+  while avoiding disconnected page silos.
+constraints:
+  - "No fabricated client claims, metrics, or testimonials."
+  - Needs to scale with future content collections.
+  - Must preserve strong SEO and accessibility.
+risks:
+  - Overly marketing-driven copy reducing technical trust.
+  - Over-engineered architecture slowing publishing velocity.
+requirements:
+  - Clear route hierarchy for each commercial domain.
+  - Typed content models with runtime schema validation.
+  - "Cross-linking between Services, Problems, Work, Technologies, and Insights."
+investigation: >-
+  Multiple information-architecture options were evaluated: flat content
+  listing, service-first only architecture, and a graph-connected domain model.
+  The graph-connected model was selected because it improved reuse and made
+  evidence pathways clearer.
+optionsConsidered:
+  - option: Flat portfolio and blog structure
+    decision: rejected
+    rationale: Too weak for connecting technical proof to business decisions.
+  - option: Service pages only with minimal supporting content
+    decision: rejected
+    rationale: Would not surface engineering depth or educational credibility.
+  - option: Multi-hub architecture with typed relationships
+    decision: selected
+    rationale: "Best fit for discoverability, trust, and long-term content governance."
+decisionMaking: >-
+  A flat portfolio structure and a service-only site were both rejected for
+  the same reason: neither could connect a technical decision to the
+  business problem it solved, which is what buyers and AI retrieval systems
+  both need to trust a claim. A multi-hub architecture with typed
+  relationships between services, work, technologies, and insights was
+  selected so any single page can prove its claims by linking to the
+  evidence behind them.
+solution: >-
+  Implemented a multi-hub architecture where each domain can stand alone but
+  remains strongly connected through relationship slugs and route helpers.
+architecture: >-
+  Domain models in lib/content/types.ts and schemas in lib/content/schemas.ts
+  provide shared structure. Route helpers centralize links. Collection providers
+  support MDX and TypeScript content sources.
+implementation: >-
+  Pages were restructured into conversion-oriented hubs with deeper detail
+  templates and connected content components. This reduced isolated pages and
+  improved internal navigation pathways.
+implementationSteps:
+  - phase: Domain Modeling
+    details: >-
+      Defined canonical types for services, projects, case studies,
+      technologies, insights, and problems.
+  - phase: Schema Validation
+    details: >-
+      Added zod schemas for runtime validation of frontmatter and structured
+      objects.
+  - phase: Hub Refactor
+    details: >-
+      Rebuilt Services, Problems, Work, and Case Studies into narrative-first
+      experiences with connected content.
+  - phase: Link Integrity
+    details: Aligned slug relationships and route helper usage to prevent stale links.
+outcomes:
+  - Cleaner separation between content domains and UI composition.
+  - Improved maintainability for future case studies and insights.
+  - Stronger trust through transparency-first content rules.
+metricsNote: >-
+  No public traffic or conversion metrics are published for this internal
+  implementation.
+lessonsLearned:
+  - >-
+    Information architecture decisions should be treated as product decisions,
+    not only content decisions.
+  - Trust increases when constraints and unknowns are stated clearly.
+tradeOffs:
+  - More up-front architecture effort before visual refinement.
+  - Higher editorial discipline required for linked content quality.
+whatToDoDifferently:
+  - Introduce structured authoring templates earlier in the project.
+  - Add automated link-integrity checks for relationship slugs sooner.
+nextSteps: >-
+  Automated link-integrity checks are being added so relationship slugs
+  (related services, technologies, projects, and insights) are validated at
+  build time, catching stale references before a page ships instead of
+  after.
+relatedServiceSlugs:
+  - business-website-development
+  - website-redesign
+  - custom-web-application-development
+relatedSolutionLinks:
+  - label: Need a Website
+    href: /problems#need-a-website
+  - label: Improve Conversions
+    href: /problems#improve-conversions
+relatedTechnologySlugs:
+  - nextjs
+relatedProjectSlugs:
+  - ha-web-studio-website
+relatedInsightSlugs:
+  - why-performance-matters
+cta:
+  label: Discuss Your Website Architecture
+  href: /contact
+author:
+  name: HA Web Studio
+  role: Engineering and Content Systems
+publishedAt: "2026-07-13"
+updatedAt: "2026-07-27"
+version: 2
+---
+
+# HA Web Studio Platform Architecture
+
+## Background
+
+HA Web Studio is a web design and development agency, and this site is our own product: it needed to sell services, teach implementation thinking, and stay maintainable as content expanded — the same three requirements we design into client websites.
+
+## Investigation
+
+The team compared lightweight marketing structures against a connected-domain architecture. The simpler approach would have shipped faster, but it does not support technical storytelling depth or let a claim on one page link to the evidence behind it.
+
+## Solution
+
+A connected content system was implemented so each domain page — Services, Problems We Solve, Work, Technologies, Insights — can route users to the next relevant decision instead of ending in a dead end.
+
+## Lessons Learned
+
+A case study hub is more credible when it documents constraints and decision trade-offs, not only polished outcomes.
+
+## Why This Applies to Client Projects
+
+The same domain model we use internally — typed content, shared schemas, and route helpers instead of one-off pages — is what we bring to [business website development](/services/business-website-development) and [website redesign](/services/website-redesign) work. Concretely, that means a client site's services, case studies, and location or industry pages are built as related content types from the start, so adding a new page later doesn't mean rebuilding navigation or duplicating metadata by hand.
+
+The trade-off is the same one described above: this approach takes more up-front planning than shipping isolated pages one at a time. We choose it because the cost of an unconnected site shows up later — as broken internal links, inconsistent metadata, and pages that neither search engines nor AI systems can place in context — and by then it's a rebuild, not a fix.

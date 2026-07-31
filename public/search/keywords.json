@@ -1,0 +1,527 @@
+[
+  {
+    "keyword": "ai-search-optimization-preparing-your-website-for-ai-powered-search",
+    "urls": [
+      "/insights/ai-search-optimization"
+    ]
+  },
+  {
+    "keyword": "ai-search-visibility-answer-engine-optimization",
+    "urls": [
+      "/services/ai-search-visibility-answer-engine-optimization"
+    ]
+  },
+  {
+    "keyword": "analytics-tracking-implementation",
+    "urls": [
+      "/case-studies/analytics-tracking-implementation"
+    ]
+  },
+  {
+    "keyword": "analytics-tracking-setup",
+    "urls": [
+      "/services/analytics-tracking-setup"
+    ]
+  },
+  {
+    "keyword": "aws-infrastructure-setup-for-a-media-heavy-saas-platform",
+    "urls": [
+      "/case-studies/aws-infrastructure-setup-cintegrate"
+    ]
+  },
+  {
+    "keyword": "business-website-development",
+    "urls": [
+      "/services/business-website-development"
+    ]
+  },
+  {
+    "keyword": "choosing-the-right-cms-wordpress-vs-sanity-vs-payload-cms",
+    "urls": [
+      "/insights/choosing-the-right-cms"
+    ]
+  },
+  {
+    "keyword": "choosing-the-right-payment-gateway-razorpay-vs-stripe",
+    "urls": [
+      "/insights/razorpay-vs-stripe"
+    ]
+  },
+  {
+    "keyword": "chrome-extension-apis",
+    "urls": [
+      "/technologies/chrome-extension-apis",
+      "/work/omnivy-web-clipper"
+    ]
+  },
+  {
+    "keyword": "cintegrate",
+    "urls": [
+      "/work/cintegrate"
+    ]
+  },
+  {
+    "keyword": "cloudflare",
+    "urls": [
+      "/technologies/cloudflare"
+    ]
+  },
+  {
+    "keyword": "cloudflare-deployment-building-a-secure-fast-and-reliable-delivery-layer",
+    "urls": [
+      "/case-studies/cloudflare-deployment"
+    ]
+  },
+  {
+    "keyword": "cloudflare-explained-how-a-cdn-improves-website-speed-security-and-reliability",
+    "urls": [
+      "/insights/cloudflare-explained"
+    ]
+  },
+  {
+    "keyword": "cms-integration-building-flexible-content-management-systems-for-modern-websites",
+    "urls": [
+      "/case-studies/cms-integration"
+    ]
+  },
+  {
+    "keyword": "conversion-rate-optimization",
+    "urls": [
+      "/services/conversion-rate-optimization"
+    ]
+  },
+  {
+    "keyword": "conversion-rate-optimization-cro-turning-more-visitors-into-customers",
+    "urls": [
+      "/insights/conversion-rate-optimization-guide"
+    ]
+  },
+  {
+    "keyword": "custom-web-application-development",
+    "urls": [
+      "/services/custom-web-application-development"
+    ]
+  },
+  {
+    "keyword": "customers-cant-find-my-business",
+    "urls": [
+      "/problems/customers-cant-find-my-business"
+    ]
+  },
+  {
+    "keyword": "dns",
+    "urls": [
+      "/technologies/dns"
+    ]
+  },
+  {
+    "keyword": "ecommerce-development",
+    "urls": [
+      "/services/ecommerce-development"
+    ]
+  },
+  {
+    "keyword": "email-and-dns-infrastructure-foundation",
+    "urls": [
+      "/case-studies/email-dns-infrastructure-foundation"
+    ]
+  },
+  {
+    "keyword": "express",
+    "urls": [
+      "/work/cintegrate"
+    ]
+  },
+  {
+    "keyword": "frontend-development",
+    "urls": [
+      "/services/frontend-development"
+    ]
+  },
+  {
+    "keyword": "google-analytics-4-measuring-what-matters-on-your-website",
+    "urls": [
+      "/insights/google-analytics-4"
+    ]
+  },
+  {
+    "keyword": "google-business-maps-visibility",
+    "urls": [
+      "/services/google-business-maps-visibility"
+    ]
+  },
+  {
+    "keyword": "google-business-visibility-foundation",
+    "urls": [
+      "/case-studies/google-business-visibility-foundation"
+    ]
+  },
+  {
+    "keyword": "google-search-console",
+    "urls": [
+      "/technologies/google-search-console"
+    ]
+  },
+  {
+    "keyword": "google-workspace",
+    "urls": [
+      "/technologies/google-workspace"
+    ]
+  },
+  {
+    "keyword": "ha-ui-design-system",
+    "urls": [
+      "/work/ha-ui-design-system"
+    ]
+  },
+  {
+    "keyword": "ha-web-studio-platform-architecture",
+    "urls": [
+      "/case-studies/ha-web-studio-architecture"
+    ]
+  },
+  {
+    "keyword": "ha-web-studio-website",
+    "urls": [
+      "/work/ha-web-studio-website"
+    ]
+  },
+  {
+    "keyword": "how-to-plan-a-successful-website-project-a-guide-for-business-owners",
+    "urls": [
+      "/insights/website-project-planning-guide"
+    ]
+  },
+  {
+    "keyword": "judge0",
+    "urls": [
+      "/technologies/judge0"
+    ]
+  },
+  {
+    "keyword": "landing-page-development",
+    "urls": [
+      "/services/landing-page-development"
+    ]
+  },
+  {
+    "keyword": "local-seo-foundations",
+    "urls": [
+      "/services/local-seo-foundations"
+    ]
+  },
+  {
+    "keyword": "low-conversion-rate",
+    "urls": [
+      "/problems/low-conversion-rate"
+    ]
+  },
+  {
+    "keyword": "mdx",
+    "urls": [
+      "/work/ha-web-studio-website"
+    ]
+  },
+  {
+    "keyword": "microsoft-clarity-understanding-how-visitors-actually-use-your-website",
+    "urls": [
+      "/insights/microsoft-clarity"
+    ]
+  },
+  {
+    "keyword": "mongodb",
+    "urls": [
+      "/work/cintegrate"
+    ]
+  },
+  {
+    "keyword": "ms-signature-scents",
+    "urls": [
+      "/work/ms-signature-scents"
+    ]
+  },
+  {
+    "keyword": "need-a-business-website",
+    "urls": [
+      "/problems/need-business-website"
+    ]
+  },
+  {
+    "keyword": "need-a-custom-web-application",
+    "urls": [
+      "/problems/need-custom-web-application"
+    ]
+  },
+  {
+    "keyword": "need-ai-features-for-my-business",
+    "urls": [
+      "/problems/need-ai-features"
+    ]
+  },
+  {
+    "keyword": "need-an-ecommerce-website",
+    "urls": [
+      "/problems/need-ecommerce-website"
+    ]
+  },
+  {
+    "keyword": "need-third-party-integrations",
+    "urls": [
+      "/problems/need-third-party-integrations"
+    ]
+  },
+  {
+    "keyword": "need-to-migrate-my-website",
+    "urls": [
+      "/problems/website-migration"
+    ]
+  },
+  {
+    "keyword": "need-website-maintenance-support",
+    "urls": [
+      "/problems/need-website-maintenance"
+    ]
+  },
+  {
+    "keyword": "nextjs",
+    "urls": [
+      "/technologies/nextjs",
+      "/work/ha-web-studio-website",
+      "/work/ms-signature-scents",
+      "/work/omnivy-web-clipper"
+    ]
+  },
+  {
+    "keyword": "no-website-analytics-tracking",
+    "urls": [
+      "/problems/no-website-analytics"
+    ]
+  },
+  {
+    "keyword": "nodejs",
+    "urls": [
+      "/technologies/nodejs",
+      "/work/cintegrate"
+    ]
+  },
+  {
+    "keyword": "not-showing-up-on-google",
+    "urls": [
+      "/problems/not-showing-up-on-google"
+    ]
+  },
+  {
+    "keyword": "omnivy-web-clipper",
+    "urls": [
+      "/work/omnivy-web-clipper"
+    ]
+  },
+  {
+    "keyword": "payment-gateway-integration-creating-secure-reliable-and-frictionless-online-payment-experiences",
+    "urls": [
+      "/case-studies/payment-gateway-integration"
+    ]
+  },
+  {
+    "keyword": "prisma",
+    "urls": [
+      "/work/ms-signature-scents"
+    ]
+  },
+  {
+    "keyword": "razorpay",
+    "urls": [
+      "/work/ms-signature-scents"
+    ]
+  },
+  {
+    "keyword": "react",
+    "urls": [
+      "/technologies/react",
+      "/work/cintegrate",
+      "/work/ha-ui-design-system",
+      "/work/omnivy-web-clipper"
+    ]
+  },
+  {
+    "keyword": "redux-toolkit",
+    "urls": [
+      "/work/cintegrate",
+      "/work/omnivy-web-clipper"
+    ]
+  },
+  {
+    "keyword": "sanity-cms",
+    "urls": [
+      "/work/ms-signature-scents"
+    ]
+  },
+  {
+    "keyword": "search-visibility-setup",
+    "urls": [
+      "/services/search-visibility-setup"
+    ]
+  },
+  {
+    "keyword": "shopify-development",
+    "urls": [
+      "/services/shopify-development"
+    ]
+  },
+  {
+    "keyword": "shopify-vs-woocommerce-which-ecommerce-platform-is-right-for-your-business",
+    "urls": [
+      "/insights/shopify-vs-woocommerce"
+    ]
+  },
+  {
+    "keyword": "structured-data-schema-helping-search-engines-understand-your-website",
+    "urls": [
+      "/insights/structured-data-schema"
+    ]
+  },
+  {
+    "keyword": "structured-data-schema-setup",
+    "urls": [
+      "/services/structured-data-schema-setup"
+    ]
+  },
+  {
+    "keyword": "tailwind-css",
+    "urls": [
+      "/work/ha-ui-design-system",
+      "/work/ha-web-studio-website",
+      "/work/ms-signature-scents"
+    ]
+  },
+  {
+    "keyword": "technical-seo-and-ai-search-visibility-foundation",
+    "urls": [
+      "/case-studies/search-visibility-and-ai-search-foundation"
+    ]
+  },
+  {
+    "keyword": "technical-seo-checklist-for-every-business-website",
+    "urls": [
+      "/insights/technical-seo-checklist"
+    ]
+  },
+  {
+    "keyword": "technical-seo-setup",
+    "urls": [
+      "/services/technical-seo-setup"
+    ]
+  },
+  {
+    "keyword": "third-party-api-integrations",
+    "urls": [
+      "/services/third-party-api-integrations"
+    ]
+  },
+  {
+    "keyword": "typescript",
+    "urls": [
+      "/work/cintegrate",
+      "/work/ha-ui-design-system",
+      "/work/ha-web-studio-website",
+      "/work/ms-signature-scents",
+      "/work/omnivy-web-clipper"
+    ]
+  },
+  {
+    "keyword": "understanding-dns-domains-ssl-a-practical-guide-for-business-owners",
+    "urls": [
+      "/insights/dns-domains-ssl-guide"
+    ]
+  },
+  {
+    "keyword": "vite",
+    "urls": [
+      "/work/omnivy-web-clipper"
+    ]
+  },
+  {
+    "keyword": "website-audit-technical-fixes",
+    "urls": [
+      "/services/website-audit-technical-fixes"
+    ]
+  },
+  {
+    "keyword": "website-is-difficult-to-update",
+    "urls": [
+      "/problems/website-difficult-to-update"
+    ]
+  },
+  {
+    "keyword": "website-is-slow",
+    "urls": [
+      "/problems/website-is-slow"
+    ]
+  },
+  {
+    "keyword": "website-launch-checklist-what-every-business-should-do-before-going-live",
+    "urls": [
+      "/insights/website-launch-checklist"
+    ]
+  },
+  {
+    "keyword": "website-maintenance-support",
+    "urls": [
+      "/services/website-maintenance-support"
+    ]
+  },
+  {
+    "keyword": "website-migration-replatforming",
+    "urls": [
+      "/services/website-migration-replatforming"
+    ]
+  },
+  {
+    "keyword": "website-needs-a-redesign",
+    "urls": [
+      "/problems/website-redesign"
+    ]
+  },
+  {
+    "keyword": "website-performance-foundation-with-nextjs",
+    "urls": [
+      "/case-studies/website-performance-foundation"
+    ]
+  },
+  {
+    "keyword": "website-performance-optimization",
+    "urls": [
+      "/services/website-performance-optimization"
+    ]
+  },
+  {
+    "keyword": "website-redesign",
+    "urls": [
+      "/services/website-redesign"
+    ]
+  },
+  {
+    "keyword": "website-security-basics-10-essentials-every-business-website-should-have",
+    "urls": [
+      "/insights/website-security-basics"
+    ]
+  },
+  {
+    "keyword": "website-security-concerns",
+    "urls": [
+      "/problems/website-security-concerns"
+    ]
+  },
+  {
+    "keyword": "why-website-performance-matters-for-business-growth",
+    "urls": [
+      "/insights/why-performance-matters"
+    ]
+  },
+  {
+    "keyword": "woocommerce-development",
+    "urls": [
+      "/services/woocommerce-development"
+    ]
+  }
+]

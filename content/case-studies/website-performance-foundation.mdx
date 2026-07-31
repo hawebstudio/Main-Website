@@ -1,0 +1,134 @@
+---
+slug: website-performance-foundation
+title: Website Performance Foundation with Next.js
+description: >-
+  Internal case study on how HA Web Studio treats website performance as an
+  architecture decision, not a one-off Core Web Vitals tuning pass.
+caseStudyType: internal
+category: performance
+implementationStatus: live
+difficulty: intermediate
+summary: >-
+  A performance engineering case study that prioritizes maintainability and user
+  experience over one-off benchmark optimization.
+projectLabel: HA Web Studio Website
+year: 2026
+technologiesUsed:
+  - Next.js
+  - TypeScript
+  - Tailwind CSS
+businessGoal: >-
+  Improve perceived speed and reading flow while maintaining scalable content
+  architecture.
+background: >-
+  As page complexity increased, performance needed to be treated as
+  architectural quality rather than isolated tuning.
+challenge: >-
+  Retain visual richness while controlling layout shift, bundle growth, and
+  interaction cost.
+constraints:
+  - Multiple editorial templates with different content densities.
+  - Need to preserve design quality while reducing heavy UI patterns.
+risks:
+  - Regressions from iterative design changes.
+  - Uncontrolled component-level bloat.
+requirements:
+  - Server-first rendering where possible.
+  - Predictable loading behavior for content-heavy pages.
+  - Maintainable optimization patterns for future contributors.
+investigation: >-
+  The team reviewed rendering paths, section-level complexity, and repeated
+  component patterns to identify avoidable performance overhead.
+optionsConsidered:
+  - option: One-time optimization pass only
+    decision: rejected
+    rationale: Would regress quickly as content evolved.
+  - option: Architecture-level performance discipline
+    decision: selected
+    rationale: Sustainable approach for long-term site growth.
+decisionMaking: >-
+  A one-time optimization pass was rejected because gains erode as soon as
+  new templates and sections are added. Performance discipline was built
+  into the rendering architecture and component patterns instead, so it
+  holds as the site grows rather than degrading after the next content
+  push.
+solution: >-
+  Applied performance-focused architecture choices across templates and
+  components with repeatable implementation patterns.
+architecture: >-
+  Server Components by default, controlled client boundaries, and reusable
+  content-driven sections to limit unnecessary runtime cost.
+implementation: >-
+  Reduced visual clutter in high-traffic surfaces and prioritized section-level
+  clarity and load behavior.
+implementationSteps:
+  - phase: Baseline Review
+    details: Audited heavy sections and repeated interaction patterns.
+  - phase: Rendering Discipline
+    details: Kept server-rendered defaults and constrained client-only logic.
+  - phase: UI Simplification
+    details: Refined hero and navigation complexity to improve focus and speed.
+  - phase: Continuous Validation
+    details: Used type and quality checks while iterating structural changes.
+outcomes:
+  - "Cleaner, calmer interfaces with less visual overload."
+  - More maintainable performance posture across templates.
+metricsNote: No public Core Web Vitals dataset is published yet.
+lessonsLearned:
+  - Performance work and content clarity reinforce each other.
+  - Design simplification is often a high-impact optimization.
+tradeOffs:
+  - Some decorative effects were reduced to protect clarity and speed.
+whatToDoDifferently:
+  - Introduce automated performance budgets in CI.
+nextSteps: >-
+  Automated performance budgets are being added to CI so future template
+  and component changes are checked against a Core Web Vitals threshold
+  before they ship, rather than caught after the fact.
+relatedServiceSlugs:
+  - website-performance-optimization
+  - website-audit-technical-fixes
+  - technical-seo-setup
+relatedSolutionLinks:
+  - label: Website Is Slow
+    href: /problems#website-is-slow
+relatedTechnologySlugs:
+  - nextjs
+relatedProjectSlugs:
+  - ha-web-studio-website
+relatedInsightSlugs:
+  - why-performance-matters
+cta:
+  label: Improve Website Performance
+  href: /contact
+author:
+  name: HA Web Studio
+  role: Performance Engineering
+publishedAt: "2026-07-13"
+updatedAt: "2026-07-13"
+version: 1
+---
+
+# Website Performance Foundation with Next.js
+
+## Background
+
+This is HA Web Studio's own site — the same platform we use to sell web design, development, and SEO services — so its performance is a direct reflection of what we build for clients. As the site grew from simple pages into connected, editorially rich hubs, performance became a design requirement rather than a post-launch fix.
+
+## Investigation
+
+The focus shifted from isolated speed tweaks to repeatable architecture and UI discipline.
+
+## Solution
+
+Performance practices were embedded into page templates and component design decisions.
+
+## Lessons Learned
+
+A calm interface and a fast interface are often the same outcome when complexity is reduced intentionally.
+
+## Why This Applies to Client Projects
+
+HA Web Studio is a web design and development agency, and this case study describes the same approach we apply to client websites: performance is treated as an architecture decision made during planning, not a cleanup pass after launch. Concretely, that means defaulting to Server Components, keeping client-side JavaScript scoped to sections that need interactivity, and reviewing new templates for layout shift and bundle growth before they ship.
+
+The trade-off is explicit: some decorative effects were reduced to protect load time and clarity, rather than layering in more visual polish and optimizing around it later. That is the same decision point most client projects face, and it is why [website performance optimization](/services/website-performance-optimization) and [technical SEO](/services/technical-seo-setup) are delivered together rather than as separate line items — a slow page and a page search engines and AI systems can't parse efficiently are usually the same underlying problem.

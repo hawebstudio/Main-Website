@@ -1,0 +1,226 @@
+---
+slug: omnivy-browser-clipper-chrome-extension
+title: "Omnivy: A Chrome Extension for Clipping the Web into Obsidian, Notion, and Cloud Storage"
+description: >-
+  Case study on building Omnivy, a Chromium browser extension that turns
+  articles, code, and discussions into clean Markdown and routes it to
+  Obsidian, Notion, Google Drive, OneDrive, or Dropbox.
+caseStudyType: personal-engineering
+category: architecture
+implementationStatus: live
+difficulty: advanced
+summary: >-
+  A Manifest V3 browser extension with content-aware parsers and a
+  provider-agnostic sync layer, built to make web clipping fast, private, and
+  destination-flexible instead of locked to a single note-taking app.
+projectLabel: Omnivy
+year: 2026
+technologiesUsed:
+  - Chrome Extension (Manifest V3)
+  - TypeScript
+  - Notion API
+  - Google Drive API
+  - Microsoft Graph API
+  - Dropbox API
+  - OAuth 2.0
+  - Obsidian URI Scheme
+businessGoal: >-
+  Let people capture knowledge from the web in clean Markdown without forcing
+  them into one note-taking ecosystem, and without the extension itself
+  becoming a place where their content gets stored.
+background: >-
+  Most browser clippers are built around a single destination — usually one
+  note app's own extension, tied to that app's account and sync engine.
+  Anyone using Obsidian locally alongside a Notion workspace, or backing
+  clips up to Google Drive, OneDrive, or Dropbox, ends up stitching together
+  multiple tools or copy-pasting by hand. Omnivy was built to be the single
+  capture layer in front of all of those destinations instead.
+challenge: >-
+  Support a local, account-free destination (Obsidian) and four
+  account-based cloud destinations (Notion, Google Drive, OneDrive, Dropbox)
+  from the same extension, while extracting genuinely clean Markdown from
+  very different page types — long-form articles, GitHub files and pull
+  requests, Stack Overflow threads, forums, AI chat transcripts, and video
+  pages — without asking the user to babysit the output.
+constraints:
+  - Must work as a standard Chromium Manifest V3 extension, not a paid or account-gated install.
+  - Obsidian has no cloud API — local saves have to go through its obsidian:// URI scheme.
+  - Four different OAuth providers, each with its own token lifetime, scope model, and folder-listing API.
+  - Extracted content had to stay readable Markdown, not a dump of raw HTML or boilerplate.
+risks:
+  - Storing OAuth tokens insecurely would turn a productivity tool into a liability the moment any one provider was compromised.
+  - A single generic HTML-to-Markdown extractor would produce unreadable output on structured pages like GitHub diffs or Stack Overflow threads.
+  - Treating Obsidian the same as the cloud providers would break the "local-first, no account required" use case that a large share of the target users actually want.
+requirements:
+  - Save clean Markdown to Obsidian without requiring a Omnivy account or network round trip.
+  - Authenticate once on the web, then let the extension popup and settings reuse that session.
+  - Detect page type and choose an extraction strategy instead of using one generic parser everywhere.
+  - Never store clipped page content on Omnivy's own servers.
+investigation: >-
+  The starting question was where the product's responsibility should end.
+  Storing clipped content centrally would have simplified sync but turned
+  Omnivy into a data-retention liability and a second copy of every clip
+  users didn't ask for. The alternative — treat Omnivy purely as an
+  authentication and routing layer, with content going straight from the
+  page to the user's own destination — meant more integration surface (four
+  OAuth providers plus a URI-based local flow) but kept the trust model
+  simple: Omnivy sees the page once, to extract it, and doesn't keep it.
+optionsConsidered:
+  - option: Central content storage with provider sync as an add-on
+    decision: rejected
+    rationale: >-
+      Turns a lightweight clipper into a data-hosting service, adds a
+      breach surface for content that was never meant to leave the user's
+      own tools, and requires ongoing storage cost with no clear benefit
+      over saving directly to the destination.
+  - option: One generic HTML-to-Markdown converter for every page
+    decision: rejected
+    rationale: >-
+      Produces noisy, hard-to-read notes on structured content — GitHub
+      diffs, Stack Overflow Q&A threads, and AI chat transcripts all need
+      different field extraction, not a single readability pass.
+  - option: Content-aware extractors per page type, with a generic fallback
+    decision: selected
+    rationale: >-
+      Matches extraction strategy to page structure (GitHub, Stack
+      Overflow, forums, Notion, AI chats, video pages) while still
+      degrading gracefully to a readability-style fallback on unknown
+      pages, so coverage doesn't depend on maintaining an extractor for
+      every site on the web.
+  - option: Treat Obsidian as just another OAuth-connected cloud destination
+    decision: rejected
+    rationale: >-
+      Obsidian has no cloud API to connect to — forcing it through an
+      account flow would break the local, no-signup use case that is the
+      main reason people choose Obsidian in the first place.
+decisionMaking: >-
+  The extraction strategy and the storage model were decided together,
+  because they trade off against the same thing: how much Omnivy has to
+  touch and hold onto in order to be useful. Central storage was rejected
+  early — the moment clipped content sits on Omnivy's servers, the product
+  has a data-retention and breach-surface problem it doesn't need to have,
+  and it stops being "your notes, your destinations." That decision pushed
+  everything else: extraction has to happen client-side or in a
+  short-lived pipeline, and destinations have to be talked to directly.
+  Obsidian's local URI flow got a separate, account-free path rather than
+  being forced through OAuth like the cloud providers, because the two have
+  fundamentally different trust models — one runs entirely on the user's
+  machine, the other requires a provider-authenticated session — and
+  collapsing that difference for architectural symmetry would have made
+  the product worse for the audience that specifically wants a local-first
+  option.
+solution: >-
+  Omnivy ships as a Manifest V3 Chrome extension with two save paths: a
+  local, account-free flow for Obsidian via the obsidian://new URI, and an
+  account-backed flow for Notion, Google Drive, OneDrive, and Dropbox via
+  each provider's own API, authenticated once on the web and reused by the
+  extension popup.
+architecture: >-
+  A content-detection layer picks between purpose-built extractors (GitHub
+  files/issues/PRs, Stack Overflow, forums, Notion pages, AI chat UIs,
+  video pages) and a generic readability-style fallback, before handing
+  clean Markdown to a provider-agnostic save step. Local saves bypass
+  authentication entirely and hand off to Obsidian via URI; cloud saves go
+  through short-lived, refresh-rotated OAuth tokens that are encrypted at
+  rest, so no clipped page content is retained on Omnivy's own servers at
+  any point in the flow.
+implementation: >-
+  Users install the extension, then either set a local Obsidian vault name
+  in extension settings or sign in on the web to connect Notion, Google
+  Drive, OneDrive, or Dropbox. The popup surfaces extracted fields — title,
+  source URL, tags, and Markdown body — for review before the user picks a
+  destination and folder, then saves.
+implementationSteps:
+  - phase: Extraction Layer
+    details: >-
+      Built page-type detection and dedicated extractors for GitHub,
+      Stack Overflow, forums, Notion, AI chat interfaces, and video
+      pages, with a generic fallback for everything else.
+  - phase: Local Save Path
+    details: >-
+      Implemented the Obsidian obsidian://new URI flow so a local vault
+      name in extension settings is enough to save — no account or
+      network call required.
+  - phase: Cloud Provider Integrations
+    details: >-
+      Connected Notion, Google Drive, OneDrive (via Microsoft Graph), and
+      Dropbox, each with folder listing in the popup and a fallback
+      "Omnivy Web Clips" destination when no folder is selected.
+  - phase: Authentication and Token Security
+    details: >-
+      Centralized OAuth on the web sign-in flow, with provider tokens
+      encrypted at rest and the extension operating on short-lived
+      access tokens with refresh rotation rather than long-lived
+      credentials.
+  - phase: Cross-Platform Save Pipeline
+    details: >-
+      Unified the popup and right-click context-menu flows onto the same
+      save pipeline, and added clear detection for unsupported browser
+      system pages instead of failing silently.
+outcomes:
+  - Single extension covers one local destination and four cloud destinations without a separate install per provider.
+  - Content-aware extraction keeps GitHub, Stack Overflow, and forum clips structured instead of collapsing into raw HTML dumps.
+  - No clipped page content is stored on Omnivy's servers — the service handles authentication and routing only.
+metricsNote: >-
+  Omnivy is a live, self-published product without a shared analytics
+  dashboard, so this case study describes the architecture and decisions
+  rather than platform-level usage metrics.
+lessonsLearned:
+  - The security model for a tool like this comes from what it deliberately does not store, not just from encrypting what it does.
+  - One extraction strategy for every site type produces mediocre results everywhere; matching the parser to the page structure is worth the added maintenance surface.
+  - A local, account-free path and an OAuth-based cloud path are different enough in trust model that trying to unify them into one flow costs more than it saves.
+tradeOffs:
+  - Maintaining multiple content-aware extractors is more code to keep working as target sites change their markup than a single generic parser would be.
+  - Not storing clipped content server-side means Omnivy can't offer cross-device search or a content-level history the way a central-storage product could.
+whatToDoDifferently:
+  - Build the extractor test suite around real page snapshots earlier, since site markup changes are the main source of extraction regressions.
+nextSteps: >-
+  Additional destination providers and extractor coverage are tracked on
+  the public future-improvements roadmap and prioritized from user-submitted
+  requests rather than a fixed internal backlog.
+relatedServiceSlugs:
+  - custom-web-application-development
+  - frontend-development
+  - third-party-api-integrations
+relatedSolutionLinks:
+  - label: Need AI Features
+    href: /problems#need-ai-features
+  - label: Need Third-Party Integrations
+    href: /problems#need-third-party-integrations
+relatedTechnologySlugs:
+  - react
+  - typescript
+relatedProjectSlugs:
+  - omnivy-web-clipper
+cta:
+  label: Talk to Us About a Browser Extension or Multi-Provider Integration
+  href: /contact
+author:
+  name: HA Web Studio
+  role: Product Engineering
+publishedAt: "2026-07-31"
+updatedAt: "2026-07-31"
+version: 2
+---
+
+# Omnivy: A Chrome Extension for Clipping the Web into Obsidian, Notion, and Cloud Storage
+
+## Background
+
+Most browser clippers pick a side: they're built for one note-taking app, tied to that app's account, and everything else is a workaround. Omnivy was built on the opposite premise — the extension's job is to extract clean Markdown from whatever page you're on and hand it to whichever destination you already use, whether that's a local Obsidian vault with no account at all, or a Notion workspace, Google Drive, OneDrive, or Dropbox folder behind a sign-in.
+
+## Investigation
+
+The real design question wasn't "which note apps to support" — it was where Omnivy's own responsibility should end. Storing clipped content centrally would have made syncing across devices trivial, but it would also have turned a lightweight clipper into a place holding a copy of everything a user ever saved, with all the retention and breach-surface obligations that comes with. The extraction side had a parallel question: one generic HTML-to-Markdown converter is simple to maintain, but it produces noisy output on anything structured — a GitHub pull request, a Stack Overflow thread, an AI chat transcript — where a single field-aware parser would do far better.
+
+## Solution
+
+Omnivy resolves both questions the same way: keep the extension's footprint as small as it can be while still being useful. Content extraction is content-aware — dedicated parsers for GitHub, Stack Overflow, forums, Notion, AI chats, and video pages, falling back to a generic readability pass everywhere else — and nothing that gets extracted is stored on Omnivy's servers. Obsidian saves happen entirely locally through the `obsidian://new` URI with no account required; the four cloud providers go through OAuth, with tokens encrypted at rest and the extension itself only ever holding short-lived, refresh-rotated access tokens.
+
+## Lessons Learned
+
+The most durable decision in this build wasn't a specific integration — it was refusing to let "cross-device sync would be nice" pull the architecture toward central storage. That single boundary shaped the extraction pipeline, the authentication model, and what the extension is and isn't allowed to hold onto at any point in the flow.
+
+## Why This Applies to Client Projects
+
+Omnivy is a self-built, self-published product, and the same discipline shows up in client work: the earliest and highest-leverage decision on a multi-integration project is usually what the system *doesn't* store or touch, not which APIs it connects to. That's the same question we ask on client builds that touch multiple third-party providers — payment processors, CRMs, or storage backends — before writing the integration code itself. If you're weighing a similar build, a browser extension, or a product that needs to talk to several external APIs without becoming a data-retention risk in the process, that's exactly the kind of architecture conversation we start with.

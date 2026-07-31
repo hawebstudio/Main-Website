@@ -1,0 +1,1277 @@
+[
+  {
+    "url": "/case-studies/analytics-tracking-implementation",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "Analytics & Tracking Implementation",
+        "href": "/case-studies/analytics-tracking-implementation"
+      }
+    ]
+  },
+  {
+    "url": "/case-studies/aws-infrastructure-setup-cintegrate",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "AWS Infrastructure Setup for a Media-Heavy SaaS Platform",
+        "href": "/case-studies/aws-infrastructure-setup-cintegrate"
+      }
+    ]
+  },
+  {
+    "url": "/case-studies/cloudflare-deployment",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "Cloudflare Deployment: Building a Secure, Fast, and Reliable Delivery Layer",
+        "href": "/case-studies/cloudflare-deployment"
+      }
+    ]
+  },
+  {
+    "url": "/case-studies/cms-integration",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "CMS Integration: Building Flexible Content Management Systems for Modern Websites",
+        "href": "/case-studies/cms-integration"
+      }
+    ]
+  },
+  {
+    "url": "/case-studies/email-dns-infrastructure-foundation",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "Email and DNS Infrastructure Foundation",
+        "href": "/case-studies/email-dns-infrastructure-foundation"
+      }
+    ]
+  },
+  {
+    "url": "/case-studies/google-business-visibility-foundation",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "Google Business Visibility Foundation",
+        "href": "/case-studies/google-business-visibility-foundation"
+      }
+    ]
+  },
+  {
+    "url": "/case-studies/ha-web-studio-architecture",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "HA Web Studio Platform Architecture",
+        "href": "/case-studies/ha-web-studio-architecture"
+      }
+    ]
+  },
+  {
+    "url": "/case-studies/payment-gateway-integration",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "Payment Gateway Integration: Creating Secure, Reliable, and Frictionless Online Payment Experiences",
+        "href": "/case-studies/payment-gateway-integration"
+      }
+    ]
+  },
+  {
+    "url": "/case-studies/search-visibility-and-ai-search-foundation",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "Technical SEO and AI Search Visibility Foundation",
+        "href": "/case-studies/search-visibility-and-ai-search-foundation"
+      }
+    ]
+  },
+  {
+    "url": "/case-studies/website-performance-foundation",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "Website Performance Foundation with Next.js",
+        "href": "/case-studies/website-performance-foundation"
+      }
+    ]
+  },
+  {
+    "url": "/insights/ai-search-optimization",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "AI Search Optimization: Preparing Your Website for AI-Powered Search",
+        "href": "/insights/ai-search-optimization"
+      }
+    ]
+  },
+  {
+    "url": "/insights/choosing-the-right-cms",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Choosing the Right CMS: WordPress vs Sanity vs Payload CMS",
+        "href": "/insights/choosing-the-right-cms"
+      }
+    ]
+  },
+  {
+    "url": "/insights/cloudflare-explained",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Cloudflare Explained: How a CDN Improves Website Speed, Security, and Reliability",
+        "href": "/insights/cloudflare-explained"
+      }
+    ]
+  },
+  {
+    "url": "/insights/conversion-rate-optimization-guide",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Conversion Rate Optimization (CRO): Turning More Visitors Into Customers",
+        "href": "/insights/conversion-rate-optimization-guide"
+      }
+    ]
+  },
+  {
+    "url": "/insights/dns-domains-ssl-guide",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Understanding DNS, Domains & SSL: A Practical Guide for Business Owners",
+        "href": "/insights/dns-domains-ssl-guide"
+      }
+    ]
+  },
+  {
+    "url": "/insights/google-analytics-4",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Google Analytics 4: Measuring What Matters on Your Website",
+        "href": "/insights/google-analytics-4"
+      }
+    ]
+  },
+  {
+    "url": "/insights/microsoft-clarity",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Microsoft Clarity: Understanding How Visitors Actually Use Your Website",
+        "href": "/insights/microsoft-clarity"
+      }
+    ]
+  },
+  {
+    "url": "/insights/razorpay-vs-stripe",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Choosing the Right Payment Gateway: Razorpay vs Stripe",
+        "href": "/insights/razorpay-vs-stripe"
+      }
+    ]
+  },
+  {
+    "url": "/insights/shopify-vs-woocommerce",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Shopify vs WooCommerce: Which Ecommerce Platform Is Right for Your Business?",
+        "href": "/insights/shopify-vs-woocommerce"
+      }
+    ]
+  },
+  {
+    "url": "/insights/structured-data-schema",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Structured Data & Schema: Helping Search Engines Understand Your Website",
+        "href": "/insights/structured-data-schema"
+      }
+    ]
+  },
+  {
+    "url": "/insights/technical-seo-checklist",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Technical SEO Checklist for Every Business Website",
+        "href": "/insights/technical-seo-checklist"
+      }
+    ]
+  },
+  {
+    "url": "/insights/website-launch-checklist",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Website Launch Checklist: What Every Business Should Do Before Going Live",
+        "href": "/insights/website-launch-checklist"
+      }
+    ]
+  },
+  {
+    "url": "/insights/website-project-planning-guide",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "How to Plan a Successful Website Project: A Guide for Business Owners",
+        "href": "/insights/website-project-planning-guide"
+      }
+    ]
+  },
+  {
+    "url": "/insights/website-security-basics",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Website Security Basics: 10 Essentials Every Business Website Should Have",
+        "href": "/insights/website-security-basics"
+      }
+    ]
+  },
+  {
+    "url": "/insights/why-performance-matters",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "Why Website Performance Matters for Business Growth",
+        "href": "/insights/why-performance-matters"
+      }
+    ]
+  },
+  {
+    "url": "/problems/customers-cant-find-my-business",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Customers Can't Find My Business",
+        "href": "/problems/customers-cant-find-my-business"
+      }
+    ]
+  },
+  {
+    "url": "/problems/low-conversion-rate",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Low Conversion Rate",
+        "href": "/problems/low-conversion-rate"
+      }
+    ]
+  },
+  {
+    "url": "/problems/need-ai-features",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Need AI Features for My Business",
+        "href": "/problems/need-ai-features"
+      }
+    ]
+  },
+  {
+    "url": "/problems/need-business-website",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Need a Business Website",
+        "href": "/problems/need-business-website"
+      }
+    ]
+  },
+  {
+    "url": "/problems/need-custom-web-application",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Need a Custom Web Application",
+        "href": "/problems/need-custom-web-application"
+      }
+    ]
+  },
+  {
+    "url": "/problems/need-ecommerce-website",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Need an Ecommerce Website",
+        "href": "/problems/need-ecommerce-website"
+      }
+    ]
+  },
+  {
+    "url": "/problems/need-third-party-integrations",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Need Third-Party Integrations",
+        "href": "/problems/need-third-party-integrations"
+      }
+    ]
+  },
+  {
+    "url": "/problems/need-website-maintenance",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Need Website Maintenance & Support",
+        "href": "/problems/need-website-maintenance"
+      }
+    ]
+  },
+  {
+    "url": "/problems/no-website-analytics",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "No Website Analytics & Tracking",
+        "href": "/problems/no-website-analytics"
+      }
+    ]
+  },
+  {
+    "url": "/problems/not-showing-up-on-google",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Not Showing Up on Google",
+        "href": "/problems/not-showing-up-on-google"
+      }
+    ]
+  },
+  {
+    "url": "/problems/website-difficult-to-update",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Website Is Difficult to Update",
+        "href": "/problems/website-difficult-to-update"
+      }
+    ]
+  },
+  {
+    "url": "/problems/website-is-slow",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Website Is Slow",
+        "href": "/problems/website-is-slow"
+      }
+    ]
+  },
+  {
+    "url": "/problems/website-migration",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Need to Migrate My Website",
+        "href": "/problems/website-migration"
+      }
+    ]
+  },
+  {
+    "url": "/problems/website-redesign",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Website Needs a Redesign",
+        "href": "/problems/website-redesign"
+      }
+    ]
+  },
+  {
+    "url": "/problems/website-security-concerns",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Problems",
+        "href": "/problems"
+      },
+      {
+        "label": "Website Security Concerns",
+        "href": "/problems/website-security-concerns"
+      }
+    ]
+  },
+  {
+    "url": "/services/ai-search-visibility-answer-engine-optimization",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "AI Search Visibility & Answer Engine Optimization",
+        "href": "/services/ai-search-visibility-answer-engine-optimization"
+      }
+    ]
+  },
+  {
+    "url": "/services/analytics-tracking-setup",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Analytics & Tracking Setup",
+        "href": "/services/analytics-tracking-setup"
+      }
+    ]
+  },
+  {
+    "url": "/services/business-website-development",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Business Website Development",
+        "href": "/services/business-website-development"
+      }
+    ]
+  },
+  {
+    "url": "/services/conversion-rate-optimization",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Conversion Rate Optimization",
+        "href": "/services/conversion-rate-optimization"
+      }
+    ]
+  },
+  {
+    "url": "/services/custom-web-application-development",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Custom Web Application Development",
+        "href": "/services/custom-web-application-development"
+      }
+    ]
+  },
+  {
+    "url": "/services/ecommerce-development",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "eCommerce Development",
+        "href": "/services/ecommerce-development"
+      }
+    ]
+  },
+  {
+    "url": "/services/frontend-development",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Frontend Development",
+        "href": "/services/frontend-development"
+      }
+    ]
+  },
+  {
+    "url": "/services/google-business-maps-visibility",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Google Business & Maps Visibility",
+        "href": "/services/google-business-maps-visibility"
+      }
+    ]
+  },
+  {
+    "url": "/services/landing-page-development",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Landing Page Development",
+        "href": "/services/landing-page-development"
+      }
+    ]
+  },
+  {
+    "url": "/services/local-seo-foundations",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Local SEO Foundations",
+        "href": "/services/local-seo-foundations"
+      }
+    ]
+  },
+  {
+    "url": "/services/search-visibility-setup",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Search Visibility Setup",
+        "href": "/services/search-visibility-setup"
+      }
+    ]
+  },
+  {
+    "url": "/services/shopify-development",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Shopify Development",
+        "href": "/services/shopify-development"
+      }
+    ]
+  },
+  {
+    "url": "/services/structured-data-schema-setup",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Structured Data & Schema Setup",
+        "href": "/services/structured-data-schema-setup"
+      }
+    ]
+  },
+  {
+    "url": "/services/technical-seo-setup",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Technical SEO Setup",
+        "href": "/services/technical-seo-setup"
+      }
+    ]
+  },
+  {
+    "url": "/services/third-party-api-integrations",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Third-Party & API Integrations",
+        "href": "/services/third-party-api-integrations"
+      }
+    ]
+  },
+  {
+    "url": "/services/website-audit-technical-fixes",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Website Audit & Technical Fixes",
+        "href": "/services/website-audit-technical-fixes"
+      }
+    ]
+  },
+  {
+    "url": "/services/website-maintenance-support",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Website Maintenance & Support",
+        "href": "/services/website-maintenance-support"
+      }
+    ]
+  },
+  {
+    "url": "/services/website-migration-replatforming",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Website Migration & Replatforming",
+        "href": "/services/website-migration-replatforming"
+      }
+    ]
+  },
+  {
+    "url": "/services/website-performance-optimization",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Website Performance Optimization",
+        "href": "/services/website-performance-optimization"
+      }
+    ]
+  },
+  {
+    "url": "/services/website-redesign",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Website Redesign",
+        "href": "/services/website-redesign"
+      }
+    ]
+  },
+  {
+    "url": "/services/woocommerce-development",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "WooCommerce Development",
+        "href": "/services/woocommerce-development"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/chrome-extension-apis",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Chrome Extension APIs",
+        "href": "/technologies/chrome-extension-apis"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/cloudflare",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Cloudflare",
+        "href": "/technologies/cloudflare"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/dns",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "DNS",
+        "href": "/technologies/dns"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/google-search-console",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Google Search Console",
+        "href": "/technologies/google-search-console"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/google-workspace",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Google Workspace",
+        "href": "/technologies/google-workspace"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/judge0",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Judge0",
+        "href": "/technologies/judge0"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/nextjs",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Next.js",
+        "href": "/technologies/nextjs"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/nodejs",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Node.js",
+        "href": "/technologies/nodejs"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/react",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "React",
+        "href": "/technologies/react"
+      }
+    ]
+  },
+  {
+    "url": "/work/cintegrate",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Work",
+        "href": "/work"
+      },
+      {
+        "label": "Cintegrate",
+        "href": "/work/cintegrate"
+      }
+    ]
+  },
+  {
+    "url": "/work/ha-ui-design-system",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Work",
+        "href": "/work"
+      },
+      {
+        "label": "HA UI Design System",
+        "href": "/work/ha-ui-design-system"
+      }
+    ]
+  },
+  {
+    "url": "/work/ha-web-studio-website",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Work",
+        "href": "/work"
+      },
+      {
+        "label": "HA Web Studio Website",
+        "href": "/work/ha-web-studio-website"
+      }
+    ]
+  },
+  {
+    "url": "/work/ms-signature-scents",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Work",
+        "href": "/work"
+      },
+      {
+        "label": "MS Signature Scents",
+        "href": "/work/ms-signature-scents"
+      }
+    ]
+  },
+  {
+    "url": "/work/omnivy-web-clipper",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Work",
+        "href": "/work"
+      },
+      {
+        "label": "Omnivy Web Clipper",
+        "href": "/work/omnivy-web-clipper"
+      }
+    ]
+  }
+]

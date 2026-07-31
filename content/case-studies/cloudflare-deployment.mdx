@@ -1,0 +1,207 @@
+---
+slug: cloudflare-deployment
+title: "Cloudflare Deployment: Building a Secure, Fast, and Reliable Delivery Layer"
+description: >-
+  How DNS, SSL, CDN, and caching were configured together as one edge
+  delivery layer, instead of DNS records and a CDN toggle treated as
+  separate afterthoughts.
+caseStudyType: technical-investigation
+category: infrastructure
+implementationStatus: live
+difficulty: intermediate
+summary: >-
+  A practical case study on configuring Cloudflare as a production delivery
+  layer — DNS, SSL/HTTPS, global CDN, and cache policy — as part of shipping
+  a site, not a post-launch add-on.
+projectLabel: HA Web Studio Delivery Layer
+year: 2026
+technologiesUsed:
+  - Cloudflare DNS
+  - Cloudflare CDN
+  - SSL/TLS
+  - HTTP/2 & HTTP/3
+  - Edge Caching
+businessGoal: >-
+  Give every site a fast, secure, reliable delivery layer at launch, instead
+  of treating DNS, SSL, and CDN configuration as issues to fix after visitors
+  hit them.
+background: >-
+  A website's performance and reliability extend beyond its codebase. A
+  properly configured edge network improves page speed, strengthens
+  security, and ensures visitors receive content quickly regardless of
+  location — none of which a well-written app alone guarantees.
+challenge: >-
+  Business websites commonly ship with avoidable infrastructure gaps: slow
+  loads outside the hosting region, DNS misconfiguration causing downtime,
+  missing or misconfigured SSL, weak caching that hits the origin
+  unnecessarily, and inconsistent performance under traffic spikes — issues
+  that affect user experience, SEO, and reliability alike.
+constraints:
+  - No fabricated traffic, uptime, or performance metrics are published.
+  - DNS changes carry propagation delay, so validation isn't instant.
+  - Caching must stay fresh after deployments, not just fast.
+risks:
+  - Missing or wrong DNS records (A, AAAA, CNAME, MX, TXT, CAA) causing downtime or broken email delivery.
+  - Mixed content or certificate misconfiguration breaking HTTPS for some visitors.
+  - Caching configured for speed but not invalidated on deploy, serving stale content.
+requirements:
+  - Reliable DNS resolution across all record types the domain depends on, including email.
+  - End-to-end HTTPS with automatic certificate management, not manual renewal.
+  - CDN distribution for static assets that works the same regardless of visitor location.
+  - Cache policy that reduces origin load without serving stale content after a deploy.
+investigation: >-
+  The delivery layer was scoped as one connected system rather than four
+  separate settings screens: DNS correctness affects whether SSL can even
+  issue a certificate; SSL affects whether the CDN can serve cached HTTPS
+  responses; and cache rules affect how quickly a deploy is actually visible
+  to real visitors. Each piece was configured with the others in mind.
+optionsConsidered:
+  - option: Configure DNS, SSL, and CDN separately as each becomes a problem
+    decision: rejected
+    rationale: >-
+      Reactive configuration means the first time a gap is found is when a
+      visitor hits it — a DNS record, a mixed-content warning, or a cache
+      serving stale content after launch.
+  - option: Aggressive caching everywhere for maximum speed
+    decision: rejected
+    rationale: >-
+      Without deploy-triggered purging, aggressive caching trades speed for
+      staleness — visitors would see outdated content after every release.
+  - option: Full Cloudflare deployment — DNS, SSL, CDN, and cache rules configured together with automatic purge on deploy
+    decision: selected
+    rationale: >-
+      Treats the delivery layer as infrastructure to design, not settings to
+      toggle, and keeps speed and freshness from trading off against each
+      other.
+decisionMaking: >-
+  Aggressive, "cache everything" configurations were rejected for the same
+  reason a single-pass DNS update is rejected elsewhere in our work: the
+  failure mode isn't visible until a real visitor hits it, and by then it's
+  a support ticket, not a settings change. Cache rules were paired with
+  automatic purge on deploy specifically so speed and freshness didn't have
+  to be traded against each other.
+solution: >-
+  A complete Cloudflare deployment was implemented covering DNS management,
+  SSL/HTTPS, global CDN distribution, and cache policy, configured as one
+  delivery pipeline rather than four independent settings.
+architecture: >-
+  Cloudflare sits in front of the origin server as the authoritative DNS and
+  edge layer. DNS records (A, AAAA, CNAME, MX, TXT, CAA) resolve the domain
+  and support email authentication alongside hosting. SSL/TLS terminates at
+  the edge with automatic certificate management and HTTPS redirects. Static
+  assets — images, CSS, JavaScript, fonts, media — are distributed across
+  Cloudflare's CDN. Cache rules and browser cache TTLs are tuned per asset
+  type, with automatic purging tied to deployments.
+implementation: >-
+  DNS was configured and verified first, since SSL certificate issuance and
+  CDN routing both depend on correct DNS resolution. SSL was then set up for
+  automatic HTTPS with mixed-content prevention, followed by CDN
+  configuration for static asset types and cache rules tuned to balance
+  origin load against content freshness after deploys.
+implementationSteps:
+  - phase: DNS Configuration
+    details: >-
+      Configured and verified A, AAAA, CNAME, MX, TXT, and CAA records for
+      reliable domain resolution and email authentication.
+  - phase: SSL & HTTPS
+    details: >-
+      Set up automatic HTTPS, HTTPS redirects, TLS encryption, certificate
+      management, and mixed-content prevention.
+  - phase: Global CDN
+    details: >-
+      Configured CDN distribution for images, CSS, JavaScript, fonts, and
+      static media across edge locations.
+  - phase: Caching Strategy
+    details: >-
+      Tuned browser cache TTLs, edge cache rules, and cache-control headers,
+      with automatic cache purging after deployments.
+  - phase: Additional Hardening
+    details: >-
+      Layered in Brotli compression, HTTP/3, Early Hints, auto minify,
+      image optimization, security headers, bot protection, firewall rules,
+      rate limiting, and redirect rules where the project calls for them.
+outcomes:
+  - Faster global page load times regardless of visitor location.
+  - Secure, automatically-managed HTTPS across the site.
+  - Reduced origin server load through edge caching.
+  - Improved reliability and scalability during traffic spikes.
+  - Simplified, centralized DNS and infrastructure management.
+  - A stronger technical foundation for SEO and Core Web Vitals.
+metricsNote: >-
+  No traffic, uptime, or performance benchmark numbers are published for
+  this implementation.
+lessonsLearned:
+  - >-
+    DNS, SSL, and CDN aren't independent settings — a gap in one limits what
+    the others can do, so they're configured as one system.
+  - >-
+    Caching for speed without a deploy-triggered purge strategy just trades
+    one problem (slow) for another (stale).
+tradeOffs:
+  - >-
+    Aggressive edge caching adds a purge step to every deployment that a
+    no-cache setup wouldn't need.
+  - >-
+    DNS and certificate changes carry propagation delay, so validation isn't
+    instant the way an application-level change is.
+whatToDoDifferently:
+  - Document per-project cache TTL decisions so future changes don't have to rediscover the reasoning.
+nextSteps: >-
+  Additional edge hardening — bot protection, firewall rules, and rate
+  limiting — is applied per project based on traffic patterns and risk,
+  rather than turned on uniformly everywhere by default.
+relatedServiceSlugs:
+  - website-performance-optimization
+  - technical-seo-setup
+  - website-migration-replatforming
+  - website-maintenance-support
+relatedSolutionLinks:
+  - label: Website Is Slow
+    href: /problems#website-is-slow
+relatedTechnologySlugs:
+  - cloudflare
+  - dns
+cta:
+  label: Discuss Your Infrastructure Needs
+  href: /contact
+author:
+  name: HA Web Studio
+  role: Infrastructure and Operations
+publishedAt: "2026-07-27"
+updatedAt: "2026-07-27"
+version: 1
+---
+
+# Cloudflare Deployment: Building a Secure, Fast, and Reliable Delivery Layer
+
+## Background
+
+HA Web Studio is a web design and development agency, and the edge delivery layer — DNS, SSL, CDN, caching — is part of what we consider a site "shipped," not a set of settings a client discovers are missing after launch. A website's performance and reliability extend beyond its codebase; a properly configured edge network improves page speed, strengthens security, and ensures visitors receive content quickly regardless of location.
+
+## Challenge
+
+Business websites commonly go live with avoidable infrastructure gaps: slow loads for visitors outside the hosting region, DNS misconfiguration causing downtime, missing or misconfigured SSL certificates, caching that under- or over-serves the origin, and inconsistent performance during traffic spikes. These aren't cosmetic issues — they affect user experience, SEO, and operational reliability directly.
+
+## Solution
+
+A complete Cloudflare deployment was implemented as one connected delivery pipeline, not four separate settings screens.
+
+**DNS Configuration** — A, AAAA, CNAME, MX, TXT, and CAA records configured for reliable domain resolution and email authentication alongside hosting.
+
+**SSL & HTTPS** — Automatic HTTPS, HTTPS redirects, TLS encryption, certificate management, and mixed-content prevention, so encrypted communication between visitor and origin isn't left to chance.
+
+**Global CDN** — Static assets (images, CSS, JavaScript, fonts, media) distributed across edge locations, so load time doesn't depend on how far a visitor is from the origin server.
+
+**Intelligent Caching** — Browser cache TTLs, edge cache rules, and cache-control headers tuned per asset type, with automatic cache purging after deployments so speed doesn't come at the cost of serving stale content.
+
+**Additional Optimization** — Depending on the project, deployments may also layer in Brotli compression, HTTP/3, Early Hints, auto minify, image optimization, security headers, bot protection, firewall rules, rate limiting, and redirect rules.
+
+## Lessons Learned
+
+DNS, SSL, and CDN aren't independent settings — a gap in one limits what the others can actually do. Caching tuned purely for speed, without a deploy-triggered purge strategy, just trades one problem for another: fast but stale instead of slow but current.
+
+## Why This Applies to Client Projects
+
+This is the delivery layer behind our [Website Performance Optimization](/services/website-performance-optimization), [Technical SEO Setup](/services/technical-seo-setup), and [Website Maintenance & Support](/services/website-maintenance-support) services: DNS, SSL, CDN, and caching configured together at launch, not diagnosed one at a time after a visitor or a client reports a problem. A migration or redeploy ([Website Migration & Deployment](/services/website-migration-replatforming)) inherits the same cache-purge and DNS-verification discipline, so a domain or hosting change doesn't quietly break email or serve stale pages.
+
+The trade-off is the same one described above: aggressive edge caching adds a purge step to every deployment, and DNS or certificate changes carry propagation delay that an application-level fix wouldn't have. We build that into the deployment process itself rather than treating it as a surprise the first time something needs to change.

@@ -1,0 +1,64 @@
+---
+slug: dns-domains-ssl-guide
+title: "Understanding DNS, Domains & SSL: A Practical Guide for Business Owners"
+description: >-
+  What actually happens between typing a domain and a page loading — domain,
+  DNS, hosting, SSL, and CDN explained without the jargon.
+publishedAt: "2026-07-27"
+readingTime: 9
+featured: false
+category:
+  name: Websites
+  slug: websites
+keyTakeaways:
+  - A domain, DNS, hosting, SSL, and a CDN are five different systems that all have to work together — not interchangeable terms.
+  - MX records control email, not the website — a DNS mistake here can silently break email delivery.
+  - SSL/TLS encrypts the connection; HTTPS is what that encryption looks like in the browser.
+  - Most infrastructure problems (broken email after a DNS change, expired certificates, mixed content) are preventable with a documented setup.
+estimatedSkillLevel: Beginner
+relatedServiceSlugs:
+  - website-migration-replatforming
+  - website-performance-optimization
+  - website-maintenance-support
+relatedTechnologySlugs:
+  - dns
+  - cloudflare
+relatedArticleSlugs:
+  - cloudflare-explained
+  - website-security-basics
+  - website-launch-checklist
+version: 1
+author:
+  name: HA Web Studio
+  role: Editorial Team
+---
+
+# Understanding DNS, Domains & SSL: A Practical Guide for Business Owners
+
+Domain, DNS, hosting, SSL, and CDN are often used interchangeably, even though they're different systems doing different jobs. Understanding the difference helps a business owner troubleshoot common issues and communicate more clearly with developers and hosting providers.
+
+See the connected [Cloudflare Deployment](/case-studies/cloudflare-deployment) case study for how these pieces come together in a real implementation.
+
+## How a Website Actually Loads
+
+A visitor enters a domain → DNS finds the server hosting the site → the browser establishes a secure HTTPS connection → content is delivered → images, styles, and scripts load → the page displays. Each step depends on the previous one being configured correctly.
+
+## The Pieces
+
+**Domain** — the website's address (`yourbusiness.com`), a memorable name standing in for a numeric server address.
+
+**DNS** — the internet's directory service, translating a domain into the server that actually hosts the site. Key record types: **A/AAAA** (point to the server), **CNAME** (point one hostname to another), **MX** (route incoming email — get this wrong and business email silently stops working), and **TXT** (verification, SPF, DKIM, DMARC).
+
+**Hosting** — the server storing the site's actual files, HTML, images, and databases; what DNS ultimately points to.
+
+**SSL/TLS** — encrypts the connection between a visitor's browser and the site. **HTTPS** is what that encryption looks like in practice — the padlock icon confirms it.
+
+**CDN** — stores copies of static assets (images, CSS, JS, fonts) across edge locations worldwide, so visitors load them from the nearest location instead of a single origin server.
+
+## Practical Takeaway
+
+Most infrastructure problems are configuration mistakes, not platform failures: incorrect DNS records, expired SSL certificates, broken email after a DNS change, mixed HTTP/HTTPS content, missing redirects, wrong nameservers, or misconfigured CDN caching. Nearly all of these are preventable with proper planning and testing before a change goes live, not diagnosed after something breaks.
+
+## Implementation Notes
+
+A reliable setup includes HTTPS on every page, correct DNS configuration, automatic SSL renewal, a CDN for static assets, secure email authentication, documented DNS records, and ongoing infrastructure monitoring. See [Cloudflare Explained](/insights/cloudflare-explained) for how a CDN specifically improves on this baseline, and [Website Security Basics](/insights/website-security-basics) for the security layer built on top of it.
