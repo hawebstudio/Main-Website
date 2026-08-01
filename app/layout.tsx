@@ -109,6 +109,11 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
+  verification: {
+  other: {
+    "norton-safeweb-site-verification": process.env.NORTON_SITE_VERIFICATION ?? "",
+  },
+},
 };
 
 export const viewport: Viewport = {
