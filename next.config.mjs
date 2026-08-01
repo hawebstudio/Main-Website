@@ -7,6 +7,16 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  // `lib/content/providers/git.ts` reads content/**/*.mdx via a dynamic
+  // `import('node:fs')` at request time (now that app/layout.tsx forces
+  // dynamic rendering, this runs on every request, not just at build).
+  // Vercel's file tracer only follows static imports, so it can't see
+  // these fs reads and would otherwise exclude content/ from the deployed
+  // function — leaving getAll() reading an empty/missing directory in
+  // production. This makes the inclusion explicit.
+  outputFileTracingIncludes: {
+    '/**': ['./content/**/*.mdx'],
+  },
   async headers() {
     // HSTS and friends must never be sent over the dev server's plain-HTTP
     // localhost: the browser would pin "always use HTTPS" for that host for
