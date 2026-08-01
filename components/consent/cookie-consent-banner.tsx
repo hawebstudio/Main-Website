@@ -8,7 +8,7 @@ import { readConsentState, saveConsent } from "@/lib/analytics/consent";
 
 type ConsentDraft = { analytics: boolean; marketing: boolean };
 
-const DEFAULT_DRAFT: ConsentDraft = { analytics: true, marketing: false };
+const DEFAULT_DRAFT: ConsentDraft = { analytics: false, marketing: false };
 
 /**
  * Site-wide cookie consent banner. Nothing analytics-related fires until

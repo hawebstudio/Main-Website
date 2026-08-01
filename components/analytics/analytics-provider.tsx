@@ -45,7 +45,6 @@ export function AnalyticsProvider({
     }
   }, [consent?.analytics, clarityId]);
 
-  const analyticsGranted = consent?.analytics === true;
   const consentModeNeeded = Boolean(gtmId || gaId);
 
   return (
@@ -61,13 +60,22 @@ export function AnalyticsProvider({
             window.dataLayer = window.dataLayer || [];
             function gtag(){window.dataLayer.push(arguments);}
             gtag('consent', 'default', {
+              ad_storage: 'granted',
+              ad_user_data: 'granted',
+              ad_personalization: 'granted',
+              analytics_storage: 'granted',
+              functionality_storage: 'granted',
+              security_storage: 'granted'
+            });
+            gtag('consent', 'default', {
               ad_storage: 'denied',
               ad_user_data: 'denied',
               ad_personalization: 'denied',
               analytics_storage: 'denied',
               functionality_storage: 'granted',
               security_storage: 'granted',
-              wait_for_update: 500
+              wait_for_update: 500,
+              region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','GB','CH','IN','BR','CA-QC','KR','CN','ZA']
             });
             window.gtag = window.gtag || gtag;
           `}
@@ -102,7 +110,7 @@ export function AnalyticsProvider({
         </>
       ) : null}
 
-      {gaId && analyticsGranted ? (
+      {gaId ? (
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
