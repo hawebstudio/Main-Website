@@ -38,7 +38,23 @@ export const config = {
      * - api routes (own CORS/response handling)
      * - _next/static, _next/image (framework internals, no scripts to nonce)
      * - static files with a file extension (images, fonts, txt, xml, etc.)
+     * - prefetch requests (next/link hover-prefetch, router prefetch): these
+     *   run in the background against a route the user isn't looking at
+     *   yet, so minting a nonce for them serves no purpose. Worse, if they
+     *   DO run through here, the prefetched payload gets baked with its own
+     *   nonce, and since JsonLd renders fresh inline <script> tags on almost
+     *   every page, a later client-side (soft) navigation into that
+     *   prefetched content swaps in scripts nonced for a *different*
+     *   request than the one governing the currently active document's CSP
+     *   header — every inline script on the destination page then violates
+     *   CSP even though the code correctly threads the nonce through.
      */
-    '/((?!api/|_next/static|_next/image|.*\\..*).*)',
+    {
+      source: '/((?!api/|_next/static|_next/image|.*\\..*).*)',
+      missing: [
+        { type: 'header', key: 'next-router-prefetch' },
+        { type: 'header', key: 'purpose', value: 'prefetch' },
+      ],
+    },
   ],
 }
