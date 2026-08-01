@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { headers } from "next/headers";
@@ -17,6 +18,19 @@ const homepageOgImage = dynamicOgImageUrl({
   title: siteConfig.name,
   description: siteConfig.description,
 });
+
+// Nonce-based CSP requires a fresh per-request render: the nonce read from
+// `headers()` below only exists on the incoming request, so any route that
+// gets statically generated (build time, no request) bakes in no nonce at
+// all — and every inline <script> this layout renders (JsonLd, consent
+// mode, GTM, GA4, Next's own hydration payload script) then permanently
+// fails CSP for that route, since the CSP header itself is regenerated
+// fresh on every request but the HTML serving it isn't.
+// `headers()` is supposed to implicitly force dynamic rendering, but that
+// opt-in can silently fail to propagate (e.g. static optimization passes,
+// route-level `dynamic` exports elsewhere, caching layers). Setting this
+// explicitly removes the ambiguity.
+export const dynamic = "force-dynamic";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -139,6 +153,7 @@ export default async function RootLayout({
         <CookieConsentBanner />
         <FloatingWhatsAppButton />
         {process.env.NODE_ENV === "production" && <Analytics />}
+        {process.env.NODE_ENV === "production" && <SpeedInsights />}
       </body>
     </html>
   );
