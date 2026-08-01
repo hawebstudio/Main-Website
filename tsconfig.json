@@ -36,7 +36,8 @@
     "scripts/content/generate-related-content.mts",
     "scripts/content/create-content.mts",
     "scripts/content/check-slugs.mts",
-    "scripts/content/check-duplicates.mts"
+    "scripts/content/check-duplicates.mts",
+    "scripts/seo/submit-indexnow.mts"
   ],
   "exclude": ["node_modules"]
 }
