@@ -13,7 +13,7 @@ import {
   type RefObject,
 } from 'react'
 import { createPortal } from 'react-dom'
-import { ArrowRight, CornerDownLeft, Loader2, Search } from 'lucide-react'
+import { ArrowRight, CornerDownLeft, Loader2, Search, X } from 'lucide-react'
 import {
   createSearchProvider,
   createSearchSuggestions,
@@ -24,8 +24,9 @@ import {
 } from '@/lib/search'
 import { routes } from '@/config/routes'
 import { cn } from '@/lib/utils'
+import { useBodyScrollLock } from '@/components/navigation/use-body-scroll-lock'
 
-type SearchVariant = 'header' | 'footer' | 'page'
+type SearchVariant = 'header' | 'footer' | 'page' | 'modal' | 'mobile'
 type SearchShortcutMedia = 'all' | 'desktop' | 'mobile' | 'wide' | 'compact'
 
 interface SiteSearchProps {
@@ -298,6 +299,7 @@ export function SiteSearch({
   const { recentSearches, addRecentSearch } = useRecentSearches()
   const provider = useMemo(() => createSearchProvider({ type: 'local', documents }), [documents])
   const isPage = variant === 'page'
+  const isModal = variant === 'modal'
   const [query, setQuery] = useState(isPage ? initialQuery : '')
   const [activeFilter, setActiveFilter] = useState<SearchDocumentType | 'all'>(isPage ? initialType : 'all')
   const [results, setResults] = useState<SearchResult[]>([])
@@ -310,6 +312,14 @@ export function SiteSearch({
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  useBodyScrollLock(isModal && open)
+
+  useEffect(() => {
+    if (!isModal || !open) return
+    const id = window.setTimeout(() => inputRef.current?.focus(), 30)
+    return () => window.clearTimeout(id)
+  }, [isModal, open])
 
   const trimmedQuery = query.trim()
   const filteredResults = results
@@ -374,14 +384,14 @@ export function SiteSearch({
         setOpen(true)
         return
       }
-      window.dispatchEvent(new CustomEvent('ha-search-open'))
+      if (variant !== 'mobile') window.dispatchEvent(new CustomEvent('ha-search-open'))
       setOpen(true)
       window.setTimeout(() => inputRef.current?.focus(), 0)
     }
 
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
-  }, [enableShortcut, isPage, shortcutMedia])
+  }, [enableShortcut, isPage, shortcutMedia, variant])
 
   useEffect(() => {
     if (!open || isPage) return
@@ -393,7 +403,7 @@ export function SiteSearch({
   }, [isPage, open])
 
   useEffect(() => {
-    if (!open || isPage) return
+    if (!open || isPage || isModal) return
 
     function onPointerDown(event: PointerEvent) {
       const target = event.target as Node
@@ -404,10 +414,10 @@ export function SiteSearch({
 
     document.addEventListener('pointerdown', onPointerDown)
     return () => document.removeEventListener('pointerdown', onPointerDown)
-  }, [isPage, open])
+  }, [isModal, isPage, open])
 
   useEffect(() => {
-    if (!open || isPage || !containerRef.current) {
+    if (!open || isPage || isModal || !containerRef.current) {
       setDropdownPosition(null)
       return
     }
@@ -424,7 +434,7 @@ export function SiteSearch({
       window.removeEventListener('resize', updatePosition)
       window.removeEventListener('scroll', updatePosition, true)
     }
-  }, [isPage, open])
+  }, [isModal, isPage, open])
 
   function updateQuery(value: string) {
     setQuery(value)
@@ -586,6 +596,88 @@ export function SiteSearch({
     </div>
   ) : null
 
+  if (isModal) {
+    const modalOverlay = mounted && open ? (
+      <div className="fixed inset-0 z-[130] flex justify-center overflow-y-auto p-4 pt-[12vh] sm:pt-[16vh]">
+        <button
+          type="button"
+          aria-label="Close search"
+          className="fixed inset-0 bg-background/70 backdrop-blur-sm"
+          onClick={() => setOpen(false)}
+        />
+
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site search"
+          className="relative z-10 h-fit w-full max-w-2xl rounded-3xl border border-border/70 bg-background shadow-[0_24px_70px_-28px_rgba(0,0,0,0.9)]"
+        >
+          <div className="flex items-center gap-2 border-b border-border/60 p-3 sm:p-4">
+            <div className="min-w-0 flex-1">
+              <SearchInput
+                query={query}
+                setQuery={updateQuery}
+                placeholder={placeholder}
+                inputId={inputId}
+                isLoading={loading}
+                inputRef={inputRef}
+                onKeyDown={handleKeyDown}
+              />
+            </div>
+            <button
+              type="button"
+              aria-label="Close search"
+              onClick={() => setOpen(false)}
+              className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              <X className="size-4" />
+            </button>
+          </div>
+
+          <div className="max-h-[min(30rem,70dvh)] overflow-y-auto overscroll-contain p-4">
+            {trimmedQuery.length < 2 ? (
+              <EmptyState />
+            ) : (
+              <SearchPanel
+                query={trimmedQuery}
+                results={filteredResults}
+                groupedResults={groupedResults}
+                activeIndex={activeIndex}
+                suggestions={suggestions}
+                recentSearches={recentSearches}
+                loading={loading}
+                setQuery={setQuery}
+                submitSearch={submitSearch}
+                selectResult={selectResult}
+                page
+              />
+            )}
+          </div>
+        </div>
+      </div>
+    ) : null
+
+    return (
+      <div ref={containerRef} className={cn('relative', className)}>
+        <button
+          type="button"
+          aria-haspopup="dialog"
+          aria-expanded={open}
+          aria-label="Open search"
+          onClick={() => {
+            window.dispatchEvent(new CustomEvent('ha-search-open'))
+            setOpen(true)
+          }}
+          className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-border/60 bg-background/55 text-foreground shadow-sm backdrop-blur transition-colors hover:bg-background/80 hover:text-primary sm:size-10"
+        >
+          <Search className="size-4 sm:size-[18px]" />
+        </button>
+
+        {mounted && modalOverlay ? createPortal(modalOverlay, document.body) : null}
+      </div>
+    )
+  }
+
   return (
     <div ref={containerRef} className={cn('relative', className)}>
       <SearchInput
@@ -597,13 +689,13 @@ export function SiteSearch({
         inputRef={inputRef}
         compact={variant === 'header'}
         onFocus={() => {
-          window.dispatchEvent(new CustomEvent('ha-search-open'))
+          if (variant !== 'mobile') window.dispatchEvent(new CustomEvent('ha-search-open'))
           setOpen(true)
         }}
         onKeyDown={handleKeyDown}
       />
 
-      {variant === 'footer' ? (
+      {variant === 'footer' || variant === 'mobile' ? (
         <Link href={routes.search(trimmedQuery || undefined)} className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-primary">
           Open full search <ArrowRight className="size-4" />
         </Link>

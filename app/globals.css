@@ -177,9 +177,13 @@
   }
   html {
     @apply scroll-smooth;
+    overflow-x: hidden;
+    width: 100%;
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    width: 100%;
     text-rendering: optimizeLegibility;
     background-image:
       radial-gradient(circle at top left, color-mix(in oklch, var(--primary) 12%, transparent), transparent 32%),

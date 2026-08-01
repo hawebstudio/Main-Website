@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { NavLink } from '@/components/navigation/nav-link'
+import { SiteSearch } from '@/components/search/site-search'
 import { CTAS } from '@/lib/data/ctas'
 import type { NavItem } from '@/lib/content/types'
 import { cn } from '@/lib/utils'
@@ -75,6 +76,14 @@ export function MobileNav({ items }: MobileNavProps) {
             Navigation
           </div>
           <div className="mt-1.5 text-sm text-muted-foreground">Quick access to the main sections.</div>
+        </div>
+
+        <div className="relative border-b border-border/60 p-4">
+          <SiteSearch
+            variant="mobile"
+            placeholder="Search the site..."
+            className="w-full"
+          />
         </div>
 
         <div className="relative min-h-0 flex-1 overflow-y-auto p-4">
