@@ -49,10 +49,9 @@ export function CapabilitiesSection({ services }: CapabilitiesSectionProps) {
                 </Text>
                 <Link
                   href={`/services/${service.slug}`}
-                  aria-label={`Learn more about ${service.title}`}
                   className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-primary"
                 >
-                  Learn more <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  Explore {service.title} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
               </BentoItem>
             ))}
