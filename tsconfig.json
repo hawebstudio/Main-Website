@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "target": "ES2022",
     "skipLibCheck": true,
@@ -24,9 +20,7 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     }
   },
   "include": [
@@ -34,9 +28,15 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    "scripts/content/validate-frontmatter.mts",
+    "scripts/content/toc.mts",
+    "scripts/content/sort-content.mts",
+    "scripts/content/reading-time.mts",
+    "scripts/content/generate-related-content.mts",
+    "scripts/content/create-content.mts",
+    "scripts/content/check-slugs.mts",
+    "scripts/content/check-duplicates.mts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
