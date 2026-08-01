@@ -1,4 +1,4 @@
-import { markdownTable, readContentEntries, writeText } from '../shared/toolkit.ts'
+import { markdownTable, readContentEntries, writeText } from '../shared/toolkit.mts'
 
 const entries = await readContentEntries()
 const rows = [['File', 'Related candidates']]

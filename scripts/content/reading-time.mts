@@ -1,4 +1,4 @@
-import { markdownTable, readContentEntries, readingTimeMinutes, writeText } from '../shared/toolkit.ts'
+import { markdownTable, readContentEntries, readingTimeMinutes, writeText } from '../shared/toolkit.mts'
 
 const rows = [['File', 'Words', 'Reading time']]
 for (const entry of (await readContentEntries()).filter((item) => item.collection === 'insights')) {

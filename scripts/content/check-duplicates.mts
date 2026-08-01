@@ -1,4 +1,4 @@
-import { printResult, readContentEntries, type AuditMessage } from '../shared/toolkit.ts'
+import { printResult, readContentEntries, type AuditMessage } from '../shared/toolkit.mts'
 
 const messages: AuditMessage[] = []
 const titles = new Map<string, string>()

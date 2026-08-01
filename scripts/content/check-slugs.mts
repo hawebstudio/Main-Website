@@ -1,4 +1,4 @@
-import { printResult, readContentEntries, slugify, type AuditMessage } from '../shared/toolkit.ts'
+import { printResult, readContentEntries, slugify, type AuditMessage } from '../shared/toolkit.mts'
 
 const messages: AuditMessage[] = []
 const seen = new Map<string, string>()

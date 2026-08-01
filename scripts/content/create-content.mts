@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { root, slugify } from '../shared/toolkit.ts'
+import { root, slugify } from '../shared/toolkit.mts'
 
 const [, , type, ...titleParts] = process.argv
 const title = titleParts.join(' ').trim()

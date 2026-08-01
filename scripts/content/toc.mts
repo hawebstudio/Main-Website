@@ -1,4 +1,4 @@
-import { extractHeadings, markdownTable, readContentEntries, writeText } from '../shared/toolkit.ts'
+import { extractHeadings, markdownTable, readContentEntries, writeText } from '../shared/toolkit.mts'
 
 const rows = [['File', 'Headings']]
 for (const entry of await readContentEntries()) {

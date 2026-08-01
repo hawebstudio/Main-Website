@@ -3,7 +3,7 @@ import {
   readContentEntries,
   wordCount,
   type AuditMessage,
-} from "../shared/toolkit.ts";
+} from "../shared/toolkit.mts";
 
 interface FrontmatterData {
   title?: string;

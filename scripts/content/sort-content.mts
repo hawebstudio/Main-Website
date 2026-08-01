@@ -1,4 +1,4 @@
-import { markdownTable, readContentEntries, writeText } from '../shared/toolkit.ts'
+import { markdownTable, readContentEntries, writeText } from '../shared/toolkit.mts'
 
 const rows = [['Collection', 'Slug', 'Date']]
 for (const entry of (await readContentEntries()).sort((a, b) => String(b.data.publishedAt ?? '').localeCompare(String(a.data.publishedAt ?? '')))) {
