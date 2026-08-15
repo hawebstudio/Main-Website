@@ -8,9 +8,10 @@ import { AboutStandardsSection } from '@/components/sections/about/about-standar
 import { TechnologyPhilosophySection } from '@/components/sections/about/technology-philosophy-section'
 import { AboutFaqSection } from '@/components/sections/about/about-faq-section'
 import { JsonLd } from '@/components/seo/json-ld'
-import { webPageJsonLd, faqJsonLd, breadcrumbJsonLd } from '@/lib/seo/json-ld'
+import { webPageJsonLd, faqJsonLd } from '@/lib/seo/json-ld'
 import { aboutFaqs } from '@/lib/data/about-faqs'
 import { routes } from '@/config/routes'
+import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
 
 export const metadata: Metadata = createMetadata({
   title: 'About HA Web Studio | Web Development & AI Search Agency',
@@ -18,6 +19,11 @@ export const metadata: Metadata = createMetadata({
     'HA Web Studio is a digital product studio building fast, modern, conversion-focused websites and web apps. See our mission, standards, technology philosophy, and how we work.',
   path: '/about',
 })
+
+const breadcrumbItems = [
+  { label: 'Home', href: routes.home() },
+  { label: 'About', href: routes.about() },
+]
 
 const jsonLdData = [
   webPageJsonLd({
@@ -27,10 +33,6 @@ const jsonLdData = [
     path: '/about',
     type: 'AboutPage',
   }),
-  breadcrumbJsonLd([
-    { label: 'Home', href: routes.home() },
-    { label: 'About', href: routes.about() },
-  ]),
   faqJsonLd(aboutFaqs),
 ]
 
@@ -38,7 +40,7 @@ export default function AboutPage() {
   return (
     <article>
       <JsonLd data={jsonLdData} />
-      <AboutHero />
+      <AboutHero breadcrumbs={<Breadcrumbs items={breadcrumbItems} className="mb-4" />} />
       <AboutMissionSection />
       <AboutStandardsSection />
       <TechnologyPhilosophySection />

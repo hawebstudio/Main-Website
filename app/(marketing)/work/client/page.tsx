@@ -8,10 +8,12 @@ import { Container } from '@/components/primitives/container'
 import { Section } from '@/components/primitives/section'
 import { CtaSection } from '@/components/sections/cta-section'
 import { WorkTabs } from '@/components/navigation/work-tabs'
+import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
 import { ProjectCard } from '@/components/cards/domain-cards'
 import { projects } from '@/lib/content/source'
 import { routes } from '@/config/routes'
 import { buttonVariants } from '@/components/ui/button'
+import { WorkSubpageHeroBackground } from '@/components/sections/hero-backgrounds'
 
 export const metadata: Metadata = createMetadata({
   title: 'Client Work',
@@ -26,18 +28,20 @@ export default async function ClientWorkPage() {
     return (b.year || 0) - (a.year || 0)
   })
 
+  const breadcrumbItems = [
+    { label: 'Home', href: routes.home() },
+    { label: 'Work', href: routes.work.index() },
+    { label: 'Client', href: routes.work.client() },
+  ]
+
   return (
-    <article className="pb-24">
+    <article className="pb-4 md:pb-8">
       <HeroWrapper
         className="py-14 md:py-18"
-        background={
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.14),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_44%)]" />
-            <div className="absolute left-1/2 top-0 h-80 w-[44rem] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
-          </div>
-        }
+        background={<WorkSubpageHeroBackground />}
       >
-        <div className="mx-auto flex max-w-5xl flex-col gap-6">
+        <div className="mx-auto flex max-w-5xl flex-col gap-6 relative z-20">
+          <Breadcrumbs items={breadcrumbItems} className="mb-0" />
           <Eyebrow>Work track: client</Eyebrow>
           <Heading level={1} size="display" className="max-w-4xl text-balance leading-[0.9] tracking-tight">
             Public client evidence only.
@@ -46,7 +50,7 @@ export default async function ClientWorkPage() {
             This track is reserved for client work that can be shared responsibly. Confidential engagements are not converted into anonymous filler entries.
           </Text>
           <div className="flex flex-wrap gap-3">
-            <Link href={routes.contact()} className={buttonVariants({ size: 'lg' })}>
+            <Link href={routes.contact('start-project')} className={buttonVariants({ size: 'lg' })}>
               Discuss Your Project
             </Link>
             <Link
@@ -100,7 +104,7 @@ export default async function ClientWorkPage() {
       <CtaSection
         title="Need client-grade delivery?"
         description="Share your goals and constraints, and we will map an implementation plan grounded in real delivery patterns."
-        primaryCta={{ label: 'Discuss Your Project', href: routes.contact() }}
+        primaryCta={{ label: 'Discuss Your Project', href: routes.contact('start-project') }}
         secondaryCta={{ label: 'View Services', href: routes.services.index() }}
       />
     </article>

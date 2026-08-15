@@ -1,9 +1,14 @@
 import { HeroWrapper } from '@/components/sections/hero-wrapper'
 import { Heading, Text } from '@/components/primitives/typography'
 
-export function AboutHero() {
+interface AboutHeroProps {
+  breadcrumbs?: React.ReactNode
+}
+
+export function AboutHero({ breadcrumbs }: AboutHeroProps) {
   return (
     <HeroWrapper>
+      {breadcrumbs}
       <div className="flex max-w-3xl flex-col gap-6">
         <span className="text-sm font-semibold uppercase tracking-wider text-primary">
           About HA Web Studio
@@ -16,6 +21,10 @@ export function AboutHero() {
           conversion-focused websites for ambitious small businesses, startups, and ecommerce
           brands. No bloat, no generic templates &mdash; every project is purpose-built around
           your business and your customers.
+        </Text>
+        <Text size="sm" tone="muted">
+          Remote-first and based in India, working with businesses across Delhi NCR and
+          worldwide.
         </Text>
       </div>
     </HeroWrapper>

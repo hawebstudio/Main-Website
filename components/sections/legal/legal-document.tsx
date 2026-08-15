@@ -1,9 +1,11 @@
 import { Container } from '@/components/primitives/container'
 import { Heading, Text } from '@/components/primitives/typography'
 import type { LegalDocument } from '@/lib/legal/content'
+import type { ReactNode } from 'react'
 
 interface LegalDocumentSectionProps {
   document: LegalDocument
+  breadcrumbs?: ReactNode
 }
 
 /**
@@ -11,10 +13,11 @@ interface LegalDocumentSectionProps {
  * so the three legal pages stay visually consistent and only the data
  * (lib/legal/content.ts) needs to change when copy is updated.
  */
-export function LegalDocumentSection({ document }: LegalDocumentSectionProps) {
+export function LegalDocumentSection({ document, breadcrumbs }: LegalDocumentSectionProps) {
   return (
     <article className="py-16 md:py-24">
       <Container size="sm" as="div" className="flex flex-col gap-10">
+        {breadcrumbs}
         <div className="flex flex-col gap-3">
           <Heading level={1} size="display">
             {document.title}

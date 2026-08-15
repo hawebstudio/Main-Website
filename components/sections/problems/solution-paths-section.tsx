@@ -43,7 +43,7 @@ function SolutionPathCard({ solution, index }: { solution: SolutionSection; inde
     <section
       id={solution.slug}
       className={cn(
-        'glass-strong relative overflow-hidden rounded-[2rem] border border-border/50 p-6',
+        '@container glass-strong relative overflow-hidden rounded-[2rem] border border-border/50 p-6',
         treatment.panel,
         index % 3 === 0 ? 'xl:col-span-7' : index % 3 === 1 ? 'xl:col-span-5' : 'xl:col-span-12',
       )}
@@ -64,7 +64,7 @@ function SolutionPathCard({ solution, index }: { solution: SolutionSection; inde
           </Text>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 @sm:grid-cols-2 @4xl:grid-cols-4">
           {solution.idealFor?.length ? <ListPanel title="Ideal for" items={solution.idealFor} /> : null}
           <ListPanel title="Common challenges" items={solution.challenges} />
           <LinkPanel title="Recommended services" items={solution.recommendedServices} />
@@ -85,7 +85,7 @@ function SolutionPathCard({ solution, index }: { solution: SolutionSection; inde
 
 function ListPanel({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="rounded-3xl border border-border/60 bg-background/35 p-5 md:col-span-2 xl:col-span-1">
+    <div className="rounded-3xl border border-border/60 bg-background/35 p-5 @sm:col-span-2 @4xl:col-span-1">
       <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{title}</div>
       <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
         {items.map((item) => (
@@ -101,7 +101,7 @@ function ListPanel({ title, items }: { title: string; items: string[] }) {
 
 function LinkPanel({ title, items }: { title: string; items: Array<{ label: string; href: string }> }) {
   return (
-    <div className="rounded-3xl border border-border/60 bg-background/35 p-5 md:col-span-2 xl:col-span-1">
+    <div className="rounded-3xl border border-border/60 bg-background/35 p-5 @sm:col-span-2 @4xl:col-span-1">
       <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{title}</div>
       <ul className="mt-3 space-y-2 text-sm">
         {items.map((item) => (

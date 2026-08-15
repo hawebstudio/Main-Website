@@ -110,7 +110,7 @@ relatedTechnologySlugs:
   - dns
 cta:
   label: Discuss Infrastructure Setup
-  href: /contact
+  href: /contact?intent=performance-security
 author:
   name: HA Web Studio
   role: Infrastructure and Operations
@@ -127,15 +127,36 @@ HA Web Studio is a web design and development agency, and reliable email and DNS
 
 ## Investigation
 
-The main focus was choosing an implementation sequence that minimized routing errors during DNS propagation.
+The main focus was choosing an implementation sequence that minimized routing errors during DNS
+propagation. The setup was broken into sequence-driven checkpoints — DNS authority verification,
+MX planning, TXT verification records, and post-change validation — with more than one ordering
+strategy tested before settling on one. The core constraint driving the whole approach: DNS
+propagation delays mean changes aren't visible everywhere at once, so a mistake in one record
+can look fine from one vantage point while already causing failures elsewhere.
+
+Two approaches were weighed directly. A single-pass update across every DNS record at once was
+considered and rejected — with rollback context unclear mid-propagation, a mistake would have
+the whole domain as its blast radius, not just the record that was wrong. Phased updates with a
+validation checkpoint after each record group were chosen instead, because a bad change gets
+caught at the group where it happened, not discovered days later in a client's inbox.
 
 ## Solution
 
-A phased process with explicit validation checkpoints was used instead of high-risk bulk changes.
+A phased process with explicit validation checkpoints was used instead of high-risk bulk changes,
+executed in four stages: verifying current records and ownership boundaries before touching
+anything; configuring MX records and confirming provider acceptance; adding the TXT records
+required for domain verification and sender trust; and a final pass checking propagation state
+and documenting the known-good configuration for future reference.
 
 ## Lessons Learned
 
-Infrastructure stories are valuable case studies when they explain the why behind engineering order and safeguards.
+Infrastructure stories are valuable case studies when they explain the why behind engineering
+order and safeguards. Two things stood out here specifically: the order records are changed in
+matters as much as what the records actually say, and keeping a change log made troubleshooting
+propagation delays far less confusing than reconstructing what happened after the fact. The one
+thing planned for next time — and already in progress — is automating a pre-change snapshot of
+existing records, so every DNS change has a known-good rollback point captured automatically
+instead of rebuilt from documentation under time pressure.
 
 ## Why This Applies to Client Projects
 

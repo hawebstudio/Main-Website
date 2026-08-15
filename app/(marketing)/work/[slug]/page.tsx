@@ -9,7 +9,8 @@ import {
 } from '@/lib/content/relations'
 import { createMetadata } from '@/lib/seo/metadata'
 import { routes } from '@/config/routes'
-import { breadcrumbJsonLd, projectJsonLd } from '@/lib/seo/json-ld'
+import { CTAS } from '@/lib/data/ctas'
+import { projectJsonLd } from '@/lib/seo/json-ld'
 import { absoluteUrl } from '@/lib/seo/metadata'
 import { JsonLd } from '@/components/seo/json-ld'
 import { SocialShareSection } from '@/components/sections/social-share-section'
@@ -63,7 +64,6 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   ]
 
   const jsonLd = [
-    breadcrumbJsonLd(breadcrumbItems),
     projectJsonLd({
       title: project.title,
       description: project.description,
@@ -73,10 +73,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   ]
 
   return (
-    <article className="pb-24">
+    <article className="pb-4 md:pb-8">
       <JsonLd data={jsonLd} />
-      <Breadcrumbs items={breadcrumbItems} className="pt-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" />
-      <ProjectDetailHero project={project} />
+      <ProjectDetailHero project={project} breadcrumbs={<Breadcrumbs items={breadcrumbItems} className="pb-4" />} />
       <ProjectOverviewSection project={project} />
       <ProjectGallerySection project={project} />
       <ProjectGoalsSection project={project} />
@@ -97,8 +96,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
       <CtaSection
         title="Need a similar outcome?"
         description="Tell us your current challenge and we will map a practical path using the most relevant services and implementation approach."
-        primaryCta={{ label: 'Discuss Your Project', href: routes.contact() }}
-        secondaryCta={{ label: 'Request Website Audit', href: routes.contact() }}
+        primaryCta={{ label: 'Discuss Your Project', href: routes.contact('start-project') }}
+        secondaryCta={CTAS.requestAudit}
       />
     </article>
   )

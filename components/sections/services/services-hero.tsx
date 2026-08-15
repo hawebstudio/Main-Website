@@ -6,7 +6,11 @@ import { buttonVariants } from '@/components/ui/button'
 import { CTAS } from '@/lib/data/ctas'
 import { discoveryPaths } from './services-data'
 
-export function ServicesHero() {
+interface ServicesHeroProps {
+  breadcrumbs?: React.ReactNode
+}
+
+export function ServicesHero({ breadcrumbs }: ServicesHeroProps) {
   return (
     <HeroWrapper
       className="py-14 md:py-20"
@@ -18,6 +22,7 @@ export function ServicesHero() {
       }
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-10 lg:gap-14">
+        {breadcrumbs}
         <div className="max-w-4xl space-y-6">
           <Eyebrow>Commercial hub</Eyebrow>
           <Heading level={1} size="display" className="max-w-5xl text-balance leading-[0.88] tracking-tight">

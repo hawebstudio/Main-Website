@@ -38,13 +38,29 @@ status: "published"
 
 ## Introduction
 
-Hosting, deployment, and platform technologies for secure, maintainable production systems.
-
-HA Web Studio evaluates cloud & infrastructure technologies by how they support the business goal, not by popularity alone.
+This category covers where a site or application actually runs, and how code gets there
+safely. Vercel is the primary hosting platform for Next.js applications, since it's built by
+the same team and handles server rendering, edge functions, and image optimization with no
+extra configuration. Render is used for services that don't fit Vercel's serverless model —
+long-running background jobs, certain databases, or workloads that need a persistent server.
+Docker packages an application and its dependencies into a portable, reproducible unit, which
+matters for anything that needs to run consistently outside a single hosting provider's managed
+environment. GitHub Actions automates the steps between pushing code and it going live — running
+tests, type-checking, and triggering deployments. Cloudflare sits in front of the site for DNS,
+CDN caching, and DDoS protection.
 
 ## When These Technologies Are Used
 
-These tools are used when they solve a clear project need: better performance, safer data handling, stronger publishing workflows, reliable deployment, improved measurement, or reduced maintenance cost.
+Vercel is the default choice for Next.js projects because it removes an entire category of
+deployment configuration. Render or a similar platform comes into play when a project needs a
+persistent backend process that a serverless platform can't run — a worker that stays
+connected to a queue, for example. Docker is used when a workload needs to run the same way in
+multiple places (a developer's machine, a CI pipeline, a non-Vercel host) or when a project has
+dependencies that don't fit a serverless runtime. GitHub Actions is used on essentially every
+project as the safety net between a code change and production — catching type errors or
+failing tests before they reach a live site. Cloudflare is added when a site needs faster
+global delivery, protection against traffic spikes or attacks, or DNS management independent of
+the hosting provider.
 
 ## Related Services
 

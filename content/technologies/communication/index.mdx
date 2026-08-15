@@ -34,13 +34,25 @@ status: "published"
 
 ## Introduction
 
-Messaging and email technologies for transactional communication and lead workflows.
-
-HA Web Studio evaluates communication technologies by how they support the business goal, not by popularity alone.
+This category covers sending email programmatically from a website or application — order
+confirmations, password resets, contact-form notifications, and similar transactional
+messages. It's a different job from marketing email tools: the focus here is reliable,
+fast delivery of individual, triggered messages rather than bulk campaign sending. Resend and
+SendGrid are both transactional email APIs built for developers to integrate directly into an
+application; Brevo covers a similar space with added marketing-automation features when a
+project needs both transactional and campaign email from one provider. Nodemailer is a
+Node.js library for sending email through any SMTP provider, used when a project needs direct
+control over the sending process rather than going through a dedicated transactional-email API.
 
 ## When These Technologies Are Used
 
-These tools are used when they solve a clear project need: better performance, safer data handling, stronger publishing workflows, reliable deployment, improved measurement, or reduced maintenance cost.
+Any site with a contact form, user account system, or checkout flow needs transactional email
+— to confirm a submission, verify an account, or send a receipt. The choice between these
+tools mostly comes down to deliverability requirements and existing infrastructure: Resend and
+SendGrid are strong defaults for straightforward transactional needs, Brevo becomes relevant
+when a client also wants newsletter or campaign functionality without adding a second tool, and
+Nodemailer is used when a project already has its own SMTP relay or needs email-sending logic
+that doesn't depend on a third-party API's specific feature set.
 
 ## Related Services
 

@@ -68,6 +68,7 @@ export function SiteFooter() {
             <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
             </p>
+            <p className="text-xs text-muted-foreground">Remote-first · Based in India</p>
             <ul className="flex flex-wrap items-center gap-4">
               {legalLinks.map((link) => (
                 <li key={link.href}>

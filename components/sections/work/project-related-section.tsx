@@ -25,13 +25,13 @@ export function ProjectRelatedSection({
     <Section spacing="lg" className="bg-muted/20">
       <Container>
         <div className="grid gap-6 xl:grid-cols-12">
-          <div className="rounded-[2rem] border border-border/50 bg-background/35 p-5 xl:col-span-6">
+          <div className="@container rounded-[2rem] border border-border/50 bg-background/35 p-5 xl:col-span-6">
             <Eyebrow>Services connected</Eyebrow>
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div className="mt-4 grid gap-4 @sm:grid-cols-2">
               {relatedServices.length > 0 ? (
                 relatedServices.map((service) => <ServiceCard key={service.slug} service={service} />)
               ) : (
-                <EmptyState className="md:col-span-2">No direct service mapping is published yet.</EmptyState>
+                <EmptyState className="@sm:col-span-2">No direct service mapping is published yet.</EmptyState>
               )}
             </div>
           </div>

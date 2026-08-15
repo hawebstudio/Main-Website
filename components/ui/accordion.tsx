@@ -3,11 +3,22 @@ import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion"
 import { cn } from "@/lib/utils"
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react"
 
-function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
+type AccordionProps = Omit<AccordionPrimitive.Root.Props, "multiple"> & {
+  /** @deprecated Radix-style prop, kept for call-site compatibility. Maps to `multiple={false}`. */
+  type?: "single" | "multiple"
+  /** @deprecated Radix-style prop, kept for call-site compatibility. Base UI accordions are collapsible by default. */
+  collapsible?: boolean
+  /** @deprecated Base UI renamed this to `multiple`. Kept for call-site compatibility. */
+  openMultiple?: boolean
+  multiple?: boolean
+}
+
+function Accordion({ className, type, collapsible, openMultiple, multiple, ...props }: AccordionProps) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
       className={cn("flex w-full flex-col", className)}
+      multiple={multiple ?? openMultiple ?? type !== "single"}
       {...props}
     />
   )

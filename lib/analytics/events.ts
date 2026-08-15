@@ -23,6 +23,11 @@ export const analyticsEvents = {
   siteSearch: 'site_search',
   scrollDepth: 'scroll_depth',
   buyerJourney: 'buyer_journey',
+  promotionOfferViewed: 'promotion_offer_viewed',
+  promotionOfferCtaClicked: 'promotion_offer_cta_clicked',
+  promotionOfferDismissed: 'promotion_offer_dismissed',
+  promotionBannerViewed: 'promotion_banner_viewed',
+  promotionBannerCtaClicked: 'promotion_banner_cta_clicked',
 } as const
 
 export type AnalyticsEventName = (typeof analyticsEvents)[keyof typeof analyticsEvents]
@@ -49,6 +54,11 @@ export const eventDefinitions: Record<AnalyticsEventName, AnalyticsEventDefiniti
   [analyticsEvents.siteSearch]: { name: analyticsEvents.siteSearch, description: 'Site search used' },
   [analyticsEvents.scrollDepth]: { name: analyticsEvents.scrollDepth, description: 'Scroll depth reached' },
   [analyticsEvents.buyerJourney]: { name: analyticsEvents.buyerJourney, description: 'Buyer journey interaction' },
+  [analyticsEvents.promotionOfferViewed]: { name: analyticsEvents.promotionOfferViewed, description: 'Promotion popup shown' },
+  [analyticsEvents.promotionOfferCtaClicked]: { name: analyticsEvents.promotionOfferCtaClicked, description: 'Promotion popup CTA clicked', conversion: true },
+  [analyticsEvents.promotionOfferDismissed]: { name: analyticsEvents.promotionOfferDismissed, description: 'Promotion popup dismissed' },
+  [analyticsEvents.promotionBannerViewed]: { name: analyticsEvents.promotionBannerViewed, description: 'Promotion banner shown on contact form' },
+  [analyticsEvents.promotionBannerCtaClicked]: { name: analyticsEvents.promotionBannerCtaClicked, description: 'Promotion banner CTA clicked on contact form', conversion: true },
 }
 
 export function trackAnalyticsEvent(eventName: AnalyticsEventName, payload: AnalyticsPayload = {}) {

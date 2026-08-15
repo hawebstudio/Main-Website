@@ -8,6 +8,7 @@ import { Heading, Text } from '@/components/primitives/typography'
 import { createMetadata } from '@/lib/seo/metadata'
 import type { SearchDocumentType } from '@/lib/search'
 import { routes } from '@/config/routes'
+import { SearchHeroBackground } from '@/components/sections/hero-backgrounds'
 
 interface SearchPageProps {
   searchParams: Promise<{
@@ -18,11 +19,22 @@ interface SearchPageProps {
 
 const searchTypes: SearchDocumentType[] = ['service', 'work', 'case-study', 'problem', 'insight', 'technology']
 
-export const metadata: Metadata = createMetadata({
-  title: 'Search',
-  description: 'Search HA Web Studio services, work, case studies, insights, technologies, and business problems.',
-  path: routes.search(),
-})
+export async function generateMetadata({ searchParams }: SearchPageProps): Promise<Metadata> {
+  const params = await searchParams
+  // The bare /search page is a legitimate, useful feature page and stays
+  // indexable. Once a query is present it becomes an internal search
+  // results page — Google's Search Essentials guidance recommends keeping
+  // those out of the index (thin, near-duplicate, query-string-driven
+  // content), so noindex any URL that carries a q= param.
+  const isResultsView = Boolean(params.q)
+
+  return createMetadata({
+    title: 'Search',
+    description: 'Search HA Web Studio services, work, case studies, insights, technologies, and business problems.',
+    path: routes.search(),
+    noIndex: isResultsView,
+  })
+}
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
   const params = await searchParams
@@ -34,11 +46,10 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   ]
 
   return (
-    <article className="pb-24">
-      <Breadcrumbs items={breadcrumbItems} className="pt-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" />
-
-      <HeroWrapper className="py-14 md:py-18">
-        <div className="mx-auto max-w-4xl">
+    <article className="pb-4 md:pb-8">
+      <HeroWrapper className="pb-14 pt-8 md:pb-18" background={<SearchHeroBackground />}>
+        <div className="mx-auto max-w-4xl relative z-20">
+          <Breadcrumbs items={breadcrumbItems} className="pb-4" />
           <Heading level={1} size="display" className="text-balance leading-[0.9] tracking-tight">
             Search HA Web Studio
           </Heading>

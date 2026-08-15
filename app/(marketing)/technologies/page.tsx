@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { createMetadata } from '@/lib/seo/metadata'
+import { JsonLd } from '@/components/seo/json-ld'
+import { collectionPageJsonLd } from '@/lib/seo/json-ld'
 import { HeroWrapper } from '@/components/sections/hero-wrapper'
 import { Heading, Text, Eyebrow } from '@/components/primitives/typography'
 import { Container } from '@/components/primitives/container'
@@ -9,8 +11,11 @@ import { CtaSection } from '@/components/sections/cta-section'
 import { TechnologyCard } from '@/components/cards/domain-cards'
 import { technologies } from '@/lib/content/source'
 import { routes } from '@/config/routes'
+import { CTAS } from '@/lib/data/ctas'
 import { mdxComponents } from '@/lib/content/mdx-components'
 import { mdxOptions } from '@/lib/content/mdx-options'
+import { TechnologiesHeroBackground } from '@/components/sections/hero-backgrounds'
+import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
 
 export const metadata: Metadata = createMetadata({
   title: 'Technologies',
@@ -25,15 +30,40 @@ export default async function TechnologiesPage() {
   const featuredTechnologies = await technologies.getFeatured()
   const allTech = await technologies.getAll()
 
+  const breadcrumbItems = [
+    { label: 'Home', href: routes.home() },
+    { label: 'Technologies', href: routes.technologies.index() },
+  ]
+
   return (
     <>
-      <HeroWrapper>
-        <Heading level={1} size="display">
-          {rootPage?.title ?? 'Technologies'}
-        </Heading>
-        <Text size="lg" tone="muted" className="max-w-xl">
-          {rootPage?.description ?? "The modern platforms and frameworks we use to build fast, scalable web experiences. We don't believe in one-size-fits-all."}
-        </Text>
+      <JsonLd
+        data={[
+          collectionPageJsonLd({
+            title: rootPage?.title ?? 'Technologies',
+            description:
+              rootPage?.description ??
+              'The modern platforms and frameworks we use to build fast, scalable web experiences.',
+            path: routes.technologies.index(),
+            items: allTech
+              .filter((tech): tech is typeof tech & { category: string } => Boolean(tech.category))
+              .map((tech) => ({
+                title: tech.title,
+                path: routes.technologies.detail(tech.category, tech.slug),
+              })),
+          }),
+        ]}
+      />
+      <HeroWrapper background={<TechnologiesHeroBackground />}>
+        <Breadcrumbs items={breadcrumbItems} className="relative z-20 mb-4" />
+        <div className="relative z-20 space-y-4">
+          <Heading level={1} size="display">
+            {rootPage?.title ?? 'Technologies'}
+          </Heading>
+          <Text size="lg" tone="muted" className="max-w-xl">
+            {rootPage?.description ?? "The modern platforms and frameworks we use to build fast, scalable web experiences. We don't believe in one-size-fits-all."}
+          </Text>
+        </div>
       </HeroWrapper>
 
       <Section spacing="sm">
@@ -88,7 +118,12 @@ export default async function TechnologiesPage() {
         </Container>
       </Section>
 
-      <CtaSection />
+      <CtaSection
+        title="Need one of these technologies implemented correctly?"
+        description="Talk to HA Web Studio about the right stack for your business."
+        primaryCta={CTAS.requestAudit}
+        secondaryCta={CTAS.bookConsultation}
+      />
     </>
   )
 }

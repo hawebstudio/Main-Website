@@ -5,6 +5,7 @@ import {
   technologySchema,
   insightSchema,
   problemSchema,
+  promotionSchema,
 } from '@/lib/content/schemas'
 import type {
   Service,
@@ -13,6 +14,7 @@ import type {
   Technology,
   Insight,
   Problem,
+  Promotion,
   ContentStatus,
 } from '@/lib/content/types'
 import { resolveProvider, type ContentProvider } from '@/lib/content/providers'
@@ -200,6 +202,49 @@ export const insights = createCollection<Insight>(
 export const problems = createCollection<Problem>(
   wrapProvider(resolveProvider({ name: 'problems', gitDirectory: 'content/problems', schema: problemSchema })),
 )
+
+/**
+ * Promotions live in `content/promotion/`. This collection is intentionally
+ * kept out of `allCollections` below — promotions have no detail pages of
+ * their own and aren't part of the related-content graph, they're just a
+ * time-boxed banner/popup source.
+ *
+ * If the folder is empty (or missing entirely) `getAll()` resolves to an
+ * empty array — see `createGitMdxProvider` — so every consumer naturally
+ * renders nothing rather than needing its own "is there a promo" branch.
+ */
+export const promotions = createCollection<Promotion>(
+  wrapProvider(resolveProvider({ name: 'promotions', gitDirectory: 'content/promotion', schema: promotionSchema })),
+)
+
+function isWithinPromotionWindow(promotion: Promotion, now: Date): boolean {
+  try {
+    const start = new Date(`${promotion.startDate}T00:00:00`)
+    const end = new Date(`${promotion.endDate}T23:59:59`)
+    return now >= start && now <= end
+  } catch {
+    return false
+  }
+}
+
+/** All promotions currently eligible to be shown, highest priority first. */
+export async function getActivePromotions(): Promise<WithContent<Promotion>[]> {
+  const entries = await promotions.getAll()
+  const now = new Date()
+  return entries
+    .filter((promotion) => promotion.enabled !== false && isWithinPromotionWindow(promotion, now))
+    .sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0))
+}
+
+/**
+ * The single promotion the popup and contact form should surface.
+ * Returns `null` when `content/promotion/` has no eligible entry — the
+ * "render nothing" case.
+ */
+export async function getActivePromotion(): Promise<WithContent<Promotion> | null> {
+  const [first] = await getActivePromotions()
+  return first ?? null
+}
 
 /** All registered collections for automation and maintenance scripts */
 export const allCollections = {

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowRight, CheckCircle2, Globe2, Gauge, Search, ShoppingBag, Wrench, BarChart3, MapPin, Sparkles } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Globe2, Gauge, Search, ShoppingBag, Wrench, BarChart3, MapPin, Sparkles, Layout, TrendingUp, Calendar, Link2, Code, ShieldCheck } from 'lucide-react'
 import { serviceFamilies, getFamilyBySlug, getServicesByFamily } from '@/lib/content/source'
 import {
   getCaseStudiesForServices,
@@ -10,7 +10,7 @@ import {
   getTechnologiesForServices,
 } from '@/lib/content/relations'
 import { createMetadata } from '@/lib/seo/metadata'
-import { faqJsonLd } from '@/lib/seo/json-ld'
+import { collectionPageJsonLd, faqJsonLd } from '@/lib/seo/json-ld'
 import { routes } from '@/config/routes'
 import { JsonLd } from '@/components/seo/json-ld'
 import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
@@ -20,21 +20,26 @@ import { Container } from '@/components/primitives/container'
 import { Section } from '@/components/primitives/section'
 import { buttonVariants } from '@/components/ui/button'
 import { CtaSection } from '@/components/sections/cta-section'
+import { CTAS } from '@/lib/data/ctas'
 import { CaseStudyCard, InsightCard, ProjectCard, ServiceCard, TechnologyCard } from '@/components/cards/domain-cards'
+import { ServiceFamilyHeroBackground } from '@/components/sections/hero-backgrounds'
 
 interface FamilyPageProps {
   params: Promise<{ slug: string }>
 }
 
 const icons = {
-  'business-websites': Globe2,
-  ecommerce: ShoppingBag,
-  'website-performance': Gauge,
-  'seo-search-visibility': Search,
-  'google-business': MapPin,
-  analytics: BarChart3,
-  'custom-web-applications': Wrench,
-  'website-management': Sparkles,
+  'websites': Globe2,
+  'design': Layout,
+  'ecommerce': ShoppingBag,
+  'growth': TrendingUp,
+  'seo-search': Search,
+  'business-systems': Calendar,
+  'integrations': Link2,
+  'analytics': BarChart3,
+  'performance-security': ShieldCheck,
+  'development': Code,
+  'maintenance': Sparkles,
 } as const
 
 export async function generateStaticParams() {
@@ -90,20 +95,27 @@ export default async function ServiceFamilyPage({ params }: FamilyPageProps) {
     ]
 
   return (
-    <article className="pb-24">
-      <JsonLd data={[faqJsonLd(faqEntries)]} />
-      <Breadcrumbs items={breadcrumbItems} className="pt-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" />
-
+    <article className="pb-4 md:pb-8">
+      <JsonLd
+        data={[
+          collectionPageJsonLd({
+            title: family.seo?.title ?? family.title,
+            description: family.seo?.description ?? family.description,
+            path: routes.services.family(family.slug),
+            items: familyServices.map((service) => ({
+              title: service.title,
+              path: routes.services.detail(service.slug),
+            })),
+          }),
+          faqJsonLd(faqEntries),
+        ]}
+      />
       <HeroWrapper
-        className="py-14 md:py-20"
-        background={
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.14),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_42%)]" />
-            <div className="absolute left-1/2 top-2 h-80 w-[48rem] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
-          </div>
-        }
+        className="pb-14 pt-8 md:pb-20"
+        background={<ServiceFamilyHeroBackground />}
       >
-        <div className="mx-auto flex max-w-5xl flex-col gap-6">
+        <div className="mx-auto flex max-w-5xl flex-col gap-6 relative z-20">
+          <Breadcrumbs items={breadcrumbItems} className="pb-4" />
           <div className="flex items-center gap-3">
             <span className="flex size-12 items-center justify-center rounded-2xl border border-border/60 bg-background/70 text-primary">
               <Icon className="size-6" />
@@ -291,7 +303,7 @@ export default async function ServiceFamilyPage({ params }: FamilyPageProps) {
         </Container>
       </Section>
 
-      <CtaSection title={family.cta.label} description="Move from a broad goal into the service that fits best." primaryCta={family.cta} secondaryCta={{ label: 'Request Website Audit', href: '/contact' }} />
+      <CtaSection title={family.cta.label} description="Move from a broad goal into the service that fits best." primaryCta={family.cta} secondaryCta={CTAS.requestAudit} />
     </article>
   )
 }

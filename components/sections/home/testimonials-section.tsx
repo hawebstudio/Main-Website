@@ -7,10 +7,12 @@ import { SectionHeading } from './section-heading'
 
 /**
  * TestimonialsSection — direct social proof between the process and the
- * final CTA. Swap the placeholder quotes in home-data.ts for real,
- * attributable client testimonials before launch.
+ * final CTA. Renders nothing until home-data.ts has real, attributable
+ * client testimonials (with permission) — no placeholder quotes here.
  */
 export function TestimonialsSection() {
+  if (testimonials.length === 0) return null
+
   return (
     <Section spacing="lg">
       <Container>

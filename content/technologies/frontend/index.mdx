@@ -44,13 +44,28 @@ status: "published"
 
 ## Introduction
 
-Interface technologies for fast, accessible, component-driven website and application experiences.
-
-HA Web Studio evaluates frontend technologies by how they support the business goal, not by popularity alone.
+Frontend technologies are what a visitor's browser actually renders and interacts with. This
+category spans the foundational web languages (HTML5, CSS3, JavaScript ES6) up through the
+tools built on top of them: Next.js as the React framework used for server rendering, routing,
+and performance out of the box; React itself as the underlying component library; TypeScript
+for catching type errors during development rather than in production; Tailwind CSS for
+utility-based styling; shadcn/ui for accessible, pre-built component primitives that stay fully
+customizable; Framer Motion for animation; React Hook Form for form state and validation; and
+Zod for runtime data validation (frequently paired with React Hook Form to validate what a user
+actually submits).
 
 ## When These Technologies Are Used
 
-These tools are used when they solve a clear project need: better performance, safer data handling, stronger publishing workflows, reliable deployment, improved measurement, or reduced maintenance cost.
+Next.js and React are the default foundation for any custom-built site or application on this
+stack, since they support both fast initial page loads (via server rendering) and rich
+client-side interactivity in the same codebase. TypeScript is used throughout rather than
+selectively, since the cost of adding types later is higher than writing them from the start.
+Tailwind CSS and shadcn/ui are used together for most interface work — Tailwind for layout and
+spacing, shadcn/ui for interactive components like dropdowns, dialogs, and form controls that
+would otherwise take significant time to build accessibly from scratch. Framer Motion is added
+specifically where animation adds real clarity (state transitions, feedback on an action) rather
+than as decoration. React Hook Form and Zod are used together on any form beyond the simplest
+contact field, since manual form-state management is a common source of bugs.
 
 ## Related Services
 

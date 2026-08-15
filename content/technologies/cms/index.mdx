@@ -35,13 +35,28 @@ status: "published"
 
 ## Introduction
 
-Content management systems for teams that need structured publishing without developer bottlenecks.
-
-HA Web Studio evaluates cms technologies by how they support the business goal, not by popularity alone.
+A content management system exists to let non-developers publish and update content — blog
+posts, product descriptions, marketing copy, images — without needing a developer to make code
+changes for every update. This category covers three CMS options with meaningfully different
+trade-offs. WordPress is the most widely used CMS in the world, with a huge plugin ecosystem
+and low setup cost, but it's a full application in its own right (PHP, its own database,
+regular security patching) rather than something that plugs cleanly into a custom-built Next.js
+site. Sanity and Payload CMS are both "headless" CMS platforms — they manage content and expose
+it through an API, while the actual website is built separately (in this studio's case, with
+Next.js), giving more control over performance and design than a traditional CMS template
+allows.
 
 ## When These Technologies Are Used
 
-These tools are used when they solve a clear project need: better performance, safer data handling, stronger publishing workflows, reliable deployment, improved measurement, or reduced maintenance cost.
+A CMS is worth adding when a client's team needs to update content regularly without
+developer involvement — a blog, a changing product catalog, or frequently updated marketing
+pages. For a small site with content that rarely changes, hardcoding content directly into the
+codebase is often simpler and avoids the ongoing cost of running and maintaining a separate
+system. Between the headless options, Sanity tends to suit projects that want a highly
+customizable content-editing experience, while Payload suits projects that want the CMS and
+backend logic to live in the same codebase as the application. WordPress remains a reasonable
+choice specifically when a client has an existing WordPress site, team familiarity with it, or
+a plugin-dependent workflow that would be costly to rebuild elsewhere.
 
 ## Related Services
 

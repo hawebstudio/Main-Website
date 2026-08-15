@@ -3,7 +3,8 @@ import { CtaSection } from '@/components/sections/cta-section'
 import { CTAS } from '@/lib/data/ctas'
 import { createMetadata } from '@/lib/seo/metadata'
 import { JsonLd } from '@/components/seo/json-ld'
-import { webPageJsonLd } from '@/lib/seo/json-ld'
+import { faqJsonLd, webPageJsonLd } from '@/lib/seo/json-ld'
+import { aboutFaqs } from '@/lib/data/about-faqs'
 import { caseStudies, insights, projects, services, technologies } from '@/lib/content/source'
 import { CapabilitiesSection } from '@/components/sections/home/capabilities-section'
 import { HeroSection } from '@/components/sections/home/hero-section'
@@ -15,6 +16,8 @@ import { SelectedWorkSection } from '@/components/sections/home/selected-work-se
 import { TechnologyStackSection } from '@/components/sections/home/technology-stack-section'
 // import { TestimonialsSection } from '@/components/sections/home/testimonials-section'
 import { TrustBarSection } from '@/components/sections/home/trust-bar-section'
+import { WhyChooseUsSection } from '@/components/sections/home/why-choose-us-section'
+import { FaqSection } from '@/components/sections/home/faq-section'
 
 const homeDescription =
   'HA Web Studio is a digital product studio building fast, modern, conversion-focused websites, ecommerce stores, and web applications for small businesses, startups, and ecommerce brands. Every build is engineered for technical SEO and AI search visibility from day one.'
@@ -32,6 +35,8 @@ const jsonLdData = [
     path: '/',
     type: 'WebPage',
   }),
+  // Keep in sync with FaqSection, which renders this same slice.
+  faqJsonLd(aboutFaqs.slice(0, 4)),
 ]
 
 export default async function HomePage() {
@@ -50,17 +55,19 @@ export default async function HomePage() {
   })
 
   return (
-    <article className="pb-24">
+    <article className="pb-4 md:pb-8">
       <JsonLd data={jsonLdData} />
       <HeroSection />
       <TrustBarSection />
       <OperatingPrinciplesSection />
       <ProblemsSection />
       <CapabilitiesSection services={serviceEntries.slice(0, 4)} />
+      <WhyChooseUsSection />
       <TechnologyStackSection technologies={featuredTechnologies} />
       <SelectedWorkSection featuredProject={sortedProjects[0]} secondaryProjects={sortedProjects.slice(1, 3)} />
       <ProcessSection />
       {/* <TestimonialsSection /> */}
+      <FaqSection />
       <InsightsSection insights={insightEntries.slice(0, 2)} caseStudies={caseStudyEntries.slice(0, 3)} />
       <CtaSection
         title="Ready to build a website that actually performs?"

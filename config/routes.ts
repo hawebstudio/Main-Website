@@ -23,6 +23,10 @@ export const routes = {
     detail: (categoryOrSlug: string, slug?: string) =>
       slug ? `/technologies/${categoryOrSlug}/${slug}` : `/technologies/${categoryOrSlug}`,
   },
+  locations: {
+    index: () => "/locations",
+    detail: (slug: string) => `/locations/${slug}`,
+  },
   insights: {
     index: () => "/insights",
     detail: (slug: string) => `/insights/${slug}`,
@@ -33,7 +37,8 @@ export const routes = {
   },
   search: (query?: string) => (query ? `/search?q=${encodeURIComponent(query)}` : "/search"),
   about: () => "/about",
-  contact: () => "/contact",
+  websiteGrowthAssessment: () => "/website-growth-assessment",
+  contact: (intent?: string) => (intent ? `/contact?intent=${encodeURIComponent(intent)}` : "/contact"),
   socials: () => "/socials",
   privacy: () => "/privacy",
   terms: () => "/terms",

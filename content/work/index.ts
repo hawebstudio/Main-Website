@@ -149,24 +149,24 @@ export const projects: Project[] = [
     year: 2026,
     cover: {
       src: "/images/ms-signature-scents/cover.png",
-      alt: "",
+      alt: "MS Signature Scents homepage hero with a gold perfume bottle on a dark background, headline 'Find Your Luxury'",
     },
     gallery: [
       {
         src: "/images/ms-signature-scents/gallery1.png",
-        alt: "",
+        alt: "MS Signature Scents category section showing Attar and Perfume collection cards on a dark marble background",
       },
       {
         src: "/images/ms-signature-scents/gallery2.png",
-        alt: "",
+        alt: "MS Signature Scents featured products grid showing three perfume bottles with product cards and pricing",
       },
       {
         src: "/images/ms-signature-scents/gallery3.png",
-        alt: "",
+        alt: "MS Signature Scents 'From Essence to Eternity' storytelling section describing the aging stage of fragrance production",
       },
       {
         src: "/images/ms-signature-scents/gallery4.png",
-        alt: "",
+        alt: "MS Signature Scents brand story section 'Where Tradition Meets Artistry' with site footer navigation",
       },
     ],
     featured: true,
@@ -260,20 +260,20 @@ export const projects: Project[] = [
       "Creators who want to go from idea to structured video project without juggling separate scripting, scene, and voice tools.",
     cover: {
       src: "/images/cintegrate/cover.png",
-      alt: "",
+      alt: "Imagine Reels AI video generation landing page hero with a text-to-video prompt input and cinematic preview panel",
     },
     gallery: [
       {
         src: "/images/cintegrate/gallery1.png",
-        alt: "",
+        alt: "Imagine Reels examples gallery showing sample AI-generated video prompts filterable by type",
       },
       {
         src: "/images/cintegrate/gallery2.png",
-        alt: "",
+        alt: "Imagine Reels API documentation section showing pseudo-code for the project creation and video rendering pipeline",
       },
       {
         src: "/images/cintegrate/gallery3.png",
-        alt: "",
+        alt: "Imagine Reels 'transparent AI pipeline' section showing the four-step idea-to-video process and target user segments",
       },
     ],
     url: "https://dev.cintegrate.site",
@@ -365,24 +365,24 @@ export const projects: Project[] = [
 
     cover: {
       src: "/images/omnivy-web-clipper/cover.png",
-      alt: "",
+      alt: "Omnivy browser extension landing page hero describing web clipping to Obsidian, Notion, and cloud storage",
     },
     gallery: [
       {
         src: "/images/omnivy-web-clipper/gallery1.png",
-        alt: "",
+        alt: "Omnivy supported workspaces section showing Obsidian, Notion, Google Drive, OneDrive, and Dropbox integration cards",
       },
       {
         src: "/images/omnivy-web-clipper/gallery2.png",
-        alt: "",
+        alt: "Omnivy features grid showing six capability cards including local capture, cloud uploads, and security",
       },
       {
         src: "/images/omnivy-web-clipper/gallery3.png",
-        alt: "",
+        alt: "Omnivy three-step setup guide showing browser extension install, workspace connection, and clipping instructions",
       },
       {
         src: "/images/omnivy-web-clipper/gallery4.png",
-        alt: "",
+        alt: "Omnivy frequently asked questions section with expandable questions about clipping and data storage",
       },
     ],
     publicLinks: [

@@ -22,7 +22,7 @@ export function ProjectOverviewSection({ project }: { project: WithContent<Proje
             {project.scope ? <DetailBlock title="Scope">{project.scope}</DetailBlock> : null}
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="@container grid gap-4 @lg:grid-cols-2">
             <SummaryCard icon={<Compass className="size-5 text-primary" />} title="Business challenge">
               {project.challenge ?? 'Challenge details are limited to non-confidential context.'}
             </SummaryCard>
@@ -30,7 +30,7 @@ export function ProjectOverviewSection({ project }: { project: WithContent<Proje
               {project.implementation ?? 'Implementation details are summarized for public transparency.'}
             </SummaryCard>
             {project.architecture ? (
-              <SummaryCard icon={<Route className="size-5 text-primary" />} title="Technical architecture" className="sm:col-span-2">
+              <SummaryCard icon={<Route className="size-5 text-primary" />} title="Technical architecture" className="@lg:col-span-2">
                 {project.architecture}
               </SummaryCard>
             ) : null}

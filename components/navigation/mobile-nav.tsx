@@ -16,10 +16,6 @@ interface MobileNavProps {
   items: NavItem[]
 }
 
-/**
- * MobileNav — client island for the small-screen menu.
- * Closes automatically on route change; supports Escape and backdrop dismiss.
- */
 export function MobileNav({ items }: MobileNavProps) {
   const [open, setOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -101,11 +97,11 @@ export function MobileNav({ items }: MobileNavProps) {
 
           <div className="mt-4 border-t border-border/60 pt-4">
             <Link
-              href={CTAS.startProject.href}
+              href={CTAS.requestAudit.href}
               className={buttonVariants({ className: 'w-full rounded-full px-5' })}
               onClick={() => setOpen(false)}
             >
-              {CTAS.startProject.label}
+              {CTAS.requestAudit.label}
             </Link>
           </div>
         </div>

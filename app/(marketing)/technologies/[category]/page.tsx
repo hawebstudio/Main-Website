@@ -3,8 +3,11 @@ import type { Metadata } from 'next'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { technologies } from '@/lib/content/source'
 import { createMetadata } from '@/lib/seo/metadata'
+import { collectionPageJsonLd } from '@/lib/seo/json-ld'
 import { routes } from '@/config/routes'
+import { CTAS } from '@/lib/data/ctas'
 import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
+import { JsonLd } from '@/components/seo/json-ld'
 import { HeroWrapper } from '@/components/sections/hero-wrapper'
 import { Heading, Text } from '@/components/primitives/typography'
 import { Container } from '@/components/primitives/container'
@@ -13,6 +16,7 @@ import { CtaSection } from '@/components/sections/cta-section'
 import { TechnologyCard } from '@/components/cards/domain-cards'
 import { mdxComponents } from '@/lib/content/mdx-components'
 import { mdxOptions } from '@/lib/content/mdx-options'
+import { TechnologiesHeroBackground } from '@/components/sections/hero-backgrounds'
 
 interface TechnologyCategoryPageProps {
   params: Promise<{ category: string }>
@@ -49,15 +53,29 @@ export default async function TechnologyCategoryPage({ params }: TechnologyCateg
 
   return (
     <>
-      <Breadcrumbs items={breadcrumbItems} className="pt-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" />
-
-      <HeroWrapper>
-        <Heading level={1} size="display">
-          {categoryPage.title}
-        </Heading>
-        <Text size="lg" tone="muted" className="max-w-2xl">
-          {categoryPage.description}
-        </Text>
+      <JsonLd
+        data={[
+          collectionPageJsonLd({
+            title: categoryPage.seoTitle ?? categoryPage.title,
+            description: categoryPage.seoDescription ?? categoryPage.description,
+            path: routes.technologies.category(categoryPage.slug),
+            items: categoryTechnologies.map((technology) => ({
+              title: technology.title,
+              path: routes.technologies.detail(technology.category ?? technology.slug, technology.category ? technology.slug : undefined),
+            })),
+          }),
+        ]}
+      />
+      <HeroWrapper className="pt-8" background={<TechnologiesHeroBackground />}>
+        <div className="relative z-20 space-y-4">
+          <Breadcrumbs items={breadcrumbItems} className="pb-4" />
+          <Heading level={1} size="display">
+            {categoryPage.title}
+          </Heading>
+          <Text size="lg" tone="muted" className="max-w-2xl">
+            {categoryPage.description}
+          </Text>
+        </div>
       </HeroWrapper>
 
       <Section spacing="md">
@@ -78,7 +96,12 @@ export default async function TechnologyCategoryPage({ params }: TechnologyCateg
         </Container>
       </Section>
 
-      <CtaSection />
+      <CtaSection
+        title={`Want ${categoryPage.title} set up correctly?`}
+        description="Talk to HA Web Studio about the right approach for your business."
+        primaryCta={CTAS.requestAudit}
+        secondaryCta={CTAS.bookConsultation}
+      />
     </>
   )
 }

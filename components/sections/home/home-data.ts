@@ -61,6 +61,29 @@ export const trustStats: TrustStat[] = [
     icon: "award",
   },
 ];
+ 
+export const whyChooseUsItems = [
+  {
+    dimension: "Turnaround",
+    typical: "Weeks of back-and-forth before you see anything real",
+    ha: "Working builds early, so you're reviewing progress, not promises",
+  },
+  {
+    dimension: "Ownership",
+    typical: "Locked into their platform, their hosting, their terms",
+    ha: "You own the code, the content, and the infrastructure",
+  },
+  {
+    dimension: "Performance",
+    typical: "Bloated templates that ship slow, unoptimized pages",
+    ha: "Built lean from the ground up — fast by default, not by patching",
+  },
+  {
+    dimension: "Communication",
+    typical: "Routed through account managers who relay your questions",
+    ha: "Direct line to the person actually building your site",
+  },
+] satisfies { dimension: string; typical: string; ha: string }[];
 
 export const builtForItems = [
   "Small and local businesses",
@@ -157,32 +180,5 @@ export interface Testimonial {
   role: string;
   company: string;
 }
-
-/**
- * Placeholder testimonials -- replace with real client quotes (with
- * permission) before this goes live. Fabricated or unverifiable
- * testimonials are a trust and compliance risk, not just a copy detail.
- */
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "They didn\u2019t just redesign our site \u2014 they made us articulate what we actually do better than we had in years. The new site converts noticeably better.",
-    name: "Founder",
-    role: "Client",
-    company: "Ecommerce brand",
-  },
-  {
-    quote:
-      "The process felt more like working with a product team than an agency. Every decision was tied back to a business reason.",
-    name: "Marketing Lead",
-    role: "Client",
-    company: "B2B services company",
-  },
-  {
-    quote:
-      "Our load times and search visibility improved almost immediately after launch. It felt engineered, not just designed.",
-    name: "Operations Manager",
-    role: "Client",
-    company: "Professional services firm",
-  },
-];
+ 
+export const testimonials: Testimonial[] = [];
