@@ -11,11 +11,12 @@ import {
 import { createMetadata } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
-  breadcrumbJsonLd,
   collectionPageJsonLd,
   faqJsonLd,
 } from "@/lib/seo/json-ld";
 import { HeroWrapper } from "@/components/sections/hero-wrapper";
+import { Breadcrumbs } from "@/components/navigation/breadcrumbs";
+import { WorkHubHeroBackground } from "@/components/sections/hero-backgrounds";
 import { Heading, Text, Eyebrow } from "@/components/primitives/typography";
 import { Container } from "@/components/primitives/container";
 import { Section } from "@/components/primitives/section";
@@ -30,6 +31,7 @@ import {
 import { projects } from "@/lib/content/source";
 import { buttonVariants } from "@/components/ui/button";
 import { routes } from "@/config/routes";
+import { CTAS } from "@/lib/data/ctas";
 
 export const metadata: Metadata = createMetadata({
   title: "Our Work — Websites, eCommerce & Custom Web Apps",
@@ -87,10 +89,9 @@ export default async function WorkPage() {
   ];
 
   return (
-    <article className="pb-24">
+    <article className="pb-4 md:pb-8">
       <JsonLd
         data={[
-          breadcrumbJsonLd(breadcrumbItems),
           collectionPageJsonLd({
             title: "HA Web Studio Work — Websites, eCommerce & Custom Apps",
             description:
@@ -106,15 +107,11 @@ export default async function WorkPage() {
       />
 
       <HeroWrapper
-        className="py-14 md:py-20"
-        background={
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.14),transparent_20%),radial-gradient(circle_at_75%_18%,rgba(255,255,255,0.05),transparent_18%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_44%)]" />
-            <div className="absolute left-1/2 top-0 h-96 w-[52rem] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
-          </div>
-        }
+        className="pt-14 md:pt-20 pb-0 md:pb-0"
+        background={<WorkHubHeroBackground />}
       >
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 lg:gap-14">
+        <div className="mx-auto flex max-w-6xl flex-col gap-10 lg:gap-14 relative z-20">
+          <Breadcrumbs items={breadcrumbItems} className="mb-0" />
           <div className="max-w-4xl space-y-6">
             <Eyebrow>Our Work</Eyebrow>
             <Heading
@@ -136,7 +133,7 @@ export default async function WorkPage() {
             </Text>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
-                href={routes.contact()}
+                href={routes.contact('start-project')}
                 className={buttonVariants({ size: "lg" })}
               >
                 Discuss Your Project
@@ -210,7 +207,7 @@ export default async function WorkPage() {
           <WorkTabs />
 
           <div className="mt-2 grid gap-6 xl:grid-cols-12">
-            <div className="glass-strong rounded-[2rem] border border-border/50 p-6 xl:col-span-8">
+            <div className="@container glass-strong rounded-[2rem] border border-border/50 p-6 xl:col-span-8">
               <Eyebrow>Featured work</Eyebrow>
               <Heading level={2} size="xl" className="mt-3">
                 A closer look at recent projects.
@@ -439,8 +436,8 @@ export default async function WorkPage() {
       <CtaSection
         title="Need something like this for your business?"
         description="Tell us about your project and we'll show you the closest example of our work — and the right service to get it built."
-        primaryCta={{ label: "Discuss Your Project", href: routes.contact() }}
-        secondaryCta={{ label: "Request Website Audit", href: "/contact" }}
+        primaryCta={{ label: "Discuss Your Project", href: routes.contact('start-project') }}
+        secondaryCta={CTAS.requestAudit}
       />
     </article>
   );

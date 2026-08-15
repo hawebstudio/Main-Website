@@ -1,145 +1,106 @@
 ---
 slug: website-is-slow
 title: Website Is Slow
-description: Your website takes too long to load, creating a poor user experience and reducing conversions.
+description: Your website is losing visitors, search rankings, and revenue because poor performance is creating friction in every user interaction.
 seo:
-  title: "Why Your Website Is Slow & How to Fix It"
-  description: "Slow load times hurt user experience, Core Web Vitals, and conversions. Here's what usually causes a slow website, and the fixes that make the biggest difference."
+  title: "Why Your Website Is Slow & How to Fix Core Web Vitals"
+  description: "A slow website kills conversions and hurts SEO. Discover the common causes of poor website performance, how to diagnose them, and how we fix Core Web Vitals."
 symptoms:
-  - Slow page load times
-  - High bounce rate
-  - Poor Core Web Vitals
-  - Mobile users leave quickly
-  - Low engagement
-  - Slow checkout or forms
-solution: Improve website performance through frontend optimization, infrastructure improvements, caching, and performance monitoring.
+  - Pages take longer than 3 seconds to load
+  - Visitors complain the site feels sluggish
+  - Google Search Console shows Core Web Vitals errors
+  - Images load slowly or "jump" as the page loads
+  - High bounce rate, especially on mobile devices
+possibleCauses:
+  - Unoptimised, oversized images and media
+  - Bloated code and too many third-party scripts
+  - Cheap, underpowered hosting infrastructure
+  - Lack of caching or Content Delivery Network (CDN)
+  - Heavy, poorly coded themes or plugins
+  - Render-blocking JavaScript delaying content display
+solution: Audit and optimise the website's technical foundation, assets, and delivery mechanisms to achieve instant load times and passing Core Web Vitals scores.
 relatedServiceSlugs:
   - website-performance-optimization
   - website-audit-technical-fixes
-  - technical-seo-setup
   - website-maintenance-support
-possibleCauses:
-  - Large unoptimized images
-  - Excessive JavaScript
-  - Render-blocking CSS
-  - Poor hosting
-  - Missing CDN
-  - No browser caching
-  - Too many third-party scripts
-  - Unoptimized fonts
 approach: >-
-  We perform a comprehensive performance audit covering Core Web Vitals,
-  frontend assets, server response times, caching, network requests, and
-  third-party resources. The goal is to identify the root causes affecting
-  loading speed before implementing targeted optimizations.
+  We start with a deep-dive performance audit using tools like Lighthouse and WebPageTest to identify the exact bottlenecks slowing your site down. We then systematically address these issues: compressing assets, implementing lazy loading, deferring non-critical scripts, configuring advanced caching, and migrating to premium hosting or edge networks if necessary. The goal is not just a faster feeling site, but passing scores across all Google Core Web Vitals metrics.
 potentialSolutions:
   - Website Performance Optimization
   - Website Audit & Technical Fixes
-  - Image Optimization
-  - Browser & Edge Caching
-  - Code Splitting & Asset Optimization
-  - Core Web Vitals Improvements
+  - Website Maintenance & Support
+  - Website Redesign (if the foundation is unsalvageable)
 howToDiagnose: >-
-  Run Lighthouse or PageSpeed Insights, review Core Web Vitals, analyze network
-  requests, and monitor user behavior through Google Analytics to identify
-  where visitors experience delays.
+  Run your website through Google's PageSpeed Insights (pagespeed.web.dev). Look at both the Mobile and Desktop scores. If your score is in the red (0-49), you have severe performance issues. Pay special attention to the Core Web Vitals metrics: Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS). You can also check the "Core Web Vitals" report in Google Search Console for real-world user data.
 beforeHiring: >-
-  Understand whether the slowdown affects the entire website or only specific
-  pages. Collect performance reports and identify any recent changes that may
-  have introduced performance issues.
+  Gather your current performance metrics as a baseline. List any recent changes made to the site (new plugins, tracking scripts, or large media uploads) that might have triggered the slowdown. Ensure you have administrative access to your CMS, hosting control panel, and CDN (like Cloudflare) if you use one.
 commonMisconceptions:
-  - Buying better hosting will solve every performance problem.
-  - Website speed only affects SEO.
-  - Large images have little impact on loading times.
-  - Performance optimization is a one-time task.
+  - A fast internet connection means the site is fast for everyone — real-world users often browse on 3G/4G networks with older devices.
+  - Performance only matters for user experience — site speed is a confirmed Google ranking factor. Slow sites rank lower.
+  - You can fix performance just by installing a caching plugin — caching helps, but it cannot fix bloated code, oversized images, or heavy third-party scripts.
+  - A perfect 100/100 score is required — while ideal, the goal is passing Core Web Vitals and providing a fast user experience, not obsessing over arbitrary metrics at the cost of functionality.
+faqs:
+  - question: "Why does my website load fast for me, but slow for others?"
+    answer: "Your browser likely has the website cached (saved locally). Plus, you might be on a fast office connection. First-time visitors on mobile networks experience the true load time, which is often much slower."
+  - question: "Will fixing performance improve my SEO?"
+    answer: "Yes. Google uses Core Web Vitals as a ranking signal. Sites that load faster and provide a smoother experience are favoured in search results over slow, frustrating competitors."
+  - question: "Can you guarantee a 100/100 PageSpeed score?"
+    answer: "We aim for significant, measurable improvements and passing Core Web Vitals scores, but we don't promise a perfect 100 — that's often unrealistic for complex business sites running necessary marketing scripts (like analytics or CRMs). We balance maximum speed with business functionality."
+  - question: "Do I need to change my hosting?"
+    answer: "Often, yes. Shared, budget hosting ($5-$10/month) simply cannot deliver the performance required for a modern, fast business website. We frequently migrate clients to premium, edge-network hosting environments."
+relatedTechnologySlugs:
+  - nextjs
+  - vercel
 relatedCaseStudySlugs:
-  - website-performance-foundation
-  - dashboard-extension-engineering
-version: 1
+  - search-visibility-and-ai-search-foundation
+version: 2
 ---
 
-# Website Is Slow
+# Why Your Website Is Slow (And How It's Costing You)
 
-A slow website affects more than loading times. It influences user experience, search visibility, conversion rates, and customer trust. Even a well-designed website can lose potential customers if visitors become frustrated before the page finishes loading.
+In the modern digital landscape, speed is not a luxury; it is a fundamental requirement. Users expect websites to load almost instantly. When they don't, frustration sets in, and users leave. 
 
-Performance should be considered a core part of the website rather than an optional improvement.
+A slow website is a silent killer for your business. It damages your brand perception, lowers your search engine rankings, and directly destroys conversion rates.
 
-See the connected [service-led solutions](/services) to explore the implementation options behind this challenge.
+## The Business Cost of a Slow Website
 
-## Signs Your Website Is Slow
+The impact of poor performance is measurable and severe:
 
-You may have a performance problem if:
+- **Lost Conversions**: Amazon's own internal testing found that every 100 milliseconds of added latency cost them roughly 1% in sales — a finding documented by former Amazon engineer Greg Linden. Small delays compound into real revenue loss at scale, and the same pattern holds for smaller businesses.
+- **Plummeting SEO Rankings**: Google officially uses Core Web Vitals (speed, interactivity, and visual stability) as a ranking factor. If your site is slow, Google will penalize it in search results.
+- **High Bounce Rates**: If a page takes longer than 3 seconds to load, over 50% of mobile users will abandon the site. You are paying for traffic (through ads or SEO) only to lose it at the front door.
+- **Damaged Brand Trust**: A sluggish, clunky website feels unprofessional. Users associate the quality of your digital experience with the quality of your services.
 
-- Pages take several seconds to load.
-- Visitors leave before interacting with the page.
-- Mobile performance is noticeably worse.
-- Images appear slowly.
-- Forms or checkout pages feel sluggish.
-- Lighthouse reports poor performance scores.
-- Core Web Vitals consistently fail.
+## Common Root Causes of Slow Websites
 
-These symptoms often indicate multiple underlying issues rather than a single cause.
+Website performance degrades for several predictable reasons:
 
-## Common Causes
+**Oversized, Unoptimised Images**: Uploading massive, multi-megabyte images directly from a camera or stock site is the #1 cause of slow load times.
 
-Website performance is influenced by many factors working together.
+**Cheap, Shared Hosting**: Budget hosting crams thousands of websites onto a single server. When one gets busy, yours slows down.
 
-Common issues include:
+**Plugin and Script Bloat**: Every plugin, marketing tracker, chat widget, and analytics script you add requires the browser to download and execute more code.
 
-- Oversized images
-- Unoptimized JavaScript
-- Render-blocking CSS
-- Missing caching
-- Poor server response times
-- Too many third-party scripts
-- Missing CDN
-- Large web fonts
-- Inefficient page structure
+**Render-Blocking Resources**: Heavy CSS and JavaScript files that must load before the page can even begin to display content.
 
-A structured audit helps determine which issues have the greatest impact.
+**Lack of Caching and CDNs**: Failing to serve content from servers geographically close to the user, or forcing the server to rebuild the page from scratch on every single visit.
 
-## What Should Be Improved?
+## How We Optimise Performance
 
-Performance optimization typically focuses on:
+Fixing a slow website requires a systematic, technical approach. We don't just install a caching plugin and hope for the best.
 
-- Core Web Vitals
-- Image optimization
-- Browser caching
-- Edge caching
-- Code optimization
-- Font optimization
-- CDN configuration
-- Server response time
-- Asset compression
+**Comprehensive Auditing**: We analyse your site using Lighthouse, WebPageTest, and Chrome User Experience Report (CrUX) data to pinpoint exactly what is causing the delays.
 
-Improving these areas creates a faster and more consistent experience across devices.
+**Asset Optimisation**: We compress and convert images to modern formats (like WebP or AVIF), implement lazy loading so media only loads when scrolled into view, and minify CSS/JS files.
 
-## Our Approach
+**Infrastructure Upgrades**: Where necessary, we migrate sites to premium, edge-network hosting environments (like Vercel) and configure Content Delivery Networks (CDNs).
 
-Rather than relying on a single optimization technique, we review the complete delivery pipeline.
+**Code Refactoring**: We defer non-critical scripts, eliminate render-blocking resources, and strip out unnecessary bloated code.
 
-This includes:
-
-- Performance auditing
-- Core Web Vitals analysis
-- Frontend optimization
-- Infrastructure configuration
-- CDN and caching setup
-- Third-party script review
-- Ongoing performance monitoring
-
-The objective is to improve both real-world user experience and long-term maintainability.
-
-## Decision Framework
-
-Not every slow website requires rebuilding from scratch.
-
-Some websites benefit from targeted optimizations such as image compression, improved caching, or CDN deployment, while others require architectural improvements or frontend refactoring.
-
-A performance audit helps identify the highest-impact opportunities before changes are made.
+**Core Web Vitals Focus**: We specifically target Google's key metrics: ensuring the Largest Contentful Paint (LCP) happens quickly, Interaction to Next Paint (INP) is responsive, and Cumulative Layout Shift (CLS) is eliminated.
 
 ## Next Steps
 
-If your website feels slow or visitors leave before completing important actions, improving performance can enhance both user experience and business outcomes.
+If your website feels slow, it is actively costing you money and opportunities. Don't let a poor technical foundation undermine your marketing efforts.
 
-Explore our [Website Performance Optimization](/services/website-performance-optimization) service to learn how we improve loading speed, Core Web Vitals, caching strategies, and overall website reliability.
+Explore our [Website Performance Optimization](/services/website-performance-optimization) service to see how we systematically speed up slow websites, or [request a website audit](/contact?intent=audit) for a detailed breakdown of your site's specific bottlenecks.

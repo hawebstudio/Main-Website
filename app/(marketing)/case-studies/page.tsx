@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/seo/metadata";
+import { JsonLd } from "@/components/seo/json-ld";
+import { collectionPageJsonLd } from "@/lib/seo/json-ld";
 import { HeroWrapper } from "@/components/sections/hero-wrapper";
 import { Heading, Text } from "@/components/primitives/typography";
 import { Container } from "@/components/primitives/container";
@@ -9,8 +11,10 @@ import { caseStudies, services } from "@/lib/content/source";
 import { routes } from "@/config/routes";
 import { CaseStudiesFilterPanel } from "@/components/sections/case-studies/case-studies-filter-panel";
 import { CaseStudiesHubHero } from "@/components/sections/case-studies/case-studies-hub-hero";
+import { Breadcrumbs } from "@/components/navigation/breadcrumbs";
 import { CaseStudiesProofSection } from "@/components/sections/case-studies/case-studies-proof-section";
 import { CaseStudiesResultsSection } from "@/components/sections/case-studies/case-studies-results-section";
+import { CTAS } from "@/lib/data/ctas";
 import {
   getSingleValue,
   normalizeHrefValueToSlug,
@@ -93,10 +97,16 @@ export default async function CaseStudiesPage({
     ),
   );
 
+  const breadcrumbItems = [
+    { label: "Home", href: routes.home() },
+    { label: "Case Studies", href: routes.caseStudies.index() },
+  ];
+
   if (allCaseStudies.length === 0) {
     return (
       <>
         <HeroWrapper>
+          <Breadcrumbs items={breadcrumbItems} className="mb-4" />
           <Heading level={1} size="display">
             Case Studies
           </Heading>
@@ -113,14 +123,32 @@ export default async function CaseStudiesPage({
             </div>
           </Container>
         </Section>
-        <CtaSection />
+        <CtaSection
+          title="Want to see how we work?"
+          description="Get a Website Growth Assessment while we finish publishing case studies."
+          primaryCta={CTAS.requestAudit}
+        />
       </>
     );
   }
 
   return (
     <>
-      <CaseStudiesHubHero />
+      <JsonLd
+        data={[
+          collectionPageJsonLd({
+            title: "Web Design, SEO & Engineering Case Studies",
+            description:
+              "HA Web Studio case studies: real architecture, SEO, infrastructure, and application decisions behind client and internal projects.",
+            path: routes.caseStudies.index(),
+            items: allCaseStudies.map((item) => ({
+              title: item.title,
+              path: routes.caseStudies.detail(item.slug),
+            })),
+          }),
+        ]}
+      />
+      <CaseStudiesHubHero breadcrumbs={<Breadcrumbs items={breadcrumbItems} className="mb-4" />} />
       <CaseStudiesFilterPanel
         filters={filters}
         selected={{
@@ -136,7 +164,7 @@ export default async function CaseStudiesPage({
       <CtaSection
         title="Need a Similar Solution?"
         description="Tell us what you're building and we'll map it to the closest implementation pathway — architecture, SEO foundation, or application work — based on what actually shipped in these case studies."
-        primaryCta={{ label: "Start Your Project", href: routes.contact() }}
+        primaryCta={{ label: "Start Your Project", href: routes.contact('start-project') }}
         secondaryCta={{
           label: "Explore Services",
           href: routes.services.index(),

@@ -4,6 +4,8 @@ import Link from "next/link";
 import {
   ArrowRight,
   CheckCircle2,
+  Clock,
+  DollarSign,
   Layers3,
   Sparkles,
   Workflow,
@@ -12,6 +14,7 @@ import {
   getServiceBySlug,
   getFamilyBySlug,
   services,
+  allCollections,
 } from "@/lib/content/source";
 import {
   getCaseStudiesForService,
@@ -20,6 +23,7 @@ import {
   getServiceSiblings,
   getTechnologiesForService,
 } from "@/lib/content/relations";
+import { ServiceDetailHeroBackground } from "@/components/sections/hero-backgrounds";
 import { createMetadata } from "@/lib/seo/metadata";
 import { faqJsonLd, serviceJsonLd } from "@/lib/seo/json-ld";
 import { routes } from "@/config/routes";
@@ -95,13 +99,39 @@ export default async function ServicePage({ params }: ServicePageProps) {
     relatedCaseStudies,
     relatedInsights,
     relatedTechnologies,
+    allTechnologies,
   ] = await Promise.all([
     getServiceSiblings(service),
     getProjectsForService(service.slug),
     getCaseStudiesForService(service.slug),
     getInsightsForService(service.slug),
     getTechnologiesForService(service.slug),
+    allCollections.technologies.getAll(),
   ]);
+
+  const resolvedRecommendations = (service.recommendations ?? [])
+    .map((recSlug) => getServiceBySlug(recSlug))
+    .filter((s) => s !== undefined);
+
+  const resolvedRecommendedTechnologies = (service.recommendedTechnologies ?? [])
+    .map((techName) => {
+      const lowerTech = techName.toLowerCase();
+      const found = allTechnologies.find(
+        (t) => {
+          const tLower = t.title.toLowerCase();
+          return tLower === lowerTech || tLower.includes(lowerTech) || lowerTech.includes(tLower);
+        }
+      );
+      return {
+        name: techName,
+        href: found
+          ? routes.technologies.detail(
+              found.category ?? found.slug,
+              found.category ? found.slug : undefined
+            )
+          : null,
+      };
+    });
 
   const breadcrumbItems = [
     { label: "Home", href: routes.home() },
@@ -115,7 +145,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const faqEntries = service.faqs ?? [];
 
   return (
-    <article className="pb-24">
+    <article className="pb-4 md:pb-8">
       <JsonLd
         data={[
           serviceJsonLd({
@@ -126,18 +156,12 @@ export default async function ServicePage({ params }: ServicePageProps) {
           ...(faqEntries.length ? [faqJsonLd(faqEntries)] : []),
         ]}
       />
-      <Breadcrumbs items={breadcrumbItems} className="pt-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" />
-
       <HeroWrapper
-        className="py-14 md:py-18"
-        background={
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.14),transparent_22%),radial-gradient(circle_at_70%_20%,rgba(255,255,255,0.05),transparent_18%),linear-gradient(180deg,rgba(255,255,255,0.015),transparent_44%)]" />
-            <div className="absolute left-1/2 top-4 h-72 w-2xl -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
-          </div>
-        }
+        className="pb-14 pt-8 md:pb-18"
+        background={<ServiceDetailHeroBackground />}
       >
-        <div className="mx-auto flex max-w-5xl flex-col gap-6">
+        <div className="mx-auto flex max-w-5xl flex-col gap-6 relative z-20">
+          <Breadcrumbs items={breadcrumbItems} className="pb-4" />
           <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             <span className="rounded-full border border-border/60 bg-background/45 px-3 py-1.5">
               Service page
@@ -150,6 +174,16 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 {family.title}
               </Link>
             ) : null}
+            {service.availability === 'Coming Soon' && (
+              <span className="rounded-full border border-orange-500/20 bg-orange-500/10 text-orange-500 px-3 py-1.5">
+                Coming Soon
+              </span>
+            )}
+            {service.complexity && (
+              <span className="rounded-full border border-border/60 bg-background/45 px-3 py-1.5">
+                Complexity: {service.complexity}
+              </span>
+            )}
           </div>
           <Heading
             level={1}
@@ -228,24 +262,104 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 {family?.overview ??
                   "A focused service built to solve a specific business problem."}
               </Heading>
-              <Text size="lg" tone="muted" className="mt-4 leading-relaxed">
-                This page explains what the service is, who it is for, what it
-                solves, what you receive, and how it connects to related
-                services, work, and insights.
-              </Text>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {(service.deliverables ?? []).map((item) => (
-                <div
-                  key={item}
-                  className="rounded-3xl border border-border/50 bg-background/35 p-5"
-                >
-                  <CheckCircle2 className="size-5 text-primary" />
-                  <Text className="mt-3 font-medium text-foreground">
-                    {item}
+              
+              {service.scope && (
+                <div className="mt-6 rounded-2xl border border-border/50 bg-background/35 p-5">
+                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                    Scope
+                  </div>
+                  <Text size="sm" tone="muted" className="mt-2 leading-relaxed">
+                    {service.scope}
                   </Text>
                 </div>
-              ))}
+              )}
+
+              {service.outcomes && service.outcomes.length > 0 && (
+                <div className="mt-6 rounded-2xl border border-border/50 bg-background/35 p-5">
+                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                    Outcomes
+                  </div>
+                  <ul className="mt-3 grid gap-2">
+                    {service.outcomes.map((item) => (
+                      <li key={item} className="flex gap-3 text-sm text-muted-foreground">
+                        <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {(service.pricing || service.timeline) && (
+                <div className="mt-6 rounded-2xl border border-border/50 bg-background/35 p-5">
+                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                    Cost &amp; Timeline
+                  </div>
+                  <div className="mt-3 grid gap-4 sm:grid-cols-2">
+                    {service.pricing && (
+                      <div className="flex gap-3">
+                        <DollarSign className="mt-0.5 size-4 shrink-0 text-primary" />
+                        <div>
+                          <div className="text-sm font-medium text-foreground">How much does it cost?</div>
+                          <Text size="sm" tone="muted" className="mt-1 leading-relaxed">
+                            {service.pricing}
+                          </Text>
+                        </div>
+                      </div>
+                    )}
+                    {service.timeline && (
+                      <div className="flex gap-3">
+                        <Clock className="mt-0.5 size-4 shrink-0 text-primary" />
+                        <div>
+                          <div className="text-sm font-medium text-foreground">How long does it take?</div>
+                          <Text size="sm" tone="muted" className="mt-1 leading-relaxed">
+                            {service.timeline}
+                          </Text>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="@container flex flex-col gap-6">
+              {service.core && service.core.length > 0 && (
+                <div>
+                  <Heading level={3} size="sm" className="mb-4">
+                    Core Service
+                  </Heading>
+                  <div className="grid gap-3 @lg:grid-cols-2">
+                    {service.core.map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-xl border border-border/50 bg-background/35 p-4 flex items-center gap-3"
+                      >
+                        <CheckCircle2 className="size-4 shrink-0 text-primary" />
+                        <span className="text-sm font-medium text-foreground">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {service.addOns && service.addOns.length > 0 && (
+                <div className="mt-2">
+                  <Heading level={3} size="sm" className="mb-4">
+                    Optional Add-ons
+                  </Heading>
+                  <div className="flex flex-wrap gap-2">
+                    {service.addOns.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-lg border border-border/60 bg-muted/30 px-3 py-1.5 text-sm text-muted-foreground"
+                      >
+                        + {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </Container>
@@ -256,58 +370,133 @@ export default async function ServicePage({ params }: ServicePageProps) {
           title="The problems we solve"
           description="Common reasons businesses choose this service."
           problems={service.businessProblems}
-          solutions={service.deliverables ?? []}
+          solutions={service.core ?? []}
           className="bg-muted/30"
         />
+      ) : null}
+
+      {service.process && service.process.length > 0 && (
+        <Section spacing="lg">
+          <Container>
+            <div className="max-w-3xl">
+              <Eyebrow>Process</Eyebrow>
+              <Heading level={2} size="xl" className="mt-3">
+                How we deliver this service.
+              </Heading>
+            </div>
+            <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+              {service.process.map((step, index) => (
+                <div key={step.title} className="relative">
+                  <div className="text-6xl font-black text-primary/10 mb-4">{index + 1}</div>
+                  <Heading level={3} size="sm">{step.title}</Heading>
+                  <Text tone="muted" size="sm" className="mt-3 leading-relaxed">{step.description}</Text>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
+
+      {(service.deliverables?.length || service.useCases?.length) ? (
+        <Section spacing="lg" className="bg-muted/20">
+          <Container>
+            <div className="grid gap-12 lg:grid-cols-2">
+              {service.deliverables && service.deliverables.length > 0 && (
+                <div>
+                  <Eyebrow>Deliverables</Eyebrow>
+                  <Heading level={2} size="xl" className="mt-3 mb-6">
+                    What you receive.
+                  </Heading>
+                  <ul className="grid gap-3">
+                    {service.deliverables.map((item) => (
+                      <li key={item} className="flex gap-4 rounded-xl border border-border/50 bg-background/50 p-4">
+                        <CheckCircle2 className="size-5 shrink-0 text-primary" />
+                        <span className="font-medium text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              
+              {service.useCases && service.useCases.length > 0 && (
+                <div>
+                  <Eyebrow>Use Cases</Eyebrow>
+                  <Heading level={2} size="xl" className="mt-3 mb-6">
+                    Common applications.
+                  </Heading>
+                  <div className="grid gap-4">
+                    {service.useCases.map((useCase) => (
+                      <div key={useCase.title} className="rounded-2xl border border-border/50 bg-background/50 p-5">
+                        <Heading level={3} size="sm">{useCase.title}</Heading>
+                        <Text tone="muted" size="sm" className="mt-2 leading-relaxed">{useCase.description}</Text>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </Container>
+        </Section>
       ) : null}
 
       <Section spacing="xl">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="glass-strong rounded-[2rem] border border-border/50 p-6 md:p-8">
-              <Eyebrow>Process</Eyebrow>
+              <Eyebrow>Recommendations</Eyebrow>
               <Heading level={2} size="xl" className="mt-3">
-                A clear workflow from discovery to support.
+                Related services and next steps.
               </Heading>
-              <div className="mt-6 space-y-4">
-                {(service.process ?? []).map((step, index) => (
-                  <div
-                    key={step.title}
-                    className="flex gap-4 rounded-2xl border border-border/50 bg-background/30 p-4"
-                  >
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border/60 bg-background/70 text-sm font-semibold text-primary">
-                      {index + 1}
-                    </div>
-                    <div>
-                      <div className="font-medium text-foreground">
-                        {step.title}
+              {resolvedRecommendations.length > 0 ? (
+                <div className="mt-6 space-y-4">
+                  {resolvedRecommendations.map((rec, index) => (
+                    <Link
+                      key={rec.slug}
+                      href={routes.services.detail(rec.slug)}
+                      className="group flex items-center justify-between gap-4 rounded-2xl border border-border/50 bg-background/30 p-4 transition-colors hover:border-primary/30 hover:bg-background/50"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border/60 bg-background/70 text-sm font-semibold text-primary transition-colors group-hover:border-primary/30 group-hover:bg-primary/10">
+                          {index + 1}
+                        </div>
+                        <div className="font-medium text-foreground transition-colors group-hover:text-primary">
+                          {rec.title}
+                        </div>
                       </div>
-                      <Text
-                        tone="muted"
-                        size="sm"
-                        className="mt-1 leading-relaxed"
-                      >
-                        {step.description}
-                      </Text>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                      <ArrowRight className="size-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <Text size="lg" tone="muted" className="mt-4 leading-relaxed">
+                  Speak with the team to identify the best follow-up services for your situation.
+                </Text>
+              )}
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="@container grid gap-4 @lg:grid-cols-2">
               <div className="rounded-[2rem] border border-border/50 bg-background/35 p-5">
                 <Sparkles className="size-5 text-primary" />
                 <Heading level={3} size="sm" className="mt-3">
                   Recommended technologies
                 </Heading>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {(service.recommendedTechnologies ?? []).map((technology) => (
-                    <span
-                      key={technology}
-                      className="rounded-full border border-border/60 bg-background/45 px-3 py-1.5 text-xs font-medium text-muted-foreground"
-                    >
-                      {technology}
-                    </span>
+                  {resolvedRecommendedTechnologies.map((tech) => (
+                    tech.href ? (
+                      <Link
+                        key={tech.name}
+                        href={tech.href}
+                        className="rounded-full border border-border/60 bg-background/45 px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
+                      >
+                        {tech.name}
+                      </Link>
+                    ) : (
+                      <span
+                        key={tech.name}
+                        className="rounded-full border border-border/60 bg-background/45 px-3 py-1.5 text-xs font-medium text-muted-foreground"
+                      >
+                        {tech.name}
+                      </span>
+                    )
                   ))}
                 </div>
               </div>
@@ -316,13 +505,24 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 <Heading level={3} size="sm" className="mt-3">
                   When it is not the right choice
                 </Heading>
-                <Text tone="muted" size="sm" className="mt-3 leading-relaxed">
-                  If the business problem is not clear yet, or the scope needs
-                  strategy before execution, a discovery and audit engagement is
-                  usually the better starting point.
-                </Text>
+                {service.exclusions && service.exclusions.length > 0 ? (
+                  <ul className="mt-4 grid gap-2">
+                    {service.exclusions.map((exclusion) => (
+                      <li key={exclusion} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="text-destructive font-bold mt-0.5">-</span>
+                        <span className="leading-relaxed">{exclusion}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <Text tone="muted" size="sm" className="mt-3 leading-relaxed">
+                    If the business problem is not clear yet, or the scope needs
+                    strategy before execution, a discovery and audit engagement is
+                    usually the better starting point.
+                  </Text>
+                )}
               </div>
-              <div className="rounded-[2rem] border border-border/50 bg-background/35 p-5 sm:col-span-2">
+              <div className="rounded-[2rem] border border-border/50 bg-background/35 p-5 @lg:col-span-2">
                 <Workflow className="size-5 text-primary" />
                 <Heading level={3} size="sm" className="mt-3">
                   Why this is structured this way
@@ -440,7 +640,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                   give retrieval systems clear answers to extract.
                 </Text>
               </div>
-              <Accordion className="w-full">
+              <Accordion type="single" collapsible className="w-full">
                 {faqEntries.map((faq, index) => (
                   <AccordionItem key={faq.question} value={`faq-${index}`}>
                     <AccordionTrigger className="text-left text-lg font-medium">

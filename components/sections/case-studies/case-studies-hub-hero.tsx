@@ -5,7 +5,11 @@ import { Heading, Text, Eyebrow } from '@/components/primitives/typography'
 import { buttonVariants } from '@/components/ui/button'
 import { routes } from '@/config/routes'
 
-export function CaseStudiesHubHero() {
+interface CaseStudiesHubHeroProps {
+  breadcrumbs?: React.ReactNode
+}
+
+export function CaseStudiesHubHero({ breadcrumbs }: CaseStudiesHubHeroProps) {
   return (
     <HeroWrapper
       className="py-14 md:py-20"
@@ -16,6 +20,7 @@ export function CaseStudiesHubHero() {
         </div>
       }
     >
+      {breadcrumbs}
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:items-end">
         <div className="flex flex-col gap-7">
           <Eyebrow>Case studies hub</Eyebrow>
@@ -26,7 +31,7 @@ export function CaseStudiesHubHero() {
             This is not a portfolio gallery. Each case study documents problem framing, investigation, rejected options, architecture decisions, implementation, trade-offs, and lessons learned.
           </Text>
           <div className="flex flex-wrap gap-3">
-            <Link href={routes.contact()} className={buttonVariants()}>
+            <Link href={routes.contact('start-project')} className={buttonVariants()}>
               Discuss a Similar Project
             </Link>
             <Link href={routes.work.index()} className={buttonVariants({ variant: 'outline', className: 'bg-transparent' })}>
@@ -34,14 +39,14 @@ export function CaseStudiesHubHero() {
             </Link>
           </div>
         </div>
-        <div className="glass-strong grid gap-4 rounded-[2rem] p-6 sm:grid-cols-2">
+        <div className="@container glass-strong grid gap-4 rounded-[2rem] p-6 @sm:grid-cols-2">
           <HeroMetric icon={<BookOpenText className="size-5 text-primary" />} title="Publication quality">
             Structured like technical publications with decision context and implementation logic.
           </HeroMetric>
           <HeroMetric icon={<ShieldCheck className="size-5 text-primary" />} title="No fabrication">
             If metrics or timelines are unavailable, they are explicitly marked as unavailable.
           </HeroMetric>
-          <HeroMetric icon={<Layers3 className="size-5 text-primary" />} title="Connected evidence system" className="sm:col-span-2">
+          <HeroMetric icon={<Layers3 className="size-5 text-primary" />} title="Connected evidence system" className="@sm:col-span-2">
             Every entry is connected to Services, Solutions, Work, Technologies, and Insights.
           </HeroMetric>
         </div>

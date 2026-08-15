@@ -1,33 +1,65 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { createMetadata } from "@/lib/seo/metadata";
+import { JsonLd } from "@/components/seo/json-ld";
+import { webPageJsonLd } from "@/lib/seo/json-ld";
+import { Breadcrumbs } from "@/components/navigation/breadcrumbs";
 import { Container } from "@/components/primitives/container";
 import { Heading, Text } from "@/components/primitives/typography";
 import { LeadForm } from "@/components/forms/lead-form";
+import { PromotionBanner } from "@/components/promotions/promotion-banner";
 import { SplitLayout } from "@/components/layouts/split-layout";
 import { Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { company, contact } from "@/lib/business/company";
+import { routes } from "@/config/routes";
+import { getActivePromotion } from "@/lib/content/source";
+
+const contactDescription = `Discuss your project with ${company.name}. We are ready to build your next digital product.`;
 
 export const metadata: Metadata = createMetadata({
   title: "Contact Us",
-  description: `Discuss your project with ${company.name}. We are ready to build your next digital product.`,
+  description: contactDescription,
   path: "/contact",
 });
 
-export default function ContactPage() {
+const breadcrumbItems = [
+  { label: "Home", href: routes.home() },
+  { label: "Contact", href: routes.contact() },
+];
+
+export default async function ContactPage() {
+  // Reads content/promotion/ — resolves to null (and every consumer below
+  // renders nothing) when that folder has no currently active promotion.
+  const promotion = await getActivePromotion();
+
   return (
     <div className="py-24 md:py-36">
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            title: "Contact Us",
+            description: contactDescription,
+            path: routes.contact(),
+            type: "ContactPage",
+          }),
+        ]}
+      />
+      <Container>
+        <Breadcrumbs items={breadcrumbItems} className="mb-8" />
+      </Container>
       <Container>
         <SplitLayout>
           <div className="flex flex-col gap-12 lg:pr-12">
             <div className="flex flex-col gap-6">
+              <PromotionBanner promotion={promotion} />
               <Heading level={1} size="display">
                 Let's discuss your project.
               </Heading>
               <Text size="lg" tone="muted">
-                Whether you need a complete website redesign, a complex web
-                application, or an ecommerce platform, we have the expertise to
-                deliver.
+                Tell us about your website, ecommerce store, or web application
+                project — what you're trying to build and where things stand
+                today. We review every enquiry personally and reply with next
+                steps, not an automated form response.
               </Text>
             </div>
 
@@ -89,11 +121,18 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
+
+            <Text tone="muted" className="text-sm leading-relaxed">
+              After you reach out, expect a reply asking a few clarifying
+              questions about your project and goals — not a generic sales
+              pitch. If it's a good fit, we'll outline scope and next steps
+              from there.
+            </Text>
           </div>
 
           <div className="rounded-3xl border border-border/50 bg-background/50 p-6 md:p-10 shadow-sm backdrop-blur-xl">
             <Suspense fallback={null}>
-              <LeadForm />
+              <LeadForm promotion={promotion} />
             </Suspense>
           </div>
         </SplitLayout>

@@ -7,6 +7,8 @@ import type { BreadcrumbItem } from '@/lib/content/types'
 export type JsonLdObject = Record<string, unknown>
 
 export function organizationJsonLd(): JsonLdObject {
+  const primaryLocation = locations[0]
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -17,6 +19,12 @@ export function organizationJsonLd(): JsonLdObject {
     email: siteConfig.contactEmail,
     logo: absoluteUrl('/icon.svg'),
     sameAs: Object.values(siteConfig.links),
+    // Same remote-first, no-fixed-address positioning as localBusinessJsonLd
+    // below — kept in sync so the two schema blocks never disagree about
+    // where/who HA serves.
+    areaServed: primaryLocation
+      ? primaryLocation.serviceAreas.map((area) => ({ '@type': 'Place', name: area }))
+      : undefined,
   }
 }
 

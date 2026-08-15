@@ -6,7 +6,11 @@ import { buttonVariants } from '@/components/ui/button'
 import { CTAS } from '@/lib/data/ctas'
 import { finderPaths } from './problems-data'
 
-export function ProblemsHero() {
+interface ProblemsHeroProps {
+  breadcrumbs?: React.ReactNode
+}
+
+export function ProblemsHero({ breadcrumbs }: ProblemsHeroProps) {
   return (
     <HeroWrapper
       className="py-14 md:py-20"
@@ -17,6 +21,7 @@ export function ProblemsHero() {
         </div>
       }
     >
+      {breadcrumbs}
       <div className="mx-auto flex max-w-6xl flex-col gap-10 lg:gap-14">
         <div className="max-w-4xl space-y-6">
           <Eyebrow>Solutions hub</Eyebrow>
@@ -34,7 +39,7 @@ export function ProblemsHero() {
               href={CTAS.requestAudit.href}
               className={buttonVariants({ size: 'lg', variant: 'outline', className: 'bg-transparent' })}
             >
-              Request Website Audit
+              {CTAS.requestAudit.label}
             </Link>
           </div>
         </div>

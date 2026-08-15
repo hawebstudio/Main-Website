@@ -21,6 +21,7 @@ export default function robots(): MetadataRoute.Robots {
           'CCBot',
         ],
         allow: '/',
+        disallow: ['/api/', '/_next/', '/404'],
       },
     ],
     sitemap: [`${siteConfig.url}/sitemap.xml`, `${siteConfig.url}/rss.xml`, `${siteConfig.url}/atom.xml`],

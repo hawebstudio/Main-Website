@@ -62,17 +62,38 @@ export const contentEntrySchema = z.object({
 });
 
 export const serviceSchema = contentEntrySchema.extend({
+  family: z.string().optional(),
   icon: z.string().optional(),
   audience: z.string().optional(),
   businessProblems: z.array(z.string()).optional(),
+  outcomes: z.array(z.string()).optional(),
+  scope: z.string().optional(),
+  complexity: z.enum(["Low", "Medium", "High", "Advanced"]).optional(),
+  availability: z.enum(["Live", "Coming Soon"]).optional(),
+  core: z.array(z.string()).optional(),
   deliverables: z.array(z.string()).optional(),
+  addOns: z.array(z.string()).optional(),
+  recommendations: z.array(z.string()).optional(),
   process: z
     .array(z.object({ title: z.string(), description: z.string() }))
     .optional(),
+  useCases: z
+    .array(z.object({ title: z.string(), description: z.string() }))
+    .optional(),
+  exclusions: z.array(z.string()).optional(),
   recommendedTechnologies: z.array(z.string()).optional(),
   relatedServices: z.array(z.string()).optional(),
+  pricing: z.string().optional(),
+  timeline: z.string().optional(),
   faqs: z
     .array(z.object({ question: z.string(), answer: z.string() }))
+    .optional(),
+  cta: z
+    .object({
+      label: z.string(),
+      href: z.string(),
+      variant: z.enum(["primary", "secondary", "ghost"]).optional(),
+    })
     .optional(),
 });
 
@@ -209,10 +230,15 @@ export const insightSchema = contentEntrySchema.extend({
   estimatedSkillLevel: z
     .enum(["Beginner", "Intermediate", "Advanced"])
     .optional(),
+  faqs: z
+    .array(z.object({ question: z.string(), answer: z.string() }))
+    .optional(),
 
   relatedServiceSlugs: z.array(z.string()).optional(),
   relatedTechnologySlugs: z.array(z.string()).optional(),
   relatedArticleSlugs: z.array(z.string()).optional(),
+  relatedProblemSlugs: z.array(z.string()).optional(),
+  relatedCaseStudySlugs: z.array(z.string()).optional(),
 });
 
 export const technologySchema = contentEntrySchema.extend({
@@ -287,23 +313,97 @@ export const problemSchema = contentEntrySchema.extend({
   relatedCaseStudySlugs: z.array(z.string()).optional(),
 });
 
+export const promotionSchema = contentEntrySchema.extend({
+  // Master switch for this promotion, independent of the date window —
+  // lets a promo be paused without deleting or re-dating the file.
+  enabled: z.boolean().optional().default(true),
+
+  // ISO date strings (local time). The promotion is only "active" when
+  // today's date falls within this range.
+  startDate: z.string().min(1),
+  endDate: z.string().min(1),
+
+  headline: z.string().min(1),
+  discountPercentage: z.number().optional(),
+
+  // Which services the discount applies to — left empty means
+  // "applies broadly / ask us which services qualify".
+  eligibleServiceSlugs: z.array(z.string()).optional(),
+
+  cta: z.object({
+    label: z.string().min(1),
+    href: z.string().min(1),
+  }),
+  secondaryCta: z
+    .object({
+      label: z.string().min(1),
+      href: z.string().nullable().optional(),
+    })
+    .optional(),
+
+  disclaimer: z.string().optional(),
+
+  // Random delay window (ms) before the popup is eligible to appear.
+  displayDelay: z
+    .object({
+      min: z.number().int().nonnegative(),
+      max: z.number().int().nonnegative(),
+    })
+    .optional(),
+
+  // localStorage key used to cap the popup at once per day per browser.
+  localStorageKey: z.string().optional(),
+
+  // Stable identifier used for analytics + campaign attribution on the
+  // contact form (?campaign=<campaignId>).
+  campaignId: z.string().min(1),
+
+  // When more than one promotion is active at once, the highest
+  // priority value wins.
+  priority: z.number().optional(),
+});
+
 /* ---------- Forms ---------- */
 
 export const contactIntentOptions = [
-  { value: "start-project", label: "Start a Project" },
-  { value: "audit", label: "Request a Website Audit" },
-  { value: "improve", label: "Improve Existing Website" },
-  { value: "seo", label: "Discuss SEO" },
-  { value: "ecommerce", label: "Talk About Ecommerce" },
+  { value: "start-project", label: "Start a New Project" },
+  { value: "audit", label: "Get a Website Growth Assessment" },
+  { value: "improve", label: "Improve an Existing Website" },
+  { value: "design", label: "Design (UI/UX)" },
+  { value: "development", label: "Custom Development" },
+  { value: "ecommerce", label: "Ecommerce" },
+  { value: "seo", label: "SEO & Search" },
+  { value: "growth", label: "Marketing & Growth" },
+  { value: "analytics", label: "Analytics & Tracking" },
+  { value: "integrations", label: "Integrations & Automation" },
+  { value: "maintenance", label: "Maintenance & Support" },
+  { value: "performance-security", label: "Performance & Security" },
+  { value: "business-systems", label: "Business Systems (Booking, CRM, etc.)" },
   { value: "consultation", label: "Book a Consultation" },
+  { value: "partnership", label: "Partnership / Agency Collaboration" },
   { value: "general", label: "General Enquiry" },
+] as const;
+
+export const budgetOptions = [
+  { value: "under-500", label: "Under $500" },
+  { value: "500-1000", label: "$500 – $1,000" },
+  { value: "1000-2500", label: "$1,000 – $2,500" },
+  { value: "2500-5000", label: "$2,500 – $5,000" },
+  { value: "5000-10000", label: "$5,000 – $10,000" },
+  { value: "10000-20000", label: "$10,000 – $20,000" },
+  { value: "20000-plus", label: "$20,000+" },
+  { value: "custom", label: "Custom range" },
+  { value: "not-sure", label: "Not sure yet" },
 ] as const;
 
 export const contactFormSchema = z.object({
   name: z.string().min(2, "Please enter your name"),
   email: z.string().email("Please enter a valid email"),
   company: z.string().optional(),
-  budget: z.string().optional(),
+  budget: z
+    .enum(budgetOptions.map((option) => option.value) as [string, ...string[]])
+    .optional(),
+  customBudget: z.string().max(100).optional(),
   intent: z.enum(
     contactIntentOptions.map((option) => option.value) as [string, ...string[]],
     {
@@ -313,6 +413,12 @@ export const contactFormSchema = z.object({
   message: z.string().min(10, "Tell us a little more about your project"),
   website: z.string().max(0).optional(),
   timestamp: z.string().optional(),
+  sourcePage: z.string().max(300).optional(),
+  campaign: z.string().max(150).optional(),
+  utmSource: z.string().max(150).optional(),
+  utmMedium: z.string().max(150).optional(),
+  utmCampaign: z.string().max(150).optional(),
+  utmContent: z.string().max(150).optional(),
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;

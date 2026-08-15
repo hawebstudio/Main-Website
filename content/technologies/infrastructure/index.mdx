@@ -41,13 +41,30 @@ status: "published"
 
 ## Introduction
 
-Supporting infrastructure for authentication, storage, queues, monitoring, cache, and application reliability.
-
-HA Web Studio evaluates application infrastructure technologies by how they support the business goal, not by popularity alone.
+This category covers the supporting services an application relies on beyond its core
+frontend/backend/database — the pieces that handle authentication, file storage, background
+processing, and reliability. Clerk and Better Auth / Auth.js handle user authentication and
+session management, so login isn't built from scratch on every project. ImageKit/Cloudinary and
+Uploadthing handle file and image uploads, including automatic resizing and optimization. Neon
+provides serverless PostgreSQL hosting, and Upstash provides serverless Redis, both suited to
+applications with variable, unpredictable traffic. Redis itself is used for caching and fast
+key-value lookups. RabbitMQ handles message queuing for background jobs. Sentry monitors an
+application in production and reports errors as they happen. AWS covers a broader set of cloud
+infrastructure services when a project's needs go beyond what a single managed platform
+provides.
 
 ## When These Technologies Are Used
 
-These tools are used when they solve a clear project need: better performance, safer data handling, stronger publishing workflows, reliable deployment, improved measurement, or reduced maintenance cost.
+Authentication tooling (Clerk or Better Auth) is added as soon as a project needs user accounts
+— building and securing login manually is rarely worth the risk versus a maintained library.
+Image/file upload tools come in whenever users need to upload content (product photos, profile
+images, documents). Neon and Upstash suit projects on a serverless hosting platform like
+Vercel, where a traditional always-on database connection doesn't fit the architecture. Redis
+and RabbitMQ are added when a project has a specific caching or background-job need — most
+smaller sites don't need either. Sentry is added on production applications where knowing about
+an error immediately, rather than after a user reports it, materially matters. AWS services are
+used selectively, for specific infrastructure needs not covered by the other tools in this
+list, rather than as a default hosting choice.
 
 ## Related Services
 

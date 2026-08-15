@@ -124,15 +124,17 @@ export default async function CaseStudyDetailPage({
         ]}
       />
 
-      <Breadcrumbs
-        items={breadcrumbItems}
-        className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8"
-      />
       <CaseStudyDetailHero
         caseStudy={caseStudy}
         categoryLabel={categoryLabel}
         typeLabel={typeLabel}
         readingTime={estimateReadingTime(caseStudy)}
+        breadcrumbs={
+          <Breadcrumbs
+            items={breadcrumbItems}
+            className="pb-4"
+          />
+        }
       />
 
       <Section spacing="md">

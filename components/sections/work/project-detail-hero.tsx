@@ -10,27 +10,38 @@ import { Globe } from "lucide-react";
 
 export function ProjectDetailHero({
   project,
+  breadcrumbs,
 }: {
   project: WithContent<Project>;
+  breadcrumbs?: React.ReactNode;
 }) {
   return (
     <HeroWrapper
       className="py-12 md:py-16"
       background={
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden bg-background">
+          {project.cover && (
+            <Image
+              src={project.cover.src}
+              alt={project.cover.alt}
+              fill
+              priority
+              className="absolute inset-0 object-cover opacity-20"
+            />
+          )}
+          {/* Scrim: the cover is a screenshot of the live client site and
+              often contains its own readable text/nav. Without a strong
+              scrim behind our heading/description, the two layers of text
+              collide and become unreadable (see /work/[slug] pages with a
+              busy cover image). This keeps the photo as texture only. */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.14),transparent_20%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_44%)]" />
           <div className="absolute left-1/2 top-0 h-80 w-176 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
-          { project.cover && (
-          <Image
-            src={project.cover.src}
-            alt={project.cover.alt}
-            fill
-            className="absolute inset-0 object-cover"
-          />)}
         </div>
       }
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-6">
+        {breadcrumbs}
         <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
           <span className="rounded-full border border-border/60 bg-background/45 px-3 py-1.5">
             {formatProjectCategory(project.category)}

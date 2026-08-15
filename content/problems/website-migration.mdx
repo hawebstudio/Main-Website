@@ -1,146 +1,90 @@
 ---
 slug: website-migration
-title: Need to Migrate My Website
-description: You're moving your website to a new platform, hosting provider, CMS, or developer and want to preserve performance, SEO, and business continuity.
+title: Website Migration
+description: You are moving your website to a new platform, domain, or hosting environment and need to ensure you don't lose search rankings, traffic, or functionality in the process.
 seo:
-  title: "Migrating Your Website Without Losing SEO or Uptime"
-  description: "Moving to a new platform, host, CMS, or developer? Here's how to migrate your website while preserving performance, search rankings, and business continuity."
+  title: "Website Migration Services: Move Platforms Without Losing SEO"
+  description: "Migrating a website is risky. We handle complex platform, domain, and hosting migrations ensuring zero downtime and preserving your search engine rankings."
 symptoms:
-  - Moving to a new hosting provider
-  - Rebuilding the website
-  - Changing CMS
-  - Rebranding the business
-  - Existing developer is no longer available
-  - Website technology is outdated
-solution: Plan and execute a structured website migration that preserves content, search visibility, and business operations.
+  - Your business has outgrown its current CMS platform
+  - You are rebranding and need to change your primary domain name
+  - You are consolidating multiple business websites into a single domain
+  - You are moving from a legacy server to a modern cloud environment
+  - You are terrified that moving the site will destroy your SEO traffic
+possibleCauses:
+  - The business has scaled beyond the capabilities of the original platform (e.g., moving from Wix to a custom Next.js application)
+  - A merger or acquisition requires digital consolidation
+  - The current hosting environment is unstable or insecure
+solution: Execute a carefully planned migration using comprehensive URL mapping, 301 redirects, and pre/post-launch SEO auditing to keep the transition smooth for both users and search engines.
 relatedServiceSlugs:
-  - website-migration-replatforming
   - website-redesign
   - technical-seo-setup
   - website-audit-technical-fixes
-possibleCauses:
-  - Outdated technology
-  - Hosting limitations
-  - Security concerns
-  - Poor website performance
-  - Business growth
-  - New branding
 approach: >-
-  We plan every migration before making technical changes. Existing content,
-  URLs, metadata, integrations, and SEO signals are reviewed to minimize
-  disruption during the transition. The objective is to improve the platform
-  while maintaining website availability and search visibility.
+  A successful migration is 80% planning and 20% execution. We begin by crawling your entire existing website to capture every URL, asset, and metadata configuration. We create a comprehensive redirect map, matching every old URL to its new destination to preserve link equity. During the build phase on the new platform, we maintain a staging environment blocked from search engines. On launch day, we execute the redirects, update DNS, and immediately run post-launch audits to ensure Google can crawl the new site perfectly without hitting 404 errors.
 potentialSolutions:
-  - Website Migration
-  - CMS Migration
-  - WordPress Migration
-  - Platform Modernization
-  - Technical SEO Preservation
-  - DNS & Hosting Configuration
+  - Website Redesign
+  - Technical SEO Setup
+  - Website Audit & Technical Fixes
 howToDiagnose: >-
-  Review whether the current website limits business growth, performance,
-  security, or maintainability. If changing platforms would solve these
-  problems, a structured migration may be appropriate.
+  If you are changing your CMS, redesigning your URL structure, or changing your domain name, you are undertaking a migration. If you do not have a spreadsheet detailing exactly where every single current URL will point on the new website, your migration is already at risk of failing and causing massive traffic loss.
 beforeHiring: >-
-  Prepare access to your domain, hosting provider, CMS, analytics, Search
-  Console, and any third-party services connected to the website. Ensure a full
-  backup exists before migration begins.
+  Do not cancel your old hosting or delete your old website yet. Ensure you have full administrative access to your domain registrar (where you bought the domain name, like GoDaddy or Namecheap), your current hosting environment, and your Google Analytics / Search Console accounts. Compile a list of the pages you consider 'critical' to your business.
 commonMisconceptions:
-  - Website migration is just copying files.
-  - Rankings always disappear after migration.
-  - Every migration requires rebuilding the website.
-  - Changing hosting automatically improves performance.
+  - Migrating just means copying the files over — this is only true for simple server moves. Changing a CMS or domain requires complex database migration and SEO redirect mapping.
+  - Traffic loss is inevitable during a redesign — temporary fluctuations are normal, but permanent traffic loss is the result of a botched migration (usually forgotten redirects).
+  - You only need to redirect the main pages — false. Every single URL that has ever generated traffic or earned a backlink must be redirected, including old blog posts and media files.
+faqs:
+  - question: "How long does a website migration take?"
+    answer: "The planning phase usually takes 2-4 weeks alongside the new website build. The actual 'switch' happens in a matter of hours, usually scheduled during off-peak times to minimize any potential disruption."
+  - question: "Will my website go offline during the move?"
+    answer: "No. We utilize zero-downtime deployment strategies. The new website is fully built and tested on a staging server. The migration is simply a DNS switch pointing traffic to the new server, meaning users never see a 'down for maintenance' page."
+  - question: "Can we migrate content automatically?"
+    answer: "Often, yes. If you are moving from a standard CMS (like WordPress), we can write scripts to programmatically export and import your posts, pages, and media into the new system, saving hundreds of hours of manual entry."
 relatedTechnologySlugs:
-  - dns
-  - cloudflare
+  - nextjs
+  - vercel
 relatedCaseStudySlugs:
-  - email-dns-infrastructure-foundation
-  - ha-web-studio-architecture
-version: 1
+  - search-visibility-and-ai-search-foundation
+version: 2
 ---
 
-# Need to Migrate My Website
+# The Risks and Rewards of Website Migration
 
-Migrating a website involves much more than moving files from one server to another. It affects search visibility, website performance, content management, integrations, and business continuity.
+Eventually, every growing business hits a ceiling with their digital infrastructure. You outgrow your entry-level CMS, you rebrand and need a new domain, or you merge with another company and need to consolidate multiple websites into one powerful presence.
 
-A successful migration should improve the website without disrupting customers or losing valuable search engine visibility.
+Moving to a new platform is exciting, but the process of getting there—the migration—is fraught with risk. If executed poorly, a website migration can destroy years of hard-earned search engine rankings and cause significant revenue loss overnight.
 
-See the connected [service-led solutions](/services) to explore the implementation approach behind this challenge.
+## Why Migrations Fail (And Cost You Money)
 
-## Signs You Need a Website Migration
+When a business attempts to migrate a website without a technical SEO strategy, the results are almost always disastrous. The most common failures include:
 
-A migration may be appropriate if:
+**The 404 Error Epidemic**: When you build a new website, the URLs often change (e.g., from `/services/consulting.html` to just `/consulting`). If you don't explicitly tell Google where the old page went using a 301 redirect, anyone clicking an old link from Google, an email, or another website hits a dead end (a 404 error).
 
-- Your current CMS no longer meets your needs.
-- Hosting has become unreliable.
-- The website is difficult to maintain.
-- You're rebranding your business.
-- Performance has become a recurring issue.
-- You want to modernize your technology stack.
+**Lost Link Equity**: Other websites linking to yours is a massive SEO ranking factor. If you change your URLs without redirecting them, you instantly lose the SEO value (the "link juice") of all those inbound links. Your rankings will plummet.
 
-Migration is often part of a larger business or technical transition.
+**Botched Content Transfer**: Moving thousands of blog posts or products manually is prone to error. Formatting breaks, images are left behind, and crucial metadata (like SEO titles and descriptions) is forgotten.
 
-## Common Challenges
+**Indexing Disasters**: We frequently see cases where developers forget to remove the "noindex" tag (which prevents Google from crawling the site during development) when launching the new site. The result? The entire new website is actively telling Google to ignore it.
 
-Website migrations can introduce issues if they are not planned carefully.
+## Our Zero-Risk Migration Methodology
 
-Common risks include:
+A successful migration requires meticulous planning, rigorous technical execution, and obsessive testing. We treat migrations as high-stakes operations.
 
-- Broken links
-- Lost search rankings
-- Missing content
-- Downtime
-- Broken forms
-- Incorrect redirects
-- Analytics tracking failures
-- Integration problems
+**1. Comprehensive Crawl and Inventory**: Before we touch anything, we use enterprise crawling tools to map every single URL, image, PDF, and metadata tag on your current website. We know exactly what exists.
 
-A structured migration process helps reduce these risks.
+**2. The Redirect Map**: This is the most critical document in a migration. We create a master spreadsheet mapping every single old URL to its precise corresponding URL on the new website. This helps Google transfer your SEO rankings to the new pages with minimal disruption.
 
-## What Should Be Preserved?
+**3. Staging and Automated Transfer**: We build the new website in a secure staging environment. Where possible, we use automated scripts to migrate your database content (posts, users, products) to ensure data integrity and avoid manual entry errors.
 
-During migration, important assets should be maintained wherever possible.
+**4. Pre-Launch Auditing**: Before the switch is flipped, we run the staging site through the same rigorous SEO and performance audits as a live site, ensuring there are no broken links, missing metadata, or architectural flaws.
 
-This includes:
+**5. Zero-Downtime Launch**: We execute the launch by updating DNS records. Because the new site is already fully functional on its server, there is no downtime for your users.
 
-- Existing URLs
-- SEO metadata
-- Images and media
-- Internal links
-- Redirects
-- Analytics
-- Search Console configuration
-- Structured data
-
-Preserving these elements helps maintain continuity after launch.
-
-## Our Approach
-
-Every migration starts with a technical audit.
-
-We review:
-
-- Existing architecture
-- Content inventory
-- CMS
-- Hosting
-- DNS
-- SSL
-- Technical SEO
-- Third-party integrations
-
-Only after understanding the current website do we plan the migration strategy.
-
-## Decision Framework
-
-Not every website requires migration.
-
-Sometimes targeted improvements, infrastructure upgrades, or CMS modernization provide better value than changing the entire platform.
-
-The best solution depends on your current website, business goals, and future plans.
+**6. Post-Launch Verification**: Immediately after launch, we monitor Google Search Console, check real-time traffic, and run a final crawl to verify that all 301 redirects are firing correctly and the site is healthy.
 
 ## Next Steps
 
-If your current website is limiting your business or you're planning to move to a modern platform, a structured migration can improve performance, maintainability, and long-term scalability while protecting your existing online presence.
+If you are planning a redesign, a rebrand, or a platform move, do not leave your SEO equity to chance. 
 
-Explore our [Website Migration & Replatforming](/services/website-migration-replatforming) and [Technical SEO Setup](/services/technical-seo-setup) services to learn how we manage website migrations with minimal disruption.
+Explore our [Website Redesign](/services/website-redesign) and [Technical SEO Setup](/services/technical-seo-setup) services to see how we build new platforms while protecting your historical digital assets.

@@ -14,6 +14,7 @@ import {
 import { createMetadata } from '@/lib/seo/metadata'
 import { faqJsonLd, technologyJsonLd } from '@/lib/seo/json-ld'
 import { routes } from '@/config/routes'
+import { CTAS } from '@/lib/data/ctas'
 import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
 import { JsonLd } from '@/components/seo/json-ld'
 import { HeroWrapper } from '@/components/sections/hero-wrapper'
@@ -27,6 +28,7 @@ import { mdxComponents } from '@/lib/content/mdx-components'
 import { mdxOptions } from '@/lib/content/mdx-options'
 import { Badge } from '@/components/ui/badge'
 import { CheckCircle2, XCircle, ExternalLink } from 'lucide-react'
+import { TechnologyDetailHeroBackground } from '@/components/sections/hero-backgrounds'
 
 interface TechnologyPageProps {
   params: Promise<{ category: string; slug: string }>
@@ -86,34 +88,35 @@ export default async function TechnologyDetailPage({ params }: TechnologyPagePro
           ...(tech.faqs?.length ? [faqJsonLd(tech.faqs)] : []),
         ]}
       />
-      <Breadcrumbs items={breadcrumbItems} className="pt-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" />
-
-      <HeroWrapper>
-        <Eyebrow className="mb-4">{categoryPage?.title ?? tech.category ?? 'Technology'}</Eyebrow>
-        <Heading level={1} size="display">
-          {tech.title}
-        </Heading>
-        <Text size="lg" tone="muted" className="max-w-2xl">
-          {tech.description}
-        </Text>
-        <div className="mt-6 flex flex-wrap gap-4">
-          {officialWebsite && (
-            <a href={officialWebsite} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline">
-              Official website <ExternalLink className="size-4" />
-            </a>
-          )}
-          {tech.documentation && (
-            <a href={tech.documentation} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline">
-              Documentation <ExternalLink className="size-4" />
-            </a>
-          )}
+      <HeroWrapper className="pt-8" background={<TechnologyDetailHeroBackground />}>
+        <div className="relative z-20 space-y-4">
+          <Breadcrumbs items={breadcrumbItems} className="pb-4" />
+          <Eyebrow className="mb-4">{categoryPage?.title ?? tech.category ?? 'Technology'}</Eyebrow>
+          <Heading level={1} size="display">
+            {tech.title}
+          </Heading>
+          <Text size="lg" tone="muted" className="max-w-2xl">
+            {tech.description}
+          </Text>
+          <div className="mt-6 flex flex-wrap gap-4">
+            {officialWebsite && (
+              <a href={officialWebsite} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline">
+                Official website <ExternalLink className="size-4" />
+              </a>
+            )}
+            {tech.documentation && (
+              <a href={tech.documentation} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline">
+                Documentation <ExternalLink className="size-4" />
+              </a>
+            )}
+          </div>
         </div>
       </HeroWrapper>
 
       <Section spacing="md">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
-            <div className="lg:col-span-8 flex flex-col gap-16">
+            <div className="@container lg:col-span-8 flex flex-col gap-16">
               {tech.bestFor && (
                 <div className="flex flex-col gap-4">
                   <Heading level={2} size="lg">What is it best for?</Heading>
@@ -122,7 +125,7 @@ export default async function TechnologyDetailPage({ params }: TechnologyPagePro
               )}
 
               {(tech.whenRecommended || tech.whenNotRecommended) && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 @2xl:grid-cols-2 gap-8">
                   {tech.whenRecommended && (
                     <div className="flex flex-col gap-4 p-8 rounded-3xl bg-primary/5 border border-primary/10">
                       <Heading level={3} size="sm" className="text-primary flex items-center gap-2">
@@ -204,7 +207,12 @@ export default async function TechnologyDetailPage({ params }: TechnologyPagePro
         url={absoluteUrl(routes.technologies.detail(category, tech.slug))}
       />
 
-      <CtaSection />
+      <CtaSection
+        title={`Need ${tech.title} implemented correctly?`}
+        description="Talk to HA Web Studio about the right setup for your business."
+        primaryCta={CTAS.requestAudit}
+        secondaryCta={CTAS.bookConsultation}
+      />
     </>
   )
 }

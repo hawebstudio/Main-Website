@@ -16,7 +16,7 @@ import { getServicesByFamily, serviceFamilies, services } from '@/lib/content/so
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { faqJsonLd } from '@/lib/seo/json-ld'
 import { ServicesHero } from '@/components/sections/services/services-hero'
-import { familyIcons, serviceFaqEntries } from '@/components/sections/services/services-data'
+import { familyIcons, offeringGroups, serviceFaqEntries } from '@/components/sections/services/services-data'
 import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
 
 export const metadata: Metadata = createMetadata({
@@ -34,7 +34,7 @@ export default async function ServicesPage() {
   ]
 
   return (
-    <article className="pb-24">
+    <article className="pb-4 md:pb-8">
       <JsonLd
         data={[
           ...serviceFamilies.map((family) =>
@@ -47,9 +47,50 @@ export default async function ServicesPage() {
           faqJsonLd(serviceFaqEntries),
         ]}
       />
-      <Breadcrumbs items={breadcrumbItems} className="pt-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" />
+      <ServicesHero breadcrumbs={<Breadcrumbs items={breadcrumbItems} className="mb-4" />} />
 
-      <ServicesHero />
+      <Section spacing="lg">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow>Three ways to work with us</Eyebrow>
+            <Heading level={2} size="xl" className="mt-3">
+              Wherever your website is today, there&rsquo;s a clear starting point.
+            </Heading>
+            <Text size="lg" tone="muted" className="mt-4 leading-relaxed">
+              Every service below fits one of three paths. Start with the one that matches where your business is right now.
+            </Text>
+          </div>
+
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            {offeringGroups.map((group) => (
+              <div key={group.key} className="glass-strong flex flex-col gap-4 rounded-[2rem] border border-border/50 p-6">
+                <Eyebrow>{group.label}</Eyebrow>
+                <Heading level={3} size="lg">
+                  {group.title}
+                </Heading>
+                <Text tone="muted" size="sm" className="leading-relaxed">
+                  {group.description}
+                </Text>
+                <div className="mt-auto flex flex-wrap gap-2 pt-2">
+                  {group.familySlugs.map((slug) => {
+                    const family = serviceFamilies.find((entry) => entry.slug === slug)
+                    if (!family) return null
+                    return (
+                      <Link
+                        key={slug}
+                        href={`${routes.services.index()}#${slug}`}
+                        className="rounded-full border border-border/60 bg-background/45 px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary"
+                      >
+                        {family.title}
+                      </Link>
+                    )
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
 
       <Section spacing="lg" className="border-y border-border/50 bg-background/70">
         <Container>
@@ -81,34 +122,40 @@ export default async function ServicesPage() {
                   key={family.slug}
                   id={family.slug}
                   className={cn(
-                    'glass-strong rounded-[2rem] border border-border/50 p-6 transition-transform hover:-translate-y-1',
-                    index === 0 ? 'xl:col-span-7' : index === 1 ? 'xl:col-span-5' : index === 2 ? 'xl:col-span-6' : index === 3 ? 'xl:col-span-6' : index === 4 ? 'xl:col-span-4' : index === 5 ? 'xl:col-span-4' : index === 6 ? 'xl:col-span-4' : 'xl:col-span-12',
+                    '@container glass-strong rounded-[2rem] border border-border/50 p-6 transition-transform hover:-translate-y-1',
+                    [
+                      'xl:col-span-7', 'xl:col-span-5',
+                      'xl:col-span-6', 'xl:col-span-6',
+                      'xl:col-span-4', 'xl:col-span-4', 'xl:col-span-4',
+                      'xl:col-span-5', 'xl:col-span-7',
+                      'xl:col-span-6', 'xl:col-span-6',
+                    ][index] ?? 'xl:col-span-12',
                   )}
                 >
                   <div className="flex flex-col gap-6">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="max-w-2xl">
-                        <div className="flex items-center gap-3">
-                          <span className="flex size-11 items-center justify-center rounded-2xl border border-border/60 bg-background/70 text-primary">
-                            <Icon className="size-5" />
-                          </span>
-                          <div>
+                    <div className="max-w-2xl">
+                      <div className="flex items-center gap-3">
+                        <span className="flex size-11 items-center justify-center rounded-2xl border border-border/60 bg-background/70 text-primary">
+                          <Icon className="size-5" />
+                        </span>
+                        <div>
+                          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                             <Eyebrow>Family {String(index + 1).padStart(2, '0')}</Eyebrow>
-                            <Heading level={3} size="lg" className="mt-2">
-                              {family.title}
-                            </Heading>
+                            <span className="text-xs text-muted-foreground">
+                              &middot; {familyServices.length} {familyServices.length === 1 ? 'service' : 'services'}
+                            </span>
                           </div>
+                          <Heading level={3} size="lg" className="mt-2">
+                            {family.title}
+                          </Heading>
                         </div>
-                        <Text size="lg" tone="muted" className="mt-4 max-w-3xl leading-relaxed">
-                          {family.overview}
-                        </Text>
                       </div>
-                      <span className="hidden rounded-full border border-border/60 bg-background/45 px-3 py-1 text-xs uppercase tracking-[0.18em] text-muted-foreground lg:inline-flex">
-                        {familyServices.length} services
-                      </span>
+                      <Text size="lg" tone="muted" className="mt-4 max-w-3xl leading-relaxed">
+                        {family.overview}
+                      </Text>
                     </div>
 
-                    <div className="grid gap-4 md:grid-cols-2">
+                    <div className="grid gap-4 @lg:grid-cols-2">
                       <div className="rounded-3xl border border-border/60 bg-background/35 p-5">
                         <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Services</div>
                         <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
@@ -138,12 +185,16 @@ export default async function ServicesPage() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                      <div className="text-sm text-muted-foreground">
-                        Typical clients: {index === 0 ? 'B2B companies, local businesses, and service firms' : index === 1 ? 'Retailers, DTC brands, and product businesses' : index === 2 ? 'Teams improving an existing website' : index === 3 ? 'Businesses investing in long-term search growth' : index === 4 ? 'Location-based businesses' : index === 5 ? 'Teams needing clearer measurement' : index === 6 ? 'Businesses requiring custom functionality' : 'Teams needing reliable technical support'}
+                    <div className="flex flex-col gap-4 @lg:flex-row @lg:items-center @lg:justify-between">
+                      <div className="text-sm text-muted-foreground line-clamp-2">
+                        {family.overview}
                       </div>
-                      <Link href={routes.services.family(family.slug)} className={buttonVariants({ variant: 'outline', className: 'bg-transparent' })}>
+                      <Link
+                        href={routes.services.family(family.slug)}
+                        className={buttonVariants({ variant: 'secondary', className: 'shrink-0 self-start whitespace-nowrap @lg:self-auto' })}
+                      >
                         {family.cta.label}
+                        <ArrowRight className="size-4" />
                       </Link>
                     </div>
                   </div>
@@ -299,7 +350,7 @@ export default async function ServicesPage() {
                 Keep the language clear, direct, and useful enough for both users and AI systems to extract.
               </Text>
             </div>
-            <Accordion className="w-full">
+            <Accordion type="single" collapsible className="w-full">
               {serviceFaqEntries.map((faq, index) => (
                 <AccordionItem key={faq.question} value={`faq-${index}`}>
                   <AccordionTrigger className="text-left text-lg font-medium">

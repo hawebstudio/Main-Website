@@ -36,13 +36,25 @@ status: "published"
 
 ## Introduction
 
-Developer workflow tools that keep code quality, collaboration, and release processes predictable.
-
-HA Web Studio evaluates development tooling technologies by how they support the business goal, not by popularity alone.
+This category covers the tooling that surrounds writing and shipping code, rather than the
+application code itself. Git is the version-control system used to track every change to a
+codebase; GitHub hosts that code, manages code review, and integrates with the CI/CD pipeline.
+ESLint and Prettier catch bugs and inconsistent formatting automatically as code is written,
+rather than relying on manual review to catch them. pnpm is the package manager used to install
+and manage a project's dependencies efficiently, and Turborepo manages build and task
+orchestration across multiple related packages in a single repository (a "monorepo") — relevant
+once a project has more than one deployable piece that shares code.
 
 ## When These Technologies Are Used
 
-These tools are used when they solve a clear project need: better performance, safer data handling, stronger publishing workflows, reliable deployment, improved measurement, or reduced maintenance cost.
+Git and GitHub are used on every project without exception — they're the baseline for tracking
+history and enabling collaboration, even on solo work. ESLint and Prettier run continuously
+during development and in CI to catch problems before they reach production; skipping them
+tends to show up later as inconsistent code and harder-to-track bugs. pnpm is the default
+package manager for its faster installs and stricter dependency resolution compared to
+alternatives. Turborepo specifically becomes relevant once a project's codebase splits into
+multiple packages that need to be built and tested together — a marketing site and a shared
+component library, for example — rather than for a single standalone application.
 
 ## Related Services
 

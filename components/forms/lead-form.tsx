@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { contactFormSchema, contactIntentOptions, ContactFormValues } from '@/lib/content/schemas'
+import { contactFormSchema, contactIntentOptions, budgetOptions, ContactFormValues } from '@/lib/content/schemas'
 import { submitContactForm } from '@/app/(marketing)/contact/actions'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -19,10 +19,19 @@ import {
 import { Label } from '@/components/ui/label'
 import { analyticsEvents, trackEvent } from '@/lib/analytics/events'
 import { CheckCircle2, AlertCircle } from 'lucide-react'
+import type { Promotion } from '@/lib/content/types'
 
 const INTENT_VALUES = contactIntentOptions.map((option) => option.value) as readonly string[]
 
-export function LeadForm() {
+interface LeadFormProps {
+  // Sourced from `content/promotion/` via `getActivePromotion()`. When
+  // present, its `campaignId` is used to attribute enquiries that reach
+  // the form without an explicit `?campaign=` query param (e.g. someone
+  // who saw the promotion banner and scrolled straight to the form).
+  promotion?: Promotion | null
+}
+
+export function LeadForm({ promotion = null }: LeadFormProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
   const [formLoadedAt] = useState(() => String(Date.now()))
@@ -36,11 +45,53 @@ export function LeadForm() {
     handleSubmit,
     reset,
     control,
+    watch,
+    setValue,
     formState: { errors }
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: { intent: initialIntent }
   })
+
+  const selectedBudget = watch('budget')
+
+  // Capture where the lead came from once we're on the client, so
+  // server-rendered and hydrated markup stay in sync (no SSR mismatch).
+  useEffect(() => {
+    // Same-origin referrer -> the page the visitor was on before opening
+    // the form (e.g. "/services/website-redesign"). Cross-site referrers
+    // aren't a "source page" in our own funnel, so they're left blank.
+    try {
+      if (document.referrer) {
+        const referrerUrl = new URL(document.referrer)
+        if (referrerUrl.origin === window.location.origin) {
+          setValue('sourcePage', referrerUrl.pathname)
+        }
+      }
+    } catch {
+      // Malformed/unavailable referrer — leave sourcePage unset.
+    }
+
+    const campaign = searchParams.get('campaign')
+    const utmSource = searchParams.get('utm_source')
+    const utmMedium = searchParams.get('utm_medium')
+    const utmCampaign = searchParams.get('utm_campaign')
+    const utmContent = searchParams.get('utm_content')
+
+    if (campaign) {
+      setValue('campaign', campaign)
+    } else if (promotion) {
+      // No explicit ?campaign= param — attribute to the active promotion
+      // if one is running, so enquiries reached via the on-page banner
+      // (rather than the popup's CTA link) still get credited.
+      setValue('campaign', promotion.campaignId)
+    }
+    if (utmSource) setValue('utmSource', utmSource)
+    if (utmMedium) setValue('utmMedium', utmMedium)
+    if (utmCampaign) setValue('utmCampaign', utmCampaign)
+    if (utmContent) setValue('utmContent', utmContent)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const onSubmit = async (data: ContactFormValues) => {
     setStatus('submitting')
@@ -85,6 +136,12 @@ export function LeadForm() {
           {...register('website')}
         />
         <Input id="timestamp" tabIndex={-1} autoComplete="off" defaultValue={formLoadedAt} {...register('timestamp')} />
+        <input type="hidden" {...register('sourcePage')} />
+        <input type="hidden" {...register('campaign')} />
+        <input type="hidden" {...register('utmSource')} />
+        <input type="hidden" {...register('utmMedium')} />
+        <input type="hidden" {...register('utmCampaign')} />
+        <input type="hidden" {...register('utmContent')} />
       </div>
 
       {status === 'error' && (
@@ -113,10 +170,43 @@ export function LeadForm() {
           <Input id="company" placeholder="Acme Corp" {...register('company')} />
         </div>
         <div className="flex flex-col gap-2">
-          <Label htmlFor="budget">Budget Range</Label>
-          <Input id="budget" placeholder="e.g. $10k - $20k" {...register('budget')} />
+          <Label htmlFor="budget">Project Budget</Label>
+          <Controller
+            control={control}
+            name="budget"
+            render={({ field }) => (
+              <Select value={field.value ?? ''} onValueChange={field.onChange}>
+                <SelectTrigger id="budget" className="w-full">
+                  <SelectValue placeholder="Select a range" />
+                </SelectTrigger>
+                <SelectContent>
+                  {budgetOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
+          />
+          {errors.budget && <span className="text-xs text-destructive">{errors.budget.message}</span>}
         </div>
       </div>
+
+      {selectedBudget === 'custom' && (
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="customBudget">Enter your approximate budget</Label>
+          <Input
+            id="customBudget"
+            placeholder="e.g. $15,000"
+            className="w-full min-w-0"
+            {...register('customBudget')}
+          />
+          {errors.customBudget && (
+            <span className="text-xs text-destructive">{errors.customBudget.message}</span>
+          )}
+        </div>
+      )}
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="intent">I'm interested in *</Label>

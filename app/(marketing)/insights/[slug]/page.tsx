@@ -2,10 +2,12 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { insights } from '@/lib/content/source'
-import { getRelatedServices, getRelatedTechnologies, getRelatedInsights } from '@/lib/content/relations'
+import { getRelatedServices, getRelatedTechnologies, getRelatedInsights, getRelatedProblems, getRelatedCaseStudies } from '@/lib/content/relations'
 import { createMetadata } from '@/lib/seo/metadata'
-import { blogPostingJsonLd } from '@/lib/seo/json-ld'
+import { blogPostingJsonLd, faqJsonLd } from '@/lib/seo/json-ld'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { routes } from '@/config/routes'
+import { CTAS } from '@/lib/data/ctas'
 import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
 import { JsonLd } from '@/components/seo/json-ld'
 import { Container } from '@/components/primitives/container'
@@ -99,6 +101,8 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
   const relatedTech = await getRelatedTechnologies(insight.relatedTechnologySlugs)
   const relatedServices = await getRelatedServices(insight.relatedServiceSlugs)
   const relatedArticles = await getRelatedInsights(insight.relatedArticleSlugs)
+  const relatedProblems = await getRelatedProblems(insight.relatedProblemSlugs)
+  const relatedCaseStudies = await getRelatedCaseStudies(insight.relatedCaseStudySlugs)
   
   const tocItems = insight.content ? extractHeadings(insight.content) : []
   const customMdxComponents = { ...mdxComponents, ...createHeadingComponents() }
@@ -112,15 +116,18 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
   return (
     <>
       <JsonLd
-        data={blogPostingJsonLd({
-          title: insight.title,
-          description: insight.description,
-          path: routes.insights.detail(insight.slug),
-          publishedAt: insight.publishedAt,
-          updatedAt: insight.updatedAt,
-          authorName: insight.author?.name,
-          image: insight.cover?.src,
-        })}
+        data={[
+          blogPostingJsonLd({
+            title: insight.title,
+            description: insight.description,
+            path: routes.insights.detail(insight.slug),
+            publishedAt: insight.publishedAt,
+            updatedAt: insight.updatedAt,
+            authorName: insight.author?.name,
+            image: insight.cover?.src,
+          }),
+          ...(insight.faqs?.length ? [faqJsonLd(insight.faqs)] : []),
+        ]}
       />
       <ReadingProgress />
       <Breadcrumbs items={breadcrumbItems} className="pt-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" />
@@ -187,6 +194,25 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
                   <MDXRemote source={insight.content} components={customMdxComponents} options={mdxOptions} />
                 </div>
               )}
+
+              {/* FAQ Accordion */}
+              {insight.faqs && insight.faqs.length > 0 && (
+                <div className="mt-8 border-t border-border pt-8">
+                  <Heading level={2} size="lg" className="mb-6">Frequently Asked Questions</Heading>
+                  <Accordion type="single" collapsible className="w-full">
+                    {insight.faqs.map((faq, index) => (
+                      <AccordionItem key={index} value={`faq-${index}`} className="border-border/50">
+                        <AccordionTrigger className="text-left text-base font-medium hover:text-primary">
+                          {faq.question}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground leading-relaxed">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              )}
             </article>
 
             {/* Right Sidebar (Related Content) */}
@@ -219,6 +245,36 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
                   </div>
                 )}
                 
+                {relatedProblems.length > 0 && (
+                  <div>
+                    <Eyebrow className="mb-4">Related Problems</Eyebrow>
+                    <ul className="flex flex-col gap-3">
+                      {relatedProblems.map(p => (
+                        <li key={p.slug}>
+                          <Link href={routes.problems.detail(p.slug)} className="text-primary hover:underline font-medium text-sm">
+                            {p.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {relatedCaseStudies.length > 0 && (
+                  <div>
+                    <Eyebrow className="mb-4">Case Studies</Eyebrow>
+                    <ul className="flex flex-col gap-3">
+                      {relatedCaseStudies.map(cs => (
+                        <li key={cs.slug}>
+                          <Link href={routes.caseStudies.detail(cs.slug)} className="text-primary hover:underline font-medium text-sm">
+                            {cs.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 {relatedArticles.length > 0 && (
                   <div>
                     <Eyebrow className="mb-4">Related Articles</Eyebrow>
@@ -248,7 +304,12 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
         url={absoluteUrl(routes.insights.detail(insight.slug))}
       />
 
-      <CtaSection />
+      <CtaSection
+        title="Want to know what's holding your website back?"
+        description="Get a clear picture of what to fix first, and what it would take."
+        primaryCta={CTAS.requestAudit}
+        secondaryCta={CTAS.viewWork}
+      />
     </>
   )
 }

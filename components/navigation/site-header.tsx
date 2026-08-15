@@ -75,7 +75,7 @@ export function SiteHeader() {
               shortcutMedia="desktop"
             />
             <Link
-              href={CTAS.startProject.href}
+              href={CTAS.requestAudit.href}
               className={cn(
                 buttonVariants({
                   size: "sm",
@@ -84,7 +84,7 @@ export function SiteHeader() {
                 "max-lg:hidden",
               )}
             >
-              {CTAS.startProject.label}
+              Get an Assessment
             </Link>
             <MobileNav items={primaryNav} />
           </div>

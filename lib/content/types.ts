@@ -113,10 +113,21 @@ export interface Service extends ContentEntry {
   icon?: string
   audience?: string
   businessProblems?: string[]
+  outcomes?: string[]
+  scope?: string
+  complexity?: 'Low' | 'Medium' | 'High' | 'Advanced'
+  availability?: 'Live' | 'Coming Soon'
+  core?: string[]
   deliverables?: string[]
+  addOns?: string[]
+  recommendations?: string[]
   process?: { title: string; description: string }[]
+  useCases?: { title: string; description: string }[]
+  exclusions?: string[]
   recommendedTechnologies?: string[]
   relatedServices?: string[]
+  pricing?: string
+  timeline?: string
   faqs?: Faq[]
   cta?: Cta
 }
@@ -275,10 +286,13 @@ export interface Insight extends ContentEntry {
   
   keyTakeaways?: string[]
   estimatedSkillLevel?: 'Beginner' | 'Intermediate' | 'Advanced'
+  faqs?: Faq[]
   
   relatedServiceSlugs?: string[]
   relatedTechnologySlugs?: string[]
   relatedArticleSlugs?: string[]
+  relatedProblemSlugs?: string[]
+  relatedCaseStudySlugs?: string[]
 }
 
 export interface Problem extends ContentEntry {
@@ -296,4 +310,29 @@ export interface Problem extends ContentEntry {
 
   relatedTechnologySlugs?: string[]
   relatedCaseStudySlugs?: string[]
+}
+
+export interface Promotion extends ContentEntry {
+  enabled?: boolean
+  startDate: string
+  endDate: string
+  headline: string
+  discountPercentage?: number
+  eligibleServiceSlugs?: string[]
+  cta: {
+    label: string
+    href: string
+  }
+  secondaryCta?: {
+    label: string
+    href?: string | null
+  }
+  disclaimer?: string
+  displayDelay?: {
+    min: number
+    max: number
+  }
+  localStorageKey?: string
+  campaignId: string
+  priority?: number
 }

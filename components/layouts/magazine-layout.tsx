@@ -6,8 +6,8 @@ interface MagazineLayoutProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const gridColClasses = {
-  2: 'md:grid-cols-2',
-  3: 'md:grid-cols-2 lg:grid-cols-3',
+  2: '@md:grid-cols-2',
+  3: '@md:grid-cols-2 @4xl:grid-cols-3',
 }
 
 /**
@@ -26,7 +26,7 @@ const gridColClasses = {
  */
 export function MagazineLayout({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn('flex flex-col gap-8', className)} {...props} />
+    <div className={cn('@container flex flex-col gap-8', className)} {...props} />
   )
 }
 

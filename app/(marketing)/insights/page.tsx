@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BookOpenText, Search } from 'lucide-react'
 import { createMetadata } from '@/lib/seo/metadata'
+import { JsonLd } from '@/components/seo/json-ld'
+import { collectionPageJsonLd } from '@/lib/seo/json-ld'
 import { HeroWrapper } from '@/components/sections/hero-wrapper'
 import { Heading, Text } from '@/components/primitives/typography'
 import { Container } from '@/components/primitives/container'
@@ -13,6 +15,9 @@ import { InsightsFilterPanel } from '@/components/sections/insights/insights-fil
 import { insights } from '@/lib/content/source'
 import { buttonVariants } from '@/components/ui/button'
 import { routes } from '@/config/routes'
+import { CTAS } from '@/lib/data/ctas'
+import { InsightsHeroBackground } from '@/components/sections/hero-backgrounds'
+import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
 
 interface InsightsPageProps {
   searchParams: Promise<{ topic?: string | string[] }>
@@ -50,15 +55,35 @@ export default async function InsightsPage({ searchParams }: InsightsPageProps) 
     ? sortedInsights.filter((insight) => insight.slug !== featuredInsight.slug)
     : sortedInsights
 
+  const breadcrumbItems = [
+    { label: 'Home', href: routes.home() },
+    { label: 'Insights', href: routes.insights.index() },
+  ]
+
   return (
     <>
-      <HeroWrapper>
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-end">
+      <JsonLd
+        data={[
+          collectionPageJsonLd({
+            title: 'Insights',
+            description:
+              'Thoughts on performance, development, SEO, and the future of web experiences.',
+            path: routes.insights.index(),
+            items: allInsights.map((insight) => ({
+              title: insight.title,
+              path: routes.insights.detail(insight.slug),
+            })),
+          }),
+        ]}
+      />
+      <HeroWrapper background={<InsightsHeroBackground />}>
+        <Breadcrumbs items={breadcrumbItems} className="relative z-20 mb-4" />
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-end relative z-20">
           <div className="flex flex-col gap-6">
             <Heading level={1} size="display">
               Insights
             </Heading>
-            <Text size="lg" tone="muted" className="max-w-xl">
+            <Text size="lg" tone="muted" className="max-w-xl text-pretty">
               Thoughts on performance, development, SEO, and the future of web experiences.
             </Text>
             <div className="flex flex-wrap gap-3">
@@ -131,7 +156,12 @@ export default async function InsightsPage({ searchParams }: InsightsPageProps) 
         </Container>
       </Section>
 
-      <CtaSection />
+      <CtaSection
+        title="Want to know what's holding your website back?"
+        description="Get a clear picture of what to fix first, and what it would take."
+        primaryCta={CTAS.requestAudit}
+        secondaryCta={CTAS.viewWork}
+      />
     </>
   )
 }

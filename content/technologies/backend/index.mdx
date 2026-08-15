@@ -36,13 +36,28 @@ status: "published"
 
 ## Introduction
 
-Server-side technologies for APIs, integrations, application workflows, and reliable business logic.
+Backend technologies handle the parts of a website or application that don't live in the
+browser: processing form submissions, enforcing business rules, talking to a database,
+calling third-party services, and exposing data through APIs that the frontend (or another
+system) can consume. Where frontend work is about what a user sees, backend work is about what
+happens correctly and securely behind that screen.
 
-HA Web Studio evaluates backend technologies by how they support the business goal, not by popularity alone.
+This category covers Node.js as the runtime, Express.js for building HTTP APIs on top of it,
+Prisma and Mongoose as the two most common ways to talk to a database from a Node.js
+application (Prisma for SQL databases, Mongoose for MongoDB), GraphQL as an alternative query
+layer to plain REST APIs, and REST APIs themselves as the default integration pattern most
+third-party services expect.
 
 ## When These Technologies Are Used
 
-These tools are used when they solve a clear project need: better performance, safer data handling, stronger publishing workflows, reliable deployment, improved measurement, or reduced maintenance cost.
+Backend work is required whenever a site needs to do more than serve static content — anything
+involving user accounts, form processing, payments, dynamic data, or communication with
+another system. REST APIs are the default choice for most integrations because nearly every
+external service (payment gateways, CRMs, email providers) speaks REST. GraphQL becomes useful
+when a frontend needs to pull data from several related sources in a single request and
+over-fetching plain REST endpoints would be wasteful. The choice between Prisma and Mongoose
+comes down to the database itself, not preference — Prisma for relational (SQL) data with
+strict schemas, Mongoose for MongoDB's more flexible document model.
 
 ## Related Services
 

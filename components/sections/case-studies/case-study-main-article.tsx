@@ -18,7 +18,7 @@ export function CaseStudyMainArticle({ caseStudy, constraints, tradeOffs, timeli
   const customMdxComponents = { ...mdxComponents, ...createHeadingComponents() }
 
   return (
-    <article className="flex flex-col gap-12 lg:col-span-6">
+    <article className="@container flex flex-col gap-12 lg:col-span-6">
       {(caseStudy.background || caseStudy.businessContext) ? (
         <ArticlePanel title="Background">
           <Text className="mt-4 leading-relaxed">{caseStudy.background ?? caseStudy.businessContext}</Text>
@@ -28,7 +28,7 @@ export function CaseStudyMainArticle({ caseStudy, constraints, tradeOffs, timeli
       {(caseStudy.challenge || constraints.length || caseStudy.risks?.length || caseStudy.requirements?.length) ? (
         <ArticlePanel title="Challenge">
           {caseStudy.challenge ? <Text className="mt-4 leading-relaxed">{caseStudy.challenge}</Text> : null}
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <div className="mt-6 grid gap-4 @sm:grid-cols-2 @2xl:grid-cols-3">
             <CompactList title="Constraints" items={constraints} />
             <CompactList title="Risks" items={caseStudy.risks ?? []} />
             <CompactList title="Requirements" items={caseStudy.requirements ?? []} />
@@ -84,7 +84,7 @@ export function CaseStudyMainArticle({ caseStudy, constraints, tradeOffs, timeli
             ))}
           </ul>
           {caseStudy.results?.length ? (
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <div className="mt-6 grid gap-4 @sm:grid-cols-2">
               {caseStudy.results.map((item) => (
                 <div key={item.label} className="rounded-2xl border border-primary/20 bg-background/50 p-4">
                   <div className="text-xl font-semibold text-primary">{item.value}</div>

@@ -6,12 +6,15 @@ import { headers } from "next/headers";
 import { siteConfig } from "@/config/site";
 import { MonitoringBootstrap } from "@/components/monitoring/monitoring-bootstrap";
 import { RouteTransitionCursor } from "@/components/navigation/route-transition-cursor";
+import { CustomCursor } from "@/components/cursor/custom-cursor";
 import { FloatingWhatsAppButton } from "@/components/primitives/floating-whatsapp-button";
 import { localBusinessJsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo/json-ld";
 import { dynamicOgImageUrl } from "@/lib/seo/images";
 import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
 import { CookieConsentBanner } from "@/components/consent/cookie-consent-banner";
+import { PromotionPopup } from "@/components/promotions/promotion-popup";
 import { JsonLd } from "@/components/seo/json-ld";
+import { getActivePromotion } from "@/lib/content/source";
 import "./globals.css";
 
 const homepageOgImage = dynamicOgImageUrl({
@@ -130,6 +133,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const nonce = (await headers()).get("x-nonce") ?? undefined;
+  // Reads content/promotion/ — null when that folder has no currently
+  // active promotion, in which case the popup below renders nothing.
+  const promotion = await getActivePromotion();
 
   return (
     <html
@@ -148,6 +154,7 @@ export default async function RootLayout({
         </a>
         {children}
         <RouteTransitionCursor />
+        <CustomCursor />
         <MonitoringBootstrap />
         <AnalyticsProvider
           gaId={siteConfig.analytics.gaId}
@@ -156,6 +163,7 @@ export default async function RootLayout({
           nonce={nonce}
         />
         <CookieConsentBanner />
+        <PromotionPopup promotion={promotion} />
         <FloatingWhatsAppButton />
         {process.env.NODE_ENV === "production" && <Analytics />}
         {process.env.NODE_ENV === "production" && <SpeedInsights />}

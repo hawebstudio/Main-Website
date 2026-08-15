@@ -33,13 +33,26 @@ status: "published"
 
 ## Introduction
 
-Data storage technologies selected around ownership, query patterns, scalability, and operational cost.
-
-HA Web Studio evaluates databases technologies by how they support the business goal, not by popularity alone.
+A database is where an application's actual data lives — user accounts, orders, content,
+anything that needs to persist and be queried reliably. This category covers PostgreSQL, a
+relational (SQL) database used when data has clear, structured relationships (orders belonging
+to customers, products belonging to categories) that benefit from strict schemas and
+transactional integrity. MongoDB is a document database used when data is less uniformly
+structured or when the application's data model is expected to evolve quickly during
+development. Supabase provides PostgreSQL as a managed service with built-in authentication,
+file storage, and auto-generated APIs layered on top — useful when a project wants a relational
+database without managing the server infrastructure directly.
 
 ## When These Technologies Are Used
 
-These tools are used when they solve a clear project need: better performance, safer data handling, stronger publishing workflows, reliable deployment, improved measurement, or reduced maintenance cost.
+PostgreSQL is the default choice for most business applications — ecommerce, CRMs, anything
+with clearly related entities — because relational integrity (an order can't reference a
+customer that doesn't exist, for example) is enforced by the database itself rather than
+application code. MongoDB is chosen when the data shape varies significantly between records or
+changes often, which a rigid SQL schema would make harder to iterate on. Supabase is used when a
+project wants PostgreSQL's reliability but doesn't want to separately provision and manage
+authentication, storage, and hosting — trading some infrastructure control for faster setup and
+lower operational overhead, which suits smaller projects and faster timelines particularly well.
 
 ## Related Services
 

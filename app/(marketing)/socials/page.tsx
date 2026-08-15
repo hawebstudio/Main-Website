@@ -5,9 +5,11 @@ import { Heading, Text } from '@/components/primitives/typography'
 import { HeroWrapper } from '@/components/sections/hero-wrapper'
 import { SocialProfilesGrid } from '@/components/sections/socials/social-profiles-grid'
 import { JsonLd } from '@/components/seo/json-ld'
-import { webPageJsonLd, breadcrumbJsonLd } from '@/lib/seo/json-ld'
+import { webPageJsonLd } from '@/lib/seo/json-ld'
+import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
 import { company, socialProfiles } from '@/lib/business/company'
 import { routes } from '@/config/routes'
+import { SocialsHeroBackground } from '@/components/sections/hero-backgrounds'
 
 export const metadata: Metadata = createMetadata({
   title: 'Socials',
@@ -15,24 +17,26 @@ export const metadata: Metadata = createMetadata({
   path: routes.socials(),
 })
 
+const breadcrumbItems = [
+  { label: 'Home', href: routes.home() },
+  { label: 'Socials', href: routes.socials() },
+]
+
 const jsonLdData = [
   webPageJsonLd({
     title: `Socials | ${company.name}`,
     description: `Follow and connect with ${company.name} across Instagram, Facebook, LinkedIn, X, GitHub, and more.`,
     path: routes.socials(),
   }),
-  breadcrumbJsonLd([
-    { label: 'Home', href: routes.home() },
-    { label: 'Socials', href: routes.socials() },
-  ]),
 ]
 
 export default function SocialsPage() {
   return (
     <>
       <JsonLd data={jsonLdData} />
-      <HeroWrapper>
-        <div className="flex max-w-2xl flex-col gap-4">
+      <HeroWrapper background={<SocialsHeroBackground />}>
+        <div className="flex max-w-2xl flex-col gap-4 relative z-20">
+          <Breadcrumbs items={breadcrumbItems} className="mb-2" />
           <span className="text-sm font-semibold uppercase tracking-wider text-primary">
             Connect
           </span>
@@ -46,7 +50,7 @@ export default function SocialsPage() {
         </div>
       </HeroWrapper>
 
-      <section className="pb-24">
+      <section className="pb-4 md:pb-8">
         <Container size="lg">
           <SocialProfilesGrid profiles={socialProfiles} />
         </Container>

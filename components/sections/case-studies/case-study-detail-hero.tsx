@@ -9,9 +9,10 @@ interface CaseStudyDetailHeroProps {
   categoryLabel: string
   typeLabel: string
   readingTime: number
+  breadcrumbs?: React.ReactNode
 }
 
-export function CaseStudyDetailHero({ caseStudy, categoryLabel, typeLabel, readingTime }: CaseStudyDetailHeroProps) {
+export function CaseStudyDetailHero({ caseStudy, categoryLabel, typeLabel, readingTime, breadcrumbs }: CaseStudyDetailHeroProps) {
   return (
     <HeroWrapper
       className="py-12 md:py-16"
@@ -23,6 +24,7 @@ export function CaseStudyDetailHero({ caseStudy, categoryLabel, typeLabel, readi
       }
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-6">
+        {breadcrumbs}
         <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
           <span className="rounded-full border border-border/60 bg-background/45 px-3 py-1.5">{categoryLabel}</span>
           <span className="rounded-full border border-border/60 bg-background/45 px-3 py-1.5">{typeLabel}</span>

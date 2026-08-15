@@ -45,6 +45,22 @@ const nextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      // --- Pre-existing entries (kept as-is) ---
+      { source: '/services/families/website-development', destination: '/services/families/websites', permanent: true },
+      { source: '/services/families/ecommerce-development', destination: '/services/families/ecommerce', permanent: true },
+      { source: '/services/families/seo-search-visibility', destination: '/services/families/seo-search', permanent: true },
+      { source: '/services/families/local-business-visibility', destination: '/services/families/growth', permanent: true },
+      { source: '/services/families/analytics-growth', destination: '/services/families/analytics', permanent: true },
+      { source: '/services/families/website-performance', destination: '/services/families/performance-security', permanent: true },
+      { source: '/services/families/website-maintenance', destination: '/services/families/maintenance', permanent: true },
+      { source: '/services/families/business-websites', destination: '/services/families/websites', permanent: true },
+      { source: '/services/families/google-business', destination: '/services/families/growth', permanent: true },
+      { source: '/services/families/custom-web-applications', destination: '/services/families/development', permanent: true },
+      { source: '/services/families/website-management', destination: '/services/families/maintenance', permanent: true },
+    ]
+  },
 }
 
 export default nextConfig

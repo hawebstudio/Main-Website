@@ -473,7 +473,12 @@ export function SiteSearch({
     if (event.key === 'Enter') {
       event.preventDefault()
       const activeResult = flatResults[activeIndex]
-      if (activeResult && !isPage) {
+      // Navigate straight to the highlighted result on Enter, whether this
+      // is the header/footer dropdown or the /search results page itself.
+      // Previously this only fired when `!isPage`, so pressing Enter on
+      // the search page just re-pushed the same query string and appeared
+      // to do nothing even with a result highlighted.
+      if (activeResult) {
         selectResult(activeResult)
         router.push(activeResult.document.url)
         return

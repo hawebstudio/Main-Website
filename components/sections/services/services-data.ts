@@ -1,23 +1,69 @@
-import { BarChart3, Gauge, Globe2, MapPin, Search, ShoppingBag, Sparkles, Wrench } from 'lucide-react'
+import {
+  BarChart3,
+  Gauge,
+  Globe2,
+  Layers,
+  Palette,
+  Plug,
+  Search,
+  ShieldCheck,
+  ShoppingBag,
+  TrendingUp,
+  Wrench,
+} from 'lucide-react'
 import { routes } from '@/config/routes'
 
 export const discoveryPaths = [
-  { label: 'I need a new website', href: routes.services.family('business-websites'), icon: Globe2 },
-  { label: 'I want to improve my existing website', href: routes.services.family('website-performance'), icon: Gauge },
-  { label: 'I need better search visibility', href: routes.services.family('seo-search-visibility'), icon: Search },
+  { label: 'I need a new website', href: routes.services.family('websites'), icon: Globe2 },
+  { label: 'I want to improve my existing website', href: routes.services.family('performance-security'), icon: Gauge },
+  { label: 'I need better search visibility', href: routes.services.family('seo-search'), icon: Search },
   { label: 'I run an ecommerce business', href: routes.services.family('ecommerce'), icon: ShoppingBag },
-  { label: 'I need custom functionality', href: routes.services.family('custom-web-applications'), icon: Wrench },
+  { label: 'I need custom functionality', href: routes.services.family('development'), icon: Wrench },
 ]
 
+// Positioning layer only — groups the existing service families into three
+// commercial paths (Build / Transform / Grow). Does not replace or
+// restructure the underlying family/service architecture or any URLs.
+export const offeringGroups = [
+  {
+    key: 'build',
+    label: '01 — Build',
+    title: 'New websites, stores, and web applications.',
+    description:
+      'For businesses starting fresh: a new website, an online store, or a custom web application, built the right way from day one.',
+    familySlugs: ['websites', 'design', 'ecommerce', 'business-systems', 'development'],
+  },
+  {
+    key: 'transform',
+    label: '02 — Transform',
+    title: 'Redesign, optimize, and modernize what already exists.',
+    description:
+      'For businesses with a website that isn\u2019t pulling its weight: slow, outdated, hard to maintain, or falling behind technically.',
+    familySlugs: ['performance-security', 'integrations', 'maintenance'],
+  },
+  {
+    key: 'grow',
+    label: '03 — Grow',
+    title: 'Search visibility, analytics, and ongoing improvement.',
+    description:
+      'For businesses that need more from the traffic they already have: SEO, analytics, and continuous conversion improvement.',
+    familySlugs: ['growth', 'seo-search', 'analytics'],
+  },
+] as const
+
+// Keys must match the family `slug` values in content/services/index.ts
 export const familyIcons = {
-  'business-websites': Globe2,
+  websites: Globe2,
+  design: Palette,
   ecommerce: ShoppingBag,
-  'website-performance': Gauge,
-  'seo-search-visibility': Search,
-  'google-business': MapPin,
+  growth: TrendingUp,
+  'seo-search': Search,
+  'business-systems': Layers,
+  integrations: Plug,
   analytics: BarChart3,
-  'custom-web-applications': Wrench,
-  'website-management': Sparkles,
+  'performance-security': ShieldCheck,
+  development: Wrench,
+  maintenance: Gauge,
 } as const
 
 export const serviceFaqEntries = [
