@@ -8,7 +8,7 @@ import { FloatingWhatsAppButton } from "@/components/primitives/floating-whatsap
 import { localBusinessJsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo/json-ld";
 import { dynamicOgImageUrl } from "@/lib/seo/images";
 import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
-import { DeferredGlobals } from "@/components/layout/deferred-globals";
+import { DeferredGlobals } from "@/components/layouts/deferred-globals";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getActivePromotion } from "@/lib/content/source";
 import "./globals.css";
