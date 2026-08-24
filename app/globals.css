@@ -245,76 +245,6 @@
 }
 
 /* ------------------------------------------------------------
-   Custom cursor — CustomCursor (components/cursor/custom-cursor.tsx)
-   toggles `has-custom-cursor` on <html> for fine-pointer devices and
-   renders a dot + trailing ring, positioned via transform in JS. The
-   rules below hide the native pointer for that state and style the
-   two layers; without them the component had no visible cursor at
-   all (elements here previously did not exist in globals.css).
-   ------------------------------------------------------------ */
-html.has-custom-cursor,
-html.has-custom-cursor * {
-  cursor: none !important;
-}
-
-/* The route-transition "busy" cursor is a real system affordance —
-   let it win over the custom cursor's `cursor: none` while a
-   navigation is in flight. */
-html.has-custom-cursor.is-navigating,
-html.has-custom-cursor.is-navigating * {
-  cursor: progress !important;
-}
-
-.cursor-dot,
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  border-radius: 9999px;
-  opacity: 0;
-  will-change: transform;
-  transition: opacity 0.2s ease, width 0.18s var(--ease-out-expo), height 0.18s var(--ease-out-expo);
-}
-
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  margin: -4px 0 0 -4px;
-  background: var(--primary);
-  transition: opacity 0.2s ease;
-}
-
-.cursor-ring {
-  width: 32px;
-  height: 32px;
-  margin: -16px 0 0 -16px;
-  border: 1.5px solid color-mix(in oklch, var(--primary) 70%, transparent);
-  background: color-mix(in oklch, var(--primary) 6%, transparent);
-}
-
-.cursor-ring[data-state='interactive'] {
-  width: 52px;
-  height: 52px;
-  margin: -26px 0 0 -26px;
-  border-color: var(--primary);
-  background: color-mix(in oklch, var(--primary) 12%, transparent);
-}
-
-.cursor-ring[data-state='text'] {
-  width: 2px;
-  height: 24px;
-  margin: -12px 0 0 -1px;
-  border-radius: 2px;
-  border-color: transparent;
-  background: var(--primary);
-}
-
-.cursor-ring[data-pressed='true'] {
-  transform-origin: center;
-  scale: 0.85;
-}
-
-/* ------------------------------------------------------------
    Custom scrollbar — thin, glass-tinted track/thumb matching the
    liquid-glass theme instead of the browser default.
    ------------------------------------------------------------ */
@@ -349,111 +279,72 @@ html {
 }
 
 /* ------------------------------------------------------------
-   Custom cursor — only engaged on fine-pointer (mouse/trackpad)
-   devices once CustomCursor has mounted (adds .has-custom-cursor
-   to <html>). Native cursor stays untouched everywhere else, so
-   touch devices and reduced-motion users are unaffected.
+   Hero glow backgrounds — lightweight replacement for the removed
+   Aurora / Silk / Waves / LightRays / GradientWaves canvas & WebGL
+   components (see components/sections/hero-backgrounds.tsx). Pure
+   layered CSS gradients: one paint, then composited, no JS and no
+   continuous animation loop. `.hero-glow` only plays a single,
+   finite fade/scale-in on mount — never infinite — and is skipped
+   entirely under prefers-reduced-motion.
    ------------------------------------------------------------ */
-html.has-custom-cursor,
-html.has-custom-cursor * {
-  cursor: none !important;
-}
-
-/* The loading cursor still wins over the custom cursor while a route
-   transition is in flight. */
-html.has-custom-cursor.is-navigating,
-html.has-custom-cursor.is-navigating * {
-  cursor: progress !important;
-}
-
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  margin: -4px 0 0 -4px;
-  border-radius: 9999px;
-  background: var(--primary);
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   opacity: 0;
-  transition: opacity 0.2s ease;
-  will-change: transform;
+  filter: blur(64px);
+  transform: scale(0.96);
+  animation: hero-glow-in 1s var(--ease-out-expo) forwards;
 }
 
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 36px;
-  height: 36px;
-  margin: -18px 0 0 -18px;
-  border-radius: 9999px;
-  border: 1.5px solid color-mix(in oklch, var(--primary) 70%, transparent);
-  background: color-mix(in oklch, var(--primary) 6%, transparent);
-  opacity: 0;
-  transition:
-    opacity 0.2s ease,
-    width 0.25s var(--ease-out-expo),
-    height 0.25s var(--ease-out-expo),
-    margin 0.25s var(--ease-out-expo),
-    background-color 0.25s ease,
-    border-color 0.25s ease;
-  will-change: transform;
+@keyframes hero-glow-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.cursor-ring[data-state='interactive'] {
-  width: 56px;
-  height: 56px;
-  margin: -28px 0 0 -28px;
-  background: color-mix(in oklch, var(--primary) 14%, transparent);
-  border-color: var(--primary);
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
-.cursor-ring[data-state='text'] {
-  width: 4px;
-  height: 24px;
-  margin: -12px 0 0 -2px;
-  border-radius: 2px;
-  background: color-mix(in oklch, var(--primary) 40%, transparent);
+.hero-glow-aurora {
+  background:
+    radial-gradient(ellipse 55% 45% at 18% 15%, color-mix(in oklch, var(--glow-1) 60%, transparent), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 82% 10%, color-mix(in oklch, var(--glow-2) 50%, transparent), transparent 70%),
+    radial-gradient(ellipse 65% 55% at 50% 105%, color-mix(in oklch, var(--glow-3) 38%, transparent), transparent 70%);
 }
 
-.cursor-ring[data-pressed='true'] {
-  width: 30px;
-  height: 30px;
-  margin: -15px 0 0 -15px;
+.hero-glow-silk {
+  background:
+    linear-gradient(135deg, color-mix(in oklch, var(--glow-1) 22%, transparent) 0%, transparent 45%, color-mix(in oklch, var(--glow-2) 16%, transparent) 100%),
+    radial-gradient(ellipse 65% 55% at 50% 40%, color-mix(in oklch, var(--glow-1) 26%, transparent), transparent 72%);
 }
 
-/* ------------------------------------------------------------
-   Custom scrollbar — thin, glass-toned, theme-aware. Firefox uses
-   `scrollbar-*` properties; everything else uses the WebKit
-   pseudo-elements below.
-   ------------------------------------------------------------ */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in oklch, var(--primary) 45%, var(--muted-foreground) 25%) transparent;
+.hero-glow-waves {
+  background:
+    repeating-linear-gradient(115deg, color-mix(in oklch, var(--glow-1) 9%, transparent) 0px, transparent 2px, transparent 34px),
+    radial-gradient(ellipse 70% 55% at 30% 100%, color-mix(in oklch, var(--glow-1) 28%, transparent), transparent 70%),
+    radial-gradient(ellipse 60% 45% at 80% 0%, color-mix(in oklch, var(--glow-2) 22%, transparent), transparent 70%);
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+.hero-glow-rays {
+  background:
+    conic-gradient(from 200deg at 50% -10%, transparent 0deg, color-mix(in oklch, var(--glow-1) 22%, transparent) 40deg, transparent 90deg, color-mix(in oklch, var(--glow-2) 18%, transparent) 150deg, transparent 220deg),
+    radial-gradient(ellipse 60% 50% at 50% 0%, color-mix(in oklch, var(--glow-1) 30%, transparent), transparent 70%);
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: color-mix(in oklch, var(--primary) 35%, var(--muted-foreground) 25%);
-  border-radius: 9999px;
-  border: 2px solid var(--background);
-  background-clip: padding-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: color-mix(in oklch, var(--primary) 55%, var(--muted-foreground) 20%);
-  background-clip: padding-box;
-}
-
-::-webkit-scrollbar-corner {
-  background: transparent;
+.hero-glow-horizon {
+  background:
+    radial-gradient(ellipse 80% 42% at 50% 102%, color-mix(in oklch, var(--glow-2) 42%, transparent), transparent 72%),
+    radial-gradient(ellipse 60% 35% at 50% 108%, color-mix(in oklch, var(--glow-3) 30%, transparent), transparent 70%),
+    linear-gradient(180deg, transparent 0%, color-mix(in oklch, var(--glow-1) 7%, transparent) 100%);
 }

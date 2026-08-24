@@ -6,7 +6,6 @@ import { headers } from "next/headers";
 import { siteConfig } from "@/config/site";
 import { MonitoringBootstrap } from "@/components/monitoring/monitoring-bootstrap";
 import { RouteTransitionCursor } from "@/components/navigation/route-transition-cursor";
-import { CustomCursor } from "@/components/cursor/custom-cursor";
 import { FloatingWhatsAppButton } from "@/components/primitives/floating-whatsapp-button";
 import { localBusinessJsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo/json-ld";
 import { dynamicOgImageUrl } from "@/lib/seo/images";
@@ -154,7 +153,6 @@ export default async function RootLayout({
         </a>
         {children}
         <RouteTransitionCursor />
-        <CustomCursor />
         <MonitoringBootstrap />
         <AnalyticsProvider
           gaId={siteConfig.analytics.gaId}

@@ -1,20 +1,51 @@
-"use client";
+import type { CSSProperties } from "react";
+import { cn } from "@/lib/utils";
 
-import dynamic from "next/dynamic";
-import { useReducedMotion } from "@/hooks/use-reduced-motion";
+/**
+ * Hero backgrounds — lightweight, CSS-only premium background system.
+ *
+ * These previously mounted continuously-rendering canvas/WebGL effects
+ * (Aurora, Silk, Waves, LightRays, GradientWaves — all built on `ogl` /
+ * `three`), each running its own requestAnimationFrame loop, pointer
+ * listeners, and per-frame GPU work on every hero on every page. That
+ * was the single largest contributor to desktop TBT.
+ *
+ * They're replaced here with static, layered CSS gradients ("glow"
+ * layers) that reuse the same brand color stops. Each variant paints
+ * once and composites — no JS, no rAF, no canvas/WebGL context, and no
+ * continuously-running animation. The only motion is a one-time,
+ * finite fade/scale-in on mount (`.hero-glow`, defined in
+ * globals.css), which is a no-op under `prefers-reduced-motion`.
+ *
+ * This file is intentionally a Server Component: it needs no browser
+ * APIs, so nothing here forces a client boundary.
+ */
 
-const Aurora = dynamic(() => import("@/components/Aurora"), { ssr: false });
-const Silk = dynamic(() => import("@/components/Silk"), { ssr: false });
-const Waves = dynamic(() => import("@/components/Waves"), { ssr: false });
-const LightRays = dynamic(() => import("@/components/LightRays"), {
-  ssr: false,
-});
-const GradientWaves = dynamic(() => import("@/components/GradientWaves"), {
-  ssr: false,
-});
-// Note: components/GridDistortion.tsx (a Three.js effect) exists in the
-// repo but isn't used by any Hero*Background below — no dynamic import
-// left declared-but-unrendered here, so there's nothing to code-split.
+type HeroGlowVariant = "aurora" | "silk" | "waves" | "rays" | "horizon";
+
+interface HeroGlowProps {
+  variant: HeroGlowVariant;
+  colors: [string, string, string?];
+  className?: string;
+}
+
+function HeroGlow({ variant, colors, className }: HeroGlowProps) {
+  const [primary, secondary, tertiary] = colors;
+
+  return (
+    <div
+      aria-hidden="true"
+      className={cn("hero-glow", `hero-glow-${variant}`, className)}
+      style={
+        {
+          "--glow-1": primary,
+          "--glow-2": secondary,
+          "--glow-3": tertiary ?? primary,
+        } as CSSProperties
+      }
+    />
+  );
+}
 
 function Overlay({ className = "" }: { className?: string }) {
   return (
@@ -28,22 +59,13 @@ function Overlay({ className = "" }: { className?: string }) {
 }
 
 export function HomeHeroBackground() {
-  const prefersReducedMotion = useReducedMotion();
-
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-35">
-        {prefersReducedMotion ? (
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.14),transparent_24%),radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.05),transparent_20%)]" />
-        ) : (
-          <Aurora
-            colorStops={["#0ea5e9", "#3b82f6", "#0ea5e9"]}
-            blend={0.6}
-            amplitude={1.0}
-            speed={0.4}
-          />
-        )}
-      </div>
+      <HeroGlow
+        variant="aurora"
+        colors={["#0ea5e9", "#3b82f6", "#0ea5e9"]}
+        className="opacity-35"
+      />
       <Overlay />
       <div className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-border to-transparent z-10 pointer-events-none" />
     </div>
@@ -53,15 +75,7 @@ export function HomeHeroBackground() {
 export function ServicesHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-background">
-      <div className="absolute inset-0 z-0 opacity-30">
-        <Silk
-          speed={3}
-          scale={1}
-          color="#0ea5e9"
-          noiseIntensity={1.0}
-          rotation={0.2}
-        />
-      </div>
+      <HeroGlow variant="silk" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-30" />
       <Overlay />
     </div>
   );
@@ -70,18 +84,7 @@ export function ServicesHeroBackground() {
 export function ServiceDetailHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-25">
-        <Waves
-          lineColor="rgba(14, 165, 233, 0.3)"
-          backgroundColor="transparent"
-          waveSpeedX={0.008}
-          waveSpeedY={0.003}
-          waveAmpX={28}
-          waveAmpY={12}
-          xGap={14}
-          yGap={36}
-        />
-      </div>
+      <HeroGlow variant="waves" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-25" />
       <Overlay />
     </div>
   );
@@ -90,20 +93,11 @@ export function ServiceDetailHeroBackground() {
 export function ServiceFamilyHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-30">
-        <GradientWaves
-          horizonColor="#050510"
-          waveColor="#0ea5e9"
-          crestColor="#3b82f6"
-          speed={0.6}
-          amplitude={0.8}
-          zoom={1.2}
-          height={0.6}
-          fogDepth={0.8}
-          detail="medium"
-          brightness={0.8}
-        />
-      </div>
+      <HeroGlow
+        variant="horizon"
+        colors={["#0ea5e9", "#3b82f6", "#3b82f6"]}
+        className="opacity-30"
+      />
       <Overlay />
     </div>
   );
@@ -112,14 +106,11 @@ export function ServiceFamilyHeroBackground() {
 export function AboutHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-30">
-        <Aurora
-          colorStops={["#0ea5e9", "#6366f1", "#0ea5e9"]}
-          blend={0.5}
-          amplitude={0.9}
-          speed={0.35}
-        />
-      </div>
+      <HeroGlow
+        variant="aurora"
+        colors={["#0ea5e9", "#6366f1", "#0ea5e9"]}
+        className="opacity-30"
+      />
       <Overlay />
     </div>
   );
@@ -128,17 +119,7 @@ export function AboutHeroBackground() {
 export function ProblemsHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-25">
-        <LightRays
-          raysOrigin="top-center"
-          raysColor="#0ea5e9"
-          raysSpeed={0.02}
-          lightSpread={1.5}
-          rayLength={0.8}
-          fadeDistance={0.8}
-          saturation={0.6}
-        />
-      </div>
+      <HeroGlow variant="rays" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-25" />
       <Overlay />
     </div>
   );
@@ -147,20 +128,11 @@ export function ProblemsHeroBackground() {
 export function CaseStudiesHubHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-30">
-        <GradientWaves
-          horizonColor="#030712"
-          waveColor="#0284c7"
-          crestColor="#0ea5e9"
-          speed={0.4}
-          amplitude={0.6}
-          zoom={1.4}
-          height={0.5}
-          fogDepth={0.9}
-          detail="low"
-          brightness={0.7}
-        />
-      </div>
+      <HeroGlow
+        variant="horizon"
+        colors={["#0284c7", "#0ea5e9", "#0ea5e9"]}
+        className="opacity-30"
+      />
       <Overlay />
     </div>
   );
@@ -169,18 +141,7 @@ export function CaseStudiesHubHeroBackground() {
 export function CaseStudyDetailHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-20">
-        <Waves
-          lineColor="rgba(14, 165, 233, 0.25)"
-          backgroundColor="transparent"
-          waveSpeedX={0.006}
-          waveSpeedY={0.002}
-          waveAmpX={24}
-          waveAmpY={10}
-          xGap={16}
-          yGap={40}
-        />
-      </div>
+      <HeroGlow variant="waves" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-20" />
       <Overlay />
     </div>
   );
@@ -189,15 +150,7 @@ export function CaseStudyDetailHeroBackground() {
 export function WorkHubHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-background">
-      <div className="absolute inset-0 z-0 opacity-25">
-        <Silk
-          speed={2}
-          scale={0.8}
-          color="#0ea5e9"
-          noiseIntensity={0.8}
-          rotation={0.1}
-        />
-      </div>
+      <HeroGlow variant="silk" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-25" />
       <Overlay />
     </div>
   );
@@ -206,14 +159,11 @@ export function WorkHubHeroBackground() {
 export function WorkDetailHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-25">
-        <Aurora
-          colorStops={["#0ea5e9", "#06b6d4", "#0ea5e9"]}
-          blend={0.4}
-          amplitude={0.7}
-          speed={0.3}
-        />
-      </div>
+      <HeroGlow
+        variant="aurora"
+        colors={["#0ea5e9", "#06b6d4", "#0ea5e9"]}
+        className="opacity-25"
+      />
       <Overlay />
     </div>
   );
@@ -222,17 +172,7 @@ export function WorkDetailHeroBackground() {
 export function InsightsHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-20">
-        <LightRays
-          raysOrigin="top-left"
-          raysColor="#0ea5e9"
-          raysSpeed={0.015}
-          lightSpread={1.8}
-          rayLength={0.7}
-          fadeDistance={0.9}
-          saturation={0.5}
-        />
-      </div>
+      <HeroGlow variant="rays" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-20" />
       <Overlay />
     </div>
   );
@@ -241,18 +181,7 @@ export function InsightsHeroBackground() {
 export function TechnologiesHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-20">
-        <Waves
-          lineColor="rgba(14, 165, 233, 0.3)"
-          backgroundColor="transparent"
-          waveSpeedX={0.01}
-          waveSpeedY={0.004}
-          waveAmpX={20}
-          waveAmpY={8}
-          xGap={12}
-          yGap={28}
-        />
-      </div>
+      <HeroGlow variant="waves" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-20" />
       <Overlay />
     </div>
   );
@@ -261,20 +190,11 @@ export function TechnologiesHeroBackground() {
 export function ContactHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-25">
-        <GradientWaves
-          horizonColor="#050510"
-          waveColor="#0ea5e9"
-          crestColor="#38bdf8"
-          speed={0.5}
-          amplitude={0.7}
-          zoom={1.3}
-          height={0.55}
-          fogDepth={0.85}
-          detail="low"
-          brightness={0.7}
-        />
-      </div>
+      <HeroGlow
+        variant="horizon"
+        colors={["#0ea5e9", "#38bdf8", "#38bdf8"]}
+        className="opacity-25"
+      />
       <Overlay />
     </div>
   );
@@ -283,9 +203,7 @@ export function ContactHeroBackground() {
 export function SearchHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-background">
-      <div className="absolute inset-0 z-0 opacity-20">
-        <Silk speed={2} scale={0.6} color="#0ea5e9" noiseIntensity={0.6} />
-      </div>
+      <HeroGlow variant="silk" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-20" />
       <Overlay />
     </div>
   );
@@ -294,14 +212,11 @@ export function SearchHeroBackground() {
 export function SocialsHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-25">
-        <Aurora
-          colorStops={["#0ea5e9", "#3b82f6", "#6366f1"]}
-          blend={0.5}
-          amplitude={0.8}
-          speed={0.3}
-        />
-      </div>
+      <HeroGlow
+        variant="aurora"
+        colors={["#0ea5e9", "#3b82f6", "#6366f1"]}
+        className="opacity-25"
+      />
       <Overlay />
     </div>
   );
@@ -310,18 +225,7 @@ export function SocialsHeroBackground() {
 export function WorkSubpageHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-20">
-        <Waves
-          lineColor="rgba(14, 165, 233, 0.25)"
-          backgroundColor="transparent"
-          waveSpeedX={0.007}
-          waveSpeedY={0.003}
-          waveAmpX={20}
-          waveAmpY={10}
-          xGap={14}
-          yGap={34}
-        />
-      </div>
+      <HeroGlow variant="waves" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-20" />
       <Overlay />
     </div>
   );
@@ -330,17 +234,7 @@ export function WorkSubpageHeroBackground() {
 export function ProblemDetailHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-20">
-        <LightRays
-          raysOrigin="top-center"
-          raysColor="#0ea5e9"
-          raysSpeed={0.015}
-          lightSpread={1.6}
-          rayLength={0.6}
-          fadeDistance={0.85}
-          saturation={0.5}
-        />
-      </div>
+      <HeroGlow variant="rays" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-20" />
       <Overlay />
     </div>
   );
@@ -349,18 +243,7 @@ export function ProblemDetailHeroBackground() {
 export function LocationsHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-25">
-        <Waves
-          lineColor="rgba(14, 165, 233, 0.28)"
-          backgroundColor="transparent"
-          waveSpeedX={0.009}
-          waveSpeedY={0.0035}
-          waveAmpX={26}
-          waveAmpY={11}
-          xGap={14}
-          yGap={32}
-        />
-      </div>
+      <HeroGlow variant="waves" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-25" />
       <Overlay />
     </div>
   );
@@ -369,20 +252,11 @@ export function LocationsHeroBackground() {
 export function TechnologyDetailHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-20">
-        <GradientWaves
-          horizonColor="#030712"
-          waveColor="#0ea5e9"
-          crestColor="#0284c7"
-          speed={0.4}
-          amplitude={0.5}
-          zoom={1.5}
-          height={0.45}
-          fogDepth={0.9}
-          detail="low"
-          brightness={0.6}
-        />
-      </div>
+      <HeroGlow
+        variant="horizon"
+        colors={["#0ea5e9", "#0284c7", "#0284c7"]}
+        className="opacity-20"
+      />
       <Overlay />
     </div>
   );
