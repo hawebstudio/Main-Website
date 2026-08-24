@@ -7,7 +7,7 @@ import { CTAS } from "@/lib/data/ctas";
 import { Container } from "@/components/primitives/container";
 import { MobileNav } from "@/components/navigation/mobile-nav";
 import { NavLink } from "@/components/navigation/nav-link";
-import { SiteSearch } from "@/components/search/site-search";
+import { SiteSearchLazy } from "@/components/search/site-search-lazy";
 import { primaryNav } from "@/config/navigation";
 import { routes } from "@/config/routes";
 import { siteConfig } from "@/config/site";
@@ -67,7 +67,7 @@ export function SiteHeader() {
           </ul>
 
           <div className="relative z-10 flex min-w-0 shrink-0 items-center gap-1.5 sm:gap-2 md:gap-3">
-            <SiteSearch
+            <SiteSearchLazy
               variant="modal"
               className="hidden lg:inline-flex"
               placeholder="Search services, technologies, case studies..."

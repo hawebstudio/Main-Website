@@ -234,14 +234,6 @@
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-ring;
   }
-
-  /* Page-transition loading cursor — toggled by RouteTransitionCursor
-     while a navigation is in flight, so clicking a link never feels
-     like the site has stopped responding. */
-  html.is-navigating,
-  html.is-navigating * {
-    cursor: progress !important;
-  }
 }
 
 /* ------------------------------------------------------------

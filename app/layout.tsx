@@ -4,14 +4,11 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { headers } from "next/headers";
 import { siteConfig } from "@/config/site";
-import { MonitoringBootstrap } from "@/components/monitoring/monitoring-bootstrap";
-import { RouteTransitionCursor } from "@/components/navigation/route-transition-cursor";
 import { FloatingWhatsAppButton } from "@/components/primitives/floating-whatsapp-button";
 import { localBusinessJsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo/json-ld";
 import { dynamicOgImageUrl } from "@/lib/seo/images";
 import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
-import { CookieConsentBanner } from "@/components/consent/cookie-consent-banner";
-import { PromotionPopup } from "@/components/promotions/promotion-popup";
+import { DeferredGlobals } from "@/components/layouts/deferred-globals";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getActivePromotion } from "@/lib/content/source";
 import "./globals.css";
@@ -152,16 +149,13 @@ export default async function RootLayout({
           Skip to content
         </a>
         {children}
-        <RouteTransitionCursor />
-        <MonitoringBootstrap />
         <AnalyticsProvider
           gaId={siteConfig.analytics.gaId}
           gtmId={siteConfig.analytics.gtmId}
           clarityId={siteConfig.analytics.clarityId}
           nonce={nonce}
         />
-        <CookieConsentBanner />
-        <PromotionPopup promotion={promotion} />
+        <DeferredGlobals promotion={promotion} />
         <FloatingWhatsAppButton />
         {process.env.NODE_ENV === "production" && <Analytics />}
         {process.env.NODE_ENV === "production" && <SpeedInsights />}
