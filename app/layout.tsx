@@ -3,35 +3,15 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { headers } from "next/headers";
-import dynamic from "next/dynamic";
 import { siteConfig } from "@/config/site";
 import { FloatingWhatsAppButton } from "@/components/primitives/floating-whatsapp-button";
 import { localBusinessJsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo/json-ld";
 import { dynamicOgImageUrl } from "@/lib/seo/images";
 import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
+import { DeferredGlobals } from "@/components/layout/deferred-globals";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getActivePromotion } from "@/lib/content/source";
 import "./globals.css";
-
-// None of these render anything for the first paint (web-vitals/error
-// reporting bootstrap, a banner gated on "have we already seen a consent
-// choice?", and a popup that only appears after a multi-second delay), so
-// they're loaded as separate chunks after hydration instead of being part
-// of the JS every route has to parse up front. They stay client-only
-// (`ssr: false`) since they already render nothing on the server (mount
-// checks / localStorage reads gate everything).
-const MonitoringBootstrap = dynamic(
-  () => import("@/components/monitoring/monitoring-bootstrap").then((m) => m.MonitoringBootstrap),
-  { ssr: false },
-);
-const CookieConsentBanner = dynamic(
-  () => import("@/components/consent/cookie-consent-banner").then((m) => m.CookieConsentBanner),
-  { ssr: false },
-);
-const PromotionPopup = dynamic(
-  () => import("@/components/promotions/promotion-popup").then((m) => m.PromotionPopup),
-  { ssr: false },
-);
 
 const homepageOgImage = dynamicOgImageUrl({
   title: siteConfig.name,
@@ -169,15 +149,13 @@ export default async function RootLayout({
           Skip to content
         </a>
         {children}
-        <MonitoringBootstrap />
         <AnalyticsProvider
           gaId={siteConfig.analytics.gaId}
           gtmId={siteConfig.analytics.gtmId}
           clarityId={siteConfig.analytics.clarityId}
           nonce={nonce}
         />
-        <CookieConsentBanner />
-        <PromotionPopup promotion={promotion} />
+        <DeferredGlobals promotion={promotion} />
         <FloatingWhatsAppButton />
         {process.env.NODE_ENV === "production" && <Analytics />}
         {process.env.NODE_ENV === "production" && <SpeedInsights />}
