@@ -4,7 +4,7 @@ import { Separator } from '@/components/ui/separator'
 import { footerNav } from '@/config/navigation'
 import { routes } from '@/config/routes'
 import { siteConfig } from '@/config/site'
-import { SiteSearch } from '@/components/search/site-search'
+import { SiteSearchLazy } from '@/components/search/site-search-lazy'
 import { featuredSocialProfiles } from '@/lib/business/company'
 
 const legalLinks = [
@@ -32,7 +32,7 @@ export function SiteFooter() {
               {siteConfig.description}
             </p>
             <div className="pt-3">
-              <SiteSearch
+              <SiteSearchLazy
                 variant="footer"
                 placeholder="Search services, technologies, case studies..."
                 className="max-w-sm"

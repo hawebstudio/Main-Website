@@ -59,11 +59,20 @@ const filters: Array<{ label: string; value: SearchDocumentType | 'all' }> = [
 
 const popularSearches = ['nextjs', 'shopify', 'seo', 'cloudflare', 'analytics']
 
-function useSearchDocuments() {
+// The ~300KB search index is only fetched once `enabled` flips true — i.e.
+// once the visitor actually opens search (or lands on the dedicated /search
+// page). Header/footer instances of SiteSearch are mounted on every route,
+// so fetching unconditionally here would mean every page load pays for the
+// full index before anyone has typed a single character.
+function useSearchDocuments(enabled: boolean) {
   const [documents, setDocuments] = useState<SearchDocument[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+  const requestedRef = useRef(false)
 
   useEffect(() => {
+    if (!enabled || requestedRef.current) return
+    requestedRef.current = true
+
     let mounted = true
 
     async function load() {
@@ -82,7 +91,7 @@ function useSearchDocuments() {
     return () => {
       mounted = false
     }
-  }, [])
+  }, [enabled])
 
   return { documents, isLoading }
 }
@@ -295,9 +304,6 @@ export function SiteSearch({
   const inputId = useId()
   const containerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  const { documents, isLoading: loadingDocuments } = useSearchDocuments()
-  const { recentSearches, addRecentSearch } = useRecentSearches()
-  const provider = useMemo(() => createSearchProvider({ type: 'local', documents }), [documents])
   const isPage = variant === 'page'
   const isModal = variant === 'modal'
   const [query, setQuery] = useState(isPage ? initialQuery : '')
@@ -306,6 +312,14 @@ export function SiteSearch({
   const [isSearching, setIsSearching] = useState(false)
   const [open, setOpen] = useState(isPage)
   const [mounted, setMounted] = useState(false)
+  // Only pull down the search index once the visitor has actually shown
+  // intent to search: the dedicated /search page needs it immediately, the
+  // mobile panel is already gated behind an "open menu" tap, and every other
+  // variant (header/footer/modal triggers) waits for `open`.
+  const shouldLoadIndex = isPage || variant === 'mobile' || open
+  const { documents, isLoading: loadingDocuments } = useSearchDocuments(shouldLoadIndex)
+  const { recentSearches, addRecentSearch } = useRecentSearches()
+  const provider = useMemo(() => createSearchProvider({ type: 'local', documents }), [documents])
   const [activeIndex, setActiveIndex] = useState(0)
   const [dropdownPosition, setDropdownPosition] = useState<DropdownPosition | null>(null)
 
