@@ -56,7 +56,7 @@ export function HeroSection() {
             {heroBadges.map((badge, index) => (
               <span
                 key={badge}
-                className="motion-safe:animate-[badge-slide_8s_ease-in-out_infinite] rounded-full border border-border/60 bg-background/45 px-3 py-1.5"
+                className="motion-safe:animate-[badge-slide_8s_ease-in-out_3] rounded-full border border-border/60 bg-background/45 px-3 py-1.5"
                 style={{ animationDelay: `${index * 0.35}s` }}
               >
                 {badge}
