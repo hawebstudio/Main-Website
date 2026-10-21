@@ -126,6 +126,8 @@ export interface Service extends ContentEntry {
   exclusions?: string[]
   recommendedTechnologies?: string[]
   relatedServices?: string[]
+  relatedInsights?: string[]
+  relatedCaseStudies?: string[]
   pricing?: string
   timeline?: string
   faqs?: Faq[]

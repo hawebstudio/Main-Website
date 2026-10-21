@@ -59,6 +59,13 @@ interface ServicePageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Every valid service slug is already enumerated by generateStaticParams.
+// Rejecting anything else at the routing layer keeps unknown URLs a real 404:
+// the segment's loading.tsx (and the root app/loading.tsx) flush a 200 shell
+// before a render-time notFound() can set a status, which otherwise produces a
+// soft 404 that is cacheable and indexable.
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const allServices = await services.getAll();
   return allServices.map((service) => ({
@@ -525,13 +532,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
               <div className="rounded-[2rem] border border-border/50 bg-background/35 p-5 @lg:col-span-2">
                 <Workflow className="size-5 text-primary" />
                 <Heading level={3} size="sm" className="mt-3">
-                  Why this is structured this way
+                  How this service fits into your roadmap
                 </Heading>
                 <Text tone="muted" size="sm" className="mt-3 leading-relaxed">
-                  The service page answers the questions AI systems and humans
-                  both ask: what the service is, who it is for, what problem it
-                  solves, when to choose it, and how it fits into the wider
-                  commercial stack.
+                  This engagement is designed to integrate cleanly with your existing codebase, hosting infrastructure, and marketing workflows. Deliverables include complete documentation and technical handover for your internal team.
                 </Text>
               </div>
             </div>
@@ -572,12 +576,12 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <Section spacing="lg">
           <Container>
             <div className="mb-8 max-w-3xl">
-              <Eyebrow>Connected content</Eyebrow>
+              <Eyebrow>Connected evidence</Eyebrow>
               <Heading level={2} size="xl" className="mt-3">
-                Work, evidence, insights, and technologies linked to this service.
+                Work, case studies, and technologies linked to this service.
               </Heading>
               <Text size="lg" tone="muted" className="mt-4 leading-relaxed">
-                These recommendations are resolved from content metadata so the service page stays connected as the content system grows.
+                Explore technical case studies, architectural guides, and implementation decisions from our production projects related to this service.
               </Text>
             </div>
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">

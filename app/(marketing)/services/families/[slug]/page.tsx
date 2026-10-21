@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowRight, CheckCircle2, Globe2, Gauge, Search, ShoppingBag, Wrench, BarChart3, MapPin, Sparkles, Layout, TrendingUp, Calendar, Link2, Code, ShieldCheck } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Globe2, Search, ShoppingBag, BarChart3, Sparkles, Layout, TrendingUp, Calendar, Link2, Code, ShieldCheck } from 'lucide-react'
 import { serviceFamilies, getFamilyBySlug, getServicesByFamily } from '@/lib/content/source'
 import {
   getCaseStudiesForServices,
@@ -29,9 +29,15 @@ interface FamilyPageProps {
 }
 
 const icons = {
+  'website-development': Globe2,
+  'ecommerce': ShoppingBag,
+  'search-discoverability': Search,
+  'automation-integrations': Link2,
+  'custom-web-applications': Code,
+  'website-optimization-care': ShieldCheck,
+  // Legacy aliases
   'websites': Globe2,
   'design': Layout,
-  'ecommerce': ShoppingBag,
   'growth': TrendingUp,
   'seo-search': Search,
   'business-systems': Calendar,
@@ -42,6 +48,11 @@ const icons = {
   'maintenance': Sparkles,
 } as const
 
+// Unknown params must 404 at the routing layer: this segment's loading.tsx
+// (and the root app/loading.tsx) flush a 200 shell before a render-time
+// notFound() can set a status, which otherwise yields a cacheable soft 404.
+// generateStaticParams already enumerates every valid slug.
+export const dynamicParams = false;
 export async function generateStaticParams() {
   return serviceFamilies.map((family) => ({ slug: family.slug }))
 }
@@ -85,12 +96,16 @@ export default async function ServiceFamilyPage({ params }: FamilyPageProps) {
   const faqEntries =
     family.faqs ?? [
       {
-        question: 'When should I choose this family?',
-        answer: 'Choose this family when your main business goal matches the category description and the services underneath it.',
+        question: `How do I know if the ${family.title} family is right for my project?`,
+        answer: `Review the specific services listed in this category. If your primary objective aligns with ${family.title.toLowerCase()}, each service page outlines deliverables, typical scope, and problem criteria to help guide your decision.`,
       },
       {
-        question: 'What happens after I choose a family?',
-        answer: 'You can move into the most relevant service page, related work, and a consultation or audit conversation.',
+        question: 'Can services within this category be combined?',
+        answer: 'Yes. Most client projects involve a coordinated package—such as combining website development with technical SEO or ongoing maintenance. We define a tailored scope during our initial discovery discussion.',
+      },
+      {
+        question: 'What is the typical next step after reviewing this category?',
+        answer: 'You can explore the individual service detail pages for deeper deliverable breakdowns, review our relevant case studies, or reach out directly to schedule a technical discovery consultation.',
       },
     ]
 
@@ -148,7 +163,7 @@ export default async function ServiceFamilyPage({ params }: FamilyPageProps) {
                 {family.overview}
               </Heading>
               <Text size="lg" tone="muted" className="mt-4 leading-relaxed">
-                This category groups the services that solve the same class of business problem and leads visitors toward the right implementation path.
+                Explore the specialized services in this group to address specific technical bottlenecks, launch new capabilities, or improve commercial performance.
               </Text>
             </div>
             <div className="rounded-[2rem] border border-border/50 bg-background/35 p-6">
@@ -202,9 +217,9 @@ export default async function ServiceFamilyPage({ params }: FamilyPageProps) {
               </div>
             </div>
             <div className="rounded-[2rem] border border-border/50 bg-background/35 p-6">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Buyer's journey</div>
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Scope & Selection</div>
               <Text tone="muted" className="mt-4 leading-relaxed">
-                Use this category when you know the broad business goal, but need help identifying the exact service and scope.
+                Compare the individual service offerings below to match your requirements—whether you need a full turnkey implementation, targeted technical remediation, or ongoing retainers.
               </Text>
             </div>
           </div>
@@ -216,12 +231,12 @@ export default async function ServiceFamilyPage({ params }: FamilyPageProps) {
           <Container>
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div className="max-w-3xl">
-                <Eyebrow>Connected content</Eyebrow>
+                <Eyebrow>Connected evidence</Eyebrow>
                 <Heading level={2} size="xl" className="mt-3">
-                  Evidence and guidance connected to this service family.
+                  Technical case studies and architectural guides.
                 </Heading>
                 <Text size="lg" tone="muted" className="mt-4 leading-relaxed">
-                  Related work, case studies, insights, and technologies are resolved from service metadata instead of page-specific hardcoding.
+                  Explore technical case studies, project architectures, and implementation guides connected to this service category.
                 </Text>
               </div>
               <Link href={routes.services.index()} className={buttonVariants({ variant: 'outline', className: 'bg-transparent' })}>

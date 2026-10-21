@@ -2,13 +2,13 @@ import { Service } from "@/lib/content/types";
 
 export const analyticsServices: Service[] = [
   {
-    family: "analytics",
+    family: "automation-integrations",
     slug: "analytics-tracking-setup",
     title: "Advanced Analytics & Tracking Setup",
     description: "Stop guessing what your website visitors are doing. We implement accurate analytics and event tracking using Google Tag Manager, GA4, and heatmapping tools, so you can see which marketing channels and pages are actually driving results.",
-    seo: { 
-      title: "Advanced Analytics & GA4 Tracking Setup Services | HA Web Studio", 
-      description: "Get reliable marketing data. We configure Google Analytics 4, Tag Manager, server-side tracking, and conversion events to give you perfect visibility." 
+    seo: {
+      title: "Advanced Analytics & GA4 Tracking Setup Services",
+      description: "Get reliable marketing data. We configure Google Analytics 4, Tag Manager, server-side tracking, and conversion events to give you perfect visibility."
     },
     audience: "Marketing teams, media buyers, and business owners who are flying blind because their current tracking is broken, duplicate, or inaccurate.",
     outcomes: [

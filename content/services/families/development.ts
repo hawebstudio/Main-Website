@@ -2,13 +2,13 @@ import { Service } from "@/lib/content/types";
 
 export const developmentServices: Service[] = [
   {
-    family: "development",
+    family: "custom-web-applications",
     slug: "frontend-development",
     title: "Advanced Frontend Engineering",
     description: "We turn approved designs into fast, accessible, maintainable interfaces using React and Next.js, matching the design closely and testing across real devices rather than just the browser we built it in.",
-    seo: { 
-      title: "Advanced Frontend Development Services (React & Next.js) | HA Web Studio", 
-      description: "Frontend development with React and Next.js — component-based, accessible, and built for performance across devices." 
+    seo: {
+      title: "Advanced Frontend Development Services (React & Next.js)",
+      description: "Frontend development with React and Next.js — component-based, accessible, and built for performance across devices."
     },
     audience: "Agencies needing to outsource complex UI builds, startups building SaaS products, and enterprise teams migrating away from legacy frontend monoliths.",
     outcomes: [
@@ -68,13 +68,13 @@ export const developmentServices: Service[] = [
     cta: { label: "Discuss Frontend Engineering", href: "/contact?intent=development" }
   },
   {
-    family: "development",
+    family: "custom-web-applications",
     slug: "custom-web-application-development",
     title: "Custom Web Application Development",
     description: "Stop running your business on a tangled web of spreadsheets. We architect and develop custom, full-stack web applications tailored specifically to your unique operational workflows, allowing you to scale efficiently and securely.",
-    seo: { 
-      title: "Custom Web Application Development (Full-Stack) | HA Web Studio", 
-      description: "Custom software development for complex businesses. We build secure, scalable full-stack web applications to automate workflows and replace spreadsheets." 
+    seo: {
+      title: "Custom Web Application Development (Full-Stack)",
+      description: "Custom software development for complex businesses. We build secure, scalable full-stack web applications to automate workflows and replace spreadsheets."
     },
     audience: "Established businesses with highly specific operational workflows that cannot be solved by off-the-shelf SaaS products.",
     outcomes: [

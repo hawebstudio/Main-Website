@@ -2,13 +2,13 @@ import { Service } from "@/lib/content/types";
 
 export const maintenanceServices: Service[] = [
   {
-    family: "maintenance",
+    family: "website-optimization-care",
     slug: "website-maintenance-support",
     title: "Premium Maintenance & Ongoing Support",
     description: "A website needs upkeep after launch, not just at launch. We provide ongoing maintenance and technical support to keep your site secure, fast, and running correctly — dependency updates, backups, monitoring, and a direct line for fixes when something breaks.",
-    seo: { 
-      title: "Website Maintenance, Support & Retainer Services | HA Web Studio", 
-      description: "Secure your digital assets. We handle ongoing website maintenance, dependency updates, uptime monitoring, backups, and security so you can focus on your business." 
+    seo: {
+      title: "Website Maintenance, Support & Retainer Services",
+      description: "Secure your digital assets. We handle ongoing website maintenance, dependency updates, uptime monitoring, backups, and security so you can focus on your business."
     },
     audience: "Business owners, marketing directors, and non-technical founders who want peace of mind knowing their website is being actively managed by professionals.",
     outcomes: [
@@ -69,13 +69,13 @@ export const maintenanceServices: Service[] = [
     cta: { label: "Protect Your Website", href: "/contact?intent=maintenance" }
   },
   {
-    family: "maintenance",
+    family: "website-optimization-care",
     slug: "website-migration-replatforming",
     title: "Website Migration & Replatforming",
     description: "Moving a website is like moving a house — if you don't pack carefully, things get broken. We plan platform migrations carefully to transfer your data accurately, preserve your existing SEO equity as much as possible, and keep the switch as smooth as possible for your customers.",
-    seo: { 
-      title: "Website Migration & Replatforming Services | HA Web Studio", 
-      description: "Migrate your website safely. We handle complex platform migrations (e.g., WordPress to Next.js) with careful redirect mapping to protect your existing SEO rankings and data." 
+    seo: {
+      title: "Website Migration & Replatforming Services",
+      description: "Migrate your website safely. We handle complex platform migrations (e.g., WordPress to Next.js) with careful redirect mapping to protect your existing SEO rankings and data."
     },
     audience: "Established businesses outgrowing their current platform (e.g., moving from WooCommerce to Shopify, or WordPress to a custom Headless architecture) and terrified of losing their Google rankings.",
     outcomes: [

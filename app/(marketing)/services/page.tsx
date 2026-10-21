@@ -105,7 +105,7 @@ export default async function ServicesPage() {
               </Text>
             </div>
             <div className="flex flex-wrap gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              {['Editorial', 'Commercial', 'Searchable'].map((item) => (
+              {['Design & Build', 'Search Visibility', 'Ongoing Care'].map((item) => (
                 <span key={item} className="rounded-full border border-border/60 bg-background/45 px-3 py-1.5">
                   {item}
                 </span>
@@ -173,7 +173,7 @@ export default async function ServicesPage() {
                         </ul>
                       </div>
                       <div className="rounded-3xl border border-border/60 bg-background/35 p-5">
-                        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">What you will get</div>
+                        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Core capabilities</div>
                         <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                           {family.whatYouGet.slice(0, 6).map((item) => (
                             <li key={item} className="flex items-center gap-2 text-foreground">
@@ -209,18 +209,29 @@ export default async function ServicesPage() {
         <Container>
           <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="glass-strong rounded-[2rem] border border-border/50 p-6 md:p-8">
-              <Eyebrow>Internal linking</Eyebrow>
+              <Eyebrow>Connected capabilities</Eyebrow>
               <Heading level={2} size="xl" className="mt-3">
-                A hub should send visitors deeper, not end the journey.
+                How our services connect across real engagements.
               </Heading>
               <Text size="lg" tone="muted" className="mt-4 leading-relaxed">
-                Each service family should connect to related work, case studies, technologies, and insights so the page becomes a navigation layer for both users and search systems.
+                Our service engagements are grounded in documented production code, technical investigations, and modern engineering standards. Explore how our architectural decisions translate into reliable web solutions.
               </Text>
-              <div className="mt-6 flex flex-wrap gap-2 text-sm text-muted-foreground">
-                {['Solutions', 'Technologies', 'Work', 'Case Studies', 'Insights', 'Contact'].map((item) => (
-                  <span key={item} className="rounded-full border border-border/60 bg-background/45 px-3 py-1.5">
-                    {item}
-                  </span>
+              <div className="mt-6 flex flex-wrap gap-2 text-sm">
+                {[
+                  { label: 'Case Studies', href: routes.caseStudies.index() },
+                  { label: 'Work & Projects', href: routes.work.index() },
+                  { label: 'Technologies', href: routes.technologies.index() },
+                  { label: 'Insights & Guides', href: routes.insights.index() },
+                  { label: 'Common Problems', href: routes.problems.index() },
+                  { label: 'Contact', href: routes.contact() },
+                ].map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="rounded-full border border-border/60 bg-background/45 px-3.5 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                  >
+                    {item.label}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -250,11 +261,11 @@ export default async function ServicesPage() {
             <div className="glass-strong rounded-[2rem] border border-border/50 p-6 xl:col-span-7">
               <Eyebrow>Case studies</Eyebrow>
               <Heading level={3} size="lg" className="mt-3">
-                What you will find
+                Technical implementation studies
               </Heading>
               <ul className="mt-4 grid gap-3 text-sm text-muted-foreground md:grid-cols-2">
                 {[
-                  'Real client projects',
+                  'Architecture decisions',
                   'Project goals and challenges',
                   'Design and development process',
                   'Technical solutions',
@@ -273,16 +284,16 @@ export default async function ServicesPage() {
             </div>
 
             <div className="glass rounded-[2rem] border border-border/50 p-6 xl:col-span-5">
-              <Eyebrow>Website inspiration</Eyebrow>
+              <Eyebrow>Technical insights</Eyebrow>
               <Heading level={3} size="sm" className="mt-3">
-                What you will find
+                Guides and architectural patterns
               </Heading>
               <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                 {[
-                  'Curated design inspiration',
-                  'UI and UX references',
-                  'Layout ideas and interaction patterns',
-                  'Modern website trends',
+                  'CMS and framework comparisons',
+                  'Core Web Vitals remediation guides',
+                  'Schema markup and structured data',
+                  'Modern deployment and caching strategies',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-foreground">
                     <span className="size-1.5 rounded-full bg-primary" />
@@ -291,14 +302,14 @@ export default async function ServicesPage() {
                 ))}
               </ul>
               <Link href={routes.insights.index()} className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary">
-                Explore inspiration <ArrowRight className="size-4" />
+                Explore insights <ArrowRight className="size-4" />
               </Link>
             </div>
 
             <div className="glass rounded-[2rem] border border-border/50 p-6 xl:col-span-6">
-              <Eyebrow>Responsive design</Eyebrow>
+              <Eyebrow>Responsive engineering</Eyebrow>
               <Heading level={3} size="sm" className="mt-3">
-                What you will get
+                Device-agnostic performance
               </Heading>
               <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                 {[
@@ -316,16 +327,16 @@ export default async function ServicesPage() {
             </div>
 
             <div className="glass rounded-[2rem] border border-border/50 p-6 xl:col-span-6">
-              <Eyebrow>AI and automation</Eyebrow>
+              <Eyebrow>Practical automation</Eyebrow>
               <Heading level={3} size="sm" className="mt-3">
-                What you will get
+                Workflow and system integration
               </Heading>
               <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                 {[
-                  'AI-powered website features',
-                  'Intelligent workflow automation',
-                  'Content and process assistance',
-                  'Future-ready AI architecture and integrations',
+                  'Automated booking and scheduling flows',
+                  'WhatsApp Business API messaging integration',
+                  'CRM and webhook pipeline connectivity',
+                  'Structured data extraction and retrieval support',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-foreground">
                     <span className="size-1.5 rounded-full bg-primary" />
@@ -347,7 +358,7 @@ export default async function ServicesPage() {
                 Answers people need before they choose a service.
               </Heading>
               <Text size="lg" tone="muted" className="mt-4 leading-relaxed">
-                Keep the language clear, direct, and useful enough for both users and AI systems to extract.
+                Direct answers to common questions about scoping, deliverables, technical stacks, and engagement models.
               </Text>
             </div>
             <Accordion type="single" collapsible className="w-full">
