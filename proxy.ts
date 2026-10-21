@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { buildCSPHeaderValue } from '@/lib/security/next-config.mjs'
+import { isUnknownContentPath, UNMATCHED_CONTENT_PATH } from '@/lib/routing/content-path-guard'
 // import { authMiddleware } from '@/lib/auth'
 
 /**
@@ -21,6 +22,19 @@ export function proxy(request: NextRequest) {
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-nonce', nonce)
   requestHeaders.set('Content-Security-Policy', cspHeader)
+
+  // Unknown dynamic-content URLs must be rejected here, before rendering starts:
+  // those routes stream a 200 shell through their loading.tsx boundaries, so a
+  // render-time notFound() can only swap the content, never the status. Rewriting
+  // to a path no route matches makes Next render the 404 boundary — and therefore
+  // a real 404 — while the address bar keeps the URL that was requested.
+  if (process.env.NODE_ENV === 'production' && isUnknownContentPath(request.nextUrl.pathname)) {
+    const notFoundResponse = NextResponse.rewrite(new URL(UNMATCHED_CONTENT_PATH, request.url), {
+      request: { headers: requestHeaders },
+    })
+    notFoundResponse.headers.set('Content-Security-Policy', cspHeader)
+    return notFoundResponse
+  }
 
   const response = NextResponse.next({
     request: { headers: requestHeaders },

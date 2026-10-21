@@ -6,13 +6,23 @@
 
 | Finding | Status | Evidence |
 | :--- | :--- | :--- |
-| **D-1** — inventory untracked, `next dev` 500s without it | **Resolved in the index** (staged, not committed per §10) | `git ls-files -s lib/routing` shows both blobs; `git checkout-index -a` materializes them; `validate:inventory` passes in a copy that never ran a prior build |
+| **D-1** — inventory untracked, `next dev` 500s without it | **Resolved — committed in `5ad5583`** (see the post-commit note below) | `git ls-files -s lib/routing` shows both blobs; `git checkout-index -a` materializes them; `validate:inventory` passes in a copy that never ran a prior build |
 | **D-2** — publish predicate duplicated | **Resolved** | One implementation in `lib/content/status.ts`, imported by `lib/content/source.ts` and by the generator; the mirror is deleted |
 | **D-7** — inventory ignores `CONTENT_PROVIDER` | **Resolved** | `CONTENT_PROVIDER=sanity` fails `generate-route-inventory` and `build:prepare` with an explicit diagnostic, leaving the inventory untouched |
 | Expanded HTTP validation | **Done, passing** | 18 valid paths, 9 ghost paths, 20 static routes, 192 sitemap URLs, 19 redirects, plus encoding/trailing-slash/reserved/RSC edge cases — exit 0 against an isolated production build |
 | Inventory determinism | **Preserved** | SHA-256 `79e2cefc7d4ed00eac734d64dda3ef8b58bb8d6168f0e940a8ee9f180fe95e52`, identical before and after regeneration, and identical in an independent copy |
 
 No production route changed. The inventory still holds 20 static paths, 9 dynamic patterns and 172 content paths, and its bytes did not move.
+
+### Post-commit status (C3.11)
+
+These findings were committed as `5ad5583e289b1a520a43cd84d5cfb840ff2745a5` on `remove-animations-for-performance` — 11 files, local only, not pushed. This document describes the state that produced the commit and is left as the record of that phase; `step-17q-c38-c310-integration-reconciliation-report.md` records what the committed state actually contains and how it was completed.
+
+Three facts a reader of this report needs in order to read it correctly:
+
+- **D-1 is fully closed** on disk and in Git: both `lib/routing` files are tracked at that commit.
+- **`proxy.ts` is not in that commit**, so a clean checkout of `5ad5583` alone contains the guard and the table but no caller — the soft-404 fix is not active there until step-17q's integration commit.
+- **The committed inventory describes the working tree, not `HEAD`.** It lists the five consolidated family slugs while the committed content still serves ten legacy ones, and that commit's `prepare.mts` does not regenerate the table. A build from it that skips regeneration would therefore 404 ten live pages. Step-17q adds regeneration before `next build` and the guard call.
 
 ---
 
@@ -42,7 +52,7 @@ No production route changed. The inventory still holds 20 static paths, 9 dynami
 
 **Correction.** `git add` of exactly two paths — `lib/routing/content-path-guard.ts` and `lib/routing/route-inventory.generated.json`. Nothing else was staged; the 74 pre-existing entries are untouched.
 
-**Caveat.** §10 forbids committing, so the files are staged (`A`), not committed. A literal `git archive HEAD` still lacks them until the commit is made; the fix is complete on disk and in the index, and closes the moment it is committed.
+**Status.** §10 forbade committing during this phase, so the files were staged (`A`). They were committed afterwards as `5ad5583` (see the post-commit note in §0); D-1 is closed.
 
 ### D-2 — two publish predicates
 
@@ -234,7 +244,7 @@ The check was run three times: two failures were bugs in the new test (relative 
 - **Port 3005** — confirmed free immediately before starting; the isolated `next start` (PID 15932, command line verified to point at `%TEMP%\ha-c3p`) needed `taskkill` because Git Bash `kill` could not signal it; **3005 is free now**.
 - **Temporaries** — `%TEMP%\ha-c3p`, `ha-c3p-index`, `ha-c3p-probe`, the probe HTML/headers, the runner script and the build log are deleted.
 - **Repository** — no reset, clean, stash or checkout. All 74 pre-existing entries preserved; `git status --short` now reports 78, accounted for exactly: `lib/routing/` no longer collapses to a single `??` and instead shows two `A` entries (+1), `lib/content/source.ts` gained an `M` (+1), and two files are new `??` (`lib/content/status.ts`, `scripts/validation/check-route-inventory.mts`, +2). Inventory hash `79e2cef…` throughout; shared `.next` never built into (mtime unchanged).
-- **Staged, not committed** — `git diff --cached --name-only` lists exactly `lib/routing/content-path-guard.ts` and `lib/routing/route-inventory.generated.json`.
+- **Staged during this phase, committed afterwards** — `git diff --cached --name-only` listed exactly `lib/routing/content-path-guard.ts` and `lib/routing/route-inventory.generated.json`; both are in `5ad5583`.
 - Nothing was deployed, published, or submitted to IndexNow. No owner identity appears in this report.
 
 ---
@@ -250,4 +260,4 @@ Still only provable on the real host:
 
 Rollback, narrow and additive: `git restore --staged lib/routing` plus deleting the new files returns the tree to its prior state; the inventory is generated data, so reverting it restores the previous route table exactly. A deployed rollback is a redeploy of the previous commit — no data migration, no schema, no infrastructure change is involved.
 
-**Recommended next step:** commit the staged `lib/routing` files with the D-2/D-7 changes, then run the deployment checklist from the C3.9 report against a preview origin before promoting.
+**Recommended next step:** commit the caller (`proxy.ts`) and build-time regeneration (`scripts/build/prepare.mts`) so the committed guard actually runs, then run the deployment checklist from the C3.9 report against a preview origin before promoting. Both are done in step-17q.
