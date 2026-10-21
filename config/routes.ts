@@ -37,6 +37,7 @@ export const routes = {
   },
   search: (query?: string) => (query ? `/search?q=${encodeURIComponent(query)}` : "/search"),
   about: () => "/about",
+  malik: () => "/m-a-malik",
   websiteGrowthAssessment: () => "/website-growth-assessment",
   contact: (intent?: string) => (intent ? `/contact?intent=${encodeURIComponent(intent)}` : "/contact"),
   socials: () => "/socials",

@@ -15,6 +15,10 @@ const PromotionPopup = dynamic(
   () => import("@/components/promotions/promotion-popup").then((m) => m.PromotionPopup),
   { ssr: false },
 );
+const ScrollToTop = dynamic(
+  () => import("@/components/navigation/scroll-to-top").then((m) => m.ScrollToTop),
+  { ssr: false },
+);
 
 export function DeferredGlobals({ promotion }: { promotion: Promotion | null }) {
   return (
@@ -22,6 +26,7 @@ export function DeferredGlobals({ promotion }: { promotion: Promotion | null }) 
       <MonitoringBootstrap />
       <CookieConsentBanner />
       <PromotionPopup promotion={promotion} />
+      <ScrollToTop />
     </>
   );
 }
