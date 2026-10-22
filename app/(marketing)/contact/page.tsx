@@ -53,13 +53,10 @@ export default async function ContactPage() {
             <div className="flex flex-col gap-6">
               <PromotionBanner promotion={promotion} />
               <Heading level={1} size="display">
-                Let's discuss your project.
+                Let's talk about your project — or just the question you're trying to answer first.
               </Heading>
               <Text size="lg" tone="muted">
-                Tell us about your website, ecommerce store, or web application
-                project — what you're trying to build and where things stand
-                today. We review every enquiry personally and reply with next
-                steps, not an automated form response.
+                Share whatever you have so far: a website, ecommerce store, or web application project, a clearer starting question, or even just where you think you are today. We review every enquiry personally and reply with next steps, not an automated form response.
               </Text>
             </div>
 

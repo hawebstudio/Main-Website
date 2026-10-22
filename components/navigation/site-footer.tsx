@@ -6,6 +6,8 @@ import { routes } from '@/config/routes'
 import { siteConfig } from '@/config/site'
 import { SiteSearchLazy } from '@/components/search/site-search-lazy'
 import { featuredSocialProfiles } from '@/lib/business/company'
+import { CookieSettingsButton } from '@/components/consent/cookie-settings-button'
+import Image from 'next/image'
 
 const legalLinks = [
   { label: 'Privacy Policy', href: routes.privacy() },
@@ -24,9 +26,19 @@ export function SiteFooter() {
           <div className="flex max-w-xs flex-col gap-3">
             <Link
               href={routes.home()}
-              className="text-sm font-semibold tracking-tight text-foreground"
+              aria-label={siteConfig.name}
+              className="site-wordmark flex items-center gap-0.5 sm:gap-1"
             >
-              {siteConfig.name}
+              <Image
+                src="/ha-web-studio-logo.webp"
+                width={1152}
+                height={768}
+                className="size-10 shrink-0 rounded-xl object-contain"
+                alt="HA Web Studio logo"
+              />
+              <span className="site-wordmark__name">
+                <span className="site-wordmark__descriptor">Web Studio</span>
+              </span>
             </Link>
             <p className="text-sm leading-relaxed text-muted-foreground">
               {siteConfig.description}

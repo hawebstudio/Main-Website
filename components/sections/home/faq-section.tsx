@@ -19,14 +19,14 @@ export function FaqSection() {
         <div className="flex flex-col gap-10">
           <div className="flex flex-col items-center gap-4 text-center">
             <Heading level={2} size="xl">
-              Frequently asked questions
+              A few practical questions
             </Heading>
             <Text size="lg" tone="muted" className="max-w-2xl">
-              Everything you need to know about how we work, what we build, and how we measure success.
+              A clearer picture of the process, scope, and what happens after you get in touch.
             </Text>
           </div>
 
-          <div className="glass rounded-3xl p-4 md:p-8">
+          <div className="border-y border-foreground/15 py-3 md:py-5">
             <Accordion type="single" collapsible className="w-full">
               {homepageFaqs.map((faq, index) => (
                 <AccordionItem

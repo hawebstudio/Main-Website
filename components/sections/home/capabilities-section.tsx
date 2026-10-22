@@ -20,12 +20,12 @@ const extraIcons = {
 
 export function CapabilitiesSection({ services }: CapabilitiesSectionProps) {
   return (
-    <Section spacing="lg" className="bg-muted/20">
+    <Section spacing="lg" className="border-y border-foreground/15 bg-surface-1/65">
       <Container>
         <div className="flex flex-col gap-10">
           <SectionHeading
-            eyebrow="Capabilities"
-            title="Everything that turns a website into a growth channel."
+            eyebrow="What we do"
+            title="The right build for the job in front of you."
             href="/services"
             ctaLabel="View services"
           />
@@ -35,7 +35,7 @@ export function CapabilitiesSection({ services }: CapabilitiesSectionProps) {
               <BentoItem
                 key={service.slug}
                 span={index === 0 ? 4 : 2}
-                className="group flex flex-col gap-4 transition-colors hover:bg-accent/40"
+                className="group flex flex-col gap-4 border border-foreground/12 bg-background/45 transition-colors hover:border-primary/40 hover:bg-card"
               >
                 <div className="flex items-center justify-between gap-4">
                   <span className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Service</span>

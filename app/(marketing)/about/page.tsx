@@ -14,7 +14,9 @@ import { routes } from '@/config/routes'
 import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
 
 export const metadata: Metadata = createMetadata({
-  title: 'About HA Web Studio | Web Development & AI Search Agency',
+  // The root layout template appends " — HA Web Studio", so the brand is not
+  // repeated in the page title (Phase C3.5 fixed the double-brand rendering).
+  title: 'About Us | Web Development & AI Search Agency',
   description:
     'HA Web Studio is a digital product studio building fast, modern, conversion-focused websites and web apps. See our mission, standards, technology philosophy, and how we work.',
   path: '/about',

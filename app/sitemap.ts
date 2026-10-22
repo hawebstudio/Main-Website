@@ -17,28 +17,27 @@ import { publishedLocations } from '@/lib/business/locations/data'
  * Grows automatically as content collections gain entries.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date()
   const staticEntries: MetadataRoute.Sitemap = [
-    { url: absoluteUrl(routes.home()), lastModified: now, changeFrequency: 'weekly', priority: 1 },
-    { url: absoluteUrl(routes.services.index()), lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: absoluteUrl(routes.work.index()), lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: absoluteUrl(routes.work.client()), lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: absoluteUrl(routes.work.personal()), lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: absoluteUrl(routes.work.internal()), lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
-    { url: absoluteUrl(routes.work.labs()), lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: absoluteUrl(routes.caseStudies.index()), lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: absoluteUrl(routes.technologies.index()), lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: absoluteUrl(routes.locations.index()), lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: absoluteUrl(routes.insights.index()), lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: absoluteUrl(routes.problems.index()), lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: absoluteUrl(routes.search()), lastModified: now, changeFrequency: 'weekly', priority: 0.6 },
-    { url: absoluteUrl(routes.about()), lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
-    { url: absoluteUrl(routes.websiteGrowthAssessment()), lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: absoluteUrl(routes.contact()), lastModified: now, changeFrequency: 'yearly', priority: 0.7 },
-    { url: absoluteUrl(routes.socials()), lastModified: now, changeFrequency: 'yearly', priority: 0.4 },
-    { url: absoluteUrl(routes.privacy()), lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: absoluteUrl(routes.terms()), lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: absoluteUrl(routes.cookies()), lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: absoluteUrl(routes.home()), changeFrequency: 'weekly', priority: 1 },
+    { url: absoluteUrl(routes.services.index()), changeFrequency: 'monthly', priority: 0.9 },
+    { url: absoluteUrl(routes.work.index()), changeFrequency: 'monthly', priority: 0.8 },
+    { url: absoluteUrl(routes.work.client()), changeFrequency: 'monthly', priority: 0.7 },
+    { url: absoluteUrl(routes.work.personal()), changeFrequency: 'monthly', priority: 0.6 },
+    { url: absoluteUrl(routes.work.internal()), changeFrequency: 'monthly', priority: 0.5 },
+    { url: absoluteUrl(routes.work.labs()), changeFrequency: 'monthly', priority: 0.6 },
+    { url: absoluteUrl(routes.caseStudies.index()), changeFrequency: 'monthly', priority: 0.8 },
+    { url: absoluteUrl(routes.technologies.index()), changeFrequency: 'monthly', priority: 0.7 },
+    { url: absoluteUrl(routes.locations.index()), changeFrequency: 'monthly', priority: 0.7 },
+    { url: absoluteUrl(routes.insights.index()), changeFrequency: 'weekly', priority: 0.8 },
+    { url: absoluteUrl(routes.problems.index()), changeFrequency: 'monthly', priority: 0.7 },
+    { url: absoluteUrl(routes.search()), changeFrequency: 'weekly', priority: 0.6 },
+    { url: absoluteUrl(routes.about()), changeFrequency: 'yearly', priority: 0.6 },
+    { url: absoluteUrl('/m-a-malik'), changeFrequency: 'yearly', priority: 0.5 },
+    { url: absoluteUrl(routes.websiteGrowthAssessment()), changeFrequency: 'monthly', priority: 0.9 },
+    { url: absoluteUrl(routes.contact()), changeFrequency: 'yearly', priority: 0.7 },
+    { url: absoluteUrl(routes.privacy()), changeFrequency: 'yearly', priority: 0.3 },
+    { url: absoluteUrl(routes.terms()), changeFrequency: 'yearly', priority: 0.3 },
+    { url: absoluteUrl(routes.cookies()), changeFrequency: 'yearly', priority: 0.3 },
   ]
 
   const [serviceEntries, projectEntries, caseStudyEntries, technologyEntries, technologyCategoryEntries, insightEntries, problemEntries] =
@@ -81,7 +80,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 function sitemapEntry(path: string, lastModified?: string, priority = 0.7): MetadataRoute.Sitemap[number] {
   return {
     url: absoluteUrl(path),
-    lastModified: lastModified ? new Date(lastModified) : new Date(),
+    ...(lastModified ? { lastModified: new Date(lastModified) } : {}),
     changeFrequency: 'weekly',
     priority,
   }

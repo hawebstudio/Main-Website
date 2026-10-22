@@ -1,22 +1,14 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Container } from '@/components/primitives/container'
 import { Heading, Text } from '@/components/primitives/typography'
 import { buttonVariants } from '@/components/ui/button'
 import { routes } from '@/config/routes'
 
-// The root layout sets a default `alternates.canonical` of the site URL. A 404
-// must not advertise the homepage as its canonical, so the not-found boundary
-// clears it. `null` removes the inherited value rather than replacing it.
-export const metadata: Metadata = {
-  title: 'Page not found',
-  alternates: { canonical: null },
-}
-
+ 
 export default function NotFound() {
   return (
     <main className="relative flex min-h-dvh items-center justify-center overflow-hidden py-24">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.14),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_42%)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(89,102,75,0.12),transparent_28%),linear-gradient(180deg,rgba(243,237,223,0.08),transparent_42%)]" />
       <Container size="sm" className="relative z-10">
         <div className="glass-strong flex flex-col items-center gap-6 rounded-[2rem] p-8 text-center md:p-12">
           <span className="font-mono text-8xl font-bold text-primary" aria-hidden="true">

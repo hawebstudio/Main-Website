@@ -33,10 +33,9 @@ The codebase is designed for scalability, maintainability, and reusability follo
   /services        # MDX files for services
   /work            # MDX files for portfolio
   ...
-/hooks             # Shared React hooks (useMediaQuery, useReducedMotion)
+/hooks             # Shared React hooks (useMediaQuery, useMounted)
 /lib
   /content         # Content loading, schemas, and types
-  /motion          # Shared Framer Motion configs and variants
   /seo             # Metadata and JSON-LD utilities
   utils.ts         # Generic utilities (cn)
 ```
@@ -67,22 +66,50 @@ import { routes } from '@/config/routes'
 - Content validation schemas live in `lib/content/schemas.ts`.
 - Pages fetch content via abstractions in `lib/content/source.ts`. They do not know whether content comes from MDX or a CMS.
 
-## 6. Motion & Animations
+## 6. Motion, Animation & Deferred Loading
 
-All entrance animations and scroll triggers must use the shared `<MotionWrapper>` primitive, which respects OS-level `prefers-reduced-motion` settings automatically.
+**There is no JavaScript animation library.** `framer-motion` — along with the
+WebGL libraries that powered the old hero backgrounds — is not a dependency,
+and the former `lib/motion` variant configs, `<MotionWrapper>` primitive,
+`useReducedMotion` hook, and route-transition cursor have all been removed. Do
+not reintroduce a runtime animation dependency for entrance effects.
+
+Motion is CSS-only and lives in `app/globals.css`:
+
+- **Hero backgrounds** are static, layered CSS gradients (see
+  `components/sections/hero-backgrounds.tsx` and the `.hero-glow-*` rules). They
+  paint once and then composite — no canvas, no WebGL context, no
+  `requestAnimationFrame` loop.
+- **Allowed:** short, finite entrance or state transitions on composited
+  properties (`transform`, `opacity`) — e.g. the one-shot `.hero-glow` fade-in.
+- **Avoid:** infinite/looping animations, per-frame JS work, and scroll
+  listeners that drive animation.
+
+### Reduced motion
+
+`prefers-reduced-motion: reduce` is honoured globally in `app/globals.css`,
+where animations and transitions collapse to `0.01ms`. Every new animation must
+either be covered by that global rule or carry its own explicit
+`@media (prefers-reduced-motion: reduce)` override, as `.hero-glow` does.
+
+### Deferring client code
+
+Anything that is not needed for the first paint is loaded with `next/dynamic`
+and `ssr: false`, keeping it out of the JavaScript every route must parse and
+execute:
 
 ```tsx
-import { MotionWrapper } from '@/components/primitives/motion-wrapper'
-import { slideUp } from '@/lib/motion/variants'
-
-export function AnimatedSection() {
-  return (
-    <MotionWrapper variants={slideUp} viewport>
-      <div>Content</div>
-    </MotionWrapper>
-  )
-}
+// components/search/site-search-lazy.tsx — search is mounted on every route
+// (header + footer) but a visitor only needs it once they open search.
+export const SiteSearchLazy = dynamic(
+  () => import('./site-search').then((mod) => mod.SiteSearch),
+  { ssr: false },
+)
 ```
+
+The same rule covers the global overlays — monitoring bootstrap, cookie consent,
+and the promotion popup — which are grouped behind
+`components/layouts/deferred-globals.tsx`.
 
 ## 7. SEO & Metadata
 

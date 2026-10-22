@@ -1,6 +1,6 @@
-import { readContentEntries, stripMarkdown, writeJson } from '../shared/toolkit.mts'
+import { collectionType, readAllContentEntries, stripMarkdown, writeJson } from '../shared/toolkit.mts'
 
-const entries = (await readContentEntries()).map((entry) => ({
+const entries = (await readAllContentEntries()).map((entry) => ({
   id: `${entry.collection}:${entry.slug}`,
   slug: entry.slug,
   type: collectionType(entry.collection),
@@ -18,12 +18,3 @@ const entries = (await readContentEntries()).map((entry) => ({
 
 writeJson('public/search/search-index.json', entries)
 console.log(`Generated search index with ${entries.length} item(s).`)
-
-function collectionType(collection: string) {
-  if (collection === 'services') return 'service'
-  if (collection === 'work') return 'work'
-  if (collection === 'case-studies') return 'case-study'
-  if (collection === 'technologies') return 'technology'
-  if (collection === 'problems') return 'problem'
-  return 'insight'
-}

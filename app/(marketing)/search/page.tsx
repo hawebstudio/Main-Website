@@ -17,7 +17,7 @@ interface SearchPageProps {
   }>
 }
 
-const searchTypes: SearchDocumentType[] = ['service', 'work', 'case-study', 'problem', 'insight', 'technology']
+const searchTypes: SearchDocumentType[] = ['service', 'service-family', 'work', 'case-study', 'problem', 'insight', 'technology']
 
 export async function generateMetadata({ searchParams }: SearchPageProps): Promise<Metadata> {
   const params = await searchParams

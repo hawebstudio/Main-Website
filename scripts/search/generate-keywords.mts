@@ -1,8 +1,8 @@
-import { readContentEntries, slugify, writeJson } from '../shared/toolkit.mts'
+import { readAllContentEntries, slugify, writeJson } from '../shared/toolkit.mts'
 
 const keywords = new Map<string, Set<string>>()
 
-for (const entry of await readContentEntries()) {
+for (const entry of await readAllContentEntries()) {
   for (const value of [
     entry.title,
     ...((entry.data.tags as Array<string | { name?: string; slug?: string }>) ?? []).map((tag) => typeof tag === 'string' ? tag : tag.name ?? tag.slug),

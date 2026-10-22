@@ -27,6 +27,7 @@ export function AnalyticsProvider({
 
   useEffect(() => {
     const stored = readConsentState();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setConsent(stored);
     if (stored) applyConsent(stored);
 

@@ -21,11 +21,11 @@ export const footerNavigation: NavigationGroup[] = [
   {
     title: 'Studio',
     items: [
-      { label: 'About', href: '/about' },
+      { label: 'About the studio', href: '/about' },
       { label: 'Services', href: '/services' },
       { label: 'Website Growth Assessment', href: '/website-growth-assessment' },
+      { label: 'M.A. Malik', href: '/m-a-malik' },
       { label: 'Contact', href: '/contact' },
-      { label: 'Socials', href: '/socials' },
     ],
   },
   {

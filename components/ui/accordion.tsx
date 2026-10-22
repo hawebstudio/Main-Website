@@ -13,7 +13,7 @@ type AccordionProps = Omit<AccordionPrimitive.Root.Props, "multiple"> & {
   multiple?: boolean
 }
 
-function Accordion({ className, type, collapsible, openMultiple, multiple, ...props }: AccordionProps) {
+function Accordion({ className, type, collapsible: _collapsible, openMultiple, multiple, ...props }: AccordionProps) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
@@ -65,6 +65,12 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Panel
       data-slot="accordion-content"
+      // Keeps collapsed panels in the DOM as `hidden="until-found"` instead of
+      // unmounting them. FAQ answers are published in FAQPage JSON-LD, so they
+      // must exist in the rendered HTML for crawlers that don't run JavaScript;
+      // this also lets browser find-in-page reveal a collapsed answer. Tailwind
+      // preflight excludes `[hidden='until-found']` from `display: none`.
+      hiddenUntilFound
       className="overflow-hidden text-sm data-open:animate-accordion-down data-closed:animate-accordion-up"
       {...props}
     >

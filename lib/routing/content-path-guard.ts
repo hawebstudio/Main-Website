@@ -1,4 +1,4 @@
-import inventory from './route-inventory.generated.json'
+import inventory from './route-inventory.generated.json' with { type: 'json' }
 
 /**
  * Production guard for unknown dynamic-content URLs.

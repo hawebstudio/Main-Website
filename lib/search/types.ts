@@ -1,5 +1,12 @@
 export type SearchProviderType = 'flexsearch' | 'local' | 'algolia' | 'meilisearch' | 'typesense' | 'payload'
-export type SearchDocumentType = 'service' | 'work' | 'case-study' | 'problem' | 'insight' | 'technology'
+export type SearchDocumentType =
+  | 'service'
+  | 'service-family'
+  | 'work'
+  | 'case-study'
+  | 'problem'
+  | 'insight'
+  | 'technology'
 
 export interface SearchDocument {
   id: string

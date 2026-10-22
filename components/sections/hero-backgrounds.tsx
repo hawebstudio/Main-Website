@@ -51,7 +51,7 @@ function Overlay({ className = "" }: { className?: string }) {
   return (
     <>
       <div
-        className={`absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.08),transparent_40%),linear-gradient(180deg,rgba(255,255,255,0.015),transparent_44%)] ${className}`}
+        className={`absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(circle_at_top,rgba(89,102,75,0.10),transparent_40%),linear-gradient(180deg,rgba(243,237,223,0.22),transparent_44%)] ${className}`}
       />
       <div className="absolute left-1/2 top-0 h-96 w-208 -translate-x-1/2 rounded-full bg-primary/8 blur-3xl z-10 pointer-events-none" />
     </>
@@ -61,13 +61,10 @@ function Overlay({ className = "" }: { className?: string }) {
 export function HomeHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <HeroGlow
-        variant="aurora"
-        colors={["#0ea5e9", "#3b82f6", "#0ea5e9"]}
-        className="opacity-35"
-      />
-      <Overlay />
-      <div className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-border to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_88%_8%,color-mix(in_oklch,var(--primary)_9%,transparent),transparent_45%),linear-gradient(180deg,color-mix(in_oklch,var(--background)_25%,transparent),var(--background)_95%)]" />
+      <div className="absolute right-[8%] top-[8%] hidden size-72 rounded-full border border-primary/15 lg:block" />
+      <div className="absolute right-[12%] top-[13%] hidden size-56 rounded-full border border-primary/10 lg:block" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-foreground/20 to-transparent z-10 pointer-events-none" />
     </div>
   );
 }
@@ -75,7 +72,7 @@ export function HomeHeroBackground() {
 export function ServicesHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-background">
-      <HeroGlow variant="silk" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-30" />
+      <HeroGlow variant="silk" colors={["#59664b", "#b85f43"]} className="opacity-30" />
       <Overlay />
     </div>
   );
@@ -84,7 +81,7 @@ export function ServicesHeroBackground() {
 export function ServiceDetailHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <HeroGlow variant="waves" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-25" />
+      <HeroGlow variant="waves" colors={["#59664b", "#b85f43"]} className="opacity-25" />
       <Overlay />
     </div>
   );
@@ -95,7 +92,7 @@ export function ServiceFamilyHeroBackground() {
     <div className="absolute inset-0 overflow-hidden">
       <HeroGlow
         variant="horizon"
-        colors={["#0ea5e9", "#3b82f6", "#3b82f6"]}
+        colors={["#59664b", "#b85f43", "#b85f43"]}
         className="opacity-30"
       />
       <Overlay />
@@ -108,7 +105,7 @@ export function AboutHeroBackground() {
     <div className="absolute inset-0 overflow-hidden">
       <HeroGlow
         variant="aurora"
-        colors={["#0ea5e9", "#6366f1", "#0ea5e9"]}
+        colors={["#59664b", "#b79a58", "#59664b"]}
         className="opacity-30"
       />
       <Overlay />
@@ -119,7 +116,7 @@ export function AboutHeroBackground() {
 export function ProblemsHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <HeroGlow variant="rays" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-25" />
+      <HeroGlow variant="rays" colors={["#59664b", "#b85f43"]} className="opacity-25" />
       <Overlay />
     </div>
   );
@@ -130,7 +127,7 @@ export function CaseStudiesHubHeroBackground() {
     <div className="absolute inset-0 overflow-hidden">
       <HeroGlow
         variant="horizon"
-        colors={["#0284c7", "#0ea5e9", "#0ea5e9"]}
+        colors={["#59664b", "#59664b", "#59664b"]}
         className="opacity-30"
       />
       <Overlay />
@@ -141,7 +138,7 @@ export function CaseStudiesHubHeroBackground() {
 export function CaseStudyDetailHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <HeroGlow variant="waves" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-20" />
+      <HeroGlow variant="waves" colors={["#59664b", "#b85f43"]} className="opacity-20" />
       <Overlay />
     </div>
   );
@@ -150,7 +147,7 @@ export function CaseStudyDetailHeroBackground() {
 export function WorkHubHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-background">
-      <HeroGlow variant="silk" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-25" />
+      <HeroGlow variant="silk" colors={["#59664b", "#b85f43"]} className="opacity-25" />
       <Overlay />
     </div>
   );
@@ -161,7 +158,7 @@ export function WorkDetailHeroBackground() {
     <div className="absolute inset-0 overflow-hidden">
       <HeroGlow
         variant="aurora"
-        colors={["#0ea5e9", "#06b6d4", "#0ea5e9"]}
+        colors={["#59664b", "#b79a58", "#59664b"]}
         className="opacity-25"
       />
       <Overlay />
@@ -172,7 +169,7 @@ export function WorkDetailHeroBackground() {
 export function InsightsHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <HeroGlow variant="rays" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-20" />
+      <HeroGlow variant="rays" colors={["#59664b", "#b85f43"]} className="opacity-20" />
       <Overlay />
     </div>
   );
@@ -181,7 +178,7 @@ export function InsightsHeroBackground() {
 export function TechnologiesHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <HeroGlow variant="waves" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-20" />
+      <HeroGlow variant="waves" colors={["#59664b", "#b85f43"]} className="opacity-20" />
       <Overlay />
     </div>
   );
@@ -192,7 +189,7 @@ export function ContactHeroBackground() {
     <div className="absolute inset-0 overflow-hidden">
       <HeroGlow
         variant="horizon"
-        colors={["#0ea5e9", "#38bdf8", "#38bdf8"]}
+        colors={["#59664b", "#b85f43", "#b85f43"]}
         className="opacity-25"
       />
       <Overlay />
@@ -203,7 +200,7 @@ export function ContactHeroBackground() {
 export function SearchHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-background">
-      <HeroGlow variant="silk" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-20" />
+      <HeroGlow variant="silk" colors={["#59664b", "#b85f43"]} className="opacity-20" />
       <Overlay />
     </div>
   );
@@ -214,7 +211,7 @@ export function SocialsHeroBackground() {
     <div className="absolute inset-0 overflow-hidden">
       <HeroGlow
         variant="aurora"
-        colors={["#0ea5e9", "#3b82f6", "#6366f1"]}
+        colors={["#59664b", "#b85f43", "#b79a58"]}
         className="opacity-25"
       />
       <Overlay />
@@ -225,7 +222,7 @@ export function SocialsHeroBackground() {
 export function WorkSubpageHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <HeroGlow variant="waves" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-20" />
+      <HeroGlow variant="waves" colors={["#59664b", "#b85f43"]} className="opacity-20" />
       <Overlay />
     </div>
   );
@@ -234,7 +231,7 @@ export function WorkSubpageHeroBackground() {
 export function ProblemDetailHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <HeroGlow variant="rays" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-20" />
+      <HeroGlow variant="rays" colors={["#59664b", "#b85f43"]} className="opacity-20" />
       <Overlay />
     </div>
   );
@@ -243,7 +240,7 @@ export function ProblemDetailHeroBackground() {
 export function LocationsHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <HeroGlow variant="waves" colors={["#0ea5e9", "#0ea5e9"]} className="opacity-25" />
+      <HeroGlow variant="waves" colors={["#59664b", "#b85f43"]} className="opacity-25" />
       <Overlay />
     </div>
   );
@@ -254,7 +251,7 @@ export function TechnologyDetailHeroBackground() {
     <div className="absolute inset-0 overflow-hidden">
       <HeroGlow
         variant="horizon"
-        colors={["#0ea5e9", "#0284c7", "#0284c7"]}
+        colors={["#59664b", "#59664b", "#59664b"]}
         className="opacity-20"
       />
       <Overlay />

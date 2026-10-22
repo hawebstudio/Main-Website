@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, User, Lightbulb } from 'lucide-react'
+import { ArrowRight, Lightbulb } from 'lucide-react'
 import { createMetadata } from '@/lib/seo/metadata'
 import { HeroWrapper } from '@/components/sections/hero-wrapper'
 import { Heading, Text, Eyebrow } from '@/components/primitives/typography'

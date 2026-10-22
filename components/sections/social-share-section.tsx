@@ -51,6 +51,7 @@ export function SocialShareSection({
   // and most desktop browsers still don't support it, so this only renders
   // the native option when it will actually work (mainly mobile browsers).
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCanNativeShare(
       typeof navigator !== "undefined" && typeof navigator.share === "function",
     );

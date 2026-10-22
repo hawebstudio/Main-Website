@@ -52,14 +52,14 @@ export function ContentCard({
   return (
     <div
       className={cn(
-        'glass group relative flex flex-col gap-4 rounded-2xl p-5 transition-colors hover:bg-accent',
+        'group relative flex flex-col gap-4 rounded-xl border border-foreground/12 bg-card/70 p-4 transition-colors hover:border-primary/40 hover:bg-card sm:p-5',
         className,
       )}
     >
       <Link
         href={href}
         aria-label={title}
-        className="absolute inset-0 z-0 rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        className="absolute inset-0 z-0 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       />
 
       {whatsappHref ? (
@@ -76,7 +76,7 @@ export function ContentCard({
       ) : null}
 
       {cover ? (
-        <div className="relative z-10 aspect-[16/10] overflow-hidden rounded-xl bg-surface-2 pointer-events-none">
+        <div className="relative z-10 aspect-[16/10] overflow-hidden rounded-lg bg-surface-2 pointer-events-none">
           <Image
             src={cover.src || '/placeholder.svg'}
             alt={cover.alt}

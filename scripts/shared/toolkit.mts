@@ -1,6 +1,5 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { pathToFileURL } from 'node:url'
 import { spawnSync } from 'node:child_process'
 import matter from 'gray-matter'
 
@@ -24,19 +23,6 @@ export interface ContentEntry {
   content: string
 }
 
-interface StructuredItem {
-  slug: string
-  title?: string
-  description?: string
-  scope?: string
-  context?: string
-  challenge?: string
-  solution?: string
-  faqs?: Array<{ question: string; answer: string }>
-  seo?: { title?: string; description?: string }
-  [key: string]: unknown
-}
-
 export const root = process.cwd()
 export const reportsDir = 'reports'
 export const generatedDir = 'public/generated'
@@ -48,12 +34,6 @@ export const mdxCollections = [
   { name: 'technologies', dir: 'content/technologies', route: '/technologies' },
   { name: 'insights', dir: 'content/insights', route: '/insights' },
   { name: 'problems', dir: 'content/problems', route: '/problems' },
-] as const
-
-const structuredCollections = [
-  { name: 'services', file: 'content/services/index.mts', exportName: 'services', route: '/services' },
-  { name: 'service-families', file: 'content/services/index.mts', exportName: 'serviceFamilies', route: '/services/families' },
-  { name: 'work', file: 'content/work/index.mts', exportName: 'projects', route: '/work' },
 ] as const
 
 export const staticRoutes = [
@@ -71,6 +51,7 @@ export const staticRoutes = [
   '/search',
   '/about',
   '/contact',
+  '/m-a-malik',
   '/ponytail',
 ] as const
 
@@ -154,37 +135,40 @@ export async function readContentEntries(): Promise<ContentEntry[]> {
     }
   }
 
-  for (const collection of structuredCollections) {
-    const filePath = resolveRoot(collection.file)
-    if (!fs.existsSync(filePath)) continue
-    const mod = await import(pathToFileURL(filePath).href)
-    const items = (mod[collection.exportName] ?? []) as StructuredItem[]
-
-    for (const item of items) {
-      if (!item?.slug) continue
-      entries.push({
-        source: 'typescript',
-        collection: collection.name,
-        filePath,
-        relativePath: collection.file,
-        slug: String(item.slug),
-        title: String(item.seo?.title ?? item.title ?? item.slug),
-        description: String(item.seo?.description ?? item.description ?? ''),
-        url: `${collection.route}/${item.slug}`,
-        data: item,
-        content: [
-          item.description,
-          item.scope,
-          item.context,
-          item.challenge,
-          item.solution,
-          ...(item.faqs ?? []).flatMap((faq) => [faq.question, faq.answer]),
-        ].filter(Boolean).join('\n\n'),
-      })
-    }
-  }
-
+  // MDX collections only. Use `readAllContentEntries()` to include the
+  // TypeScript-defined collections; see that function for why they cannot be
+  // read here.
   return entries.sort((a, b) => a.url.localeCompare(b.url))
+}
+
+/**
+ * Every content entry the site serves: MDX plus the TypeScript-defined
+ * collections (services, service families, work).
+ *
+ * The TypeScript collections are kept out of `readContentEntries()` because
+ * reading them needs the TypeScript parser, and that import costs a few hundred
+ * milliseconds â€” scripts that only read MDX should not pay for it. This function
+ * loads it lazily, so only callers that need every collection pay.
+ *
+ * The previous version of this file listed those collections as `.mts` paths and
+ * skipped them silently when the lookup failed, which is how every link, slug and
+ * search index went without services and work.
+ */
+export async function readAllContentEntries(): Promise<ContentEntry[]> {
+  const entries = await readContentEntries()
+  const { readStructuredContentEntries } = await import('./structured-content.mts')
+  return [...entries, ...readStructuredContentEntries()].sort((a, b) => a.url.localeCompare(b.url))
+}
+
+/** Search-result type for a collection, shared so the search artefacts cannot drift. */
+export function collectionType(collection: string): string {
+  if (collection === 'services') return 'service'
+  if (collection === 'service-families') return 'service-family'
+  if (collection === 'work') return 'work'
+  if (collection === 'case-studies') return 'case-study'
+  if (collection === 'technologies') return 'technology'
+  if (collection === 'problems') return 'problem'
+  return 'insight'
 }
 
 function routeForMdxEntry(collection: string, route: string, slug: string, data: Record<string, unknown>): string {

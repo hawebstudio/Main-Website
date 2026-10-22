@@ -3,7 +3,9 @@ import { markdownTable, pathExists, readText, writeText } from '../shared/toolki
 const rows = [
   ['Check', 'Status'],
   ['Bundle report', pathExists('reports/bundle-analysis.md') ? 'available' : 'missing'],
-  ['Web vitals tracker', readText('lib/analytics/web-vitals.mts').length > 0 ? 'available' : 'missing'],
+  // Was lib/analytics/web-vitals.mts (nonexistent), which made this report throw.
+  ['Web vitals tracker', readText('lib/monitoring/web-vitals.ts').length > 0 ? 'available' : 'missing'],
+  ['Budget baseline', pathExists('docs/website-improvement/performance-baseline.json') ? 'recorded' : 'not recorded'],
   ['Next build output', pathExists('.next') ? 'available' : 'missing'],
 ]
 

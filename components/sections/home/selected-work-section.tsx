@@ -18,7 +18,7 @@ export function SelectedWorkSection({ featuredProject, secondaryProjects }: Sele
         <div className="flex flex-col gap-12">
           <SectionHeading
             eyebrow="Selected work"
-            title="Real projects, real businesses, measurable results."
+            title="A few things we’ve made."
             href="/work"
             ctaLabel="View all work"
           />

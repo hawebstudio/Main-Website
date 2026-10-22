@@ -11,7 +11,7 @@
         "href": "/case-studies"
       },
       {
-        "label": "Analytics & Tracking Implementation",
+        "label": "GA4, Clarity & Event Tracking Implementation",
         "href": "/case-studies/analytics-tracking-implementation"
       }
     ]
@@ -79,7 +79,7 @@
         "href": "/case-studies"
       },
       {
-        "label": "Email and DNS Infrastructure Foundation",
+        "label": "Email & DNS Infrastructure Foundation Case Study",
         "href": "/case-studies/email-dns-infrastructure-foundation"
       }
     ]
@@ -96,7 +96,7 @@
         "href": "/case-studies"
       },
       {
-        "label": "Google Business Visibility Foundation",
+        "label": "Google Business Visibility Foundation Case Study",
         "href": "/case-studies/google-business-visibility-foundation"
       }
     ]
@@ -113,8 +113,25 @@
         "href": "/case-studies"
       },
       {
-        "label": "HA Web Studio Platform Architecture",
+        "label": "HA Web Studio Platform Architecture Case Study",
         "href": "/case-studies/ha-web-studio-architecture"
+      }
+    ]
+  },
+  {
+    "url": "/case-studies/omnivy-browser-clipper-chrome-extension",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "Omnivy: A Chrome Extension for Clipping the Web into Obsidian, Notion, and Cloud Storage",
+        "href": "/case-studies/omnivy-browser-clipper-chrome-extension"
       }
     ]
   },
@@ -268,6 +285,23 @@
       {
         "label": "Google Analytics 4: Measuring What Matters on Your Website",
         "href": "/insights/google-analytics-4"
+      }
+    ]
+  },
+  {
+    "url": "/insights/how-much-does-a-website-cost",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights"
+      },
+      {
+        "label": "How Much Does a Website Cost? A Practical Pricing Guide",
+        "href": "/insights/how-much-does-a-website-cost"
       }
     ]
   },
@@ -436,7 +470,7 @@
         "href": "/problems"
       },
       {
-        "label": "Customers Can't Find My Business",
+        "label": "Why Customers Can't Find Your Business Locally (And How to Fix It)",
         "href": "/problems/customers-cant-find-my-business"
       }
     ]
@@ -453,7 +487,7 @@
         "href": "/problems"
       },
       {
-        "label": "Low Conversion Rate",
+        "label": "Why Your Website Has a Low Conversion Rate (And How to Fix It)",
         "href": "/problems/low-conversion-rate"
       }
     ]
@@ -470,7 +504,7 @@
         "href": "/problems"
       },
       {
-        "label": "Need AI Features for My Business",
+        "label": "Integrating Custom AI Features & Automation into Your Business",
         "href": "/problems/need-ai-features"
       }
     ]
@@ -487,7 +521,7 @@
         "href": "/problems"
       },
       {
-        "label": "Need a Business Website",
+        "label": "Do You Need a New Business Website? Signs, Costs & What to Expect",
         "href": "/problems/need-business-website"
       }
     ]
@@ -504,7 +538,7 @@
         "href": "/problems"
       },
       {
-        "label": "Need a Custom Web Application",
+        "label": "Custom Web Application Development: Solve Complex Workflows",
         "href": "/problems/need-custom-web-application"
       }
     ]
@@ -521,7 +555,7 @@
         "href": "/problems"
       },
       {
-        "label": "Need an Ecommerce Website",
+        "label": "Custom Ecommerce Website Development for Ambitious Brands",
         "href": "/problems/need-ecommerce-website"
       }
     ]
@@ -538,7 +572,7 @@
         "href": "/problems"
       },
       {
-        "label": "Need Third-Party Integrations",
+        "label": "API & Third-Party System Integrations to Automate Workflows",
         "href": "/problems/need-third-party-integrations"
       }
     ]
@@ -555,7 +589,7 @@
         "href": "/problems"
       },
       {
-        "label": "Need Website Maintenance & Support",
+        "label": "Professional Website Maintenance & Support Services",
         "href": "/problems/need-website-maintenance"
       }
     ]
@@ -572,7 +606,7 @@
         "href": "/problems"
       },
       {
-        "label": "No Website Analytics & Tracking",
+        "label": "Website Analytics & Tracking Setup: Stop Guessing, Start Measuring",
         "href": "/problems/no-website-analytics"
       }
     ]
@@ -589,7 +623,7 @@
         "href": "/problems"
       },
       {
-        "label": "Not Showing Up on Google",
+        "label": "Why Your Website Isn't Showing Up on Google — Causes & Solutions",
         "href": "/problems/not-showing-up-on-google"
       }
     ]
@@ -606,7 +640,7 @@
         "href": "/problems"
       },
       {
-        "label": "Website Is Difficult to Update",
+        "label": "Why Your Website Is Hard to Update (And How We Fix It)",
         "href": "/problems/website-difficult-to-update"
       }
     ]
@@ -623,7 +657,7 @@
         "href": "/problems"
       },
       {
-        "label": "Website Is Slow",
+        "label": "Why Your Website Is Slow & How to Fix Core Web Vitals",
         "href": "/problems/website-is-slow"
       }
     ]
@@ -640,7 +674,7 @@
         "href": "/problems"
       },
       {
-        "label": "Need to Migrate My Website",
+        "label": "Website Migration Services: Move Platforms Without Losing SEO",
         "href": "/problems/website-migration"
       }
     ]
@@ -657,7 +691,7 @@
         "href": "/problems"
       },
       {
-        "label": "Website Needs a Redesign",
+        "label": "Website Redesign: When and Why You Need to Modernise",
         "href": "/problems/website-redesign"
       }
     ]
@@ -674,7 +708,7 @@
         "href": "/problems"
       },
       {
-        "label": "Website Security Concerns",
+        "label": "Website Security Fixes: Protect Your Data and Reputation",
         "href": "/problems/website-security-concerns"
       }
     ]
@@ -691,7 +725,7 @@
         "href": "/services"
       },
       {
-        "label": "AI Search Visibility & Answer Engine Optimization",
+        "label": "Answer Engine Optimization (AEO) & AI Search Visibility",
         "href": "/services/ai-search-visibility-answer-engine-optimization"
       }
     ]
@@ -708,8 +742,25 @@
         "href": "/services"
       },
       {
-        "label": "Analytics & Tracking Setup",
+        "label": "Advanced Analytics & GA4 Tracking Setup Services",
         "href": "/services/analytics-tracking-setup"
+      }
+    ]
+  },
+  {
+    "url": "/services/booking-appointment-systems",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Automated Booking & Appointment System Setup",
+        "href": "/services/booking-appointment-systems"
       }
     ]
   },
@@ -725,8 +776,25 @@
         "href": "/services"
       },
       {
-        "label": "Business Website Development",
+        "label": "Professional Business Website Development",
         "href": "/services/business-website-development"
+      }
+    ]
+  },
+  {
+    "url": "/services/cms-dynamic-content-development",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Headless CMS Integration & Development",
+        "href": "/services/cms-dynamic-content-development"
       }
     ]
   },
@@ -742,7 +810,7 @@
         "href": "/services"
       },
       {
-        "label": "Conversion Rate Optimization",
+        "label": "Data-Driven Conversion Rate Optimization (CRO)",
         "href": "/services/conversion-rate-optimization"
       }
     ]
@@ -759,8 +827,25 @@
         "href": "/services"
       },
       {
-        "label": "Custom Web Application Development",
+        "label": "Custom Web Application Development (Full-Stack)",
         "href": "/services/custom-web-application-development"
+      }
+    ]
+  },
+  {
+    "url": "/services/customer-acquisition",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "B2B Customer Acquisition & Lead Generation Systems",
+        "href": "/services/customer-acquisition"
       }
     ]
   },
@@ -776,8 +861,127 @@
         "href": "/services"
       },
       {
-        "label": "eCommerce Development",
+        "label": "Custom eCommerce Development Services | Headless & Scalable",
         "href": "/services/ecommerce-development"
+      }
+    ]
+  },
+  {
+    "url": "/services/ecommerce-specific-services",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "eCommerce Feature Enhancements & Optimizations",
+        "href": "/services/ecommerce-specific-services"
+      }
+    ]
+  },
+  {
+    "url": "/services/families/automation-integrations",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Automation & Integrations",
+        "href": "/services/families/automation-integrations"
+      }
+    ]
+  },
+  {
+    "url": "/services/families/custom-web-applications",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Custom Web Applications",
+        "href": "/services/families/custom-web-applications"
+      }
+    ]
+  },
+  {
+    "url": "/services/families/ecommerce",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "eCommerce Development",
+        "href": "/services/families/ecommerce"
+      }
+    ]
+  },
+  {
+    "url": "/services/families/search-discoverability",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Search & Discoverability Services | Technical SEO & AEO",
+        "href": "/services/families/search-discoverability"
+      }
+    ]
+  },
+  {
+    "url": "/services/families/website-development",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Website Development",
+        "href": "/services/families/website-development"
+      }
+    ]
+  },
+  {
+    "url": "/services/families/website-optimization-care",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Website Optimization & Care",
+        "href": "/services/families/website-optimization-care"
       }
     ]
   },
@@ -793,7 +997,7 @@
         "href": "/services"
       },
       {
-        "label": "Frontend Development",
+        "label": "Advanced Frontend Development Services (React & Next.js)",
         "href": "/services/frontend-development"
       }
     ]
@@ -810,7 +1014,7 @@
         "href": "/services"
       },
       {
-        "label": "Google Business & Maps Visibility",
+        "label": "Google Business Profile & Maps Optimization Services",
         "href": "/services/google-business-maps-visibility"
       }
     ]
@@ -827,8 +1031,25 @@
         "href": "/services"
       },
       {
-        "label": "Landing Page Development",
+        "label": "High-Conversion Landing Page Development",
         "href": "/services/landing-page-development"
+      }
+    ]
+  },
+  {
+    "url": "/services/lead-capture-communication-setup",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Lead Capture & Automation Setup Services",
+        "href": "/services/lead-capture-communication-setup"
       }
     ]
   },
@@ -844,7 +1065,7 @@
         "href": "/services"
       },
       {
-        "label": "Local SEO Foundations",
+        "label": "Local SEO Foundations & On-Page Optimization",
         "href": "/services/local-seo-foundations"
       }
     ]
@@ -861,7 +1082,7 @@
         "href": "/services"
       },
       {
-        "label": "Search Visibility Setup",
+        "label": "On-Page SEO & Search Visibility Strategy",
         "href": "/services/search-visibility-setup"
       }
     ]
@@ -878,7 +1099,7 @@
         "href": "/services"
       },
       {
-        "label": "Shopify Development",
+        "label": "Shopify Store Development & Setup Services",
         "href": "/services/shopify-development"
       }
     ]
@@ -895,7 +1116,7 @@
         "href": "/services"
       },
       {
-        "label": "Structured Data & Schema Setup",
+        "label": "Structured Data & Schema Markup Implementation",
         "href": "/services/structured-data-schema-setup"
       }
     ]
@@ -912,7 +1133,7 @@
         "href": "/services"
       },
       {
-        "label": "Technical SEO Setup",
+        "label": "Technical SEO Setup & Optimization Services",
         "href": "/services/technical-seo-setup"
       }
     ]
@@ -929,7 +1150,7 @@
         "href": "/services"
       },
       {
-        "label": "Third-Party & API Integrations",
+        "label": "Third-Party API & Custom Software Integration Services",
         "href": "/services/third-party-api-integrations"
       }
     ]
@@ -946,8 +1167,25 @@
         "href": "/services"
       },
       {
-        "label": "Website Audit & Technical Fixes",
+        "label": "Technical Website Audit & Bug Fix Services",
         "href": "/services/website-audit-technical-fixes"
+      }
+    ]
+  },
+  {
+    "url": "/services/website-launch-infrastructure-setup",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Website Infrastructure & Launch Setup",
+        "href": "/services/website-launch-infrastructure-setup"
       }
     ]
   },
@@ -963,7 +1201,7 @@
         "href": "/services"
       },
       {
-        "label": "Website Maintenance & Support",
+        "label": "Website Maintenance, Support & Retainer Services",
         "href": "/services/website-maintenance-support"
       }
     ]
@@ -980,7 +1218,7 @@
         "href": "/services"
       },
       {
-        "label": "Website Migration & Replatforming",
+        "label": "Website Migration & Replatforming Services",
         "href": "/services/website-migration-replatforming"
       }
     ]
@@ -997,8 +1235,25 @@
         "href": "/services"
       },
       {
-        "label": "Website Performance Optimization",
+        "label": "Website Speed & Performance Optimization Services",
         "href": "/services/website-performance-optimization"
+      }
+    ]
+  },
+  {
+    "url": "/services/website-planning-strategy",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Website Planning & Strategy Services",
+        "href": "/services/website-planning-strategy"
       }
     ]
   },
@@ -1014,8 +1269,59 @@
         "href": "/services"
       },
       {
-        "label": "Website Redesign",
+        "label": "Website Redesign & Modernization Services",
         "href": "/services/website-redesign"
+      }
+    ]
+  },
+  {
+    "url": "/services/website-security-protection",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Website Security, WAF & Spam Protection Services",
+        "href": "/services/website-security-protection"
+      }
+    ]
+  },
+  {
+    "url": "/services/website-ui-ux-design",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Website UI & UX Design Services",
+        "href": "/services/website-ui-ux-design"
+      }
+    ]
+  },
+  {
+    "url": "/services/whatsapp-business-systems",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "WhatsApp Business API & Automation Setup",
+        "href": "/services/whatsapp-business-systems"
       }
     ]
   },
@@ -1031,13 +1337,13 @@
         "href": "/services"
       },
       {
-        "label": "WooCommerce Development",
+        "label": "WooCommerce Development Services | Custom WordPress Stores",
         "href": "/services/woocommerce-development"
       }
     ]
   },
   {
-    "url": "/technologies/chrome-extension-apis",
+    "url": "/technologies",
     "items": [
       {
         "label": "Home",
@@ -1048,13 +1354,13 @@
         "href": "/technologies"
       },
       {
-        "label": "Chrome Extension APIs",
-        "href": "/technologies/chrome-extension-apis"
+        "label": "Technologies",
+        "href": "/technologies"
       }
     ]
   },
   {
-    "url": "/technologies/cloudflare",
+    "url": "/technologies/ai-automation",
     "items": [
       {
         "label": "Home",
@@ -1065,13 +1371,13 @@
         "href": "/technologies"
       },
       {
-        "label": "Cloudflare",
-        "href": "/technologies/cloudflare"
+        "label": "AI & Automation",
+        "href": "/technologies/ai-automation"
       }
     ]
   },
   {
-    "url": "/technologies/dns",
+    "url": "/technologies/ai-automation/ai-agents",
     "items": [
       {
         "label": "Home",
@@ -1082,13 +1388,13 @@
         "href": "/technologies"
       },
       {
-        "label": "DNS",
-        "href": "/technologies/dns"
+        "label": "AI Agents",
+        "href": "/technologies/ai-automation/ai-agents"
       }
     ]
   },
   {
-    "url": "/technologies/google-search-console",
+    "url": "/technologies/ai-automation/ai-sdk-vercel",
     "items": [
       {
         "label": "Home",
@@ -1099,13 +1405,13 @@
         "href": "/technologies"
       },
       {
-        "label": "Google Search Console",
-        "href": "/technologies/google-search-console"
+        "label": "AI SDK (Vercel)",
+        "href": "/technologies/ai-automation/ai-sdk-vercel"
       }
     ]
   },
   {
-    "url": "/technologies/google-workspace",
+    "url": "/technologies/ai-automation/anthropic-claude",
     "items": [
       {
         "label": "Home",
@@ -1116,13 +1422,13 @@
         "href": "/technologies"
       },
       {
-        "label": "Google Workspace",
-        "href": "/technologies/google-workspace"
+        "label": "Anthropic Claude",
+        "href": "/technologies/ai-automation/anthropic-claude"
       }
     ]
   },
   {
-    "url": "/technologies/judge0",
+    "url": "/technologies/ai-automation/gemini",
     "items": [
       {
         "label": "Home",
@@ -1133,13 +1439,13 @@
         "href": "/technologies"
       },
       {
-        "label": "Judge0",
-        "href": "/technologies/judge0"
+        "label": "Gemini",
+        "href": "/technologies/ai-automation/gemini"
       }
     ]
   },
   {
-    "url": "/technologies/nextjs",
+    "url": "/technologies/ai-automation/langchain",
     "items": [
       {
         "label": "Home",
@@ -1150,13 +1456,166 @@
         "href": "/technologies"
       },
       {
-        "label": "Next.js",
-        "href": "/technologies/nextjs"
+        "label": "LangChain",
+        "href": "/technologies/ai-automation/langchain"
       }
     ]
   },
   {
-    "url": "/technologies/nodejs",
+    "url": "/technologies/ai-automation/mcp",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "MCP (Model Context Protocol)",
+        "href": "/technologies/ai-automation/mcp"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/ai-automation/openai",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "OpenAI",
+        "href": "/technologies/ai-automation/openai"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/ai-automation/rag",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "RAG (Retrieval-Augmented Generation)",
+        "href": "/technologies/ai-automation/rag"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/ai-automation/vector-search",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Vector Search",
+        "href": "/technologies/ai-automation/vector-search"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/ai-automation/workflow-automation",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Workflow Automation",
+        "href": "/technologies/ai-automation/workflow-automation"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/backend",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Backend",
+        "href": "/technologies/backend"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/backend/expressjs",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Express.js",
+        "href": "/technologies/backend/expressjs"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/backend/graphql",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "GraphQL",
+        "href": "/technologies/backend/graphql"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/backend/mongoose",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Mongoose",
+        "href": "/technologies/backend/mongoose"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/backend/nodejs",
     "items": [
       {
         "label": "Home",
@@ -1168,12 +1627,726 @@
       },
       {
         "label": "Node.js",
-        "href": "/technologies/nodejs"
+        "href": "/technologies/backend/nodejs"
       }
     ]
   },
   {
-    "url": "/technologies/react",
+    "url": "/technologies/backend/prisma",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Prisma",
+        "href": "/technologies/backend/prisma"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/backend/rest-apis",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "REST APIs",
+        "href": "/technologies/backend/rest-apis"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/cloud-infrastructure",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Cloud & Infrastructure",
+        "href": "/technologies/cloud-infrastructure"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/cloud-infrastructure/cloudflare",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Cloudflare",
+        "href": "/technologies/cloud-infrastructure/cloudflare"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/cloud-infrastructure/docker",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Docker",
+        "href": "/technologies/cloud-infrastructure/docker"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/cloud-infrastructure/github-actions",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "GitHub Actions",
+        "href": "/technologies/cloud-infrastructure/github-actions"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/cloud-infrastructure/render",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Render",
+        "href": "/technologies/cloud-infrastructure/render"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/cloud-infrastructure/vercel",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Vercel",
+        "href": "/technologies/cloud-infrastructure/vercel"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/cms",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "CMS",
+        "href": "/technologies/cms"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/cms/payload-cms",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Payload CMS",
+        "href": "/technologies/cms/payload-cms"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/cms/sanity",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Sanity",
+        "href": "/technologies/cms/sanity"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/cms/wordpress",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "WordPress",
+        "href": "/technologies/cms/wordpress"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/communication",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Communication",
+        "href": "/technologies/communication"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/communication/brevo",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Brevo",
+        "href": "/technologies/communication/brevo"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/communication/nodemailer",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Nodemailer",
+        "href": "/technologies/communication/nodemailer"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/communication/resend",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Resend",
+        "href": "/technologies/communication/resend"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/communication/sendgrid",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "SendGrid",
+        "href": "/technologies/communication/sendgrid"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/databases",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Databases",
+        "href": "/technologies/databases"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/databases/mongodb",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "MongoDB",
+        "href": "/technologies/databases/mongodb"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/databases/postgresql",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "PostgreSQL",
+        "href": "/technologies/databases/postgresql"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/databases/supabase",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Supabase",
+        "href": "/technologies/databases/supabase"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/design",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Design",
+        "href": "/technologies/design"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/design/figma",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Figma",
+        "href": "/technologies/design/figma"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/development",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Development Tooling",
+        "href": "/technologies/development"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/development/eslint",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "ESLint",
+        "href": "/technologies/development/eslint"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/development/git",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Git",
+        "href": "/technologies/development/git"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/development/github",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "GitHub",
+        "href": "/technologies/development/github"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/development/pnpm",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "pnpm",
+        "href": "/technologies/development/pnpm"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/development/prettier",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Prettier",
+        "href": "/technologies/development/prettier"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/development/turborepo",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Turborepo",
+        "href": "/technologies/development/turborepo"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/ecommerce",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Ecommerce",
+        "href": "/technologies/ecommerce"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/ecommerce/razorpay",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Razorpay",
+        "href": "/technologies/ecommerce/razorpay"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/ecommerce/shopify",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Shopify",
+        "href": "/technologies/ecommerce/shopify"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/ecommerce/shopify-hydrogen",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Shopify Hydrogen",
+        "href": "/technologies/ecommerce/shopify-hydrogen"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/ecommerce/stripe",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Stripe",
+        "href": "/technologies/ecommerce/stripe"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/ecommerce/woocommerce",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "WooCommerce",
+        "href": "/technologies/ecommerce/woocommerce"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/frontend",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Frontend",
+        "href": "/technologies/frontend"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/frontend/css3",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "CSS3",
+        "href": "/technologies/frontend/css3"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/frontend/framer-motion",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Framer Motion",
+        "href": "/technologies/frontend/framer-motion"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/frontend/html5",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "HTML5",
+        "href": "/technologies/frontend/html5"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/frontend/javascript-es6",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "JavaScript (ES6+)",
+        "href": "/technologies/frontend/javascript-es6"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/frontend/nextjs",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Next.js",
+        "href": "/technologies/frontend/nextjs"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/frontend/react",
     "items": [
       {
         "label": "Home",
@@ -1185,7 +2358,398 @@
       },
       {
         "label": "React",
-        "href": "/technologies/react"
+        "href": "/technologies/frontend/react"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/frontend/react-hook-form",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "React Hook Form",
+        "href": "/technologies/frontend/react-hook-form"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/frontend/shadcn-ui",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "shadcn/ui",
+        "href": "/technologies/frontend/shadcn-ui"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/frontend/tailwind-css",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Tailwind CSS",
+        "href": "/technologies/frontend/tailwind-css"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/frontend/typescript",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "TypeScript",
+        "href": "/technologies/frontend/typescript"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/frontend/zod",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Zod",
+        "href": "/technologies/frontend/zod"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/infrastructure",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Application Infrastructure",
+        "href": "/technologies/infrastructure"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/infrastructure/aws",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "AWS (Amazon Web Services)",
+        "href": "/technologies/infrastructure/aws"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/infrastructure/better-auth-authjs",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Better Auth / Auth.js",
+        "href": "/technologies/infrastructure/better-auth-authjs"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/infrastructure/clerk",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Clerk",
+        "href": "/technologies/infrastructure/clerk"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/infrastructure/imagekit-cloudinary",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "ImageKit / Cloudinary",
+        "href": "/technologies/infrastructure/imagekit-cloudinary"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/infrastructure/neon",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Neon",
+        "href": "/technologies/infrastructure/neon"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/infrastructure/rabbitmq",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "RabbitMQ",
+        "href": "/technologies/infrastructure/rabbitmq"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/infrastructure/redis",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Redis",
+        "href": "/technologies/infrastructure/redis"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/infrastructure/sentry",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Sentry",
+        "href": "/technologies/infrastructure/sentry"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/infrastructure/uploadthing",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "UploadThing",
+        "href": "/technologies/infrastructure/uploadthing"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/infrastructure/upstash",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Upstash",
+        "href": "/technologies/infrastructure/upstash"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/seo-analytics",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "SEO & Analytics",
+        "href": "/technologies/seo-analytics"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/seo-analytics/bing-webmaster-tools",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Bing Webmaster Tools",
+        "href": "/technologies/seo-analytics/bing-webmaster-tools"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/seo-analytics/google-analytics-4",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Google Analytics 4",
+        "href": "/technologies/seo-analytics/google-analytics-4"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/seo-analytics/google-search-console",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Google Search Console",
+        "href": "/technologies/seo-analytics/google-search-console"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/seo-analytics/lighthouse",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Lighthouse",
+        "href": "/technologies/seo-analytics/lighthouse"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/seo-analytics/microsoft-clarity",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Microsoft Clarity",
+        "href": "/technologies/seo-analytics/microsoft-clarity"
+      }
+    ]
+  },
+  {
+    "url": "/technologies/seo-analytics/schema-org",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technologies",
+        "href": "/technologies"
+      },
+      {
+        "label": "Schema.org",
+        "href": "/technologies/seo-analytics/schema-org"
       }
     ]
   },
@@ -1201,7 +2765,7 @@
         "href": "/work"
       },
       {
-        "label": "Cintegrate",
+        "label": "Cintegrate: AI-Assisted Video Creation Platform",
         "href": "/work/cintegrate"
       }
     ]
@@ -1218,7 +2782,7 @@
         "href": "/work"
       },
       {
-        "label": "HA UI Design System",
+        "label": "HA UI Design System: Reusable Component Library",
         "href": "/work/ha-ui-design-system"
       }
     ]
@@ -1235,7 +2799,7 @@
         "href": "/work"
       },
       {
-        "label": "HA Web Studio Website",
+        "label": "Building the HA Web Studio Marketing Platform",
         "href": "/work/ha-web-studio-website"
       }
     ]
@@ -1252,7 +2816,7 @@
         "href": "/work"
       },
       {
-        "label": "MS Signature Scents",
+        "label": "MS Signature Scents: Ecommerce Storefront Build",
         "href": "/work/ms-signature-scents"
       }
     ]
@@ -1269,7 +2833,7 @@
         "href": "/work"
       },
       {
-        "label": "Omnivy Web Clipper",
+        "label": "Omnivy: Browser Web Clipper for Markdown Notes",
         "href": "/work/omnivy-web-clipper"
       }
     ]

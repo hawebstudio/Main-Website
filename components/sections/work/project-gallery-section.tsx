@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Container } from '@/components/primitives/container'
 import { Section } from '@/components/primitives/section'
-import { Eyebrow, Heading, Text } from '@/components/primitives/typography'
+import { Eyebrow, Heading } from '@/components/primitives/typography'
 import type { WithContent } from '@/lib/content/source'
 import type { ImageAsset, Project } from '@/lib/content/types'
 

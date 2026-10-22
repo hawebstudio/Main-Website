@@ -83,8 +83,6 @@ export const serviceSchema = contentEntrySchema.extend({
   exclusions: z.array(z.string()).optional(),
   recommendedTechnologies: z.array(z.string()).optional(),
   relatedServices: z.array(z.string()).optional(),
-  relatedInsights: z.array(z.string()).optional(),
-  relatedCaseStudies: z.array(z.string()).optional(),
   pricing: z.string().optional(),
   timeline: z.string().optional(),
   faqs: z

@@ -22,12 +22,15 @@ export function MobileNav({ items }: MobileNavProps) {
   const pathname = usePathname()
   const panelId = useId()
   const panelRef = useRef<HTMLDivElement>(null)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
   }, [])
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setOpen(false)
   }, [pathname])
 
@@ -39,10 +42,67 @@ export function MobileNav({ items }: MobileNavProps) {
     return () => window.removeEventListener('ha-search-open', onSearchOpen)
   }, [])
 
+  function closeMenu() {
+    setOpen(false)
+    // The menu was opened from the toggle, so focus belongs back there — not on
+    // the page behind it.
+    toggleRef.current?.focus()
+  }
+
+  // Focus moves into the panel as soon as it opens. A dialog that claims
+  // aria-modal while leaving focus on the page behind it is unusable for
+  // keyboard and screen-reader users. The ref is already attached when this
+  // effect runs, so focus is moved directly: waiting for a frame made the move
+  // depend on the compositor producing one, which is not something a keyboard
+  // user should have to wait for (or rely on).
+  //
+  // `mounted` belongs in the dependencies alongside `open`. The panel is only
+  // rendered in a commit where both are true, so a menu opened before the mount
+  // effect has flushed ran this effect against a null ref and then never ran
+  // again — leaving the panel on screen with focus still on the toggle. The
+  // audit caught it in about half its runs and the instrumented build showed
+  // exactly that: `hasRef: false, inDom: false` at the moment focus should have
+  // moved. Waiting for the commit that actually contains the panel removes the
+  // race rather than retrying after it.
+  useEffect(() => {
+    if (!open || !mounted) return
+    panelRef.current?.focus()
+  }, [mounted, open])
+
   useEffect(() => {
     if (!open) return
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === 'Escape') setOpen(false)
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        closeMenu()
+        return
+      }
+      if (event.key !== 'Tab') return
+      const panel = panelRef.current
+      if (!panel) return
+      const focusables = Array.from(
+        panel.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      )
+      if (focusables.length === 0) return
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
+      const active = document.activeElement
+      // Focus starts on the panel itself, so Tab has to hand it to the first
+      // control and Shift+Tab has to wrap backwards.
+      if (active === panel || !panel.contains(active)) {
+        event.preventDefault()
+        ;(event.shiftKey ? last : first).focus()
+        return
+      }
+      if (event.shiftKey && active === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault()
+        first.focus()
+      }
     }
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
@@ -54,7 +114,7 @@ export function MobileNav({ items }: MobileNavProps) {
         type="button"
         aria-label="Close menu"
         className="absolute inset-0 bg-transparent"
-        onClick={() => setOpen(false)}
+        onClick={closeMenu}
       />
 
       <div
@@ -63,9 +123,10 @@ export function MobileNav({ items }: MobileNavProps) {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        className="absolute inset-x-3 top-[5.5rem] flex max-h-[calc(100dvh-6.5rem)] flex-col overflow-hidden rounded-[1.75rem] border border-border/70 bg-background shadow-[0_24px_70px_-28px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:inset-x-4 md:left-auto md:right-4 md:w-[26rem]"
+        tabIndex={-1}
+        className="absolute inset-x-3 top-[5.5rem] flex max-h-[calc(100dvh-6.5rem)] flex-col overflow-hidden rounded-[1.75rem] border border-border/70 bg-background shadow-[0_24px_70px_-28px_rgba(0,0,0,0.9)] outline-none backdrop-blur-xl sm:inset-x-4 md:left-auto md:right-4 md:w-[26rem]"
       >
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-[1.75rem] bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_32%,transparent_68%,rgba(14,165,233,0.08))]" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-[1.75rem] bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_32%,transparent_68%,rgba(89,102,75,0.08))]" />
 
         <div className="relative border-b border-border/60 px-5 py-4">
           <div className="text-[10px] font-semibold uppercase tracking-[0.28em] text-primary">
@@ -112,6 +173,7 @@ export function MobileNav({ items }: MobileNavProps) {
   return (
     <div className="lg:hidden">
       <Button
+        ref={toggleRef}
         variant="ghost"
         size="icon"
         aria-expanded={open}
@@ -121,7 +183,7 @@ export function MobileNav({ items }: MobileNavProps) {
           'rounded-full border border-border/60 bg-background/55 text-foreground shadow-sm backdrop-blur transition-colors hover:bg-background/80',
           open && 'border-primary/35 bg-primary/10',
         )}
-        onClick={() => setOpen((value) => !value)}
+        onClick={() => (open ? closeMenu() : setOpen(true))}
       >
         {open ? <X className="size-5" /> : <Menu className="size-5" />}
       </Button>

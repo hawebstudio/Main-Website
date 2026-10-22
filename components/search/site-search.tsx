@@ -41,6 +41,7 @@ interface SiteSearchProps {
 
 const documentTypeLabels: Record<SearchDocumentType, string> = {
   service: 'Services',
+  'service-family': 'Service Families',
   work: 'Work',
   'case-study': 'Case Studies',
   problem: 'Problems',
@@ -51,6 +52,7 @@ const documentTypeLabels: Record<SearchDocumentType, string> = {
 const filters: Array<{ label: string; value: SearchDocumentType | 'all' }> = [
   { label: 'All', value: 'all' },
   { label: 'Services', value: 'service' },
+  { label: 'Service Families', value: 'service-family' },
   { label: 'Work', value: 'work' },
   { label: 'Case Studies', value: 'case-study' },
   { label: 'Insights', value: 'insight' },

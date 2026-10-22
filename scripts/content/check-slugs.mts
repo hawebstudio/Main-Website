@@ -1,9 +1,9 @@
-import { printResult, readContentEntries, slugify, type AuditMessage } from '../shared/toolkit.mts'
+import { printResult, readAllContentEntries, slugify, type AuditMessage } from '../shared/toolkit.mts'
 
 const messages: AuditMessage[] = []
 const seen = new Map<string, string>()
 
-for (const entry of await readContentEntries()) {
+for (const entry of await readAllContentEntries()) {
   const key = `${entry.collection}:${entry.slug}`
   const expected = slugify(entry.slug)
 

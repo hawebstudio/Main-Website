@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm, Controller, type FieldErrors } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { contactFormSchema, contactIntentOptions, budgetOptions, ContactFormValues } from '@/lib/content/schemas'
 import { submitContactForm } from '@/app/(marketing)/contact/actions'
@@ -47,6 +47,7 @@ export function LeadForm({ promotion = null }: LeadFormProps) {
     control,
     watch,
     setValue,
+    setFocus,
     formState: { errors }
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -54,6 +55,24 @@ export function LeadForm({ promotion = null }: LeadFormProps) {
   })
 
   const selectedBudget = watch('budget')
+  const errorCount = Object.keys(errors).length
+
+  // The order a keyboard or screen-reader user meets the fields in is also the
+  // order the first error should be reported in (WCAG 3.3.1).
+  const fieldOrder: Array<keyof ContactFormValues> = [
+    'name',
+    'email',
+    'company',
+    'budget',
+    'customBudget',
+    'intent',
+    'message',
+  ]
+
+  const onInvalid = (formErrors: FieldErrors<ContactFormValues>) => {
+    const firstInvalid = fieldOrder.find((field) => formErrors[field])
+    if (firstInvalid) setFocus(firstInvalid)
+  }
 
   // Capture where the lead came from once we're on the client, so
   // server-rendered and hydrated markup stay in sync (no SSR mismatch).
@@ -106,7 +125,7 @@ export function LeadForm({ promotion = null }: LeadFormProps) {
         setStatus('error')
         setMessage(response.message)
       }
-    } catch (_err) {
+    } catch {
       setStatus('error')
       setMessage('An unexpected error occurred. Please try again.')
     }
@@ -114,7 +133,7 @@ export function LeadForm({ promotion = null }: LeadFormProps) {
 
   if (status === 'success') {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 rounded-3xl bg-primary/5 p-12 text-center border border-primary/10">
+      <div role="status" className="flex flex-col items-center justify-center gap-4 rounded-3xl bg-primary/5 p-12 text-center border border-primary/10">
         <CheckCircle2 className="size-16 text-primary" />
         <h3 className="text-2xl font-semibold text-primary">Enquiry Sent</h3>
         <p className="text-muted-foreground">{message}</p>
@@ -126,7 +145,7 @@ export function LeadForm({ promotion = null }: LeadFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+    <form onSubmit={handleSubmit(onSubmit, onInvalid)} className="flex flex-col gap-6">
       <div className="hidden" aria-hidden="true">
         <Label htmlFor="website">Website</Label>
         <Input
@@ -145,29 +164,79 @@ export function LeadForm({ promotion = null }: LeadFormProps) {
       </div>
 
       {status === 'error' && (
-        <div className="flex items-center gap-3 rounded-lg bg-destructive/10 p-4 text-destructive border border-destructive/20">
-          <AlertCircle className="size-5" />
+        <div role="alert" className="flex items-center gap-3 rounded-lg bg-destructive/10 p-4 text-destructive border border-destructive/20">
+          <AlertCircle className="size-5" aria-hidden="true" />
           <p className="text-sm font-medium">{message}</p>
+        </div>
+      )}
+
+      {/* One announcement for the whole invalid submit; each message below stays
+          linked to its own field through aria-describedby. */}
+      {errorCount > 0 && (
+        <div role="alert" className="flex items-center gap-3 rounded-lg bg-destructive/10 p-4 text-destructive border border-destructive/20">
+          <AlertCircle className="size-5" aria-hidden="true" />
+          <p className="text-sm font-medium">
+            {errorCount === 1
+              ? 'One field needs your attention.'
+              : `${errorCount} fields need your attention.`}
+          </p>
         </div>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
           <Label htmlFor="name">Name *</Label>
-          <Input id="name" placeholder="Jane Doe" {...register('name')} />
-          {errors.name && <span className="text-xs text-destructive">{errors.name.message}</span>}
+          <Input
+            id="name"
+            placeholder="Jane Doe"
+            autoComplete="name"
+            aria-required="true"
+            aria-invalid={errors.name ? true : undefined}
+            aria-describedby={errors.name ? 'name-error' : undefined}
+            {...register('name')}
+          />
+          {errors.name && (
+            <span id="name-error" className="text-xs text-destructive">
+              {errors.name.message}
+            </span>
+          )}
         </div>
         <div className="flex flex-col gap-2">
           <Label htmlFor="email">Email *</Label>
-          <Input id="email" type="email" placeholder="jane@example.com" {...register('email')} />
-          {errors.email && <span className="text-xs text-destructive">{errors.email.message}</span>}
+          <Input
+            id="email"
+            type="email"
+            placeholder="jane@example.com"
+            autoComplete="email"
+            aria-required="true"
+            aria-invalid={errors.email ? true : undefined}
+            aria-describedby={errors.email ? 'email-error' : undefined}
+            {...register('email')}
+          />
+          {errors.email && (
+            <span id="email-error" className="text-xs text-destructive">
+              {errors.email.message}
+            </span>
+          )}
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
           <Label htmlFor="company">Company</Label>
-          <Input id="company" placeholder="Acme Corp" {...register('company')} />
+          <Input
+            id="company"
+            placeholder="Acme Corp"
+            autoComplete="organization"
+            aria-invalid={errors.company ? true : undefined}
+            aria-describedby={errors.company ? 'company-error' : undefined}
+            {...register('company')}
+          />
+          {errors.company && (
+            <span id="company-error" className="text-xs text-destructive">
+              {errors.company.message}
+            </span>
+          )}
         </div>
         <div className="flex flex-col gap-2">
           <Label htmlFor="budget">Project Budget</Label>
@@ -176,7 +245,12 @@ export function LeadForm({ promotion = null }: LeadFormProps) {
             name="budget"
             render={({ field }) => (
               <Select value={field.value ?? ''} onValueChange={field.onChange}>
-                <SelectTrigger id="budget" className="w-full">
+                <SelectTrigger
+                  id="budget"
+                  aria-invalid={errors.budget ? true : undefined}
+                  aria-describedby={errors.budget ? 'budget-error' : undefined}
+                  className="w-full"
+                >
                   <SelectValue placeholder="Select a range" />
                 </SelectTrigger>
                 <SelectContent>
@@ -189,7 +263,11 @@ export function LeadForm({ promotion = null }: LeadFormProps) {
               </Select>
             )}
           />
-          {errors.budget && <span className="text-xs text-destructive">{errors.budget.message}</span>}
+          {errors.budget && (
+            <span id="budget-error" className="text-xs text-destructive">
+              {errors.budget.message}
+            </span>
+          )}
         </div>
       </div>
 
@@ -200,10 +278,14 @@ export function LeadForm({ promotion = null }: LeadFormProps) {
             id="customBudget"
             placeholder="e.g. $15,000"
             className="w-full min-w-0"
+            aria-invalid={errors.customBudget ? true : undefined}
+            aria-describedby={errors.customBudget ? 'customBudget-error' : undefined}
             {...register('customBudget')}
           />
           {errors.customBudget && (
-            <span className="text-xs text-destructive">{errors.customBudget.message}</span>
+            <span id="customBudget-error" className="text-xs text-destructive">
+              {errors.customBudget.message}
+            </span>
           )}
         </div>
       )}
@@ -215,7 +297,13 @@ export function LeadForm({ promotion = null }: LeadFormProps) {
           name="intent"
           render={({ field }) => (
             <Select value={field.value} onValueChange={field.onChange}>
-              <SelectTrigger id="intent" aria-invalid={!!errors.intent} className="w-full">
+              <SelectTrigger
+                id="intent"
+                aria-required="true"
+                aria-invalid={!!errors.intent}
+                aria-describedby={errors.intent ? 'intent-error' : undefined}
+                className="w-full"
+              >
                 <SelectValue placeholder="Select an option" />
               </SelectTrigger>
               <SelectContent>
@@ -228,18 +316,29 @@ export function LeadForm({ promotion = null }: LeadFormProps) {
             </Select>
           )}
         />
-        {errors.intent && <span className="text-xs text-destructive">{errors.intent.message}</span>}
+        {errors.intent && (
+          <span id="intent-error" className="text-xs text-destructive">
+            {errors.intent.message}
+          </span>
+        )}
       </div>
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="message">Project Description *</Label>
-        <Textarea 
-          id="message" 
-          placeholder="Tell us about your project, goals, and timeline..." 
+        <Textarea
+          id="message"
+          placeholder="Tell us about your project, goals, and timeline..."
           className="min-h-37.5"
-          {...register('message')} 
+          aria-required="true"
+          aria-invalid={errors.message ? true : undefined}
+          aria-describedby={errors.message ? 'message-error' : undefined}
+          {...register('message')}
         />
-        {errors.message && <span className="text-xs text-destructive">{errors.message.message}</span>}
+        {errors.message && (
+          <span id="message-error" className="text-xs text-destructive">
+            {errors.message.message}
+          </span>
+        )}
       </div>
 
       <Button type="submit" size="lg" disabled={status === 'submitting'} className="w-full md:w-auto self-start">

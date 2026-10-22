@@ -1,6 +1,6 @@
-import { readContentEntries, siteUrl, writeText } from '../shared/toolkit.mts'
+import { readAllContentEntries, siteUrl, writeText } from '../shared/toolkit.mts'
 
-const entries = await readContentEntries()
+const entries = await readAllContentEntries()
 
 const keySections = [
   ['Services', '/services'],

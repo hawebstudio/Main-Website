@@ -40,7 +40,7 @@ faqs:
   - question: "My website was hacked. Can you fix it?"
     answer: "Yes. We offer emergency malware removal and site restoration. We identify the breach, clean the code, restore from clean backups, and immediately patch the vulnerability to prevent a recurrence."
   - question: "What is a Headless architecture, and why is it more secure?"
-    answer: "In traditional CMS setups, the database and the website code sit on the same server, exposed to the internet. In Headless architecture (like Next.js), the website is generated into static, un-hackable files, and the database is hidden completely behind secure APIs. It drastically reduces the 'attack surface'."
+    answer: "In traditional CMS setups, the database and the website code sit on the same server, exposed to the internet. In a headless architecture (like Next.js), the site is delivered as static files and the database sits behind secure APIs, which reduces the exposed 'attack surface'."
   - question: "How often should my website be backed up?"
     answer: "Daily, at a minimum, and backups should be stored off-site (not on the same server as the website). For ecommerce sites, real-time or hourly backups are necessary to prevent the loss of order data."
 relatedTechnologySlugs:
@@ -63,7 +63,7 @@ If your website is compromised, the damage extends far beyond the technical real
 
 A security breach has immediate and severe consequences:
 
-**Loss of Customer Trust**: If a potential client visits your site and their browser displays a bright red "Warning: Deceptive Site Ahead" screen, they will never do business with you. Trust is instantly destroyed.
+**Loss of Customer Trust**: If a potential client visits your site and their browser displays a bright red "Warning: Deceptive Site Ahead" screen, they will leave. Trust is hard to rebuild once it's lost.
 
 **SEO Penalties**: When Google detects malware on your site, they immediately remove you from search results to protect their users. Recovering from a Google security penalty can take weeks or months.
 
@@ -75,7 +75,7 @@ A security breach has immediate and severe consequences:
 
 Most website compromises are entirely preventable. They usually stem from basic negligence in technical maintenance:
 
-**Outdated Software and Plugins**: This is the #1 cause of website hacks. When a developer updates a plugin to fix a security flaw, they publicly announce the flaw. If you don't install the update, hackers know exactly how to break into your site.
+**Outdated Software and Plugins**: Outdated plugins and dependencies are a leading cause of website compromises. When a developer releases a plugin update to fix a security flaw, the flaw becomes public knowledge. If the update is never installed, that known route in stays open.
 
 **Weak Authentication**: Using passwords like "Admin123" or failing to implement Two-Factor Authentication (2FA) for administrator accounts is an open invitation to brute-force attacks.
 

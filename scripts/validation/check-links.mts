@@ -1,18 +1,22 @@
-import { extractLinks, printResult, readContentEntries, staticRoutes, type AuditMessage } from '../shared/toolkit.mts'
+import { printResult, readAllContentEntries, staticRoutes, type AuditMessage } from '../shared/toolkit.mts'
+import { auditInternalLinks } from './link-audit.mts'
 
-const messages: AuditMessage[] = []
-const entries = await readContentEntries()
+const entries = await readAllContentEntries()
+
+// Services, service families and work are defined in TypeScript, so a reader that
+// only walks MDX cannot see them — neither as link targets nor as link sources.
+// `readAllContentEntries()` includes them; if it ever stops doing so, every link
+// into those collections would fail and this check must not pass quietly.
+const structuredEntries = entries.filter((entry) => entry.source === 'typescript')
 const knownRoutes = new Set<string>([...staticRoutes, ...entries.map((entry) => entry.url)])
 
-for (const entry of entries) {
-  for (const link of extractLinks(`${entry.content}\n${JSON.stringify(entry.data)}`)) {
-    if (link.startsWith('http://')) messages.push({ level: 'warning', message: `${entry.url}: non-HTTPS external link ${link}` })
-    if (!link.startsWith('/')) continue
-    const clean = link.split('#')[0].split('?')[0].replace(/\/$/, '') || '/'
-    if (knownRoutes.has(clean)) continue
-    if (knownRoutes.has(clean.replace(/\/$/, ''))) continue
-    messages.push({ level: 'issue', message: `${entry.url}: internal link does not match a known route: ${link}` })
-  }
+const messages: AuditMessage[] = auditInternalLinks(entries, knownRoutes)
+
+if (!structuredEntries.length) {
+  messages.push({
+    level: 'issue',
+    message: 'No TypeScript-defined content entries were read: links into services, service families and work cannot be validated',
+  })
 }
 
 printResult('Link validation', messages)

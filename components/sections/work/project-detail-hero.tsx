@@ -35,7 +35,7 @@ export function ProjectDetailHero({
               collide and become unreadable (see /work/[slug] pages with a
               busy cover image). This keeps the photo as texture only. */}
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.14),transparent_20%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_44%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(89,102,75,0.12),transparent_20%),linear-gradient(180deg,rgba(243,237,223,0.08),transparent_44%)]" />
           <div className="absolute left-1/2 top-0 h-80 w-176 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
         </div>
       }

@@ -9,7 +9,7 @@ interface SocialProfilesGridProps {
 
 /**
  * SocialProfilesGrid — every social channel with its handle, rendered for
- * the /socials page. The footer only shows the featured subset; this page
+ * a future social profiles page. The footer does not show social links; this component
  * is the full list.
  */
 export function SocialProfilesGrid({ profiles }: SocialProfilesGridProps) {

@@ -20,6 +20,11 @@ export function HeroWrapper({ background, className, children, ...props }: HeroW
     // <header> also clips, it cuts off the background layer's upward
     // extension below, right back to the bug this is fixing.
     <header className={cn('relative isolate py-12 md:py-16', className)} {...props}>
+      <div aria-hidden="true" className="hero-shapes">
+        <span className="hero-shapes__orbit" />
+        <span className="hero-shapes__cube" />
+        <span className="hero-shapes__sphere" />
+      </div>
       {background ? (
         // The background is intentionally NOT a plain inset-0 layer.
         // <main> reserves pt-18 (4.5rem) above every page for the fixed
@@ -36,7 +41,7 @@ export function HeroWrapper({ background, className, children, ...props }: HeroW
           {background}
         </div>
       ) : null}
-      <Container className="flex flex-col gap-6">{children}</Container>
+      <Container className="relative z-10 flex flex-col gap-6">{children}</Container>
     </header>
   )
 }

@@ -23,7 +23,9 @@ const homeDescription =
   'HA Web Studio is a digital product studio building fast, modern, conversion-focused websites, ecommerce stores, and web applications for small businesses, startups, and ecommerce brands. Every build is engineered for technical SEO and AI search visibility from day one.'
 
 export const metadata: Metadata = createMetadata({
-  title: 'HA Web Studio | Web Development, Ecommerce & AI Search Agency',
+  // The root layout template appends " — HA Web Studio", so the brand must not
+  // also lead the page title (it would render twice in the document <title>).
+  title: 'Web Development, Ecommerce & AI Search Agency',
   description: homeDescription,
   path: '/',
 })

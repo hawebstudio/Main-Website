@@ -5,14 +5,13 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   HA WEB STUDIO — THEME SYSTEM
-   Dark-first "liquid glass" design language.
-   All colors flow through semantic tokens. Never use raw
-   colors (bg-white, text-black) in components.
+   HA WEB STUDIO — LUXURY EDITORIAL SYSTEM
+   Ink, ivory, champagne brass and restrained plum. Contrast and hierarchy do the heavy lifting.
+   Components keep the existing semantic tokens so the redesign stays
+   compatible with the current app and its shared UI primitives.
    ============================================================ */
 
 @theme inline {
-  /* Semantic color tokens */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -31,15 +30,12 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-
-  /* Surface system — layered elevations for glass stacking */
   --color-surface-1: var(--surface-1);
   --color-surface-2: var(--surface-2);
   --color-surface-3: var(--surface-3);
   --color-glass: var(--glass);
   --color-glass-strong: var(--glass-strong);
   --color-glass-border: var(--glass-border);
-
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -53,121 +49,131 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-
-  /* Typography */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-
-  /* Radius system */
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.7);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
-
-  /* Motion principles — use for all transitions */
+  --radius-xl: calc(var(--radius) * 1.25);
+  --radius-2xl: calc(var(--radius) * 1.5);
+  --radius-3xl: calc(var(--radius) * 1.9);
+  --radius-4xl: calc(var(--radius) * 2.2);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ------------------------------------------------------------
-   Dark theme (default) — liquid glass on deep neutral
-   Palette: deep charcoal, glass whites, electric cyan accent
-   ------------------------------------------------------------ */
 :root {
-  color-scheme: dark;
-  --background: oklch(0.13 0.008 260);
-  --foreground: oklch(0.97 0.004 260);
-  --card: oklch(0.18 0.01 260);
-  --card-foreground: oklch(0.97 0.004 260);
-  --popover: oklch(0.17 0.01 260);
-  --popover-foreground: oklch(0.97 0.004 260);
-  --primary: oklch(0.78 0.13 215);
-  --primary-foreground: oklch(0.15 0.02 240);
-  --secondary: oklch(1 0 0 / 8%);
-  --secondary-foreground: oklch(0.97 0.004 260);
-  --muted: oklch(1 0 0 / 6%);
-  --muted-foreground: oklch(0.7 0.01 260);
-  --accent: oklch(1 0 0 / 10%);
-  --accent-foreground: oklch(0.97 0.004 260);
-  --destructive: oklch(0.65 0.2 25);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.78 0.13 215 / 60%);
-
-  /* Surface / glass system */
-  --surface-1: oklch(0.16 0.01 260);
-  --surface-2: oklch(0.2 0.012 260);
-  --surface-3: oklch(0.24 0.014 260);
-  --glass: oklch(1 0 0 / 5%);
-  --glass-strong: oklch(1 0 0 / 9%);
-  --glass-border: oklch(1 0 0 / 14%);
-
-  --chart-1: oklch(0.78 0.13 215);
-  --chart-2: oklch(0.7 0.01 260);
-  --chart-3: oklch(0.55 0.01 260);
-  --chart-4: oklch(0.42 0.01 260);
-  --chart-5: oklch(0.3 0.01 260);
-
-  --radius: 1rem;
-
-  --sidebar: oklch(0.16 0.01 260);
-  --sidebar-foreground: oklch(0.97 0.004 260);
-  --sidebar-primary: oklch(0.78 0.13 215);
-  --sidebar-primary-foreground: oklch(0.15 0.02 240);
-  --sidebar-accent: oklch(1 0 0 / 8%);
-  --sidebar-accent-foreground: oklch(0.97 0.004 260);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.78 0.13 215 / 60%);
-}
-
-/* ------------------------------------------------------------
-   Light mode readiness — activate with class="light" on <html>
-   ------------------------------------------------------------ */
-.light {
   color-scheme: light;
-  --background: oklch(0.98 0.002 260);
-  --foreground: oklch(0.17 0.01 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.17 0.01 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.17 0.01 260);
-  --primary: oklch(0.55 0.13 225);
-  --primary-foreground: oklch(0.98 0.002 260);
-  --secondary: oklch(0 0 0 / 5%);
-  --secondary-foreground: oklch(0.17 0.01 260);
-  --muted: oklch(0 0 0 / 4%);
-  --muted-foreground: oklch(0.45 0.01 260);
-  --accent: oklch(0 0 0 / 6%);
-  --accent-foreground: oklch(0.17 0.01 260);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0 0 0 / 10%);
-  --input: oklch(0 0 0 / 10%);
-  --ring: oklch(0.55 0.13 225 / 60%);
-  --surface-1: oklch(0.96 0.002 260);
-  --surface-2: oklch(0.94 0.002 260);
-  --surface-3: oklch(0.91 0.002 260);
-  --glass: oklch(1 0 0 / 55%);
-  --glass-strong: oklch(1 0 0 / 75%);
-  --glass-border: oklch(0 0 0 / 10%);
+  --background: #fcfbf8;
+  --foreground: #211d23;
+  --card: #fffefd;
+  --card-foreground: #211d23;
+  --popover: #fffefd;
+  --popover-foreground: #211d23;
+  --primary: #51283e;
+  --primary-foreground: #fffdf9;
+  --secondary: #f1ece5;
+  --secondary-foreground: #28232a;
+  --muted: #f3f0eb;
+  --muted-foreground: #625b62;
+  --accent: #e9dfcc;
+  --accent-foreground: #29232a;
+  --destructive: #a33f42;
+  --border: #ded7cf;
+  --input: #d8d0c8;
+  --ring: #9b7a49;
+  --surface-1: #f7f4ef;
+  --surface-2: #f0eae2;
+  --surface-3: #e7ded3;
+  --glass: rgb(255 254 253 / 94%);
+  --glass-strong: rgb(255 254 253 / 98%);
+  --glass-border: rgb(120 99 82 / 26%);
+  --chart-1: #51283e;
+  --chart-2: #a47e48;
+  --chart-3: #7d5c70;
+  --chart-4: #8e6d53;
+  --chart-5: #373139;
+  --radius: 0.85rem;
+  --sidebar: oklch(0.97 0.01 86);
+  --sidebar-foreground: oklch(0.23 0.018 62);
+  --sidebar-primary: oklch(0.43 0.105 8);
+  --sidebar-primary-foreground: oklch(0.98 0.012 82);
+  --sidebar-accent: oklch(0.86 0.055 49);
+  --sidebar-accent-foreground: oklch(0.28 0.035 48);
+  --sidebar-border: oklch(0.84 0.025 78);
+  --sidebar-ring: oklch(0.43 0.105 8 / 60%);
 }
 
-/* ------------------------------------------------------------
-   Glass utilities — the core visual primitive of the system
-   ------------------------------------------------------------ */
+.dark {
+  color-scheme: dark;
+  --background: #171419;
+  --foreground: #f6f1e9;
+  --card: #211c23;
+  --card-foreground: #f6f1e9;
+  --popover: #211c23;
+  --popover-foreground: #f6f1e9;
+  --primary: #c7aa72;
+  --primary-foreground: #211b20;
+  --secondary: #2a242c;
+  --secondary-foreground: #f6f1e9;
+  --muted: #262128;
+  --muted-foreground: #c2b8c0;
+  --accent: #4b2c40;
+  --accent-foreground: #fbf5ed;
+  --destructive: #e07878;
+  --border: #423843;
+  --input: #514650;
+  --ring: #c7aa72;
+  --surface-1: #1d1920;
+  --surface-2: #272129;
+  --surface-3: #322a34;
+  --glass: rgb(33 28 35 / 94%);
+  --glass-strong: rgb(33 28 35 / 98%);
+  --glass-border: rgb(199 170 114 / 24%);
+  --sidebar: #1d1920;
+  --sidebar-foreground: #f6f1e9;
+  --sidebar-primary: #c7aa72;
+  --sidebar-primary-foreground: #211b20;
+  --sidebar-accent: #4b2c40;
+  --sidebar-accent-foreground: #fbf5ed;
+  --sidebar-border: #423843;
+  --sidebar-ring: #c7aa72;
+}
+
+.light { color-scheme: light; }
+
+.site-wordmark__name {
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.site-wordmark__descriptor {
+  color: var(--foreground);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.9em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.site-wordmark__tagline {
+  color: var(--primary);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
 @utility glass {
   background-color: var(--glass);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
   border: 1px solid var(--glass-border);
 }
 
 @utility glass-strong {
   background-color: var(--glass-strong);
-  backdrop-filter: blur(28px) saturate(1.6);
-  -webkit-backdrop-filter: blur(28px) saturate(1.6);
   border: 1px solid var(--glass-border);
 }
 
@@ -185,10 +191,11 @@
     overflow-x: hidden;
     width: 100%;
     text-rendering: optimizeLegibility;
+    background-color: var(--background);
     background-image:
-      radial-gradient(circle at top left, color-mix(in oklch, var(--primary) 12%, transparent), transparent 32%),
-      radial-gradient(circle at 85% 0%, color-mix(in oklch, var(--foreground) 8%, transparent), transparent 24%),
-      linear-gradient(180deg, transparent, transparent);
+      radial-gradient(circle, color-mix(in oklch, var(--foreground) 11%, transparent) 0.8px, transparent 0.9px),
+      linear-gradient(to right, color-mix(in oklch, var(--foreground) 2.5%, transparent) 1px, transparent 1px);
+    background-size: 24px 24px, 8.333333% 100%;
     background-attachment: fixed;
   }
 
@@ -242,7 +249,7 @@
    ------------------------------------------------------------ */
 html {
   scrollbar-width: thin;
-  scrollbar-color: color-mix(in oklch, var(--primary) 45%, var(--glass-strong)) transparent;
+  scrollbar-color: color-mix(in oklch, var(--primary) 55%, var(--glass-strong)) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -255,14 +262,14 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: color-mix(in oklch, var(--primary) 40%, var(--muted-foreground) 20%);
+  background-color: color-mix(in oklch, var(--primary) 48%, var(--muted-foreground) 20%);
   border-radius: 9999px;
   border: 2px solid var(--background);
   background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: color-mix(in oklch, var(--primary) 65%, var(--muted-foreground) 10%);
+  background-color: color-mix(in oklch, var(--accent) 75%, var(--muted-foreground) 10%);
   background-clip: padding-box;
 }
 
@@ -339,4 +346,155 @@ html {
     radial-gradient(ellipse 80% 42% at 50% 102%, color-mix(in oklch, var(--glow-2) 42%, transparent), transparent 72%),
     radial-gradient(ellipse 60% 35% at 50% 108%, color-mix(in oklch, var(--glow-3) 30%, transparent), transparent 70%),
     linear-gradient(180deg, transparent 0%, color-mix(in oklch, var(--glow-1) 7%, transparent) 100%);
+}
+
+/* Quiet geometric layer shared by every page header. */
+.hero-shapes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.hero-shapes__orbit,
+.hero-shapes__cube,
+.hero-shapes__sphere {
+  position: absolute;
+  display: block;
+}
+.hero-shapes__orbit {
+  width: clamp(16rem, 32vw, 28rem);
+  aspect-ratio: 1;
+  right: -7rem;
+  top: -9rem;
+  border: 1px solid color-mix(in oklch, var(--primary) 16%, transparent);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--foreground) 4%, transparent);
+}
+.hero-shapes__cube {
+  width: clamp(4rem, 7vw, 7rem);
+  aspect-ratio: 1;
+  right: 14%;
+  top: 25%;
+  border: 1px solid color-mix(in oklch, var(--primary) 18%, transparent);
+  transform: rotate(28deg) skewY(-8deg);
+}
+.hero-shapes__sphere {
+  width: clamp(2rem, 4vw, 4rem);
+  aspect-ratio: 1;
+  left: 8%;
+  bottom: 12%;
+  border: 1px solid color-mix(in oklch, var(--primary) 15%, transparent);
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, color-mix(in oklch, var(--accent) 42%, transparent), transparent 62%);
+}
+
+@media (max-width: 640px) {
+  .hero-shapes__cube { right: 8%; top: 18%; }
+  .hero-shapes__sphere { left: auto; right: 18%; bottom: 8%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-shapes { opacity: 0.45; }
+}
+
+
+/* Tactile editorial details: dimensional, not literal 3D. */
+:root {
+  --paper: #fcfbf8;
+  --paper-deep: #eee7dc;
+  --ink: #211d23;
+  --olive: #71666c;
+  --clay: #8f4d61;
+  --brass: #9b7a49;
+}
+
+.paper-panel {
+  background: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--olive) 16%, transparent);
+}
+
+.tactile-card {
+  transform: translateY(0);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 12%, transparent), 5px 5px 0 color-mix(in srgb, var(--ink) 7%, transparent);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.tactile-card:hover {
+  transform: translate(-2px, -3px);
+  box-shadow: 8px 9px 0 color-mix(in srgb, var(--olive) 15%, transparent);
+}
+
+/* Editorial refinements shared by pages and cards. */
+::selection { background: color-mix(in oklch, var(--primary) 24%, transparent); }
+
+.site-editorial-rule { border-color: color-mix(in oklch, var(--foreground) 16%, transparent); }
+
+.prose { max-width: 72ch; }
+
+@media (min-width: 1024px) {
+  .hero-editorial-title { font-size: clamp(4.5rem, 8.2vw, 8.4rem); }
+}
+
+/* Global tactile bento system: clearer contrast, warm near-white paper, no neon-tech palette. */
+:root { --paper: #fcfbf8; --paper-deep: #eee7dc; --ink: #211d23; --olive: #71666c; --clay: #8f4d61; --brass: #9b7a49; --accent-plum: #51283e; }
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+body { background-color: #fcfbf8; }
+.bento-card { border: 1px solid color-mix(in srgb, var(--ink) 13%, transparent); border-radius: 1.25rem; background: color-mix(in srgb, #fffefd 97%, transparent); box-shadow: 0 1px 0 rgba(33,29,35,.04), 5px 5px 0 rgba(33,29,35,.045); transition: transform 240ms cubic-bezier(.2,.8,.2,1), box-shadow 240ms ease, border-color 240ms ease; }
+.bento-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(33,29,35,.075), 4px 4px 0 rgba(155,122,73,.13); border-color: color-mix(in srgb, var(--brass) 42%, var(--ink) 10%); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .bento-card, .tactile-card { transition: none !important; } }
+
+/* While the consent banner is displayed, nothing a keyboard user focuses may come
+   to rest entirely underneath it (WCAG 2.4.11, "focus not obscured", new in 2.2).
+   Two complementary mechanisms, both driven by the height the banner publishes:
+   scroll-margin-bottom/reset padding make the *focus-driven scroll* stop above the
+   banner, and the offsets below keep the floating controls themselves out of it.
+   Both are no-ops when the variable is absent, i.e. once a choice has been made. */
+:root { scroll-padding-bottom: var(--consent-banner-height, 0px); }
+/* Applied statically to focusable elements, not via :focus: the browser decides
+   where to scroll *while* applying focus, so a scroll-margin that only exists
+   once the element is focused arrives too late to be honoured. */
+a[href], button, input, select, textarea, summary, [tabindex]:not([tabindex="-1"]) {
+  scroll-margin-bottom: calc(var(--consent-banner-height, 0px) + 0.5rem);
+}
+/* Room to scroll the *last* focusable content above the banner: without it the
+   document ends behind the banner and the final links cannot be brought clear. */
+body { padding-bottom: var(--consent-banner-height, 0px); }
+
+/* Floating controls clear the consent banner while it is displayed. The clamp keeps
+   a control on screen if the banner ever grows unusually tall. */
+.floating-whatsapp { position: fixed; right: 1.25rem; bottom: calc(5.5rem + min(var(--consent-banner-height, 0px), 45vh)); z-index: 50; }
+@media (min-width: 640px) { .floating-whatsapp { right: 2rem; bottom: calc(6rem + min(var(--consent-banner-height, 0px), 45vh)); } }
+
+.scroll-progress-top { position: fixed; right: 1.25rem; bottom: calc(1.25rem + min(var(--consent-banner-height, 0px), 45vh)); z-index: 70; width: 3.25rem; height: 3.25rem; display: grid; place-items: center; border-radius: 999px; color: var(--foreground); background: color-mix(in srgb, var(--card) 88%, transparent); border: 1px solid color-mix(in srgb, var(--primary) 32%, var(--foreground) 10%); box-shadow: 0 8px 22px rgba(41,37,31,.16), inset 0 1px 0 color-mix(in srgb, white 52%, transparent); backdrop-filter: blur(12px); opacity: 0; visibility: hidden; transform: translateY(8px) scale(.94); transition: opacity 180ms ease, transform 180ms ease, visibility 180ms; overflow: hidden; }
+.scroll-progress-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.scroll-progress-top:hover { transform: translateY(-2px) scale(1); box-shadow: 0 12px 26px rgba(41,37,31,.2), inset 0 1px 0 color-mix(in srgb, white 62%, transparent); }
+.scroll-progress-top__fill { position: absolute; inset: auto 0 0; height: var(--scroll-progress, 0%); background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 20%, transparent), color-mix(in srgb, var(--clay) 26%, transparent)); transition: height 80ms linear; }
+.scroll-progress-top__ring { position: absolute; inset: 2px; border-radius: inherit; background: conic-gradient(var(--primary) var(--scroll-progress, 0%), color-mix(in srgb, var(--foreground) 12%, transparent) 0); mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 1.5px)); }
+.scroll-progress-top svg { position: relative; z-index: 1; }
+@media (min-width: 640px) { .scroll-progress-top { right: 2rem; } }
+.smooth-cursor { position: fixed; z-index: 9999; top: -5px; left: -5px; width: 10px; height: 10px; border-radius: 50%; background: #fff; pointer-events: none; mix-blend-mode: difference; will-change: transform; }
+.smooth-cursor.is-interactive { width: 15px; height: 15px; margin: -2px; background: var(--accent-plum); }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) { .smooth-cursor { display: none !important; } }
+
+
+/* Editorial geometry: thin-line circles, arcs and offset panels add depth without faux-3D objects. */
+.editorial-orbit { position:absolute; border:1px solid color-mix(in srgb, var(--clay) 20%, transparent); border-radius:9999px; pointer-events:none; }
+.editorial-orbit--outer { width:clamp(19rem, 39vw, 32rem); aspect-ratio:1; }
+.editorial-orbit--inner { width:clamp(12rem, 27vw, 22rem); aspect-ratio:1; border-color:color-mix(in srgb, var(--accent-plum) 16%, transparent); }
+.editorial-orbit--dot { width:.65rem; height:.65rem; border:0; background:var(--clay); box-shadow:0 0 0 7px color-mix(in srgb, var(--clay) 10%, transparent); }
+.editorial-grid-panel { background-image:linear-gradient(to right,color-mix(in srgb,var(--foreground) 5%,transparent) 1px,transparent 1px),linear-gradient(to bottom,color-mix(in srgb,var(--foreground) 5%,transparent) 1px,transparent 1px); background-size:24px 24px; }
+
+/* Research-informed reading rhythm: clear entry points, compact line lengths,
+   predictable anchor landings, and visual hierarchy that does not rely on color alone. */
+.editorial-reading-flow { text-wrap: pretty; }
+.editorial-reading-flow :is(h1, h2, h3, h4, [id]) { scroll-margin-top: 6.5rem; }
+.editorial-reading-flow :is(p, li) { text-wrap: pretty; }
+.editorial-reading-flow .reading-measure { max-width: 62ch; }
+.editorial-reading-flow .section-intro { max-width: 64ch; }
+.editorial-reading-flow .content-kicker { color: var(--primary); font-size: .7rem; font-weight: 650; letter-spacing: .16em; text-transform: uppercase; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-gsap-reveal] { opacity: 1 !important; transform: none !important; }
 }

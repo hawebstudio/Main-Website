@@ -82,7 +82,6 @@ const PERMISSIVE_DIRECTIVES: CSPDirectives = {
 export function buildCSP(config: CSPConfig = {}): string {
   const {
     mode = 'balanced',
-    reportOnly = false,
     reportUri,
     directives: customDirectives,
   } = config

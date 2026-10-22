@@ -37,7 +37,11 @@
     "scripts/content/create-content.mts",
     "scripts/content/check-slugs.mts",
     "scripts/content/check-duplicates.mts",
-    "scripts/seo/submit-indexnow.mts"
+    "scripts/seo/submit-indexnow.mts",
+    "scripts/seo/validate-search-infrastructure.mts",
+    "scripts/performance/check-budgets.mts",
+    "scripts/performance/lab-measure.mts",
+    "scripts/a11y/audit.mts"
   ],
   "exclude": ["node_modules"]
 }

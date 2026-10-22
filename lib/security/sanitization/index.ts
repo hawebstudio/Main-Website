@@ -1,8 +1,14 @@
 import { securityDefaults } from '../constants'
 
 export function sanitizeText(value: string, maxLength: number = securityDefaults.maxMessageLength): string {
-  return value
-    .replace(/[\u0000-\u001f\u007f]/g, '')
+  const withoutControlCharacters = Array.from(value)
+    .filter((character) => {
+      const codePoint = character.codePointAt(0) ?? 0
+      return codePoint > 31 && codePoint !== 127
+    })
+    .join('')
+
+  return withoutControlCharacters
     .trim()
     .slice(0, maxLength)
 }

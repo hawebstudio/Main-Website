@@ -42,7 +42,7 @@ export function TableOfContents({ items }: TableOfContentsProps) {
   if (items.length === 0) return null
 
   return (
-    <nav className="flex flex-col gap-4">
+    <nav aria-label="Table of contents" className="flex flex-col gap-4">
       <Eyebrow>Table of Contents</Eyebrow>
       <ul className="flex flex-col gap-2 border-l-2 border-border pl-4">
         {items.map((item) => (

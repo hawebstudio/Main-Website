@@ -14,11 +14,11 @@ import {
 import { routes } from '@/config/routes'
 
 export const discoveryPaths = [
-  { label: 'I need a new website', href: routes.services.family('website-development'), icon: Globe2 },
-  { label: 'I want to improve my existing website', href: routes.services.family('website-optimization-care'), icon: Gauge },
-  { label: 'I need better search visibility', href: routes.services.family('search-discoverability'), icon: Search },
+  { label: 'I need a new website', href: routes.services.family('websites'), icon: Globe2 },
+  { label: 'I want to improve my existing website', href: routes.services.family('performance-security'), icon: Gauge },
+  { label: 'I need better search visibility', href: routes.services.family('seo-search'), icon: Search },
   { label: 'I run an ecommerce business', href: routes.services.family('ecommerce'), icon: ShoppingBag },
-  { label: 'I need custom functionality', href: routes.services.family('custom-web-applications'), icon: Wrench },
+  { label: 'I need custom functionality', href: routes.services.family('development'), icon: Wrench },
 ]
 
 // Positioning layer only — groups the existing service families into three
@@ -31,7 +31,7 @@ export const offeringGroups = [
     title: 'New websites, stores, and web applications.',
     description:
       'For businesses starting fresh: a new website, an online store, or a custom web application, built the right way from day one.',
-    familySlugs: ['website-development', 'ecommerce', 'custom-web-applications'],
+    familySlugs: ['websites', 'design', 'ecommerce', 'business-systems', 'development'],
   },
   {
     key: 'transform',
@@ -39,7 +39,7 @@ export const offeringGroups = [
     title: 'Redesign, optimize, and modernize what already exists.',
     description:
       'For businesses with a website that isn\u2019t pulling its weight: slow, outdated, hard to maintain, or falling behind technically.',
-    familySlugs: ['website-optimization-care', 'automation-integrations'],
+    familySlugs: ['performance-security', 'integrations', 'maintenance'],
   },
   {
     key: 'grow',
@@ -47,21 +47,15 @@ export const offeringGroups = [
     title: 'Search visibility, analytics, and ongoing improvement.',
     description:
       'For businesses that need more from the traffic they already have: SEO, analytics, and continuous conversion improvement.',
-    familySlugs: ['search-discoverability'],
+    familySlugs: ['growth', 'seo-search', 'analytics'],
   },
 ] as const
 
 // Keys must match the family `slug` values in content/services/index.ts
 export const familyIcons = {
-  'website-development': Globe2,
-  ecommerce: ShoppingBag,
-  'search-discoverability': Search,
-  'automation-integrations': Layers,
-  'custom-web-applications': Wrench,
-  'website-optimization-care': ShieldCheck,
-  // Legacy aliases for backward safety
   websites: Globe2,
   design: Palette,
+  ecommerce: ShoppingBag,
   growth: TrendingUp,
   'seo-search': Search,
   'business-systems': Layers,
@@ -71,6 +65,11 @@ export const familyIcons = {
   development: Wrench,
   maintenance: Gauge,
 } as const
+
+export const serviceHubCue = {
+  label: 'Which path is this for?',
+  text: 'Start with the path that matches where your business is today: building something new, improving what already exists, or getting more from the traffic you already have.',
+}
 
 export const serviceFaqEntries = [
   {

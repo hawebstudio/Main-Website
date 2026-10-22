@@ -12,6 +12,7 @@ const spacingClasses: Record<SectionSpacing, string> = {
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   spacing?: SectionSpacing
   as?: 'section' | 'div' | 'header' | 'footer'
+  'data-gsap-reveal'?: string
 }
 
 /**
@@ -21,8 +22,9 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 export function Section({
   spacing = 'lg',
   as: Tag = 'section',
+  'data-gsap-reveal': reveal = 'section',
   className,
   ...props
 }: SectionProps) {
-  return <Tag className={cn(spacingClasses[spacing], className)} {...props} />
+  return <Tag data-gsap-reveal={reveal} className={cn(spacingClasses[spacing], className)} {...props} />
 }

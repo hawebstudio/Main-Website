@@ -30,6 +30,11 @@ interface ProblemPageProps {
   params: Promise<{ slug: string }>
 }
 
+// Unknown params must 404 at the routing layer: this segment's loading.tsx
+// (and the root app/loading.tsx) flush a 200 shell before a render-time
+// notFound() can set a status, which otherwise yields a cacheable soft 404.
+// generateStaticParams already enumerates every valid slug.
+export const dynamicParams = false;
 export async function generateStaticParams() {
   const slugs = await problems.getSlugs()
   return slugs.map((slug) => ({ slug }))
