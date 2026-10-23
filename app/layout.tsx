@@ -56,7 +56,6 @@ export const metadata: Metadata = {
   generator: "v0.app",
   category: "technology",
   alternates: {
-    canonical: siteConfig.url,
     // Single-locale site today — self-referencing hreflang avoids ambiguity
     // for crawlers and is ready to extend if more locales are added later.
     languages: {

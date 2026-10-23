@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Container } from '@/components/primitives/container'
 import { Heading, Text } from '@/components/primitives/typography'
@@ -5,6 +6,16 @@ import { buttonVariants } from '@/components/ui/button'
 import { routes } from '@/config/routes'
 
  
+
+export const metadata: Metadata = {
+  title: 'Page Not Found',
+  description: "The page you're looking for doesn't exist or has been moved.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
+
 export default function NotFound() {
   return (
     <main className="relative flex min-h-dvh items-center justify-center overflow-hidden py-24">

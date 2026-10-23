@@ -1,6 +1,6 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Globe2 } from 'lucide-react'
 import { createMetadata } from '@/lib/seo/metadata'
 import { Heading, Text, Eyebrow } from '@/components/primitives/typography'
 import { Container } from '@/components/primitives/container'
@@ -115,7 +115,7 @@ export default async function ServicesPage() {
 
           <div className="mt-10 grid gap-4 xl:grid-cols-12">
             {serviceFamilies.map((family, index) => {
-              const Icon = familyIcons[family.slug as keyof typeof familyIcons]
+              const Icon = (family.slug in familyIcons ? familyIcons[family.slug as keyof typeof familyIcons] : null) ?? Globe2
               const familyServices = getServicesByFamily(family.slug)
               return (
                 <section
@@ -126,9 +126,7 @@ export default async function ServicesPage() {
                     [
                       'xl:col-span-7', 'xl:col-span-5',
                       'xl:col-span-6', 'xl:col-span-6',
-                      'xl:col-span-4', 'xl:col-span-4', 'xl:col-span-4',
                       'xl:col-span-5', 'xl:col-span-7',
-                      'xl:col-span-6', 'xl:col-span-6',
                     ][index] ?? 'xl:col-span-12',
                   )}
                 >
