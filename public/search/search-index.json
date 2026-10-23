@@ -29,7 +29,7 @@
     "id": "case-studies:cloudflare-deployment",
     "slug": "cloudflare-deployment",
     "type": "case-study",
-    "title": "Cloudflare Deployment: Building a Secure, Fast, and Reliable Delivery Layer",
+    "title": "Cloudflare Deployment and Delivery Setup",
     "description": "How DNS, SSL, CDN, and caching were configured together as one edge delivery layer, instead of DNS records and a CDN toggle treated as separate afterthoughts.",
     "url": "/case-studies/cloudflare-deployment",
     "category": "infrastructure",
@@ -42,8 +42,8 @@
     "id": "case-studies:cms-integration",
     "slug": "cms-integration",
     "type": "case-study",
-    "title": "CMS Integration: Building Flexible Content Management Systems for Modern Websites",
-    "description": "How CMS choice — Sanity, Payload, or WordPress — is matched to a project's content complexity and technical requirements instead of defaulted to one platform for every build.",
+    "title": "CMS Integration for a Content-Driven Website",
+    "description": "Choosing Sanity, Payload, or WordPress around a project's content needs and technical requirements, illustrated through a Sanity-backed ecommerce catalogue.",
     "url": "/case-studies/cms-integration",
     "category": "architecture",
     "keywords": [
@@ -94,8 +94,8 @@
     "id": "case-studies:omnivy-browser-clipper-chrome-extension",
     "slug": "omnivy-browser-clipper-chrome-extension",
     "type": "case-study",
-    "title": "Omnivy: A Chrome Extension for Clipping the Web into Obsidian, Notion, and Cloud Storage",
-    "description": "Case study on building Omnivy, a Chromium browser extension that turns articles, code, and discussions into clean Markdown and routes it to Obsidian, Notion, Google Drive, OneDrive, or Dropbox.",
+    "title": "Omnivy Web Clipper: Chrome Extension Case Study",
+    "description": "Building Omnivy, a Chromium extension that turns web content into Markdown and sends it to Obsidian, Notion, Drive, OneDrive, or Dropbox.",
     "url": "/case-studies/omnivy-browser-clipper-chrome-extension",
     "category": "architecture",
     "keywords": [
@@ -107,8 +107,8 @@
     "id": "case-studies:payment-gateway-integration",
     "slug": "payment-gateway-integration",
     "type": "case-study",
-    "title": "Payment Gateway Integration: Creating Secure, Reliable, and Frictionless Online Payment Experiences",
-    "description": "How Razorpay and Stripe checkout flows are built around server-side signature verification and webhook handling, so payment confirmation never depends on trusting the client alone.",
+    "title": "Payment Gateway Integration Case Study",
+    "description": "Building Razorpay and Stripe checkout flows with server-side signature verification and webhooks so payment confirmation does not rely on the client.",
     "url": "/case-studies/payment-gateway-integration",
     "category": "ecommerce",
     "keywords": [
@@ -146,8 +146,8 @@
     "id": "insights:ai-search-optimization",
     "slug": "ai-search-optimization",
     "type": "insight",
-    "title": "AI Search Optimization: Preparing Your Website for AI-Powered Search",
-    "description": "Why websites need to be structured for AI systems like ChatGPT, Google AI Overviews, and Perplexity — not just traditional search rankings.",
+    "title": "AI Search Optimization: A Practical Website Guide",
+    "description": "Improve how AI search systems interpret your website with clear page structure, useful original content, crawlable pages, entity clarity, and accurate structured data.",
     "url": "/insights/ai-search-optimization",
     "category": "[object Object]",
     "keywords": [
@@ -172,7 +172,7 @@
     "id": "insights:cloudflare-explained",
     "slug": "cloudflare-explained",
     "type": "insight",
-    "title": "Cloudflare Explained: How a CDN Improves Website Speed, Security, and Reliability",
+    "title": "Cloudflare Explained: CDN, Speed and Security",
     "description": "What Cloudflare actually does — DNS, CDN, SSL, caching, and security — and why unconfigured Cloudflare barely helps at all.",
     "url": "/insights/cloudflare-explained",
     "category": "[object Object]",
@@ -185,8 +185,8 @@
     "id": "insights:conversion-rate-optimization-guide",
     "slug": "conversion-rate-optimization-guide",
     "type": "insight",
-    "title": "Conversion Rate Optimization (CRO): Turning More Visitors Into Customers",
-    "description": "Why more traffic isn't the fix for a website that struggles to convert the visitors it already has — and what actually moves conversion rate.",
+    "title": "Website Conversion Rate Optimization: A Practical Guide",
+    "description": "Learn how to find friction in landing pages, service pages, forms, and calls to action, then prioritize conversion improvements using evidence.",
     "url": "/insights/conversion-rate-optimization-guide",
     "category": "[object Object]",
     "keywords": [
@@ -198,8 +198,8 @@
     "id": "insights:dns-domains-ssl-guide",
     "slug": "dns-domains-ssl-guide",
     "type": "insight",
-    "title": "Understanding DNS, Domains & SSL: A Practical Guide for Business Owners",
-    "description": "What actually happens between typing a domain and a page loading — domain, DNS, hosting, SSL, and CDN explained without the jargon.",
+    "title": "Domains, DNS and SSL: A Practical Website Setup Guide",
+    "description": "Understand domain registration, DNS records, HTTPS certificates, and the checks needed when launching or moving a business website.",
     "url": "/insights/dns-domains-ssl-guide",
     "category": "[object Object]",
     "keywords": [
@@ -211,8 +211,8 @@
     "id": "insights:google-analytics-4",
     "slug": "google-analytics-4",
     "type": "insight",
-    "title": "Google Analytics 4: Measuring What Matters on Your Website",
-    "description": "How GA4's event-based model works, what to actually track, and why it's more useful paired with qualitative tools like Microsoft Clarity.",
+    "title": "Google Analytics 4 Setup: Events, Conversions and Consent",
+    "description": "Learn the core steps for setting up GA4, measuring useful website events, defining conversions, and respecting analytics consent requirements.",
     "url": "/insights/google-analytics-4",
     "category": "[object Object]",
     "keywords": [
@@ -225,7 +225,7 @@
     "slug": "how-much-does-a-website-cost",
     "type": "insight",
     "title": "How Much Does a Website Cost? A Practical Pricing Guide",
-    "description": "A straight answer to what drives website cost — pages, design complexity, CMS, ecommerce, integrations, content, and SEO — so you can budget realistically and compare quotes properly.",
+    "description": "What drives website cost: pages, design complexity, CMS, ecommerce, integrations, content, and SEO, with practical guidance for comparing quotes.",
     "url": "/insights/how-much-does-a-website-cost",
     "category": "[object Object]",
     "keywords": [
@@ -237,7 +237,7 @@
     "id": "insights:microsoft-clarity",
     "slug": "microsoft-clarity",
     "type": "insight",
-    "title": "Microsoft Clarity: Understanding How Visitors Actually Use Your Website",
+    "title": "Microsoft Clarity: Website Behaviour Analytics",
     "description": "How session recordings, heatmaps, and friction signals like rage clicks show what analytics numbers alone can't explain.",
     "url": "/insights/microsoft-clarity",
     "category": "[object Object]",
@@ -263,7 +263,7 @@
     "id": "insights:shopify-vs-woocommerce",
     "slug": "shopify-vs-woocommerce",
     "type": "insight",
-    "title": "Shopify vs WooCommerce: Which Ecommerce Platform Is Right for Your Business?",
+    "title": "Shopify vs WooCommerce: Which Fits Your Store?",
     "description": "How platform choice comes down to managed simplicity versus ownership and customization — not which one is more popular.",
     "url": "/insights/shopify-vs-woocommerce",
     "category": "[object Object]",
@@ -276,8 +276,8 @@
     "id": "insights:structured-data-schema",
     "slug": "structured-data-schema",
     "type": "insight",
-    "title": "Structured Data & Schema: Helping Search Engines Understand Your Website",
-    "description": "What Schema Markup is, the common types worth implementing, and how it supports both traditional search and AI interpretation.",
+    "title": "Structured Data and Schema Markup: A Website Guide",
+    "description": "Learn what schema markup does, which structured data types fit common business pages, and how to validate JSON-LD without promising rich results.",
     "url": "/insights/structured-data-schema",
     "category": "[object Object]",
     "keywords": [
@@ -289,8 +289,8 @@
     "id": "insights:technical-seo-checklist",
     "slug": "technical-seo-checklist",
     "type": "insight",
-    "title": "Technical SEO Checklist for Every Business Website",
-    "description": "A practical checklist for crawlability, indexability, structure, and metadata — the technical foundation every other SEO effort depends on.",
+    "title": "Technical SEO Checklist for Business Websites",
+    "description": "A practical technical SEO checklist covering crawling, indexing, canonicals, redirects, metadata, structured data, sitemaps, and page performance.",
     "url": "/insights/technical-seo-checklist",
     "category": "[object Object]",
     "keywords": [
@@ -302,8 +302,8 @@
     "id": "insights:website-launch-checklist",
     "slug": "website-launch-checklist",
     "type": "insight",
-    "title": "Website Launch Checklist: What Every Business Should Do Before Going Live",
-    "description": "The technical, performance, SEO, analytics, and security review every website needs before launch — and what to monitor in the weeks after.",
+    "title": "Website Launch Checklist: What to Test Before Going Live",
+    "description": "Use this website launch checklist to test forms, mobile layouts, redirects, metadata, analytics consent, security, performance, and search indexing before launch.",
     "url": "/insights/website-launch-checklist",
     "category": "[object Object]",
     "keywords": [
@@ -315,8 +315,8 @@
     "id": "insights:website-project-planning-guide",
     "slug": "website-project-planning-guide",
     "type": "insight",
-    "title": "How to Plan a Successful Website Project: A Guide for Business Owners",
-    "description": "Why website projects go over budget and past deadline — and the planning steps (goals, structure, content, SEO) that actually prevent it.",
+    "title": "Website Project Planning: Requirements, Scope and Launch",
+    "description": "Plan a website project with clear goals, audience needs, sitemap, content, functionality, budget factors, responsibilities, and launch criteria.",
     "url": "/insights/website-project-planning-guide",
     "category": "[object Object]",
     "keywords": [
@@ -328,8 +328,8 @@
     "id": "insights:website-security-basics",
     "slug": "website-security-basics",
     "type": "insight",
-    "title": "Website Security Basics: 10 Essentials Every Business Website Should Have",
-    "description": "The ten practical safeguards — HTTPS, strong auth, backups, monitoring — that prevent most real-world website security incidents.",
+    "title": "Website Security Basics for Business Owners",
+    "description": "A practical guide to HTTPS, software updates, access control, form protection, backups, security headers, and website maintenance.",
     "url": "/insights/website-security-basics",
     "category": "[object Object]",
     "keywords": [
@@ -387,14 +387,14 @@
     "keywords": [
       "problems"
     ],
-    "content": " Moving Beyond the AI Hype to Real Automation Artificial Intelligence is fundamentally changing how businesses operate and how users interact with digital products. However, there is a massive gap between using a public AI chatbot to write an email and securely integrating AI into your business operations to drive real ROI. Many businesses recognize they need to adopt AI to stay competitive, but they struggle with the \"how.\" They need AI that understands their specific products, respects their data privacy, and integrates cleanly into their existing websites and applications. The Cost of Ignoring AI Automation Failing to adopt practical AI features is no longer just about missing a trend; it's about falling behind in operational efficiency and customer experience. Bloated Support Costs : If your team is manually answering the same 50 questions every week, you are wasting expensive human capital on tasks an AI could resolve instantly, 24/7. Competitive Disadvantage : Customers increasingly expect intelligent, immediate interactions. If your competitor offers an AI assistant that instantly resolves issues while you require customers to wait 24 hours for an email reply, you will lose market share. Operational Inefficiency : Manual data processing, content tagging, and report summarization take hours. AI can perform these text based tasks in seconds, dramatically accelerating your operational velocity. Where AI Excels in Business Applications Practical, ROI driven AI integrations typically fall into a few key categories: Intelligent Customer Support : Not the frustrating, rigid chatbots of five years ago. Modern AI can be trained exclusively on your knowledge base to provide nuanced, accurate answers to complex questions, escalating to a human only when necessary. Semantic Search : Upgrading traditional \"keyword match\" search to AI search that understands the intent behind a user's query, delivering better results even if the user typos or uses different terminology. Co"
+    "content": " Moving Beyond the AI Hype to Real Automation Artificial Intelligence is fundamentally changing how businesses operate and how users interact with digital products. However, there is a massive gap between using a public AI chatbot to write an email and securely integrating AI into your business operations to drive real ROI. Many businesses recognize they need to adopt AI to stay competitive, but they struggle with the \"how.\" They need AI that understands their specific products, respects their data privacy, and integrates cleanly into their existing websites and applications. The Cost of Ignoring AI Automation Failing to adopt practical AI features is no longer just about missing a trend; it's about falling behind in operational efficiency and customer experience. Bloated Support Costs : If your team answers the same handful of questions every week, skilled people are spending time on tasks an AI assistant can handle automatically. Competitive Disadvantage : Customers increasingly expect fast, self serve answers. If a competitor offers an AI assistant that handles common issues immediately while your customers wait a day for an email reply, enquiries will go elsewhere. Operational Inefficiency : Manual data processing, content tagging, and report summarization take hours. AI can perform these text based tasks in seconds, dramatically accelerating your operational velocity. Where AI Excels in Business Applications Practical, ROI driven AI integrations typically fall into a few key categories: Intelligent Customer Support : Not the frustrating, rigid chatbots of five years ago. Modern AI can be trained exclusively on your knowledge base to provide nuanced, accurate answers to complex questions, escalating to a human only when necessary. Semantic Search : Upgrading traditional \"keyword match\" search to AI search that understands the intent behind a user's query, delivering better results even if the user typos or uses different terminology. Content Automation : Automat"
   },
   {
     "id": "problems:need-business-website",
     "slug": "need-business-website",
     "type": "problem",
     "title": "Do You Need a New Business Website? Signs, Costs & What to Expect",
-    "description": "A professional business website builds credibility, attracts customers, and supports growth. Here's how to know it's time to invest, what it costs, and what to prioritize.",
+    "description": "A professional website builds credibility, attracts customers, and supports growth. Learn when to invest, what it costs, and what to prioritize.",
     "url": "/problems/need-business-website",
     "category": "problems",
     "keywords": [
@@ -504,7 +504,7 @@
     "keywords": [
       "problems"
     ],
-    "content": " Why Your Website Is Slow (And How It's Costing You) In the modern digital landscape, speed is not a luxury; it is a fundamental requirement. Users expect websites to load almost instantly. When they don't, frustration sets in, and users leave. A slow website is a silent killer for your business. It damages your brand perception, lowers your search engine rankings, and directly destroys conversion rates. The Business Cost of a Slow Website The impact of poor performance is measurable and severe: Lost Conversions : Amazon's own internal testing found that every 100 milliseconds of added latency cost them roughly 1% in sales — a finding documented by former Amazon engineer Greg Linden. Small delays compound into real revenue loss at scale, and the same pattern holds for smaller businesses. Plummeting SEO Rankings : Google officially uses Core Web Vitals (speed, interactivity, and visual stability) as a ranking factor. If your site is slow, Google will penalize it in search results. High Bounce Rates : If a page takes longer than 3 seconds to load, over 50% of mobile users will abandon the site. You are paying for traffic (through ads or SEO) only to lose it at the front door. Damaged Brand Trust : A sluggish, clunky website feels unprofessional. Users associate the quality of your digital experience with the quality of your services. Common Root Causes of Slow Websites Website performance degrades for several predictable reasons: Oversized, Unoptimised Images : Uploading massive, multi megabyte images directly from a camera or stock site is the 1 cause of slow load times. Cheap, Shared Hosting : Budget hosting crams thousands of websites onto a single server. When one gets busy, yours slows down. Plugin and Script Bloat : Every plugin, marketing tracker, chat widget, and analytics script you add requires the browser to download and execute more code. Render Blocking Resources : Heavy CSS and JavaScript files that must load before the page can even begin to display con"
+    "content": " Why Your Website Is Slow (And How It's Costing You) Speed is not a luxury; it is a fundamental requirement. Users expect pages to load almost immediately, and when they don't, they leave. A slow website is a silent killer for your business. It damages your brand perception, lowers your search engine rankings, and directly destroys conversion rates. The Business Cost of a Slow Website The impact of poor performance is measurable and severe: Lost Conversions : Amazon's own internal testing found that every 100 milliseconds of added latency cost them roughly 1% in sales — a finding documented by former Amazon engineer Greg Linden. Small delays compound into real revenue loss at scale, and the same pattern holds for smaller businesses. Plummeting SEO Rankings : Google officially uses Core Web Vitals (speed, interactivity, and visual stability) as a ranking factor. If your site is slow, Google will penalize it in search results. High Bounce Rates : If a page takes longer than 3 seconds to load, over 50% of mobile users will abandon the site. You are paying for traffic (through ads or SEO) only to lose it at the front door. Damaged Brand Trust : A sluggish, clunky website feels unprofessional. Users associate the quality of your digital experience with the quality of your services. Common Root Causes of Slow Websites Website performance degrades for several predictable reasons: Oversized, Unoptimised Images : Uploading multi megabyte images straight from a camera or stock site is one of the most common causes of slow load times. Cheap, Shared Hosting : Budget hosting crams thousands of websites onto a single server. When one gets busy, yours slows down. Plugin and Script Bloat : Every plugin, marketing tracker, chat widget, and analytics script you add requires the browser to download and execute more code. Render Blocking Resources : Heavy CSS and JavaScript files that must load before the page can even begin to display content. Lack of Caching and CDNs : Failing to ser"
   },
   {
     "id": "problems:website-migration",
@@ -517,7 +517,7 @@
     "keywords": [
       "problems"
     ],
-    "content": " The Risks and Rewards of Website Migration Eventually, every growing business hits a ceiling with their digital infrastructure. You outgrow your entry level CMS, you rebrand and need a new domain, or you merge with another company and need to consolidate multiple websites into one powerful presence. Moving to a new platform is exciting, but the process of getting there—the migration—is fraught with risk. If executed poorly, a website migration can destroy years of hard earned search engine rankings and cause significant revenue loss overnight. Why Migrations Fail (And Cost You Money) When a business attempts to migrate a website without a technical SEO strategy, the results are almost always disastrous. The most common failures include: The 404 Error Epidemic : When you build a new website, the URLs often change (e.g., from to just ). If you don't explicitly tell Google where the old page went using a 301 redirect, anyone clicking an old link from Google, an email, or another website hits a dead end (a 404 error). Lost Link Equity : Other websites linking to yours is a massive SEO ranking factor. If you change your URLs without redirecting them, you instantly lose the SEO value (the \"link juice\") of all those inbound links. Your rankings will plummet. Botched Content Transfer : Moving thousands of blog posts or products manually is prone to error. Formatting breaks, images are left behind, and crucial metadata (like SEO titles and descriptions) is forgotten. Indexing Disasters : We frequently see cases where developers forget to remove the \"noindex\" tag (which prevents Google from crawling the site during development) when launching the new site. The result? The entire new website is actively telling Google to ignore it. Our Zero Risk Migration Methodology A successful migration requires meticulous planning, rigorous technical execution, and obsessive testing. We treat migrations as high stakes operations. 1. Comprehensive Crawl and Inventory : Before we touch anyt"
+    "content": " The Risks and Rewards of Website Migration Eventually, every growing business hits a ceiling with their digital infrastructure. You outgrow your entry level CMS, you rebrand and need a new domain, or you merge with another company and need to consolidate multiple websites into one powerful presence. Moving to a new platform is exciting, but the process of getting there—the migration—is fraught with risk. If executed poorly, a website migration can destroy years of hard earned search engine rankings and cause significant revenue loss overnight. Why Migrations Fail (And Cost You Money) When a business attempts to migrate a website without a technical SEO strategy, the results are almost always disastrous. The most common failures include: The 404 Error Epidemic : When you build a new website, the URLs often change (e.g., from to just ). If you don't explicitly tell Google where the old page went using a 301 redirect, anyone clicking an old link from Google, an email, or another website hits a dead end (a 404 error). Lost Link Equity : Inbound links from other websites are a real ranking factor. If you change URLs without redirecting them, the accumulated search value of those links is lost. Rankings can drop sharply, and recovery takes time. Botched Content Transfer : Moving thousands of blog posts or products manually is prone to error. Formatting breaks, images are left behind, and crucial metadata (like SEO titles and descriptions) is forgotten. Indexing Disasters : We frequently see cases where developers forget to remove the \"noindex\" tag (which prevents Google from crawling the site during development) when launching the new site. The result? The entire new website is actively telling Google to ignore it. Our Zero Risk Migration Methodology A successful migration requires meticulous planning, rigorous technical execution, and obsessive testing. We treat migrations as high stakes operations. 1. Comprehensive Crawl and Inventory : Before we touch anything, we use"
   },
   {
     "id": "problems:website-redesign",
@@ -543,7 +543,7 @@
     "keywords": [
       "problems"
     ],
-    "content": " The Silent Threat of Website Vulnerabilities Website security is often ignored until a catastrophe occurs. Business owners assume that because they aren't a massive corporation or a bank, hackers won't bother with them. This is a dangerous misconception. Modern cyber attacks are largely automated. Malicious bots constantly roam the internet, scanning millions of websites for known vulnerabilities, outdated software, and weak passwords. When they find an open door, they exploit it automatically. If your website is compromised, the damage extends far beyond the technical realm—it directly attacks your business reputation. The Cost of a Compromised Website A security breach has immediate and severe consequences: Loss of Customer Trust : If a potential client visits your site and their browser displays a bright red \"Warning: Deceptive Site Ahead\" screen, they will never do business with you. Trust is instantly destroyed. SEO Penalties : When Google detects malware on your site, they immediately remove you from search results to protect their users. Recovering from a Google security penalty can take weeks or months. Data Liability : If your website collects any customer data (names, emails, payment details) and that data is stolen, you may face severe legal and financial penalties under regulations like GDPR or CCPA. Business Downtime : A hacked website often means your business is effectively closed online until the issue is resolved, resulting in days of lost revenue. Common Security Weaknesses Most website compromises are entirely preventable. They usually stem from basic negligence in technical maintenance: Outdated Software and Plugins : This is the 1 cause of website hacks. When a developer updates a plugin to fix a security flaw, they publicly announce the flaw. If you don't install the update, hackers know exactly how to break into your site. Weak Authentication : Using passwords like \"Admin123\" or failing to implement Two Factor Authentication (2FA) for adminis"
+    "content": " The Silent Threat of Website Vulnerabilities Website security is often ignored until a catastrophe occurs. Business owners assume that because they aren't a massive corporation or a bank, hackers won't bother with them. This is a dangerous misconception. Modern cyber attacks are largely automated. Malicious bots constantly roam the internet, scanning millions of websites for known vulnerabilities, outdated software, and weak passwords. When they find an open door, they exploit it automatically. If your website is compromised, the damage extends far beyond the technical realm—it directly attacks your business reputation. The Cost of a Compromised Website A security breach has immediate and severe consequences: Loss of Customer Trust : If a potential client visits your site and their browser displays a bright red \"Warning: Deceptive Site Ahead\" screen, they will leave. Trust is hard to rebuild once it's lost. SEO Penalties : When Google detects malware on your site, they immediately remove you from search results to protect their users. Recovering from a Google security penalty can take weeks or months. Data Liability : If your website collects any customer data (names, emails, payment details) and that data is stolen, you may face severe legal and financial penalties under regulations like GDPR or CCPA. Business Downtime : A hacked website often means your business is effectively closed online until the issue is resolved, resulting in days of lost revenue. Common Security Weaknesses Most website compromises are entirely preventable. They usually stem from basic negligence in technical maintenance: Outdated Software and Plugins : Outdated plugins and dependencies are a leading cause of website compromises. When a developer releases a plugin update to fix a security flaw, the flaw becomes public knowledge. If the update is never installed, that known route in stays open. Weak Authentication : Using passwords like \"Admin123\" or failing to implement Two Factor Authentic"
   },
   {
     "id": "services:ai-search-visibility-answer-engine-optimization",

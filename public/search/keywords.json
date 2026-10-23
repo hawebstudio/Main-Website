@@ -42,7 +42,7 @@
     ]
   },
   {
-    "keyword": "ai-search-optimization-preparing-your-website-for-ai-powered-search",
+    "keyword": "ai-search-optimization-a-practical-website-guide",
     "urls": [
       "/insights/ai-search-optimization"
     ]
@@ -207,13 +207,13 @@
     ]
   },
   {
-    "keyword": "cloudflare-deployment-building-a-secure-fast-and-reliable-delivery-layer",
+    "keyword": "cloudflare-deployment-and-delivery-setup",
     "urls": [
       "/case-studies/cloudflare-deployment"
     ]
   },
   {
-    "keyword": "cloudflare-explained-how-a-cdn-improves-website-speed-security-and-reliability",
+    "keyword": "cloudflare-explained-cdn-speed-and-security",
     "urls": [
       "/insights/cloudflare-explained"
     ]
@@ -228,7 +228,7 @@
     ]
   },
   {
-    "keyword": "cms-integration-building-flexible-content-management-systems-for-modern-websites",
+    "keyword": "cms-integration-for-a-content-driven-website",
     "urls": [
       "/case-studies/cms-integration"
     ]
@@ -241,12 +241,6 @@
       "/technologies/communication/nodemailer",
       "/technologies/communication/resend",
       "/technologies/communication/sendgrid"
-    ]
-  },
-  {
-    "keyword": "conversion-rate-optimization-cro-turning-more-visitors-into-customers",
-    "urls": [
-      "/insights/conversion-rate-optimization-guide"
     ]
   },
   {
@@ -331,6 +325,12 @@
     "urls": [
       "/technologies/cloud-infrastructure",
       "/technologies/cloud-infrastructure/docker"
+    ]
+  },
+  {
+    "keyword": "domains-dns-and-ssl-a-practical-website-setup-guide",
+    "urls": [
+      "/insights/dns-domains-ssl-guide"
     ]
   },
   {
@@ -455,7 +455,7 @@
     ]
   },
   {
-    "keyword": "google-analytics-4-measuring-what-matters-on-your-website",
+    "keyword": "google-analytics-4-setup-events-conversions-and-consent",
     "urls": [
       "/insights/google-analytics-4"
     ]
@@ -514,12 +514,6 @@
     "keyword": "how-much-does-a-website-cost-a-practical-pricing-guide",
     "urls": [
       "/insights/how-much-does-a-website-cost"
-    ]
-  },
-  {
-    "keyword": "how-to-plan-a-successful-website-project-a-guide-for-business-owners",
-    "urls": [
-      "/insights/website-project-planning-guide"
     ]
   },
   {
@@ -601,7 +595,7 @@
     ]
   },
   {
-    "keyword": "microsoft-clarity-understanding-how-visitors-actually-use-your-website",
+    "keyword": "microsoft-clarity-website-behaviour-analytics",
     "urls": [
       "/insights/microsoft-clarity"
     ]
@@ -660,15 +654,15 @@
     ]
   },
   {
-    "keyword": "omnivy-a-chrome-extension-for-clipping-the-web-into-obsidian-notion-and-cloud-storage",
-    "urls": [
-      "/case-studies/omnivy-browser-clipper-chrome-extension"
-    ]
-  },
-  {
     "keyword": "omnivy-browser-web-clipper-for-markdown-notes",
     "urls": [
       "/work/omnivy-web-clipper"
+    ]
+  },
+  {
+    "keyword": "omnivy-web-clipper-chrome-extension-case-study",
+    "urls": [
+      "/case-studies/omnivy-browser-clipper-chrome-extension"
     ]
   },
   {
@@ -692,7 +686,7 @@
     ]
   },
   {
-    "keyword": "payment-gateway-integration-creating-secure-reliable-and-frictionless-online-payment-experiences",
+    "keyword": "payment-gateway-integration-case-study",
     "urls": [
       "/case-studies/payment-gateway-integration"
     ]
@@ -907,7 +901,7 @@
     ]
   },
   {
-    "keyword": "shopify-vs-woocommerce-which-ecommerce-platform-is-right-for-your-business",
+    "keyword": "shopify-vs-woocommerce-which-fits-your-store",
     "urls": [
       "/insights/shopify-vs-woocommerce"
     ]
@@ -920,7 +914,7 @@
     ]
   },
   {
-    "keyword": "structured-data-schema-helping-search-engines-understand-your-website",
+    "keyword": "structured-data-and-schema-markup-a-website-guide",
     "urls": [
       "/insights/structured-data-schema"
     ]
@@ -955,7 +949,7 @@
     ]
   },
   {
-    "keyword": "technical-seo-checklist-for-every-business-website",
+    "keyword": "technical-seo-checklist-for-business-websites",
     "urls": [
       "/insights/technical-seo-checklist"
     ]
@@ -1010,12 +1004,6 @@
     ]
   },
   {
-    "keyword": "understanding-dns-domains-ssl-a-practical-guide-for-business-owners",
-    "urls": [
-      "/insights/dns-domains-ssl-guide"
-    ]
-  },
-  {
     "keyword": "uploadthing",
     "urls": [
       "/technologies/infrastructure",
@@ -1056,6 +1044,12 @@
     ]
   },
   {
+    "keyword": "website-conversion-rate-optimization-a-practical-guide",
+    "urls": [
+      "/insights/conversion-rate-optimization-guide"
+    ]
+  },
+  {
     "keyword": "website-development",
     "urls": [
       "/services/families/website-development"
@@ -1068,7 +1062,7 @@
     ]
   },
   {
-    "keyword": "website-launch-checklist-what-every-business-should-do-before-going-live",
+    "keyword": "website-launch-checklist-what-to-test-before-going-live",
     "urls": [
       "/insights/website-launch-checklist"
     ]
@@ -1110,6 +1104,12 @@
     ]
   },
   {
+    "keyword": "website-project-planning-requirements-scope-and-launch",
+    "urls": [
+      "/insights/website-project-planning-guide"
+    ]
+  },
+  {
     "keyword": "website-redesign-modernization-services",
     "urls": [
       "/services/website-redesign"
@@ -1122,7 +1122,7 @@
     ]
   },
   {
-    "keyword": "website-security-basics-10-essentials-every-business-website-should-have",
+    "keyword": "website-security-basics-for-business-owners",
     "urls": [
       "/insights/website-security-basics"
     ]
