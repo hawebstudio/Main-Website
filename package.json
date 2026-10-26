@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "dev:turbo": "next dev",
-    "build": "pnpm build:prepare && next build && pnpm build:verify && pnpm seo:indexnow",
+    "build": "pnpm build:prepare && next build && pnpm build:verify",
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -46,7 +46,7 @@
     "validate:http": "node scripts/validation/check-dynamic-http.mts",
     "validate:dependencies": "node scripts/validation/check-dependencies.mts",
     "validate:env": "node scripts/validation/check-env.mts",
-    "validate": "pnpm validate:content && pnpm validate:links && pnpm validate:images && pnpm validate:routes && pnpm validate:dynamic && pnpm validate:inventory && pnpm validate:dependencies && pnpm search:validate && pnpm seo:check && pnpm seo:titles && pnpm seo:indexnow",
+    "validate": "pnpm validate:content && pnpm validate:links && pnpm validate:images && pnpm validate:routes && pnpm validate:dynamic && pnpm validate:inventory && pnpm validate:dependencies && pnpm search:validate && pnpm seo:check && pnpm seo:titles",
     "analytics:ga4": "node scripts/analytics/verify-ga4.mts",
     "analytics:clarity": "node scripts/analytics/verify-clarity.mts",
     "analytics:events": "node scripts/analytics/verify-events.mts",
@@ -65,7 +65,8 @@
     "validate:cards": "node scripts/validation/check-card-overlap.mts",
     "performance:budgets": "node scripts/performance/check-budgets.mts",
     "performance:lab": "node scripts/performance/lab-measure.mts",
-    "a11y:audit": "node scripts/a11y/audit.mts"
+    "a11y:audit": "node scripts/a11y/audit.mts",
+    "release:indexnow": "pnpm seo:indexnow"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",

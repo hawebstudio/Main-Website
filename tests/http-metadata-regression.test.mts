@@ -146,3 +146,64 @@ test('permanent redirects for legacy service families point to valid destination
     }
   }
 })
+test('package.json build script is decoupled from IndexNow', () => {
+  const pkg = JSON.parse(readSource('package.json'))
+  assert.ok(pkg.scripts, 'package.json must contain scripts')
+  assert.doesNotMatch(
+    pkg.scripts.build,
+    /indexnow/i,
+    'pnpm build must not invoke IndexNow automatically',
+  )
+  assert.equal(
+    pkg.scripts.build,
+    'pnpm build:prepare && next build && pnpm build:verify',
+    'pnpm build must execute prepare, next build, and verify without external side effects',
+  )
+})
+
+test('explicit manual release:indexnow script is registered and points to submit-indexnow', () => {
+  const pkg = JSON.parse(readSource('package.json'))
+  assert.equal(
+    pkg.scripts['release:indexnow'],
+    'pnpm seo:indexnow',
+    'release:indexnow must be explicitly available and call pnpm seo:indexnow',
+  )
+  assert.match(
+    pkg.scripts['seo:indexnow'],
+    /scripts\/seo\/submit-indexnow\.mts/,
+    'seo:indexnow must point to scripts/seo/submit-indexnow.mts',
+  )
+})
+
+test('submit-indexnow.mts retains strict guards for INDEXNOW_ENABLED and INDEXNOW_KEY', () => {
+  const scriptSource = readSource('scripts/seo/submit-indexnow.mts')
+  assert.match(
+    scriptSource,
+    /process\.env\.INDEXNOW_ENABLED\s*!==\s*["']true["']/,
+    'submit-indexnow.mts must guard on strict INDEXNOW_ENABLED === "true"',
+  )
+  assert.match(
+    scriptSource,
+    /if\s*\(!key\)/,
+    'submit-indexnow.mts must guard on non-empty INDEXNOW_KEY',
+  )
+})
+
+test('package.json validate and audit scripts are decoupled from IndexNow', () => {
+  const pkg = JSON.parse(readSource('package.json'))
+  assert.doesNotMatch(
+    pkg.scripts.validate,
+    /indexnow/i,
+    'pnpm validate must not invoke IndexNow',
+  )
+  assert.equal(
+    pkg.scripts.audit,
+    'pnpm validate',
+    'pnpm audit must delegate to pnpm validate',
+  )
+  assert.equal(
+    pkg.scripts['release:indexnow'],
+    'pnpm seo:indexnow',
+    'release:indexnow must remain explicitly registered',
+  )
+})

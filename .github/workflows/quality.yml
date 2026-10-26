@@ -47,9 +47,8 @@ jobs:
       - name: Unit and regression tests
         run: pnpm test
 
-      # Explicit list, never `pnpm validate`: that chain ends in the same
-      # `seo:indexnow` call as `pnpm build`, which submits URLs to IndexNow.
-      # CI must not have external side effects.
+      # Explicit validator list for granular failure reporting in CI.
+      # (Both `pnpm build` and `pnpm validate` are fully decoupled from IndexNow).
       - name: Content and route validators
         run: |
           pnpm validate:content
