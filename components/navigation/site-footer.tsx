@@ -92,6 +92,9 @@ export function SiteFooter() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <CookieSettingsButton />
+              </li>
             </ul>
           </div>
           <ul className="flex items-center gap-4">
