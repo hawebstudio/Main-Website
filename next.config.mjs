@@ -47,6 +47,8 @@ const nextConfig = {
   },
     async redirects() {
     return [
+      // --- Retired Routes (Permanent 308 Redirects) ---
+      { source: '/socials', destination: '/about', permanent: true },
       // --- Service Family Consolidations (Direct Single-Hop Rules) ---
       { source: '/services/families/websites', destination: '/services/families/website-development', permanent: true },
       { source: '/services/families/business-websites', destination: '/services/families/website-development', permanent: true },

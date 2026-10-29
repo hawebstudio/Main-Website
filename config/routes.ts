@@ -40,7 +40,6 @@ export const routes = {
   malik: () => "/m-a-malik",
   websiteGrowthAssessment: () => "/website-growth-assessment",
   contact: (intent?: string) => (intent ? `/contact?intent=${encodeURIComponent(intent)}` : "/contact"),
-  socials: () => "/socials",
   privacy: () => "/privacy",
   terms: () => "/terms",
   cookies: () => "/cookies",

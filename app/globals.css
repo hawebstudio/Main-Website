@@ -464,8 +464,12 @@ body { padding-bottom: var(--consent-banner-height, 0px); }
 
 /* Floating controls clear the consent banner while it is displayed. The clamp keeps
    a control on screen if the banner ever grows unusually tall. */
-.floating-whatsapp { position: fixed; right: 1.25rem; bottom: calc(5.5rem + min(var(--consent-banner-height, 0px), 45vh)); z-index: 50; }
-@media (min-width: 640px) { .floating-whatsapp { right: 2rem; bottom: calc(6rem + min(var(--consent-banner-height, 0px), 45vh)); } }
+/* Floating actions layout: WhatsApp launcher sits ON TOP; Scroll-to-Top sits BELOW IT with 16px vertical gap */
+.floating-whatsapp { position: fixed; right: 1.25rem; bottom: calc(5.0rem + min(var(--consent-banner-height, 0px), 45vh)); z-index: 50; }
+@media (min-width: 640px) { .floating-whatsapp { right: 2rem; bottom: calc(5.75rem + min(var(--consent-banner-height, 0px), 45vh)); } }
+
+.floating-scroll-top { position: fixed; right: 1.25rem; bottom: calc(1.5rem + min(var(--consent-banner-height, 0px), 45vh)); z-index: 50; }
+@media (min-width: 640px) { .floating-scroll-top { right: 2rem; bottom: calc(2.0rem + min(var(--consent-banner-height, 0px), 45vh)); } }
 
 .scroll-progress-top { position: fixed; right: 1.25rem; bottom: calc(1.25rem + min(var(--consent-banner-height, 0px), 45vh)); z-index: 70; width: 3.25rem; height: 3.25rem; display: grid; place-items: center; border-radius: 999px; color: var(--foreground); background: color-mix(in srgb, var(--card) 88%, transparent); border: 1px solid color-mix(in srgb, var(--primary) 32%, var(--foreground) 10%); box-shadow: 0 8px 22px rgba(41,37,31,.16), inset 0 1px 0 color-mix(in srgb, white 52%, transparent); backdrop-filter: blur(12px); opacity: 0; visibility: hidden; transform: translateY(8px) scale(.94); transition: opacity 180ms ease, transform 180ms ease, visibility 180ms; overflow: hidden; }
 .scroll-progress-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }

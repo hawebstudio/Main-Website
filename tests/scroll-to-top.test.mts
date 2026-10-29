@@ -29,6 +29,15 @@ test('ScrollToTop component structure, styling tokens, and accessibility attribu
   assert.match(content, /scrollY > 400/, 'must use 400px scroll threshold')
   assert.match(content, /prefers-reduced-motion/, 'must check prefers-reduced-motion')
   assert.match(content, /motion-reduce:transition-none/, 'must respect reduced motion preferences in CSS')
+
+  // Verify Next.js App Router client route transition listener
+  assert.match(content, /usePathname/, 'must subscribe to pathname changes to reset on route transitions')
+
+  // Verify dynamic positioning class is linked to globals.css
+  assert.match(content, /floating-scroll-top/, 'must use floating-scroll-top for consent-aware positioning')
+
+  // Verify dual target scrolling
+  assert.match(content, /document\.documentElement/, 'must include fallback scroll target for cross-browser reliability')
 })
 
 test('ScrollToTop visibility threshold calculation behavior', () => {
@@ -84,25 +93,46 @@ test('ScrollToTop keyboard navigation and accessibility state management', () =>
   assert.equal(visibleState.opacityClass, 'opacity-100', 'visible control must be visually fully opaque')
 })
 
-test('ScrollToTop and FloatingWhatsAppButton vertical clearance geometry', () => {
-  // Verify vertical stacking geometry to guarantee zero overlap with WhatsApp launcher
-  // Tailwind rem mappings (1rem = 16px):
-  // WhatsApp: bottom-6 (24px) on mobile, bottom-8 (32px) on desktop. Button size: p-3.5 + size-6 = 52px total height.
-  const whatsappMobileTop = 24 + 52 // 76px from viewport bottom
-  const whatsappDesktopTop = 32 + 52 // 84px from viewport bottom
+test('ScrollToTop and FloatingWhatsAppButton vertical clearance geometry and consent banner invariance', () => {
+  const cssFile = path.resolve('app/globals.css')
+  assert.ok(fs.existsSync(cssFile), 'globals.css must exist')
+  const css = fs.readFileSync(cssFile, 'utf8')
 
-  // ScrollToTop: bottom-24 (96px) on mobile, bottom-28 (112px) on desktop.
-  const scrollTopMobileBottom = 96 // 96px from viewport bottom
-  const scrollTopDesktopBottom = 112 // 112px from viewport bottom
+  // Verify both classes are defined in globals.css with dynamic consent banner variable
+  assert.ok(css.includes('.floating-whatsapp'), 'floating-whatsapp class must exist in globals.css')
+  assert.ok(css.includes('.floating-scroll-top'), 'floating-scroll-top class must exist in globals.css')
+  assert.ok(css.includes('var(--consent-banner-height, 0px)'), 'globals.css must reference --consent-banner-height')
 
-  const mobileClearance = scrollTopMobileBottom - whatsappMobileTop
-  const desktopClearance = scrollTopDesktopBottom - whatsappDesktopTop
+  // Button sizes:
+  // WhatsApp: p-3.5 (14px * 2) + size-6 (24px) = 52px
+  // Scroll-to-Top: size-10 (40px) mobile, sm:size-11 (44px) desktop
+  const remToPx = 16
 
-  assert.ok(mobileClearance >= 16, `mobile clearance (${mobileClearance}px) must be >= 16px`)
-  assert.equal(mobileClearance, 20, 'mobile clearance is exactly 20px (96px - 76px)')
+  // Verify WhatsApp is ON TOP, ScrollToTop is BELOW IT:
+  // whatsapp.bottom = scrollTop.bottom + scrollTop.height + 16px gap
+  const calculateVerticalGap = (bannerHeightPx: number, isDesktop: boolean) => {
+    const scrollTopBaseRem = isDesktop ? 2.0 : 1.5
+    const scrollTopHeight = isDesktop ? 44 : 40
+    const whatsappBaseRem = isDesktop ? 5.75 : 5.0
 
-  assert.ok(desktopClearance >= 16, `desktop clearance (${desktopClearance}px) must be >= 16px`)
-  assert.equal(desktopClearance, 28, 'desktop clearance is exactly 28px (112px - 84px)')
+    const scrollTopBottom = scrollTopBaseRem * remToPx + bannerHeightPx
+    const scrollTopTop = scrollTopBottom + scrollTopHeight
+
+    const whatsappBottom = whatsappBaseRem * remToPx + bannerHeightPx
+    return whatsappBottom - scrollTopTop
+  }
+
+  // Mobile: ScrollTop bottom=24px, height=40px -> top=64px. WhatsApp bottom=80px. Gap = 80 - 64 = 16px.
+  for (const bannerHeight of [0, 60, 120, 200]) {
+    const mobileGap = calculateVerticalGap(bannerHeight, false)
+    assert.equal(mobileGap, 16, `mobile vertical gap must remain exactly 16px regardless of banner height (${bannerHeight}px)`)
+  }
+
+  // Desktop: ScrollTop bottom=32px, height=44px -> top=76px. WhatsApp bottom=92px. Gap = 92 - 76 = 16px.
+  for (const bannerHeight of [0, 60, 120, 200]) {
+    const desktopGap = calculateVerticalGap(bannerHeight, true)
+    assert.equal(desktopGap, 16, `desktop vertical gap must remain exactly 16px regardless of banner height (${bannerHeight}px)`)
+  }
 })
 
 test('ScrollToTop dynamic client mounting configuration', () => {

@@ -41,24 +41,24 @@ const jsonLdData = [
 
 export default function MALMalikPage() {
   return (
-    <article className="py-10 md:py-16">
+    <article className="py-8 sm:py-12 md:py-16">
       <JsonLd data={jsonLdData} />
       <Container size="lg">
-        <Breadcrumbs items={breadcrumbItems} className="mb-10" />
+        <Breadcrumbs items={breadcrumbItems} className="mb-6 sm:mb-8" />
 
-        {/* Hero Profile Panel */}
-        <section className="relative isolate overflow-hidden rounded-[2.5rem] border border-border/70 bg-[#0B1220]/75 p-6 shadow-xl shadow-black/20 backdrop-blur-md sm:p-10 md:p-12">
+        {/* Hero Profile Panel — Editorial Studio Design */}
+        <section className="relative overflow-hidden rounded-3xl border border-border/80 bg-gradient-to-b from-card/95 via-card/80 to-card/50 p-6 shadow-sm backdrop-blur-sm sm:p-10 md:p-12">
           <div className="relative z-10 max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-xs font-medium tracking-wide text-primary">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3.5 py-1 text-xs font-mono uppercase tracking-wider text-primary">
               <Cpu className="size-3.5" />
               <span>Technical Direction & Engineering</span>
             </div>
 
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl">
+            <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
               M.A. Malik<span className="text-primary">.</span>
             </h1>
 
-            <p className="text-lg leading-relaxed text-muted-foreground sm:text-xl">
+            <p className="text-lg font-medium leading-relaxed text-foreground/90 sm:text-xl">
               Engineering web systems for business clarity, durable performance, and honest collaboration.
             </p>
 
@@ -74,23 +74,23 @@ export default function MALMalikPage() {
                 offers, making customer journeys intuitive, and delivering clean, maintainable code that teams can
                 confidently run and scale.
               </p>
-              <p className="border-l-2 border-primary/40 pl-4 text-sm italic text-muted-foreground/90">
+              <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm leading-relaxed text-foreground/85">
                 The studio name carries personal significance: &ldquo;HA&rdquo; stands for his grandfather&apos;s
                 initials—a quiet, lasting reminder to build with care, integrity, and pride in work that lasts.
-              </p>
+              </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 pt-4">
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link
                 href={routes.services.index()}
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-md transition-transform hover:-translate-y-0.5 hover:shadow-lg"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow"
               >
                 <span>Explore Services</span>
                 <ArrowRight className="size-4" />
               </Link>
               <Link
                 href={routes.contact("start-project")}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-6 py-3 text-sm font-medium text-foreground backdrop-blur transition-colors hover:border-primary/60 hover:bg-card"
+                className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-background/80 px-5 py-2.5 text-sm font-medium text-foreground shadow-sm transition-colors hover:border-primary/60 hover:bg-muted/80"
               >
                 <span>Discuss a Project</span>
               </Link>
@@ -110,7 +110,7 @@ export default function MALMalikPage() {
           </div>
 
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-2xl border border-border/60 bg-card/40 p-6 shadow-sm transition-colors hover:border-border">
+            <div className="rounded-2xl border border-border/70 bg-card/60 p-6 shadow-sm transition-colors hover:border-border">
               <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                 <Globe2 className="size-5" />
               </div>
@@ -121,7 +121,7 @@ export default function MALMalikPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border/60 bg-card/40 p-6 shadow-sm transition-colors hover:border-border">
+            <div className="rounded-2xl border border-border/70 bg-card/60 p-6 shadow-sm transition-colors hover:border-border">
               <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                 <Zap className="size-5" />
               </div>
@@ -132,7 +132,7 @@ export default function MALMalikPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border/60 bg-card/40 p-6 shadow-sm transition-colors hover:border-border">
+            <div className="rounded-2xl border border-border/70 bg-card/60 p-6 shadow-sm transition-colors hover:border-border">
               <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                 <ShieldCheck className="size-5" />
               </div>
@@ -147,9 +147,9 @@ export default function MALMalikPage() {
 
         {/* Focus Areas & Boundaries */}
         <section className="mt-12 sm:mt-16 grid gap-8 lg:grid-cols-2" aria-labelledby="capabilities-heading">
-          <div className="rounded-2xl border border-border/60 bg-card/40 p-6 sm:p-8">
+          <div className="rounded-2xl border border-border/70 bg-card/60 p-6 sm:p-8">
             <div className="flex items-center gap-3">
-              <div className="flex size-9 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+              <div className="flex size-9 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
                 <Code2 className="size-4.5" />
               </div>
               <h3 id="capabilities-heading" className="text-xl font-semibold">Where We Add High Value</h3>
@@ -174,9 +174,9 @@ export default function MALMalikPage() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-border/60 bg-card/40 p-6 sm:p-8">
+          <div className="rounded-2xl border border-border/70 bg-card/60 p-6 sm:p-8">
             <div className="flex items-center gap-3">
-              <div className="flex size-9 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
+              <div className="flex size-9 items-center justify-center rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">
                 <ShieldCheck className="size-4.5" />
               </div>
               <h3 className="text-xl font-semibold">Clear Project Boundaries</h3>

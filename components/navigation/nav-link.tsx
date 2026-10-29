@@ -26,10 +26,10 @@ export function NavLink({ item, className, onNavigate }: NavLinkProps) {
       aria-current={isActive ? 'page' : undefined}
       onClick={onNavigate}
       className={cn(
-        'whitespace-nowrap rounded-full px-3 py-2 text-sm transition-all duration-200 lg:px-2.5 xl:px-4',
+        'whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150',
         isActive
-          ? 'bg-background/80 text-foreground shadow-sm ring-1 ring-border/70'
-          : 'text-muted-foreground hover:bg-background/60 hover:text-foreground',
+          ? 'bg-primary/10 text-primary font-semibold'
+          : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground',
         className,
       )}
     >

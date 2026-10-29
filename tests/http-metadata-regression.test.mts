@@ -207,3 +207,24 @@ test('package.json validate and audit scripts are decoupled from IndexNow', () =
     'release:indexnow must remain explicitly registered',
   )
 })
+
+
+test('retired /socials route permanently redirects to /about and is removed from footer', async () => {
+  const redirects = (await nextConfig.redirects?.()) ?? []
+  const socialsRedirect = redirects.find((r) => r.source === '/socials')
+  assert.ok(socialsRedirect, 'next.config.mjs must define redirect for /socials')
+  assert.equal(socialsRedirect.destination, '/about', '/socials must redirect to /about')
+  assert.equal(socialsRedirect.permanent, true, '/socials redirect must be permanent (308)')
+
+  // Verify route file is removed
+  assert.equal(
+    fs.existsSync('app/(marketing)/socials/page.tsx'),
+    false,
+    'app/(marketing)/socials/page.tsx must not exist',
+  )
+
+  // Verify site-footer does not contain link to /socials
+  const footerSource = readSource('components/navigation/site-footer.tsx')
+  assert.doesNotMatch(footerSource, /href={routes\.socials\(\)}/, 'site-footer.tsx must not link to retired socials route')
+  assert.doesNotMatch(footerSource, />All socials</, 'site-footer.tsx must not display "All socials"')
+})

@@ -110,14 +110,7 @@ export function SiteFooter() {
                 </a>
               </li>
             ))}
-            <li>
-              <Link
-                href={routes.socials()}
-                className="text-xs text-muted-foreground transition-colors hover:text-foreground"
-              >
-                All socials
-              </Link>
-            </li>
+
           </ul>
         </div>
       </Container>

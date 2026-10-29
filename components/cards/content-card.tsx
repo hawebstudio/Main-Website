@@ -19,7 +19,7 @@ export interface ContentCardProps {
   className?: string
   /**
    * WhatsApp deep link (wa.me URL, ideally with a pre-filled message) shown
-   * as a floating action in the top-right corner of the card. Omit to hide.
+   * anchored in the bottom-right corner of the card. Omit to hide.
    * Currently used by ServiceCard so each service card can start a chat
    * scoped to that specific service.
    */
@@ -34,9 +34,9 @@ export interface ContentCardProps {
  * The whole card is a "stretched link": the actual `<Link>` is an
  * absolutely-positioned overlay behind the content, and the content itself
  * is pointer-events-none so clicks fall through to it. This lets the
- * optional WhatsApp button sit as a real, independently-clickable link on
- * top of the card without nesting an `<a>` inside another `<a>` (invalid
- * HTML that would otherwise break the card's own link).
+ * WhatsApp button sit as a real, independently-clickable action anchored
+ * to the bottom-right corner of the card without nesting an `<a>` inside
+ * another `<a>` (invalid HTML that would break the card's own link).
  */
 export function ContentCard({
   href,
@@ -53,6 +53,7 @@ export function ContentCard({
     <div
       className={cn(
         'group relative flex flex-col gap-4 rounded-xl border border-foreground/12 bg-card/70 p-4 transition-colors hover:border-primary/40 hover:bg-card sm:p-5',
+        whatsappHref && 'pb-14 sm:pb-16',
         className,
       )}
     >
@@ -61,19 +62,6 @@ export function ContentCard({
         aria-label={title}
         className="absolute inset-0 z-0 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       />
-
-      {whatsappHref ? (
-        <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Chat on WhatsApp about ${title}`}
-          title="Chat on WhatsApp"
-          className="absolute right-4 top-4 z-20 flex size-9 items-center justify-center rounded-full bg-[#25D366] text-white shadow-md transition-transform hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-        >
-          <WhatsAppIcon className="size-4" />
-        </a>
-      ) : null}
 
       {cover ? (
         <div className="relative z-10 aspect-[16/10] overflow-hidden rounded-lg bg-surface-2 pointer-events-none">
@@ -104,7 +92,12 @@ export function ContentCard({
       </div>
 
       {(tags?.length || meta) && (
-        <div className="relative z-10 flex items-center justify-between gap-3 pointer-events-none">
+        <div
+          className={cn(
+            'relative z-10 flex items-center justify-between gap-3 pointer-events-none',
+            whatsappHref && 'pr-12 sm:pr-14',
+          )}
+        >
           {tags?.length ? (
             <ul className="flex flex-wrap gap-1.5">
               {tags.slice(0, 3).map((tag) => (
@@ -119,6 +112,19 @@ export function ContentCard({
           {meta ? <span className="shrink-0 text-xs text-muted-foreground">{meta}</span> : null}
         </div>
       )}
+
+      {whatsappHref ? (
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Chat on WhatsApp about ${title}`}
+          title="Chat on WhatsApp"
+          className="absolute right-4 bottom-4 z-20 flex size-9 items-center justify-center rounded-full bg-[#25D366] text-white shadow-md transition-transform hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring sm:right-5 sm:bottom-5"
+        >
+          <WhatsAppIcon className="size-4" />
+        </a>
+      ) : null}
     </div>
   )
 }
