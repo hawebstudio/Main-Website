@@ -1,0 +1,105 @@
+name: Quality
+
+on:
+  push:
+  pull_request:
+
+# Two runs for the same ref are redundant; the newest one wins.
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  NEXT_TELEMETRY_DISABLED: '1'
+  BASE_URL: http://127.0.0.1:3100
+
+jobs:
+  quality:
+    name: Validators, build and HTTP checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Generates lib/routing/route-inventory.generated.json before anything
+      # imports it. The proxy reads that table to reject unknown content URLs, so
+      # every step below depends on it existing.
+      - name: Prepare build artefacts
+        run: pnpm build:prepare
+
+      - name: Type-check
+        run: pnpm type-check
+
+      - name: Unit and regression tests
+        run: pnpm test
+
+      # Explicit validator list for granular failure reporting in CI.
+      # (Both `pnpm build` and `pnpm validate` are fully decoupled from IndexNow).
+      - name: Content and route validators
+        run: |
+          pnpm validate:content
+          pnpm validate:links
+          pnpm validate:images
+          pnpm validate:routes
+          pnpm validate:dynamic
+          pnpm validate:inventory
+          pnpm validate:dependencies
+          pnpm search:validate
+          pnpm seo:check
+          pnpm seo:titles
+
+      # Fails when a content or route change lands without the regenerated
+      # search index and llms files. The same drift, one layer up.
+      - name: Generated artefacts are committed
+        run: |
+          pnpm search:build
+          pnpm seo:llms
+          git diff --exit-code -- public/search public/llms.txt public/llms-full.txt
+
+      - name: Production build
+        run: pnpm exec next build
+
+      - name: Verify build output
+        run: pnpm build:verify
+
+      - name: Start production server
+        run: |
+          pnpm exec next start --port 3100 > /tmp/next-start.log 2>&1 &
+          echo $! > /tmp/next.pid
+          for _ in $(seq 1 60); do
+            if curl -fsS -o /dev/null http://127.0.0.1:3100/; then
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "Server did not answer within 60s"
+          cat /tmp/next-start.log
+          exit 1
+
+      # The only check that can prove a real 404 status: unknown slugs must answer
+      # 404 with noindex and no canonical, while every valid URL, static sibling,
+      # redirect and sitemap entry still answers 200 with its own canonical.
+      - name: HTTP soft-404, redirect and sitemap check
+        run: pnpm validate:http
+
+      - name: Server log on failure
+        if: failure()
+        run: cat /tmp/next-start.log || true
+
+      - name: Stop production server
+        if: always()
+        run: kill "$(cat /tmp/next.pid)" 2>/dev/null || true

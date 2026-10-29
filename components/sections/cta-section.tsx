@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { Container } from '@/components/primitives/container'
 import { Section } from '@/components/primitives/section'
 import { Heading, Text } from '@/components/primitives/typography'

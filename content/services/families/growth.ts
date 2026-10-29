@@ -2,13 +2,13 @@ import { Service } from "@/lib/content/types";
 
 export const growthServices: Service[] = [
   {
-    family: "growth",
+    family: "automation-integrations",
     slug: "customer-acquisition",
-    title: "Customer Acquisition Systems",
+    title: "Inbound Acquisition & Growth Systems",
     description: "Stop relying on unpredictable referrals. We build scalable, data-driven customer acquisition systems that consistently drive qualified traffic to your business and convert them into high-value leads. We don't just run ads; we architect complete conversion funnels.",
-    seo: { 
-      title: "B2B Customer Acquisition & Lead Generation Systems | HA Web Studio", 
-      description: "Scalable customer acquisition services. We build complete, data-driven funnels and ad campaigns designed to generate high-quality B2B leads consistently." 
+    seo: {
+      title: "B2B Customer Acquisition & Lead Generation Systems",
+      description: "Scalable customer acquisition services. We build complete, data-driven funnels and ad campaigns designed to generate high-quality B2B leads consistently."
     },
     audience: "B2B service providers, agencies, and high-ticket consultants who need a predictable, scalable method for generating qualified sales appointments.",
     outcomes: [
@@ -68,13 +68,13 @@ export const growthServices: Service[] = [
     cta: { label: "Scale Your Acquisition", href: "/contact?intent=growth" }
   },
   {
-    family: "growth",
+    family: "automation-integrations",
     slug: "lead-capture-communication-setup",
     title: "Lead Capture & Automation",
     description: "Never let a hot lead go cold. We implement intelligent lead capture mechanisms and automated communication routing that instantly engage prospects and deliver their data directly to your sales team's fingertips.",
-    seo: { 
-      title: "Lead Capture & Automation Setup Services | HA Web Studio", 
-      description: "Stop missing leads. We implement advanced forms, intelligent chatbots, and automated CRM routing to instantly capture and engage your prospects." 
+    seo: {
+      title: "Lead Capture & Automation Setup Services",
+      description: "Stop missing leads. We implement advanced forms, intelligent chatbots, and automated CRM routing to instantly capture and engage your prospects."
     },
     audience: "Busy service businesses, medical practices, and B2B teams whose sales process suffers from delayed response times or disorganized lead data.",
     outcomes: [
@@ -133,13 +133,13 @@ export const growthServices: Service[] = [
     cta: { label: "Automate Lead Capture", href: "/contact?intent=growth" }
   },
   {
-    family: "growth",
+    family: "website-optimization-care",
     slug: "conversion-rate-optimization",
     title: "Conversion Rate Optimization (CRO)",
     description: "Don't spend more money on ads until your website is built to convert. We use data, user psychology, and rigorous A/B testing to identify friction points and systematically increase the percentage of your traffic that turns into paying customers.",
-    seo: { 
-      title: "Data-Driven Conversion Rate Optimization (CRO) | HA Web Studio", 
-      description: "Turn more traffic into revenue. Our CRO services use heatmap analysis, user testing, and A/B testing to systematically improve your website's conversion rates." 
+    seo: {
+      title: "Data-Driven Conversion Rate Optimization (CRO)",
+      description: "Turn more traffic into revenue. Our CRO services use heatmap analysis, user testing, and A/B testing to systematically improve your website's conversion rates."
     },
     audience: "eCommerce stores and SaaS companies that already have steady traffic (10k+ visitors/mo) but suffer from low conversion rates or high cart abandonment.",
     outcomes: [
@@ -199,13 +199,13 @@ export const growthServices: Service[] = [
     cta: { label: "Optimize Conversions", href: "/contact?intent=growth" }
   },
   {
-    family: "growth",
+    family: "search-discoverability",
     slug: "google-business-maps-visibility",
     title: "Local Maps & Profile Optimization",
     description: "If you run a local business, Google Maps is your most important digital asset. We optimize your Google Business Profile to dominate local search results, ensuring that when customers nearby search for your services, you are the first business they see and trust.",
-    seo: { 
-      title: "Google Business Profile & Maps Optimization Services | HA Web Studio", 
-      description: "Dominate the 'Local Pack'. We optimize your Google Business Profile to increase visibility in Maps, generate more reviews, and drive foot traffic or local calls." 
+    seo: {
+      title: "Google Business Profile & Maps Optimization Services",
+      description: "Dominate the 'Local Pack'. We optimize your Google Business Profile to increase visibility in Maps, generate more reviews, and drive foot traffic or local calls."
     },
     audience: "Local service businesses (plumbers, lawyers, dentists), restaurants, and retail stores whose primary customer base is within a specific geographic radius.",
     outcomes: [
@@ -264,13 +264,13 @@ export const growthServices: Service[] = [
     cta: { label: "Rank Higher Locally", href: "/contact?intent=growth" }
   },
   {
-    family: "growth",
+    family: "search-discoverability",
     slug: "local-seo-foundations",
     title: "Local SEO Foundations",
     description: "Don't let your website hold back your local growth. We structure your website's technical foundation, content, and schema markup specifically to signal your geographic relevance to search engines, ensuring you dominate local search queries.",
-    seo: { 
-      title: "Local SEO Foundations & On-Page Optimization | HA Web Studio", 
-      description: "Build the website foundation for local dominance. We implement location pages, local schema markup, and geographic keyword targeting to boost your local rankings." 
+    seo: {
+      title: "Local SEO Foundations & On-Page Optimization",
+      description: "Build the website foundation for local dominance. We implement location pages, local schema markup, and geographic keyword targeting to boost your local rankings."
     },
     audience: "Regional service businesses and multi-location companies that need their actual website pages (not just their Google Maps profile) to rank for 'Service + City' keywords.",
     outcomes: [

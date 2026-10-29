@@ -1,4 +1,4 @@
-import { searchFieldWeights } from '../constants'
+import { searchFieldWeights, searchTypePriority } from '../constants'
 import type { SearchDocument } from '../types'
 
 export function tokenizeQuery(query: string): string[] {
@@ -32,6 +32,21 @@ export function rankSearchDocument(document: SearchDocument, query: string): num
   return document.featured && score > 0 ? score + searchFieldWeights.featured : score
 }
 
-export function sortSearchResults<T extends { score: number }>(results: T[]): T[] {
-  return [...results].sort((left, right) => right.score - left.score)
+export function sortSearchResults<T extends { score: number; document?: SearchDocument }>(results: T[]): T[] {
+  return [...results].sort((left, right) => {
+    if (right.score !== left.score) return right.score - left.score
+
+    const byType = priorityOf(left) - priorityOf(right)
+    if (byType !== 0) return byType
+
+    const byTitle = (left.document?.title ?? '').localeCompare(right.document?.title ?? '')
+    if (byTitle !== 0) return byTitle
+
+    return (left.document?.url ?? '').localeCompare(right.document?.url ?? '')
+  })
+}
+
+function priorityOf(result: { document?: SearchDocument }): number {
+  if (!result.document) return Number.MAX_SAFE_INTEGER
+  return searchTypePriority[result.document.type] ?? Number.MAX_SAFE_INTEGER
 }

@@ -12,11 +12,10 @@ export function WhyChooseUsSection() {
           {/* Header column */}
           <div className="flex flex-col gap-4 lg:sticky lg:top-32 lg:w-[400px] lg:shrink-0">
             <Heading level={2} size="xl">
-              Why partner with us?
+              A better way to work together.
             </Heading>
             <Text size="lg" tone="muted">
-              Most agencies focus on making something that looks good today. We
-              focus on building a foundation that performs tomorrow.
+              You should understand the decisions being made, what you’re paying for, and what you’ll be able to manage when the project is handed over.
             </Text>
           </div>
 
@@ -26,12 +25,12 @@ export function WhyChooseUsSection() {
             <div className="grid grid-cols-2 gap-4 border-b border-border/50 bg-muted/20 p-6 md:p-8">
               <div>
                 <span className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                  Typical agency
+                  A common frustration
                 </span>
               </div>
               <div>
                 <span className="text-sm font-semibold uppercase tracking-wider text-primary">
-                  HA Web Studio
+                  Our approach
                 </span>
               </div>
             </div>

@@ -10,7 +10,7 @@ export const company = {
   longDescription:
     "HA Web Studio helps businesses plan, build, improve, and scale their digital presence through focused web development, ecommerce, SEO, analytics, and custom application services.",
   establishedYear: 2026,
-  founder: "Mohd Azeem Malik",
+  founder: "M.A. Malik",
   businessEmail: "contact@hawebstudio.com",
   primaryPhone: "+917668356622",
   timezone: "Asia/Calcutta",

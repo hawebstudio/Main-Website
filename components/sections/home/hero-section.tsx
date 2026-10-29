@@ -33,6 +33,9 @@ export function HeroSection() {
             </Link>
           </div>
           <Text size="sm" tone="muted">
+            Most often: a business that has outgrown its current site, a brand that needs a more credible presence, or a team that needs a site built to convert &mdash; not just to be online.
+          </Text>
+          <Text size="sm" tone="muted">
             No obligation. We&rsquo;ll tell you honestly if a rebuild is what you actually need.
           </Text>
         </div>

@@ -1,6 +1,6 @@
 import {
   absoluteUrl,
-  readContentEntries,
+  readAllContentEntries,
   siteUrl,
   staticRoutes,
   type AuditMessage,
@@ -29,7 +29,10 @@ async function run() {
     return;
   }
 
-  const contentEntries = await readContentEntries();
+  // Every collection, so the submitted list matches app/sitemap.ts: services,
+  // service families and projects are real, indexable pages there. Submission
+  // only happens when INDEXNOW_ENABLED is "true".
+  const contentEntries = await readAllContentEntries();
   const urlList = [
     ...staticRoutes.map((route) => absoluteUrl(route)),
     ...contentEntries.map((entry) => absoluteUrl(entry.url)),

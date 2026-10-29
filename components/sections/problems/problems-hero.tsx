@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Sparkles, Target } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import { HeroWrapper } from '@/components/sections/hero-wrapper'
 import { Heading, Text, Eyebrow } from '@/components/primitives/typography'
 import { buttonVariants } from '@/components/ui/button'
@@ -16,7 +16,7 @@ export function ProblemsHero({ breadcrumbs }: ProblemsHeroProps) {
       className="py-14 md:py-20"
       background={
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.14),transparent_20%),radial-gradient(circle_at_78%_16%,rgba(255,255,255,0.05),transparent_18%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_44%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(89,102,75,0.12),transparent_20%),radial-gradient(circle_at_78%_16%,rgba(183,154,88,0.07),transparent_18%),linear-gradient(180deg,rgba(243,237,223,0.08),transparent_44%)]" />
           <div className="absolute left-1/2 top-0 h-96 w-[52rem] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
         </div>
       }

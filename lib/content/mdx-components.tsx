@@ -8,8 +8,15 @@ import { cn } from '@/lib/utils'
  * design system primitives.
  */
 export const mdxComponents = {
+  // Every page template already renders its own page title as the single <h1>
+  // (see the section heroes, e.g. case-study-detail-hero.tsx). A body `#`
+  // heading must therefore not emit a second <h1>, or the page declares two
+  // competing top-level headings — which it did on 123 of the 183 reachable
+  // sitemap pages that render MDX. `Heading` maps `level` to the tag and
+  // `size` to the visual scale independently, so rendering this at level 2
+  // keeps the exact rendered appearance while leaving one H1 per page.
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <Heading level={1} size="xl" className={cn('mt-2 scroll-m-20', className)} {...props} />
+    <Heading level={2} size="xl" className={cn('mt-2 scroll-m-20', className)} {...props} />
   ),
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <Heading

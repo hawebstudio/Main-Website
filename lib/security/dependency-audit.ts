@@ -4,7 +4,6 @@
  */
 
 import { execSync } from 'child_process'
-import { join } from 'path'
 
 export interface DependencyAuditResult {
   vulnerabilities: Vulnerability[]
@@ -147,7 +146,7 @@ export function checkOutdatedDependencies(): {
     }
 
     return { outdated }
-  } catch (_error) {
+  } catch {
     // npm outdated returns non-zero if outdated packages found
     return { outdated: [] }
   }
@@ -159,20 +158,7 @@ export function checkOutdatedDependencies(): {
 export async function checkDuplicateDependencies(): Promise<{
   duplicates: { name: string; versions: string[] }[]
 }> {
-  try {
-    const { readFileSync } = await import('node:fs')
-    const packageJsonPath = join(process.cwd(), 'package.json')
-    const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8')) as {
-      dependencies?: Record<string, string>
-      devDependencies?: Record<string, string>
-    }
-
-    // This is a simplified check
-    // In production, use a more sophisticated approach
-    return { duplicates: [] }
-  } catch (_error) {
-    return { duplicates: [] }
-  }
+  return { duplicates: [] }
 }
 
 /**

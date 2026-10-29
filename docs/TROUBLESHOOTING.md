@@ -203,7 +203,7 @@ pnpm build
 # Use different values for preview/production
 ```
 
-### ISR Revalidation Not Working
+### Content Changes Not Showing
 
 **Symptoms:**
 - Content changes not reflected
@@ -211,15 +211,24 @@ pnpm build
 
 **Solutions:**
 ```bash
-# Check REVALIDATE_SECRET is set
-# Verify API route exists at app/api/revalidate
-# Test revalidation manually:
-curl -X POST https://your-domain.com/api/revalidate \
+# Pages render dynamically (app/layout.tsx sets `dynamic = "force-dynamic"`),
+# so there is no revalidation step to trigger: reload the page and the latest
+# content/ file is read.
+
+# Confirm which content provider is in use
+#   CONTENT_PROVIDER defaults to "git" (see config/content.ts)
+
+# Check the deployment actually contains your change (a stale deployment is
+# the usual cause) and that the file passed `pnpm validate:content`
+
+# To tell search engines about a page manually, use the IndexNow endpoint
+# (there is no /api/revalidate route):
+curl -X POST https://your-domain.com/api/indexnow \
   -H "Authorization: Bearer $REVALIDATE_SECRET" \
   -H "Content-Type: application/json" \
   -d '{"paths": ["/", "/insights"]}'
 
-# If not configured, rebuild to pick up changes
+# If not configured, rebuild the deployment to pick up changes
 ```
 
 ## Performance Issues

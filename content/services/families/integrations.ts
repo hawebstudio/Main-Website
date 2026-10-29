@@ -2,13 +2,13 @@ import { Service } from "@/lib/content/types";
 
 export const integrationsServices: Service[] = [
   {
-    family: "integrations",
+    family: "automation-integrations",
     slug: "third-party-api-integrations",
     title: "Third-Party & API Integrations",
     description: "Stop wasting time doing manual data entry. We connect your website, web applications, and backend tools using APIs and custom webhooks, so data moves automatically between systems instead of being re-entered by hand.",
-    seo: { 
-      title: "Third-Party API & Custom Software Integration Services | HA Web Studio", 
-      description: "Connect your disjointed software tools. We build secure, reliable API integrations connecting your website to CRMs, ERPs, and payment gateways." 
+    seo: {
+      title: "Third-Party API & Custom Software Integration Services",
+      description: "Connect your disjointed software tools. We build secure, reliable API integrations connecting your website to CRMs, ERPs, and payment gateways."
     },
     audience: "Scaling businesses and enterprises suffering from 'software bloat'—using dozens of disconnected SaaS tools that require manual data transfer.",
     outcomes: [

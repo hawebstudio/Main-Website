@@ -2,13 +2,13 @@ import { Service } from "@/lib/content/types";
 
 export const designServices: Service[] = [
   {
-    family: "design",
+    family: "website-development",
     slug: "website-ui-ux-design",
     title: "Website UI/UX Design",
     description: "UI/UX design that connects your brand to how users actually behave — wireframes and prototypes that get tested for usability before a single line of code is written, then handed to developers in a format they can build from directly.",
-    seo: { 
-      title: "Website UI & UX Design Services | HA Web Studio", 
-      description: "UI/UX design services — wireframing, high-fidelity design, and prototyping, aligned to your brand and handed off in a developer-ready format." 
+    seo: {
+      title: "Website UI & UX Design Services",
+      description: "UI/UX design services — wireframing, high-fidelity design, and prototyping, aligned to your brand and handed off in a developer-ready format."
     },
     audience: "SaaS companies, B2B agencies, and established brands needing high-end visual design and prototyping before committing to expensive development cycles.",
     outcomes: [

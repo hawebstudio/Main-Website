@@ -20,13 +20,12 @@ export function TechnologyStackSection({ technologies }: TechnologyStackSectionP
         <div className="flex flex-col gap-8">
           <SectionHeading
             eyebrow="Technology"
-            title="Built on a modern, proven stack, not whatever is trending."
+            title="Tools chosen for the work—not for the trend."
             href={routes.technologies.index()}
             ctaLabel="Explore our stack"
           />
           <Text size="lg" tone="muted" className="max-w-2xl">
-            Every technology choice is made for the project, not the other way around. Here&rsquo;s
-            some of what we build with most often.
+            The stack should fit the product, the team that will maintain it, and the constraints of the project.
           </Text>
           <div className="flex flex-wrap gap-3">
             {technologies.map((tech) => (

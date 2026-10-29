@@ -1,7 +1,7 @@
 import { Author } from '@/lib/content/types'
 import { Heading, Text } from '@/components/primitives/typography'
 import { Badge } from '@/components/ui/badge'
-import { UserCircle, Link as LinkIcon } from 'lucide-react'
+import { UserCircle } from 'lucide-react'
 
 export function AuthorCard({ author }: { author: Author }) {
   return (
@@ -12,7 +12,9 @@ export function AuthorCard({ author }: { author: Author }) {
           <UserCircle className="size-8 text-muted-foreground" />
         </div>
         <div className="flex flex-col">
-          <Heading level={3} size="sm">{author.name}</Heading>
+          {/* h2, not h3: on an article page this card sits directly under the
+              page h1, and h3 skipped a level in the heading outline. */}
+          <Heading level={2} size="sm">{author.name}</Heading>
           {author.role && <Text size="sm" tone="muted">{author.role}</Text>}
         </div>
       </div>

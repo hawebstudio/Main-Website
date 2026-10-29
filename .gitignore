@@ -21,3 +21,16 @@ node_modules
 .next-build-manifest.json
 
 /reports/
+
+# Environment variable exceptions
+!.env.example
+
+# Local scratch directories
+/tmp/
+/temp/
+
+# Root diagnostic dumps and scratch probes
+/page_*.html
+/git_config_help_*.txt
+/\ s.slug\)\)
+/step12_payload.txt

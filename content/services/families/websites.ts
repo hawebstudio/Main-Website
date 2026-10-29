@@ -2,13 +2,13 @@ import { Service } from "@/lib/content/types";
 
 export const websitesServices: Service[] = [
   {
-    family: "websites",
+    family: "website-development",
     slug: "website-planning-strategy",
     title: "Website Planning & Strategy",
     description: "Before writing a single line of code or designing a mockup, we establish the strategic foundation. This ensures your website is architected to meet specific business objectives, target the right audience, and provide a clear ROI, transforming it from a digital brochure into a growth engine.",
-    seo: { 
-      title: "Website Planning & Strategy Services | HA Web Studio", 
-      description: "Strategic website planning, architecture, and requirements gathering to ensure your digital project aligns with business goals and delivers measurable ROI." 
+    seo: {
+      title: "Website Planning & Strategy Services",
+      description: "Strategic website planning, architecture, and requirements gathering to ensure your digital project aligns with business goals and delivers measurable ROI."
     },
     audience: "B2B service providers, agencies, and enterprise teams preparing for a major website redesign, migration, or launch that cannot afford to fail.",
     outcomes: [
@@ -33,6 +33,7 @@ export const websitesServices: Service[] = [
       "Deep-dive Competitor UX Analysis",
       "Brand Voice & Messaging Guidelines"
     ],
+    relatedInsights: ["technical-seo-checklist", "website-launch-checklist", "website-project-planning-guide"],
     recommendations: ["website-ui-ux-design", "business-website-development", "technical-seo-setup"],
     businessProblems: [
       "Investing heavily in websites that look good but fail to generate leads.",
@@ -66,13 +67,13 @@ export const websitesServices: Service[] = [
     cta: { label: "Schedule a Strategy Session", href: "/contact?intent=start-project" }
   },
   {
-    family: "websites",
+    family: "website-development",
     slug: "business-website-development",
     title: "Business Website Development",
     description: "We engineer high-performance, professional business websites designed to establish immediate trust, articulate complex value propositions clearly, and convert anonymous visitors into qualified leads. Built on modern, scalable technologies.",
-    seo: { 
-      title: "Professional Business Website Development | HA Web Studio", 
-      description: "Custom, high-performance business website development focused on B2B lead generation, speed, security, and a clear user experience." 
+    seo: {
+      title: "Professional Business Website Development",
+      description: "Custom, high-performance business website development focused on B2B lead generation, speed, security, and a clear user experience."
     },
     audience: "Professional service firms, B2B technology companies, and established organizations looking to modernize their digital presence and drive inbound leads.",
     outcomes: [
@@ -133,13 +134,13 @@ export const websitesServices: Service[] = [
     cta: { label: "Start Your Website Build", href: "/contact?intent=start-project" }
   },
   {
-    family: "websites",
+    family: "website-development",
     slug: "website-redesign",
     title: "Website Redesign & Modernization",
     description: "We revitalize aging digital assets. Our redesign process goes beyond fresh paint—we completely overhaul the user experience, underlying technology, and conversion pathways while strictly protecting your hard-earned SEO authority and historical data.",
-    seo: { 
-      title: "Website Redesign & Modernization Services | HA Web Studio", 
-      description: "Transform your outdated website into a modern, high-converting digital asset. We improve UX/UI, speed, and messaging while preserving your SEO rankings." 
+    seo: {
+      title: "Website Redesign & Modernization Services",
+      description: "Transform your outdated website into a modern, high-converting digital asset. We improve UX/UI, speed, and messaging while preserving your SEO rankings."
     },
     audience: "Established companies with legacy websites that are hindering sales, damaging brand perception, or suffering from mounting technical debt.",
     outcomes: [
@@ -198,13 +199,13 @@ export const websitesServices: Service[] = [
     cta: { label: "Plan Your Redesign", href: "/contact?intent=start-project" }
   },
   {
-    family: "websites",
+    family: "website-development",
     slug: "landing-page-development",
     title: "High-Conversion Landing Pages",
     description: "We engineer hyper-focused, lightning-fast landing pages designed for a single purpose: conversion. Built for paid ad campaigns, product launches, or lead magnets, these pages eliminate distractions and maximize your return on ad spend (ROAS).",
-    seo: { 
-      title: "High-Conversion Landing Page Development | HA Web Studio", 
-      description: "Custom landing pages engineered for paid campaigns and product launches. We focus on speed, persuasive UX, and integrated conversion tracking." 
+    seo: {
+      title: "High-Conversion Landing Page Development",
+      description: "Custom landing pages engineered for paid campaigns and product launches. We focus on speed, persuasive UX, and integrated conversion tracking."
     },
     audience: "Growth teams, performance marketers, and founders running expensive paid media campaigns or launching new products.",
     outcomes: [
@@ -261,13 +262,13 @@ export const websitesServices: Service[] = [
     cta: { label: "Build a Landing Page", href: "/contact?intent=start-project" }
   },
   {
-    family: "websites",
+    family: "website-development",
     slug: "website-launch-infrastructure-setup",
     title: "Website Launch & Infrastructure Setup",
     description: "A well-designed website still needs to stay up under traffic. We configure hosting, global CDNs, custom domains, and CI/CD pipelines so your site stays available, loads quickly worldwide, and is protected against common attacks.",
-    seo: { 
-      title: "Website Infrastructure & Launch Setup | HA Web Studio", 
-      description: "Enterprise-grade hosting configuration, DNS setup, CDN integration, and CI/CD pipelines for secure, high-performance website launches." 
+    seo: {
+      title: "Website Infrastructure & Launch Setup",
+      description: "Enterprise-grade hosting configuration, DNS setup, CDN integration, and CI/CD pipelines for secure, high-performance website launches."
     },
     audience: "Businesses migrating to modern web stacks (like Next.js) that need reliable, scalable, and secure deployment infrastructure.",
     outcomes: [
@@ -325,13 +326,13 @@ export const websitesServices: Service[] = [
     cta: { label: "Secure Your Infrastructure", href: "/contact?intent=start-project" }
   },
   {
-    family: "websites",
+    family: "website-development",
     slug: "cms-dynamic-content-development",
     title: "Headless CMS & Dynamic Content",
     description: "Let your marketing team publish and edit content without needing a developer. We implement headless Content Management Systems that separate your content from the code, so content changes don't require a code deploy.",
-    seo: { 
-      title: "Headless CMS Integration & Development | HA Web Studio", 
-      description: "Headless CMS integration (Sanity, Contentful) so your team can edit content without a developer. Scalable content architecture for Next.js websites." 
+    seo: {
+      title: "Headless CMS Integration & Development",
+      description: "Headless CMS integration (Sanity, Contentful) so your team can edit content without a developer. Scalable content architecture for Next.js websites."
     },
     audience: "Content-heavy organizations, media publishers, and marketing teams tired of relying on developers for basic website updates.",
     outcomes: [

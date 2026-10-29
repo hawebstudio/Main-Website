@@ -145,11 +145,22 @@ export async function submitContactForm(data: ContactFormValues) {
             "There was an error submitting your enquiry. Please try again.",
         };
       }
+
+      return {
+        success: true,
+        message: "Your enquiry has been received. We will be in touch shortly.",
+      };
     }
 
+    // No email provider configured — we cannot confirm delivery, so we must
+    // not tell the visitor an enquiry was received.
+    console.warn(
+      `Contact enquiry ${submissionId} received but no email provider is configured.`
+    );
     return {
-      success: true,
-      message: "Your enquiry has been received. We will be in touch shortly.",
+      success: false,
+      message:
+        "We could not complete your request right now. Please email us directly at contact@hawebstudio.com, or call +91 76683 56622.",
     };
   } catch (error) {
     console.error("Contact form submission error:", error);

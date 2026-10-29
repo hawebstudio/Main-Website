@@ -330,12 +330,17 @@ The publishing system automates many tasks:
 
 ### Automatic on Publish
 
-- Sitemap regeneration
+- Sitemap regeneration (route-derived, so a new content file appears automatically)
 - RSS/Atom feed generation
 - Search index refresh
-- ISR revalidation
-- IndexNow submission
 - Analytics logging
+
+### Manual Release Actions (Optional)
+
+- **IndexNow Submission**: IndexNow submission is decoupled from the build process to prevent unintended submissions during deployment. To submit all site URLs to search engines on demand, run `pnpm release:indexnow` (requires `INDEXNOW_ENABLED=true` and `INDEXNOW_KEY` in the environment). Alternatively, trigger individual paths via the `/api/indexnow` endpoint.
+
+No revalidation step is required: `app/layout.tsx` sets `export const dynamic = "force-dynamic"`,
+so every page renders per request and picks up content changes on the next request.
 
 ### Manual Triggers
 
@@ -345,12 +350,18 @@ If automation fails, you can manually trigger:
 # Rebuild search index
 pnpm build
 
-# Revalidate pages (if REVALIDATE_SECRET is set)
-curl -X POST https://your-domain.com/api/revalidate \
+# Notify search engines about specific pages (REVALIDATE_SECRET must be set)
+curl -X POST https://your-domain.com/api/indexnow \
   -H "Authorization: Bearer $REVALIDATE_SECRET" \
   -H "Content-Type: application/json" \
   -d '{"paths": ["/", "/insights"]}'
+# 200 = accepted by IndexNow, 502 = the upstream endpoint rejected it,
+# 400 = no eligible URL was supplied, 401 = wrong or missing bearer token.
 ```
+
+The request is normalized before submission: URLs are deduplicated, `"/"`-style paths are resolved
+against the site origin, and anything that is not on this host is dropped, so retrying the same
+call cannot produce a duplicated notification.
 
 ## Content Templates
 

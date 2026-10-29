@@ -13,17 +13,13 @@ export function ProblemsSection() {
           <div className="flex flex-col gap-6">
             <Eyebrow>Why sites underperform</Eyebrow>
             <Heading level={2} size="xl">
-              A good-looking website isn&rsquo;t the same thing as a working one.
+              A site should make the next step easier.
             </Heading>
             <Text size="lg" tone="muted">
-              Most underperforming sites aren&rsquo;t broken &mdash; they&rsquo;re unfocused.
-              Design, content, and code were built by different people at different times, with
-              no shared story to carry the visitor toward a decision. The result: real traffic
-              that never turns into real business.
+              Sometimes the problem is the message. Sometimes it’s the page structure, the performance, or the tools behind the scenes. We look at the whole journey before deciding what actually needs to change.
             </Text>
             <Text size="base" tone="muted">
-              These are the three failure points we see most often, and the ones our services are
-              built to close.
+              Here are three common places to start.
             </Text>
             <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
               {problemTags.map((tag) => (

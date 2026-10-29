@@ -18,6 +18,7 @@ import type {
   ContentStatus,
 } from '@/lib/content/types'
 import { resolveProvider, type ContentProvider } from '@/lib/content/providers'
+import { isPublished, resolveStatus } from '@/lib/content/status'
 import { services as servicesData, serviceFamilies as serviceFamiliesData } from '@/content/services'
 import { projects as projectsData } from '@/content/work'
 
@@ -40,17 +41,9 @@ export interface TechnologyContentCollection<T> extends ContentCollection<T> {
   getByCategoryAndSlug: (category: string, slug: string) => Promise<WithContent<T> | null>
 }
 
-/** Resolve effective content status from status field or legacy draft flag */
-export function resolveStatus(entry: { status?: ContentStatus; draft?: boolean }): ContentStatus {
-  if (entry.status) return entry.status
-  if (entry.draft) return 'draft'
-  return 'published'
-}
-
-/** Returns true if entry should be visible in production */
-export function isPublished(entry: { status?: ContentStatus; draft?: boolean }): boolean {
-  return resolveStatus(entry) === 'published'
-}
+// Implemented in lib/content/status.ts so the build-time route inventory and
+// this runtime layer share one predicate instead of two copies that can drift.
+export { isPublished, resolveStatus }
 
 function createCollection<
   T extends {

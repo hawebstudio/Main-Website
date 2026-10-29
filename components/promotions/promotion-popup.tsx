@@ -56,6 +56,7 @@ export function PromotionPopup({ promotion }: PromotionPopupProps) {
   // `getActivePromotion()` — if we got a `promotion` prop at all, it's
   // currently active.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
 
     if (!promotion) return

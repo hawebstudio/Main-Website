@@ -2,13 +2,13 @@ import { Service } from "@/lib/content/types";
 
 export const seoSearchServices: Service[] = [
   {
-    family: "seo-search",
+    family: "search-discoverability",
     slug: "technical-seo-setup",
     title: "Technical SEO Optimization",
     description: "Great content is useless if search engines can't crawl, understand, or index it. We rebuild your website's technical foundation to eliminate crawl errors, optimize site architecture, and ensure maximum visibility in Google Search.",
-    seo: { 
-      title: "Technical SEO Setup & Optimization Services | HA Web Studio", 
-      description: "Fix crawl errors and indexing issues. Our technical SEO services ensure your website's architecture is perfectly optimized for Google and other search engines." 
+    seo: {
+      title: "Technical SEO Setup & Optimization Services",
+      description: "Fix crawl errors and indexing issues. Our technical SEO services ensure your website's architecture is perfectly optimized for Google and other search engines."
     },
     audience: "Large websites, enterprise platforms, and e-commerce stores suffering from indexing issues, slow load times, or sudden drops in organic traffic.",
     outcomes: [
@@ -34,6 +34,8 @@ export const seoSearchServices: Service[] = [
       "International SEO Setup (Hreflang Tags)",
       "JavaScript SEO (Dynamic Rendering Fixes)"
     ],
+    relatedInsights: ["technical-seo-checklist", "website-launch-checklist"],
+    relatedServices: ["website-audit-technical-fixes"],
     recommendations: ["search-visibility-setup", "structured-data-schema-setup", "website-performance-optimization"],
     businessProblems: [
       "Google Search Console is throwing hundreds of 'Discovered - currently not indexed' errors.",
@@ -67,13 +69,13 @@ export const seoSearchServices: Service[] = [
     cta: { label: "Fix Technical SEO", href: "/contact?intent=seo" }
   },
   {
-    family: "seo-search",
+    family: "search-discoverability",
     slug: "search-visibility-setup",
     title: "Search Visibility Strategy",
     description: "Stop guessing what your customers are searching for. We develop data-backed, high-intent search visibility strategies that align your website's content directly with the problems your target audience is trying to solve.",
-    seo: { 
-      title: "On-Page SEO & Search Visibility Strategy | HA Web Studio", 
-      description: "Data-driven SEO strategies that drive revenue, not just vanity metrics. We optimize your page structure and content to capture high-intent organic traffic." 
+    seo: {
+      title: "On-Page SEO & Search Visibility Strategy",
+      description: "Data-driven SEO strategies that drive revenue, not just vanity metrics. We optimize your page structure and content to capture high-intent organic traffic."
     },
     audience: "B2B service providers, SaaS companies, and specialized consultants who need to rank for highly specific, lucrative search terms rather than broad, low-converting keywords.",
     outcomes: [
@@ -99,6 +101,7 @@ export const seoSearchServices: Service[] = [
       "Existing Content Pruning & Consolidation",
       "Featured Snippet Optimization"
     ],
+    relatedInsights: ["technical-seo-checklist", "structured-data-schema", "ai-search-optimization"],
     recommendations: ["technical-seo-setup", "ai-search-visibility-answer-engine-optimization"],
     businessProblems: [
       "You rank #1 for your brand name, but you're invisible for the actual services you provide.",
@@ -133,13 +136,13 @@ export const seoSearchServices: Service[] = [
     cta: { label: "Improve Organic Visibility", href: "/contact?intent=seo" }
   },
   {
-    family: "seo-search",
+    family: "search-discoverability",
     slug: "structured-data-schema-setup",
     title: "Structured Data & Schema Setup",
     description: "Speak the language of machines. We implement advanced JSON-LD Schema Markup to explicitly tell search engines what your content is about, enabling Rich Snippets that drastically increase click-through rates.",
-    seo: { 
-      title: "Structured Data & Schema Markup Implementation | HA Web Studio", 
-      description: "Unlock Rich Snippets in Google Search. We implement advanced JSON-LD Schema markup to help search engines perfectly understand and highlight your content." 
+    seo: {
+      title: "Structured Data & Schema Markup Implementation",
+      description: "Unlock Rich Snippets in Google Search. We implement advanced JSON-LD Schema markup to help search engines perfectly understand and highlight your content."
     },
     audience: "eCommerce stores, event organizers, recipe publishers, and service businesses who want to stand out in the search results with stars, prices, and FAQs directly in Google.",
     outcomes: [
@@ -165,6 +168,7 @@ export const seoSearchServices: Service[] = [
       "Video Object Schema Implementation",
       "Dynamic Schema Generation (CMS Integration)"
     ],
+    relatedInsights: ["technical-seo-checklist", "structured-data-schema", "website-launch-checklist"],
     recommendations: ["technical-seo-setup", "ecommerce-specific-services"],
     businessProblems: [
       "Competitors have 5-star ratings showing directly in Google search results, but you don't.",
@@ -198,13 +202,13 @@ export const seoSearchServices: Service[] = [
     cta: { label: "Implement Schema Markup", href: "/contact?intent=seo" }
   },
   {
-    family: "seo-search",
+    family: "search-discoverability",
     slug: "ai-search-visibility-answer-engine-optimization",
     title: "AI Search Visibility (AEO)",
     description: "The future of search is conversational. We optimize your website's content and structure to ensure your business is accurately retrieved, understood, and cited by AI Answer Engines like ChatGPT, Perplexity, and Google's AI Overviews.",
-    seo: { 
-      title: "Answer Engine Optimization (AEO) & AI Search Visibility | HA Web Studio", 
-      description: "Prepare for the AI revolution. We optimize your website structure and content to be accurately cited by ChatGPT, Perplexity, and Google AI Overviews." 
+    seo: {
+      title: "Answer Engine Optimization (AEO) & AI Search Visibility",
+      description: "Prepare for the AI revolution. We optimize your website structure and content to be accurately cited by ChatGPT, Perplexity, and Google AI Overviews."
     },
     audience: "Forward-thinking B2B companies, tech startups, and thought leaders who realize that their customers are asking ChatGPT for recommendations instead of Googling.",
     outcomes: [
@@ -230,6 +234,7 @@ export const seoSearchServices: Service[] = [
       "Brand Reputation AI Monitoring",
       "PR & Digital PR Strategy for Citations"
     ],
+    relatedInsights: ["technical-seo-checklist", "structured-data-schema", "ai-search-optimization"],
     recommendations: ["structured-data-schema-setup", "search-visibility-setup"],
     businessProblems: [
       "When you ask ChatGPT for the 'Best [Your Industry] Software', your competitors are listed but you are not.",

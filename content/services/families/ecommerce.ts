@@ -6,9 +6,9 @@ export const ecommerceServices: Service[] = [
     slug: "ecommerce-development",
     title: "Custom eCommerce Development",
     description: "For businesses that have outgrown template platforms, we build custom eCommerce platforms with the frontend decoupled from the backend (headless commerce) — built to handle large catalogs, high-traffic sales events, and fast page loads without the constraints of a standard theme.",
-    seo: { 
-      title: "Custom eCommerce Development Services | Headless & Scalable", 
-      description: "Custom, headless eCommerce development built for large catalogs, high-traffic sales events, and fast page loads beyond what template platforms support." 
+    seo: {
+      title: "Custom eCommerce Development Services | Headless & Scalable",
+      description: "Custom, headless eCommerce development built for large catalogs, high-traffic sales events, and fast page loads beyond what template platforms support."
     },
     audience: "Established DTC brands, enterprise retailers, and B2B distributors who have outgrown standard Shopify/WooCommerce templates and need more speed and flexibility.",
     outcomes: [
@@ -34,6 +34,7 @@ export const ecommerceServices: Service[] = [
       "Multi-Currency & Internationalization",
       "Automated Product Migration from Legacy Systems"
     ],
+    relatedInsights: ["shopify-vs-woocommerce", "razorpay-vs-stripe", "conversion-rate-optimization-guide"],
     recommendations: ["ecommerce-specific-services", "conversion-rate-optimization", "analytics-tracking-setup"],
     businessProblems: [
       "Current eCommerce platform is too slow, causing high bounce rates on mobile.",
@@ -72,9 +73,9 @@ export const ecommerceServices: Service[] = [
     slug: "shopify-development",
     title: "Shopify Store Development",
     description: "We build, configure, and customize Shopify stores — theme customization, app setup, payments, and catalog migration — so you can launch on a managed platform without handling the technical setup yourself.",
-    seo: { 
-      title: "Shopify Store Development & Setup Services | HA Web Studio", 
-      description: "Shopify store development — theme customization, app configuration, payments, and catalog setup, built to scale your business." 
+    seo: {
+      title: "Shopify Store Development & Setup Services",
+      description: "Shopify store development — theme customization, app configuration, payments, and catalog setup, built to scale your business."
     },
     audience: "Retail brands, creators, and startups looking for a managed eCommerce platform that's easy to operate day-to-day.",
     outcomes: [
@@ -100,6 +101,8 @@ export const ecommerceServices: Service[] = [
       "Subscription Billing Setup (Recharge/Skio)",
       "Klaviyo Email Marketing Integration"
     ],
+    relatedInsights: ["shopify-vs-woocommerce", "website-launch-checklist"],
+    relatedServices: ["ecommerce-development"],
     recommendations: ["ecommerce-specific-services", "analytics-tracking-setup", "seo-search-visibility"],
     businessProblems: [
       "Need to launch an online store quickly without worrying about servers or security.",
@@ -138,9 +141,9 @@ export const ecommerceServices: Service[] = [
     slug: "woocommerce-development",
     title: "WooCommerce Development",
     description: "We build custom WooCommerce stores on WordPress for businesses that need deep platform control, specific plugin integrations, and content and commerce living on the same site.",
-    seo: { 
-      title: "WooCommerce Development Services | Custom WordPress Stores", 
-      description: "WooCommerce development on WordPress — flexible, content-rich eCommerce stores tailored to your business logic and catalog." 
+    seo: {
+      title: "WooCommerce Development Services | Custom WordPress Stores",
+      description: "WooCommerce development on WordPress — flexible, content-rich eCommerce stores tailored to your business logic and catalog."
     },
     audience: "Businesses that already rely heavily on WordPress, or those requiring specific, customized eCommerce logic that hosted platforms don't allow.",
     outcomes: [
@@ -166,6 +169,7 @@ export const ecommerceServices: Service[] = [
       "Custom Product Configurators & Add-ons",
       "Migration from other platforms"
     ],
+    relatedInsights: ["shopify-vs-woocommerce", "why-performance-matters", "technical-seo-checklist"],
     recommendations: ["website-maintenance-support", "website-performance-optimization", "technical-seo-setup"],
     businessProblems: [
       "SaaS platforms (like Shopify) prohibit the sale of certain highly regulated products.",
@@ -202,11 +206,11 @@ export const ecommerceServices: Service[] = [
   {
     family: "ecommerce",
     slug: "ecommerce-specific-services",
-    title: "eCommerce Feature Enhancements",
+    title: "eCommerce Store Optimization & Features",
     description: "Don't rebuild your entire store just to fix a few conversion killers. We implement targeted, high-impact feature upgrades—like lightning-fast search, dynamic filtering, and social proof integrations—to dramatically improve the shopping experience of your existing eCommerce platform.",
-    seo: { 
-      title: "eCommerce Feature Enhancements & Optimizations | HA Web Studio", 
-      description: "Upgrade your existing store with targeted eCommerce features. We integrate advanced search, dynamic filtering, reviews, and feeds to boost conversions." 
+    seo: {
+      title: "eCommerce Feature Enhancements & Optimizations",
+      description: "Upgrade your existing store with targeted eCommerce features. We integrate advanced search, dynamic filtering, reviews, and feeds to boost conversions."
     },
     audience: "Existing eCommerce merchants who are generally happy with their platform but need to solve specific UX bottlenecks to increase conversion rates.",
     outcomes: [
@@ -232,6 +236,7 @@ export const ecommerceServices: Service[] = [
       "Google Merchant Center Feed Automation",
       "Advanced Product Schema Markup"
     ],
+    relatedInsights: ["conversion-rate-optimization-guide", "google-analytics-4", "microsoft-clarity"],
     recommendations: ["conversion-rate-optimization", "analytics-tracking-setup"],
     businessProblems: [
       "Customers can't find what they are looking for because the native store search is terrible.",

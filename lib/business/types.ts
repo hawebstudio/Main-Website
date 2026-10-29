@@ -8,7 +8,7 @@ export interface SocialProfile {
   url: string
   username?: string
   icon: string
-  /** Shown in the footer's compact social row; all profiles still appear on /socials. */
+  /** Optional profile metadata retained for future use; social links are not shown in the public footer. */
   featured?: boolean
 }
 

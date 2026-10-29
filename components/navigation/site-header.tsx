@@ -7,7 +7,7 @@ import { CTAS } from "@/lib/data/ctas";
 import { Container } from "@/components/primitives/container";
 import { MobileNav } from "@/components/navigation/mobile-nav";
 import { NavLink } from "@/components/navigation/nav-link";
-import { SiteSearch } from "@/components/search/site-search";
+import { SiteSearchLazy } from "@/components/search/site-search-lazy";
 import { primaryNav } from "@/config/navigation";
 import { routes } from "@/config/routes";
 import { siteConfig } from "@/config/site";
@@ -28,37 +28,36 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <div className="fixed inset-x-0 top-0 z-[100] px-2 pt-2 sm:px-4 sm:pt-4">
+    <header className="fixed inset-x-0 top-0 z-100 px-3 pt-2 sm:px-6 sm:pt-4">
       <Container size="xl" className="px-0 sm:px-0 lg:px-0">
         <nav
           aria-label="Primary"
           className={cn(
-            "relative flex items-center justify-between gap-2 overflow-visible rounded-full border px-3 py-2.5 backdrop-blur-xl transition-all duration-300 sm:gap-3 sm:px-4 sm:py-3 md:px-5 lg:px-6",
+            "relative flex items-center justify-between gap-3 rounded-2xl border px-3.5 py-2.5 transition-all duration-300 sm:px-5 sm:py-3",
             scrolled
-              ? "border-border/80 bg-background/90 shadow-[0_18px_50px_-24px_rgba(0,0,0,0.8)]"
-              : "border-border/65 bg-background/78 shadow-[0_14px_42px_-28px_rgba(0,0,0,0.75)]",
+              ? "border-border/80 bg-background/95 shadow-md shadow-black/5 backdrop-blur-md"
+              : "border-border/50 bg-background/85 shadow-sm backdrop-blur-sm",
           )}
         >
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 overflow-hidden rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_32%,transparent_68%,rgba(14,165,233,0.08))]"
-          />
-
           <Link
             href={routes.home()}
-            className="relative z-10 flex min-w-0 shrink-0 items-center gap-2 text-sm font-semibold tracking-tight text-foreground sm:gap-3"
+            aria-label={siteConfig.name}
+            className="site-wordmark relative z-10 flex min-w-0 shrink-0 items-center gap-1.5 text-foreground"
           >
             <Image
-              src="/HAwebstudio_logo.webp"
-              width={36}
-              height={36}
-              className="size-8 shrink-0 rounded-full object-cover sm:size-10"
-              alt="HA Web Studio Logo"
+              src="/ha-web-studio-logo.webp"
+              width={1152}
+              height={768}
+              priority
+              className="size-9 shrink-0 rounded-xl object-contain sm:size-10"
+              alt="HA Web Studio logo"
             />
-            <span className="hidden truncate sm:inline">{siteConfig.name}</span>
+            <span className="site-wordmark__name truncate font-semibold">
+              <span className="site-wordmark__descriptor">Web Studio</span>
+            </span>
           </Link>
 
-          <ul className="absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full border border-border/60 bg-background/25 p-1 lg:flex">
+          <ul className="relative z-10 hidden items-center gap-1 rounded-xl border border-border/40 bg-card/40 px-2 py-1 lg:flex">
             {primaryNav.map((item) => (
               <li key={item.href}>
                 <NavLink item={item} />
@@ -66,11 +65,11 @@ export function SiteHeader() {
             ))}
           </ul>
 
-          <div className="relative z-10 flex min-w-0 shrink-0 items-center gap-1.5 sm:gap-2 md:gap-3">
-            <SiteSearch
+          <div className="relative z-10 flex shrink-0 items-center gap-2 sm:gap-3">
+            <SiteSearchLazy
               variant="modal"
               className="hidden lg:inline-flex"
-              placeholder="Search services, technologies, case studies..."
+              placeholder="Search services, tech, case studies..."
               enableShortcut
               shortcutMedia="desktop"
             />
@@ -79,7 +78,7 @@ export function SiteHeader() {
               className={cn(
                 buttonVariants({
                   size: "sm",
-                  className: "shrink-0 rounded-full px-4 xl:px-5",
+                  className: "shrink-0 rounded-xl px-4 font-medium",
                 }),
                 "max-lg:hidden",
               )}
@@ -90,6 +89,6 @@ export function SiteHeader() {
           </div>
         </nav>
       </Container>
-    </div>
+    </header>
   );
 }

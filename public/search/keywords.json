@@ -1,26 +1,109 @@
 [
   {
-    "keyword": "ai-search-optimization-preparing-your-website-for-ai-powered-search",
+    "keyword": "advanced-analytics-ga4-tracking-setup-services",
+    "urls": [
+      "/services/analytics-tracking-setup"
+    ]
+  },
+  {
+    "keyword": "advanced-frontend-development-services-react-nextjs",
+    "urls": [
+      "/services/frontend-development"
+    ]
+  },
+  {
+    "keyword": "ai-agents",
+    "urls": [
+      "/technologies/ai-automation",
+      "/technologies/ai-automation/ai-agents"
+    ]
+  },
+  {
+    "keyword": "ai-automation",
+    "urls": [
+      "/technologies/ai-automation",
+      "/technologies/ai-automation/ai-agents",
+      "/technologies/ai-automation/ai-sdk-vercel",
+      "/technologies/ai-automation/anthropic-claude",
+      "/technologies/ai-automation/gemini",
+      "/technologies/ai-automation/langchain",
+      "/technologies/ai-automation/mcp",
+      "/technologies/ai-automation/openai",
+      "/technologies/ai-automation/rag",
+      "/technologies/ai-automation/vector-search",
+      "/technologies/ai-automation/workflow-automation"
+    ]
+  },
+  {
+    "keyword": "ai-sdk-vercel",
+    "urls": [
+      "/technologies/ai-automation",
+      "/technologies/ai-automation/ai-sdk-vercel"
+    ]
+  },
+  {
+    "keyword": "ai-search-optimization-a-practical-website-guide",
     "urls": [
       "/insights/ai-search-optimization"
     ]
   },
   {
-    "keyword": "ai-search-visibility-answer-engine-optimization",
+    "keyword": "answer-engine-optimization-aeo-ai-search-visibility",
     "urls": [
       "/services/ai-search-visibility-answer-engine-optimization"
     ]
   },
   {
-    "keyword": "analytics-tracking-implementation",
+    "keyword": "anthropic-claude",
     "urls": [
-      "/case-studies/analytics-tracking-implementation"
+      "/technologies/ai-automation",
+      "/technologies/ai-automation/anthropic-claude"
     ]
   },
   {
-    "keyword": "analytics-tracking-setup",
+    "keyword": "api-third-party-system-integrations-to-automate-workflows",
     "urls": [
-      "/services/analytics-tracking-setup"
+      "/problems/need-third-party-integrations"
+    ]
+  },
+  {
+    "keyword": "application-infrastructure",
+    "urls": [
+      "/technologies/infrastructure",
+      "/technologies/infrastructure/aws",
+      "/technologies/infrastructure/better-auth-authjs",
+      "/technologies/infrastructure/clerk",
+      "/technologies/infrastructure/imagekit-cloudinary",
+      "/technologies/infrastructure/neon",
+      "/technologies/infrastructure/rabbitmq",
+      "/technologies/infrastructure/redis",
+      "/technologies/infrastructure/sentry",
+      "/technologies/infrastructure/uploadthing",
+      "/technologies/infrastructure/upstash"
+    ]
+  },
+  {
+    "keyword": "automated-booking-appointment-system-setup",
+    "urls": [
+      "/services/booking-appointment-systems"
+    ]
+  },
+  {
+    "keyword": "automation-integrations",
+    "urls": [
+      "/services/families/automation-integrations"
+    ]
+  },
+  {
+    "keyword": "aws",
+    "urls": [
+      "/technologies/infrastructure"
+    ]
+  },
+  {
+    "keyword": "aws-amazon-web-services",
+    "urls": [
+      "/technologies/infrastructure/aws"
     ]
   },
   {
@@ -30,9 +113,48 @@
     ]
   },
   {
-    "keyword": "business-website-development",
+    "keyword": "b2b-customer-acquisition-lead-generation-systems",
     "urls": [
-      "/services/business-website-development"
+      "/services/customer-acquisition"
+    ]
+  },
+  {
+    "keyword": "backend",
+    "urls": [
+      "/technologies/backend",
+      "/technologies/backend/expressjs",
+      "/technologies/backend/graphql",
+      "/technologies/backend/mongoose",
+      "/technologies/backend/nodejs",
+      "/technologies/backend/prisma",
+      "/technologies/backend/rest-apis"
+    ]
+  },
+  {
+    "keyword": "better-auth-authjs",
+    "urls": [
+      "/technologies/infrastructure",
+      "/technologies/infrastructure/better-auth-authjs"
+    ]
+  },
+  {
+    "keyword": "bing-webmaster-tools",
+    "urls": [
+      "/technologies/seo-analytics",
+      "/technologies/seo-analytics/bing-webmaster-tools"
+    ]
+  },
+  {
+    "keyword": "brevo",
+    "urls": [
+      "/technologies/communication",
+      "/technologies/communication/brevo"
+    ]
+  },
+  {
+    "keyword": "building-the-ha-web-studio-marketing-platform",
+    "urls": [
+      "/work/ha-web-studio-website"
     ]
   },
   {
@@ -50,80 +172,201 @@
   {
     "keyword": "chrome-extension-apis",
     "urls": [
-      "/technologies/chrome-extension-apis",
       "/work/omnivy-web-clipper"
     ]
   },
   {
-    "keyword": "cintegrate",
+    "keyword": "cintegrate-ai-assisted-video-creation-platform",
     "urls": [
       "/work/cintegrate"
     ]
   },
   {
-    "keyword": "cloudflare",
+    "keyword": "clerk",
     "urls": [
-      "/technologies/cloudflare"
+      "/technologies/infrastructure",
+      "/technologies/infrastructure/clerk"
     ]
   },
   {
-    "keyword": "cloudflare-deployment-building-a-secure-fast-and-reliable-delivery-layer",
+    "keyword": "cloud-infrastructure",
+    "urls": [
+      "/technologies/cloud-infrastructure",
+      "/technologies/cloud-infrastructure/cloudflare",
+      "/technologies/cloud-infrastructure/docker",
+      "/technologies/cloud-infrastructure/github-actions",
+      "/technologies/cloud-infrastructure/render",
+      "/technologies/cloud-infrastructure/vercel"
+    ]
+  },
+  {
+    "keyword": "cloudflare",
+    "urls": [
+      "/technologies/cloud-infrastructure",
+      "/technologies/cloud-infrastructure/cloudflare"
+    ]
+  },
+  {
+    "keyword": "cloudflare-deployment-and-delivery-setup",
     "urls": [
       "/case-studies/cloudflare-deployment"
     ]
   },
   {
-    "keyword": "cloudflare-explained-how-a-cdn-improves-website-speed-security-and-reliability",
+    "keyword": "cloudflare-explained-cdn-speed-and-security",
     "urls": [
       "/insights/cloudflare-explained"
     ]
   },
   {
-    "keyword": "cms-integration-building-flexible-content-management-systems-for-modern-websites",
+    "keyword": "cms",
+    "urls": [
+      "/technologies/cms",
+      "/technologies/cms/payload-cms",
+      "/technologies/cms/sanity",
+      "/technologies/cms/wordpress"
+    ]
+  },
+  {
+    "keyword": "cms-integration-for-a-content-driven-website",
     "urls": [
       "/case-studies/cms-integration"
     ]
   },
   {
-    "keyword": "conversion-rate-optimization",
+    "keyword": "communication",
     "urls": [
-      "/services/conversion-rate-optimization"
+      "/technologies/communication",
+      "/technologies/communication/brevo",
+      "/technologies/communication/nodemailer",
+      "/technologies/communication/resend",
+      "/technologies/communication/sendgrid"
     ]
   },
   {
-    "keyword": "conversion-rate-optimization-cro-turning-more-visitors-into-customers",
+    "keyword": "css3",
     "urls": [
-      "/insights/conversion-rate-optimization-guide"
+      "/technologies/frontend",
+      "/technologies/frontend/css3"
     ]
   },
   {
-    "keyword": "custom-web-application-development",
-    "urls": [
-      "/services/custom-web-application-development"
-    ]
-  },
-  {
-    "keyword": "customers-cant-find-my-business",
-    "urls": [
-      "/problems/customers-cant-find-my-business"
-    ]
-  },
-  {
-    "keyword": "dns",
-    "urls": [
-      "/technologies/dns"
-    ]
-  },
-  {
-    "keyword": "ecommerce-development",
+    "keyword": "custom-ecommerce-development-services-headless-scalable",
     "urls": [
       "/services/ecommerce-development"
     ]
   },
   {
-    "keyword": "email-and-dns-infrastructure-foundation",
+    "keyword": "custom-ecommerce-website-development-for-ambitious-brands",
+    "urls": [
+      "/problems/need-ecommerce-website"
+    ]
+  },
+  {
+    "keyword": "custom-web-application-development-full-stack",
+    "urls": [
+      "/services/custom-web-application-development"
+    ]
+  },
+  {
+    "keyword": "custom-web-application-development-solve-complex-workflows",
+    "urls": [
+      "/problems/need-custom-web-application"
+    ]
+  },
+  {
+    "keyword": "custom-web-applications",
+    "urls": [
+      "/services/families/custom-web-applications"
+    ]
+  },
+  {
+    "keyword": "data-driven-conversion-rate-optimization-cro",
+    "urls": [
+      "/services/conversion-rate-optimization"
+    ]
+  },
+  {
+    "keyword": "databases",
+    "urls": [
+      "/technologies/databases",
+      "/technologies/databases/mongodb",
+      "/technologies/databases/postgresql",
+      "/technologies/databases/supabase"
+    ]
+  },
+  {
+    "keyword": "design",
+    "urls": [
+      "/technologies/design",
+      "/technologies/design/figma"
+    ]
+  },
+  {
+    "keyword": "development-tooling",
+    "urls": [
+      "/technologies/development",
+      "/technologies/development/eslint",
+      "/technologies/development/git",
+      "/technologies/development/github",
+      "/technologies/development/pnpm",
+      "/technologies/development/prettier",
+      "/technologies/development/turborepo"
+    ]
+  },
+  {
+    "keyword": "do-you-need-a-new-business-website-signs-costs-what-to-expect",
+    "urls": [
+      "/problems/need-business-website"
+    ]
+  },
+  {
+    "keyword": "docker",
+    "urls": [
+      "/technologies/cloud-infrastructure",
+      "/technologies/cloud-infrastructure/docker"
+    ]
+  },
+  {
+    "keyword": "domains-dns-and-ssl-a-practical-website-setup-guide",
+    "urls": [
+      "/insights/dns-domains-ssl-guide"
+    ]
+  },
+  {
+    "keyword": "ecommerce",
+    "urls": [
+      "/technologies/ecommerce",
+      "/technologies/ecommerce/razorpay",
+      "/technologies/ecommerce/shopify",
+      "/technologies/ecommerce/shopify-hydrogen",
+      "/technologies/ecommerce/stripe",
+      "/technologies/ecommerce/woocommerce"
+    ]
+  },
+  {
+    "keyword": "ecommerce-development",
+    "urls": [
+      "/services/families/ecommerce"
+    ]
+  },
+  {
+    "keyword": "ecommerce-feature-enhancements-optimizations",
+    "urls": [
+      "/services/ecommerce-specific-services"
+    ]
+  },
+  {
+    "keyword": "email-dns-infrastructure-foundation-case-study",
     "urls": [
       "/case-studies/email-dns-infrastructure-foundation"
+    ]
+  },
+  {
+    "keyword": "eslint",
+    "urls": [
+      "/technologies/development",
+      "/technologies/development/eslint"
     ]
   },
   {
@@ -133,25 +376,98 @@
     ]
   },
   {
-    "keyword": "frontend-development",
+    "keyword": "expressjs",
     "urls": [
-      "/services/frontend-development"
+      "/technologies/backend",
+      "/technologies/backend/expressjs"
     ]
   },
   {
-    "keyword": "google-analytics-4-measuring-what-matters-on-your-website",
+    "keyword": "figma",
+    "urls": [
+      "/technologies/design",
+      "/technologies/design/figma"
+    ]
+  },
+  {
+    "keyword": "framer-motion",
+    "urls": [
+      "/technologies/frontend",
+      "/technologies/frontend/framer-motion"
+    ]
+  },
+  {
+    "keyword": "frontend",
+    "urls": [
+      "/technologies/frontend",
+      "/technologies/frontend/css3",
+      "/technologies/frontend/framer-motion",
+      "/technologies/frontend/html5",
+      "/technologies/frontend/javascript-es6",
+      "/technologies/frontend/nextjs",
+      "/technologies/frontend/react",
+      "/technologies/frontend/react-hook-form",
+      "/technologies/frontend/shadcn-ui",
+      "/technologies/frontend/tailwind-css",
+      "/technologies/frontend/typescript",
+      "/technologies/frontend/zod"
+    ]
+  },
+  {
+    "keyword": "ga4-clarity-event-tracking-implementation",
+    "urls": [
+      "/case-studies/analytics-tracking-implementation"
+    ]
+  },
+  {
+    "keyword": "gemini",
+    "urls": [
+      "/technologies/ai-automation",
+      "/technologies/ai-automation/gemini"
+    ]
+  },
+  {
+    "keyword": "git",
+    "urls": [
+      "/technologies/development",
+      "/technologies/development/git"
+    ]
+  },
+  {
+    "keyword": "github",
+    "urls": [
+      "/technologies/development",
+      "/technologies/development/github"
+    ]
+  },
+  {
+    "keyword": "github-actions",
+    "urls": [
+      "/technologies/cloud-infrastructure",
+      "/technologies/cloud-infrastructure/github-actions"
+    ]
+  },
+  {
+    "keyword": "google-analytics-4",
+    "urls": [
+      "/technologies/seo-analytics",
+      "/technologies/seo-analytics/google-analytics-4"
+    ]
+  },
+  {
+    "keyword": "google-analytics-4-setup-events-conversions-and-consent",
     "urls": [
       "/insights/google-analytics-4"
     ]
   },
   {
-    "keyword": "google-business-maps-visibility",
+    "keyword": "google-business-profile-maps-optimization-services",
     "urls": [
       "/services/google-business-maps-visibility"
     ]
   },
   {
-    "keyword": "google-business-visibility-foundation",
+    "keyword": "google-business-visibility-foundation-case-study",
     "urls": [
       "/case-studies/google-business-visibility-foundation"
     ]
@@ -159,61 +475,110 @@
   {
     "keyword": "google-search-console",
     "urls": [
-      "/technologies/google-search-console"
+      "/technologies/seo-analytics",
+      "/technologies/seo-analytics/google-search-console"
     ]
   },
   {
-    "keyword": "google-workspace",
+    "keyword": "graphql",
     "urls": [
-      "/technologies/google-workspace"
+      "/technologies/backend",
+      "/technologies/backend/graphql"
     ]
   },
   {
-    "keyword": "ha-ui-design-system",
+    "keyword": "ha-ui-design-system-reusable-component-library",
     "urls": [
       "/work/ha-ui-design-system"
     ]
   },
   {
-    "keyword": "ha-web-studio-platform-architecture",
+    "keyword": "ha-web-studio-platform-architecture-case-study",
     "urls": [
       "/case-studies/ha-web-studio-architecture"
     ]
   },
   {
-    "keyword": "ha-web-studio-website",
+    "keyword": "headless-cms-integration-development",
     "urls": [
-      "/work/ha-web-studio-website"
+      "/services/cms-dynamic-content-development"
     ]
   },
   {
-    "keyword": "how-to-plan-a-successful-website-project-a-guide-for-business-owners",
-    "urls": [
-      "/insights/website-project-planning-guide"
-    ]
-  },
-  {
-    "keyword": "judge0",
-    "urls": [
-      "/technologies/judge0"
-    ]
-  },
-  {
-    "keyword": "landing-page-development",
+    "keyword": "high-conversion-landing-page-development",
     "urls": [
       "/services/landing-page-development"
     ]
   },
   {
-    "keyword": "local-seo-foundations",
+    "keyword": "how-much-does-a-website-cost-a-practical-pricing-guide",
+    "urls": [
+      "/insights/how-much-does-a-website-cost"
+    ]
+  },
+  {
+    "keyword": "html5",
+    "urls": [
+      "/technologies/frontend",
+      "/technologies/frontend/html5"
+    ]
+  },
+  {
+    "keyword": "imagekit-cloudinary",
+    "urls": [
+      "/technologies/infrastructure",
+      "/technologies/infrastructure/imagekit-cloudinary"
+    ]
+  },
+  {
+    "keyword": "integrating-custom-ai-features-automation-into-your-business",
+    "urls": [
+      "/problems/need-ai-features"
+    ]
+  },
+  {
+    "keyword": "javascript-es6",
+    "urls": [
+      "/technologies/frontend",
+      "/technologies/frontend/javascript-es6"
+    ]
+  },
+  {
+    "keyword": "langchain",
+    "urls": [
+      "/technologies/ai-automation",
+      "/technologies/ai-automation/langchain"
+    ]
+  },
+  {
+    "keyword": "lead-capture-automation-setup-services",
+    "urls": [
+      "/services/lead-capture-communication-setup"
+    ]
+  },
+  {
+    "keyword": "lighthouse",
+    "urls": [
+      "/technologies/seo-analytics",
+      "/technologies/seo-analytics/lighthouse"
+    ]
+  },
+  {
+    "keyword": "local-seo-foundations-on-page-optimization",
     "urls": [
       "/services/local-seo-foundations"
     ]
   },
   {
-    "keyword": "low-conversion-rate",
+    "keyword": "mcp",
     "urls": [
-      "/problems/low-conversion-rate"
+      "/technologies/ai-automation"
+    ]
+  },
+  {
+    "keyword": "mcp-model-context-protocol",
+    "urls": [
+      "/technologies/ai-automation/mcp"
     ]
   },
   {
@@ -223,7 +588,14 @@
     ]
   },
   {
-    "keyword": "microsoft-clarity-understanding-how-visitors-actually-use-your-website",
+    "keyword": "microsoft-clarity",
+    "urls": [
+      "/technologies/seo-analytics",
+      "/technologies/seo-analytics/microsoft-clarity"
+    ]
+  },
+  {
+    "keyword": "microsoft-clarity-website-behaviour-analytics",
     "urls": [
       "/insights/microsoft-clarity"
     ]
@@ -231,116 +603,184 @@
   {
     "keyword": "mongodb",
     "urls": [
+      "/technologies/databases",
+      "/technologies/databases/mongodb",
       "/work/cintegrate"
     ]
   },
   {
-    "keyword": "ms-signature-scents",
+    "keyword": "mongoose",
+    "urls": [
+      "/technologies/backend",
+      "/technologies/backend/mongoose"
+    ]
+  },
+  {
+    "keyword": "ms-signature-scents-ecommerce-storefront-build",
     "urls": [
       "/work/ms-signature-scents"
     ]
   },
   {
-    "keyword": "need-a-business-website",
+    "keyword": "neon",
     "urls": [
-      "/problems/need-business-website"
-    ]
-  },
-  {
-    "keyword": "need-a-custom-web-application",
-    "urls": [
-      "/problems/need-custom-web-application"
-    ]
-  },
-  {
-    "keyword": "need-ai-features-for-my-business",
-    "urls": [
-      "/problems/need-ai-features"
-    ]
-  },
-  {
-    "keyword": "need-an-ecommerce-website",
-    "urls": [
-      "/problems/need-ecommerce-website"
-    ]
-  },
-  {
-    "keyword": "need-third-party-integrations",
-    "urls": [
-      "/problems/need-third-party-integrations"
-    ]
-  },
-  {
-    "keyword": "need-to-migrate-my-website",
-    "urls": [
-      "/problems/website-migration"
-    ]
-  },
-  {
-    "keyword": "need-website-maintenance-support",
-    "urls": [
-      "/problems/need-website-maintenance"
+      "/technologies/infrastructure",
+      "/technologies/infrastructure/neon"
     ]
   },
   {
     "keyword": "nextjs",
     "urls": [
-      "/technologies/nextjs",
+      "/technologies/frontend",
+      "/technologies/frontend/nextjs",
       "/work/ha-web-studio-website",
       "/work/ms-signature-scents",
       "/work/omnivy-web-clipper"
     ]
   },
   {
-    "keyword": "no-website-analytics-tracking",
-    "urls": [
-      "/problems/no-website-analytics"
-    ]
-  },
-  {
     "keyword": "nodejs",
     "urls": [
-      "/technologies/nodejs",
+      "/technologies/backend",
+      "/technologies/backend/nodejs",
       "/work/cintegrate"
     ]
   },
   {
-    "keyword": "not-showing-up-on-google",
+    "keyword": "nodemailer",
     "urls": [
-      "/problems/not-showing-up-on-google"
+      "/technologies/communication",
+      "/technologies/communication/nodemailer"
     ]
   },
   {
-    "keyword": "omnivy-web-clipper",
+    "keyword": "omnivy-browser-web-clipper-for-markdown-notes",
     "urls": [
       "/work/omnivy-web-clipper"
     ]
   },
   {
-    "keyword": "payment-gateway-integration-creating-secure-reliable-and-frictionless-online-payment-experiences",
+    "keyword": "omnivy-web-clipper-chrome-extension-case-study",
+    "urls": [
+      "/case-studies/omnivy-browser-clipper-chrome-extension"
+    ]
+  },
+  {
+    "keyword": "on-page-seo-search-visibility-strategy",
+    "urls": [
+      "/services/search-visibility-setup"
+    ]
+  },
+  {
+    "keyword": "openai",
+    "urls": [
+      "/technologies/ai-automation",
+      "/technologies/ai-automation/openai"
+    ]
+  },
+  {
+    "keyword": "payload-cms",
+    "urls": [
+      "/technologies/cms",
+      "/technologies/cms/payload-cms"
+    ]
+  },
+  {
+    "keyword": "payment-gateway-integration-case-study",
     "urls": [
       "/case-studies/payment-gateway-integration"
     ]
   },
   {
+    "keyword": "pnpm",
+    "urls": [
+      "/technologies/development",
+      "/technologies/development/pnpm"
+    ]
+  },
+  {
+    "keyword": "postgresql",
+    "urls": [
+      "/technologies/databases",
+      "/technologies/databases/postgresql"
+    ]
+  },
+  {
+    "keyword": "prettier",
+    "urls": [
+      "/technologies/development",
+      "/technologies/development/prettier"
+    ]
+  },
+  {
     "keyword": "prisma",
     "urls": [
+      "/technologies/backend",
+      "/technologies/backend/prisma",
       "/work/ms-signature-scents"
+    ]
+  },
+  {
+    "keyword": "professional-business-website-development",
+    "urls": [
+      "/services/business-website-development"
+    ]
+  },
+  {
+    "keyword": "professional-website-maintenance-support-services",
+    "urls": [
+      "/problems/need-website-maintenance"
+    ]
+  },
+  {
+    "keyword": "rabbitmq",
+    "urls": [
+      "/technologies/infrastructure",
+      "/technologies/infrastructure/rabbitmq"
+    ]
+  },
+  {
+    "keyword": "rag",
+    "urls": [
+      "/technologies/ai-automation"
+    ]
+  },
+  {
+    "keyword": "rag-retrieval-augmented-generation",
+    "urls": [
+      "/technologies/ai-automation/rag"
     ]
   },
   {
     "keyword": "razorpay",
     "urls": [
+      "/technologies/ecommerce",
+      "/technologies/ecommerce/razorpay",
       "/work/ms-signature-scents"
     ]
   },
   {
     "keyword": "react",
     "urls": [
-      "/technologies/react",
+      "/technologies/frontend",
+      "/technologies/frontend/react",
       "/work/cintegrate",
       "/work/ha-ui-design-system",
       "/work/omnivy-web-clipper"
+    ]
+  },
+  {
+    "keyword": "react-hook-form",
+    "urls": [
+      "/technologies/frontend",
+      "/technologies/frontend/react-hook-form"
+    ]
+  },
+  {
+    "keyword": "redis",
+    "urls": [
+      "/technologies/infrastructure",
+      "/technologies/infrastructure/redis"
     ]
   },
   {
@@ -351,44 +791,152 @@
     ]
   },
   {
+    "keyword": "render",
+    "urls": [
+      "/technologies/cloud-infrastructure",
+      "/technologies/cloud-infrastructure/render"
+    ]
+  },
+  {
+    "keyword": "resend",
+    "urls": [
+      "/technologies/communication",
+      "/technologies/communication/resend"
+    ]
+  },
+  {
+    "keyword": "rest-apis",
+    "urls": [
+      "/technologies/backend",
+      "/technologies/backend/rest-apis"
+    ]
+  },
+  {
+    "keyword": "sanity",
+    "urls": [
+      "/technologies/cms",
+      "/technologies/cms/sanity"
+    ]
+  },
+  {
     "keyword": "sanity-cms",
     "urls": [
       "/work/ms-signature-scents"
     ]
   },
   {
-    "keyword": "search-visibility-setup",
+    "keyword": "schema-org",
     "urls": [
-      "/services/search-visibility-setup"
+      "/technologies/seo-analytics"
     ]
   },
   {
-    "keyword": "shopify-development",
+    "keyword": "schemaorg",
+    "urls": [
+      "/technologies/seo-analytics/schema-org"
+    ]
+  },
+  {
+    "keyword": "search-discoverability-services-technical-seo-aeo",
+    "urls": [
+      "/services/families/search-discoverability"
+    ]
+  },
+  {
+    "keyword": "sendgrid",
+    "urls": [
+      "/technologies/communication",
+      "/technologies/communication/sendgrid"
+    ]
+  },
+  {
+    "keyword": "sentry",
+    "urls": [
+      "/technologies/infrastructure",
+      "/technologies/infrastructure/sentry"
+    ]
+  },
+  {
+    "keyword": "seo-analytics",
+    "urls": [
+      "/technologies/seo-analytics",
+      "/technologies/seo-analytics/bing-webmaster-tools",
+      "/technologies/seo-analytics/google-analytics-4",
+      "/technologies/seo-analytics/google-search-console",
+      "/technologies/seo-analytics/lighthouse",
+      "/technologies/seo-analytics/microsoft-clarity",
+      "/technologies/seo-analytics/schema-org"
+    ]
+  },
+  {
+    "keyword": "shadcn-ui",
+    "urls": [
+      "/technologies/frontend"
+    ]
+  },
+  {
+    "keyword": "shadcnui",
+    "urls": [
+      "/technologies/frontend/shadcn-ui"
+    ]
+  },
+  {
+    "keyword": "shopify",
+    "urls": [
+      "/technologies/ecommerce",
+      "/technologies/ecommerce/shopify"
+    ]
+  },
+  {
+    "keyword": "shopify-hydrogen",
+    "urls": [
+      "/technologies/ecommerce",
+      "/technologies/ecommerce/shopify-hydrogen"
+    ]
+  },
+  {
+    "keyword": "shopify-store-development-setup-services",
     "urls": [
       "/services/shopify-development"
     ]
   },
   {
-    "keyword": "shopify-vs-woocommerce-which-ecommerce-platform-is-right-for-your-business",
+    "keyword": "shopify-vs-woocommerce-which-fits-your-store",
     "urls": [
       "/insights/shopify-vs-woocommerce"
     ]
   },
   {
-    "keyword": "structured-data-schema-helping-search-engines-understand-your-website",
+    "keyword": "stripe",
+    "urls": [
+      "/technologies/ecommerce",
+      "/technologies/ecommerce/stripe"
+    ]
+  },
+  {
+    "keyword": "structured-data-and-schema-markup-a-website-guide",
     "urls": [
       "/insights/structured-data-schema"
     ]
   },
   {
-    "keyword": "structured-data-schema-setup",
+    "keyword": "structured-data-schema-markup-implementation",
     "urls": [
       "/services/structured-data-schema-setup"
     ]
   },
   {
+    "keyword": "supabase",
+    "urls": [
+      "/technologies/databases",
+      "/technologies/databases/supabase"
+    ]
+  },
+  {
     "keyword": "tailwind-css",
     "urls": [
+      "/technologies/frontend",
+      "/technologies/frontend/tailwind-css",
       "/work/ha-ui-design-system",
       "/work/ha-web-studio-website",
       "/work/ms-signature-scents"
@@ -401,26 +949,53 @@
     ]
   },
   {
-    "keyword": "technical-seo-checklist-for-every-business-website",
+    "keyword": "technical-seo-checklist-for-business-websites",
     "urls": [
       "/insights/technical-seo-checklist"
     ]
   },
   {
-    "keyword": "technical-seo-setup",
+    "keyword": "technical-seo-setup-optimization-services",
     "urls": [
       "/services/technical-seo-setup"
     ]
   },
   {
-    "keyword": "third-party-api-integrations",
+    "keyword": "technical-website-audit-bug-fix-services",
+    "urls": [
+      "/services/website-audit-technical-fixes"
+    ]
+  },
+  {
+    "keyword": "technologies",
+    "urls": [
+      "/technologies"
+    ]
+  },
+  {
+    "keyword": "technology-stack",
+    "urls": [
+      "/technologies"
+    ]
+  },
+  {
+    "keyword": "third-party-api-custom-software-integration-services",
     "urls": [
       "/services/third-party-api-integrations"
     ]
   },
   {
+    "keyword": "turborepo",
+    "urls": [
+      "/technologies/development",
+      "/technologies/development/turborepo"
+    ]
+  },
+  {
     "keyword": "typescript",
     "urls": [
+      "/technologies/frontend",
+      "/technologies/frontend/typescript",
       "/work/cintegrate",
       "/work/ha-ui-design-system",
       "/work/ha-web-studio-website",
@@ -429,9 +1004,31 @@
     ]
   },
   {
-    "keyword": "understanding-dns-domains-ssl-a-practical-guide-for-business-owners",
+    "keyword": "uploadthing",
     "urls": [
-      "/insights/dns-domains-ssl-guide"
+      "/technologies/infrastructure",
+      "/technologies/infrastructure/uploadthing"
+    ]
+  },
+  {
+    "keyword": "upstash",
+    "urls": [
+      "/technologies/infrastructure",
+      "/technologies/infrastructure/upstash"
+    ]
+  },
+  {
+    "keyword": "vector-search",
+    "urls": [
+      "/technologies/ai-automation",
+      "/technologies/ai-automation/vector-search"
+    ]
+  },
+  {
+    "keyword": "vercel",
+    "urls": [
+      "/technologies/cloud-infrastructure",
+      "/technologies/cloud-infrastructure/vercel"
     ]
   },
   {
@@ -441,45 +1038,57 @@
     ]
   },
   {
-    "keyword": "website-audit-technical-fixes",
+    "keyword": "website-analytics-tracking-setup-stop-guessing-start-measuring",
     "urls": [
-      "/services/website-audit-technical-fixes"
+      "/problems/no-website-analytics"
     ]
   },
   {
-    "keyword": "website-is-difficult-to-update",
+    "keyword": "website-conversion-rate-optimization-a-practical-guide",
     "urls": [
-      "/problems/website-difficult-to-update"
+      "/insights/conversion-rate-optimization-guide"
     ]
   },
   {
-    "keyword": "website-is-slow",
+    "keyword": "website-development",
     "urls": [
-      "/problems/website-is-slow"
+      "/services/families/website-development"
     ]
   },
   {
-    "keyword": "website-launch-checklist-what-every-business-should-do-before-going-live",
+    "keyword": "website-infrastructure-launch-setup",
+    "urls": [
+      "/services/website-launch-infrastructure-setup"
+    ]
+  },
+  {
+    "keyword": "website-launch-checklist-what-to-test-before-going-live",
     "urls": [
       "/insights/website-launch-checklist"
     ]
   },
   {
-    "keyword": "website-maintenance-support",
+    "keyword": "website-maintenance-support-retainer-services",
     "urls": [
       "/services/website-maintenance-support"
     ]
   },
   {
-    "keyword": "website-migration-replatforming",
+    "keyword": "website-migration-replatforming-services",
     "urls": [
       "/services/website-migration-replatforming"
     ]
   },
   {
-    "keyword": "website-needs-a-redesign",
+    "keyword": "website-migration-services-move-platforms-without-losing-seo",
     "urls": [
-      "/problems/website-redesign"
+      "/problems/website-migration"
+    ]
+  },
+  {
+    "keyword": "website-optimization-care",
+    "urls": [
+      "/services/families/website-optimization-care"
     ]
   },
   {
@@ -489,27 +1098,69 @@
     ]
   },
   {
-    "keyword": "website-performance-optimization",
+    "keyword": "website-planning-strategy-services",
     "urls": [
-      "/services/website-performance-optimization"
+      "/services/website-planning-strategy"
     ]
   },
   {
-    "keyword": "website-redesign",
+    "keyword": "website-project-planning-requirements-scope-and-launch",
+    "urls": [
+      "/insights/website-project-planning-guide"
+    ]
+  },
+  {
+    "keyword": "website-redesign-modernization-services",
     "urls": [
       "/services/website-redesign"
     ]
   },
   {
-    "keyword": "website-security-basics-10-essentials-every-business-website-should-have",
+    "keyword": "website-redesign-when-and-why-you-need-to-modernise",
+    "urls": [
+      "/problems/website-redesign"
+    ]
+  },
+  {
+    "keyword": "website-security-basics-for-business-owners",
     "urls": [
       "/insights/website-security-basics"
     ]
   },
   {
-    "keyword": "website-security-concerns",
+    "keyword": "website-security-fixes-protect-your-data-and-reputation",
     "urls": [
       "/problems/website-security-concerns"
+    ]
+  },
+  {
+    "keyword": "website-security-waf-spam-protection-services",
+    "urls": [
+      "/services/website-security-protection"
+    ]
+  },
+  {
+    "keyword": "website-speed-performance-optimization-services",
+    "urls": [
+      "/services/website-performance-optimization"
+    ]
+  },
+  {
+    "keyword": "website-ui-ux-design-services",
+    "urls": [
+      "/services/website-ui-ux-design"
+    ]
+  },
+  {
+    "keyword": "whatsapp-business-api-automation-setup",
+    "urls": [
+      "/services/whatsapp-business-systems"
+    ]
+  },
+  {
+    "keyword": "why-customers-cant-find-your-business-locally-and-how-to-fix-it",
+    "urls": [
+      "/problems/customers-cant-find-my-business"
     ]
   },
   {
@@ -519,9 +1170,61 @@
     ]
   },
   {
-    "keyword": "woocommerce-development",
+    "keyword": "why-your-website-has-a-low-conversion-rate-and-how-to-fix-it",
+    "urls": [
+      "/problems/low-conversion-rate"
+    ]
+  },
+  {
+    "keyword": "why-your-website-is-hard-to-update-and-how-we-fix-it",
+    "urls": [
+      "/problems/website-difficult-to-update"
+    ]
+  },
+  {
+    "keyword": "why-your-website-is-slow-how-to-fix-core-web-vitals",
+    "urls": [
+      "/problems/website-is-slow"
+    ]
+  },
+  {
+    "keyword": "why-your-website-isnt-showing-up-on-google-causes-solutions",
+    "urls": [
+      "/problems/not-showing-up-on-google"
+    ]
+  },
+  {
+    "keyword": "woocommerce",
+    "urls": [
+      "/technologies/ecommerce",
+      "/technologies/ecommerce/woocommerce"
+    ]
+  },
+  {
+    "keyword": "woocommerce-development-services-custom-wordpress-stores",
     "urls": [
       "/services/woocommerce-development"
+    ]
+  },
+  {
+    "keyword": "wordpress",
+    "urls": [
+      "/technologies/cms",
+      "/technologies/cms/wordpress"
+    ]
+  },
+  {
+    "keyword": "workflow-automation",
+    "urls": [
+      "/technologies/ai-automation",
+      "/technologies/ai-automation/workflow-automation"
+    ]
+  },
+  {
+    "keyword": "zod",
+    "urls": [
+      "/technologies/frontend",
+      "/technologies/frontend/zod"
     ]
   }
 ]

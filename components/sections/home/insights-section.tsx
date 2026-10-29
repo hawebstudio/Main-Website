@@ -18,8 +18,8 @@ export function InsightsSection({ insights, caseStudies }: InsightsSectionProps)
       <Container>
         <div className="flex flex-col gap-10">
           <SectionHeading
-            eyebrow="Insights"
-            title="Guides and case studies on web development, SEO, and AI search."
+            eyebrow="Notes from the studio"
+            title="Useful thinking, not trend-chasing."
             href="/insights"
             ctaLabel="View all insights"
           />

@@ -2,13 +2,13 @@ import { Service } from "@/lib/content/types";
 
 export const performanceSecurityServices: Service[] = [
   {
-    family: "performance-security",
+    family: "website-optimization-care",
     slug: "website-performance-optimization",
     title: "Website Performance & Speed Optimization",
     description: "Slow websites kill conversions. Every second of delay causes a massive drop in revenue. We tear down your website's architecture and rebuild the critical rendering path to achieve sub-second load times and perfect Google Core Web Vitals scores.",
-    seo: { 
-      title: "Website Speed & Performance Optimization Services | HA Web Studio", 
-      description: "Stop losing customers to slow load times. We optimize your website architecture, caching, and assets to achieve sub-second load times and pass Core Web Vitals." 
+    seo: {
+      title: "Website Speed & Performance Optimization Services",
+      description: "Stop losing customers to slow load times. We optimize your website architecture, caching, and assets to achieve sub-second load times and pass Core Web Vitals."
     },
     audience: "eCommerce stores, media publishers, and enterprise SaaS companies losing revenue or SEO rankings due to sluggish, bloated websites.",
     outcomes: [
@@ -34,6 +34,8 @@ export const performanceSecurityServices: Service[] = [
       "Server-Side Rendering (SSR) Implementation",
       "Ongoing Performance Monitoring"
     ],
+    relatedCaseStudies: ["website-performance-foundation"],
+    relatedInsights: ["why-performance-matters", "technical-seo-checklist"],
     recommendations: ["technical-seo-setup", "conversion-rate-optimization", "website-audit-technical-fixes"],
     businessProblems: [
       "The website takes 5+ seconds to load on mobile devices, causing users to abandon the site instantly.",
@@ -68,13 +70,13 @@ export const performanceSecurityServices: Service[] = [
     cta: { label: "Speed Up My Site", href: "/contact?intent=performance-security" }
   },
   {
-    family: "performance-security",
+    family: "website-optimization-care",
     slug: "website-security-protection",
     title: "Enterprise Security & Protection",
     description: "Don't wait for a data breach to take security seriously. We harden your digital infrastructure against DDoS attacks, SQL injections, brute-force hacking, and malicious spam, ensuring your business stays online and your customer data remains locked down.",
-    seo: { 
-      title: "Website Security, WAF & Spam Protection Services | HA Web Studio", 
-      description: "Secure your digital assets. We implement enterprise-grade firewalls, DDoS protection, and automated backups to keep your website safe from hackers and spam." 
+    seo: {
+      title: "Website Security, WAF & Spam Protection Services",
+      description: "Secure your digital assets. We implement enterprise-grade firewalls, DDoS protection, and automated backups to keep your website safe from hackers and spam."
     },
     audience: "Medical practices (HIPAA compliance concerns), financial institutions, eCommerce stores handling credit cards, and high-profile brands targeted by bad actors.",
     outcomes: [
@@ -100,6 +102,8 @@ export const performanceSecurityServices: Service[] = [
       "Two-Factor Authentication (2FA) Enforcement",
       "HIPAA/GDPR Compliance Technical Audit"
     ],
+    relatedInsights: ["website-security-basics", "website-launch-checklist"],
+    relatedServices: ["website-maintenance-support"],
     recommendations: ["website-maintenance-support", "website-audit-technical-fixes"],
     businessProblems: [
       "Your inbox is flooded with hundreds of spam form submissions every single day.",
@@ -133,13 +137,13 @@ export const performanceSecurityServices: Service[] = [
     cta: { label: "Secure Your Website", href: "/contact?intent=performance-security" }
   },
   {
-    family: "performance-security",
+    family: "website-optimization-care",
     slug: "website-audit-technical-fixes",
     title: "Technical Audit & Rescue",
     description: "Inherited a broken website from another developer? We perform forensic technical audits to uncover hidden bugs, architectural flaws, and performance bottlenecks—and then we actually go in and fix them.",
-    seo: { 
-      title: "Technical Website Audit & Bug Fix Services | HA Web Studio", 
-      description: "Stop dealing with a broken website. We perform deep technical audits to find the root cause of your bugs, and deploy our senior developers to fix them permanently." 
+    seo: {
+      title: "Technical Website Audit & Bug Fix Services",
+      description: "Stop dealing with a broken website. We perform deep technical audits to find the root cause of your bugs, and deploy our senior developers to fix them permanently."
     },
     audience: "Businesses frustrated with their current website's instability, or teams that have recently taken over a legacy codebase and need to know what they are dealing with.",
     outcomes: [
@@ -165,6 +169,7 @@ export const performanceSecurityServices: Service[] = [
       "Automated Testing (E2E) Setup",
       "Infrastructure Migration Planning"
     ],
+    relatedInsights: ["technical-seo-checklist", "website-launch-checklist"],
     recommendations: ["website-maintenance-support", "website-performance-optimization", "technical-seo-setup"],
     businessProblems: [
       "The website breaks randomly and the current developer doesn't know why.",

@@ -6,6 +6,10 @@ export const CTAS = {
     href: '/contact?intent=start-project',
   } as Cta,
   requestAudit: {
+    label: 'Request a Website Audit',
+    href: '/contact?intent=audit',
+  } as Cta,
+  getGrowthAssessment: {
     label: 'Get a Website Growth Assessment',
     href: '/website-growth-assessment',
   } as Cta,

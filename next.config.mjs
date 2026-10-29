@@ -45,20 +45,30 @@ const nextConfig = {
       },
     ]
   },
-  async redirects() {
+    async redirects() {
     return [
-      // --- Pre-existing entries (kept as-is) ---
-      { source: '/services/families/website-development', destination: '/services/families/websites', permanent: true },
+      // --- Retired Routes (Permanent 308 Redirects) ---
+      { source: '/socials', destination: '/about', permanent: true },
+      // --- Service Family Consolidations (Direct Single-Hop Rules) ---
+      { source: '/services/families/websites', destination: '/services/families/website-development', permanent: true },
+      { source: '/services/families/business-websites', destination: '/services/families/website-development', permanent: true },
+      { source: '/services/families/design', destination: '/services/families/website-development', permanent: true },
       { source: '/services/families/ecommerce-development', destination: '/services/families/ecommerce', permanent: true },
-      { source: '/services/families/seo-search-visibility', destination: '/services/families/seo-search', permanent: true },
-      { source: '/services/families/local-business-visibility', destination: '/services/families/growth', permanent: true },
-      { source: '/services/families/analytics-growth', destination: '/services/families/analytics', permanent: true },
-      { source: '/services/families/website-performance', destination: '/services/families/performance-security', permanent: true },
-      { source: '/services/families/website-maintenance', destination: '/services/families/maintenance', permanent: true },
-      { source: '/services/families/business-websites', destination: '/services/families/websites', permanent: true },
-      { source: '/services/families/google-business', destination: '/services/families/growth', permanent: true },
-      { source: '/services/families/custom-web-applications', destination: '/services/families/development', permanent: true },
-      { source: '/services/families/website-management', destination: '/services/families/maintenance', permanent: true },
+      { source: '/services/families/seo-search', destination: '/services/families/search-discoverability', permanent: true },
+      { source: '/services/families/seo-search-visibility', destination: '/services/families/search-discoverability', permanent: true },
+      { source: '/services/families/growth', destination: '/services/families/search-discoverability', permanent: true },
+      { source: '/services/families/local-business-visibility', destination: '/services/families/search-discoverability', permanent: true },
+      { source: '/services/families/google-business', destination: '/services/families/search-discoverability', permanent: true },
+      { source: '/services/families/business-systems', destination: '/services/families/automation-integrations', permanent: true },
+      { source: '/services/families/integrations', destination: '/services/families/automation-integrations', permanent: true },
+      { source: '/services/families/analytics', destination: '/services/families/automation-integrations', permanent: true },
+      { source: '/services/families/analytics-growth', destination: '/services/families/automation-integrations', permanent: true },
+      { source: '/services/families/development', destination: '/services/families/custom-web-applications', permanent: true },
+      { source: '/services/families/performance-security', destination: '/services/families/website-optimization-care', permanent: true },
+      { source: '/services/families/website-performance', destination: '/services/families/website-optimization-care', permanent: true },
+      { source: '/services/families/maintenance', destination: '/services/families/website-optimization-care', permanent: true },
+      { source: '/services/families/website-maintenance', destination: '/services/families/website-optimization-care', permanent: true },
+      { source: '/services/families/website-management', destination: '/services/families/website-optimization-care', permanent: true },
     ]
   },
 }

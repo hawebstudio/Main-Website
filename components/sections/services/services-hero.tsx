@@ -16,7 +16,7 @@ export function ServicesHero({ breadcrumbs }: ServicesHeroProps) {
       className="py-14 md:py-20"
       background={
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.14),transparent_20%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.05),transparent_18%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_42%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(89,102,75,0.12),transparent_20%),radial-gradient(circle_at_80%_10%,rgba(183,154,88,0.07),transparent_18%),linear-gradient(180deg,rgba(243,237,223,0.08),transparent_42%)]" />
           <div className="absolute left-1/2 top-0 h-96 w-[52rem] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
         </div>
       }
@@ -77,6 +77,10 @@ export function ServicesHero({ breadcrumbs }: ServicesHeroProps) {
             </div>
           </div>
 
+          <div className="rounded-[2rem] border border-border/50 bg-background/35 p-5">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Which path is this for?</div>
+            <Text tone="muted" size="sm" className="mt-3 leading-relaxed">Start with the path that matches where your business is today: building something new, improving what already exists, or getting more from the traffic you already have.</Text>
+          </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
             <HeroPanel eyebrow="Buyer journeys" title="Clear routes from problem to solution.">
               Every family links into related work, case studies, insights, and contact so visitors never hit a dead end.

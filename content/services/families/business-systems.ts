@@ -2,13 +2,13 @@ import { Service } from "@/lib/content/types";
 
 export const businessSystemsServices: Service[] = [
   {
-    family: "business-systems",
+    family: "automation-integrations",
     slug: "booking-appointment-systems",
     title: "Automated Booking & Appointment Systems",
     description: "Eliminate the endless back-and-forth of scheduling. We integrate intelligent booking systems directly into your website that sync with your calendar, handle timezone conversions, and even collect payments upfront, allowing you to wake up to a full schedule of qualified appointments.",
-    seo: { 
-      title: "Automated Booking & Appointment System Setup | HA Web Studio", 
-      description: "Stop the email ping-pong. We implement automated booking systems (Calendly, Cal.com) that sync with your calendar, send reminders, and collect payments." 
+    seo: {
+      title: "Automated Booking & Appointment System Setup",
+      description: "Stop the email ping-pong. We implement automated booking systems (Calendly, Cal.com) that sync with your calendar, send reminders, and collect payments."
     },
     audience: "Consultants, medical clinics, law firms, and service agencies that rely on scheduled appointments and want to reduce administrative overhead.",
     outcomes: [
@@ -66,13 +66,13 @@ export const businessSystemsServices: Service[] = [
     cta: { label: "Automate Your Bookings", href: "/contact?intent=business-systems" }
   },
   {
-    family: "business-systems",
+    family: "automation-integrations",
     slug: "whatsapp-business-systems",
     title: "WhatsApp Business API & Automation",
     description: "Meet your customers where they already are. We integrate WhatsApp Business deeply into your operations, transforming it from a simple chat app into a powerful engine for automated customer support, lead qualification, and direct sales.",
-    seo: { 
-      title: "WhatsApp Business API & Automation Setup | HA Web Studio", 
-      description: "Turn WhatsApp into a sales engine. We integrate the WhatsApp Business API with your website, CRM, and chatbots for automated support and lead generation." 
+    seo: {
+      title: "WhatsApp Business API & Automation Setup",
+      description: "Turn WhatsApp into a sales engine. We integrate the WhatsApp Business API with your website, CRM, and chatbots for automated support and lead generation."
     },
     audience: "eCommerce brands, real estate agencies, and local services in regions (like LATAM, EMEA, and APAC) where WhatsApp is the primary mode of business communication.",
     outcomes: [

@@ -1,4 +1,4 @@
-import { CheckCircle2 } from 'lucide-react'
+import { Check } from 'lucide-react'
 import { Container } from '@/components/primitives/container'
 import { Section } from '@/components/primitives/section'
 import { Heading, Text, Eyebrow } from '@/components/primitives/typography'
@@ -6,30 +6,27 @@ import { builtForItems } from './home-data'
 
 export function OperatingPrinciplesSection() {
   return (
-    <Section spacing="md" className="border-y border-border/50 bg-background/70">
+    <Section spacing="xl">
       <Container>
-        <div className="grid gap-4 md:grid-cols-3">
-          <div className="glass-strong rounded-3xl p-6 md:col-span-2">
-            <Eyebrow>Operating principles</Eyebrow>
-            <Heading level={2} size="xl" className="mt-3 max-w-2xl">
-              Performance, SEO, and accessibility aren&rsquo;t add-ons. They&rsquo;re the spec.
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
+          <div className="flex flex-col items-start">
+            <Eyebrow>Our point of view</Eyebrow>
+            <Heading level={2} size="xl" className="mt-5 max-w-xl text-[clamp(2.25rem,4.6vw,4.25rem)] leading-[0.98] tracking-[-0.05em]">
+              Your website is part of the work. <span className="font-serif font-normal italic text-primary">Not the whole story.</span>
             </Heading>
-            <Text size="lg" tone="muted" className="mt-4 max-w-2xl">
-              Every project is measured against Core Web Vitals, built with semantic and
-              accessible markup, and structured with technical SEO and AI-readable data from the
-              first commit &mdash; not patched in after launch when it&rsquo;s expensive to fix.
-            </Text>
           </div>
-          <div className="glass rounded-3xl p-6">
-            <Eyebrow>Built for</Eyebrow>
-            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+          <div className="flex flex-col justify-between gap-8 border-l border-foreground/15 pl-5 sm:pl-8">
+            <Text size="lg" tone="muted" className="max-w-2xl text-pretty">
+              The site has to explain what you do, help the right person trust it, and make the next step obvious. We bring content, interface design, and engineering into the same conversation so those parts work together.
+            </Text>
+            <div className="grid gap-4 border-t border-foreground/15 pt-5 sm:grid-cols-2">
               {builtForItems.map((item) => (
-                <li key={item} className="flex items-center gap-2 text-foreground">
-                  <CheckCircle2 className="size-4 text-primary" />
-                  {item}
-                </li>
+                <div key={item} className="flex items-start gap-3 text-sm">
+                  <Check className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                  <span>{item}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </Container>

@@ -91,9 +91,17 @@ export async function getProjectsForService(serviceSlug: string): Promise<WithCo
 
 export async function getCaseStudiesForServices(serviceSlugs: string[]): Promise<WithContent<CaseStudy>[]> {
   if (serviceSlugs.length === 0) return []
+  const allServices = await services.getAll()
+  const matchedServices = allServices.filter((s) => serviceSlugs.includes(s.slug))
+  const forwardSlugs = mergeRelationSlugs(...matchedServices.map((s) => s.relatedCaseStudies))
+
   const all = await caseStudies.getAll()
-  return all.filter((caseStudy) =>
-    caseStudy.relatedServiceSlugs?.some((slug) => serviceSlugs.includes(slug)),
+  return uniqueBySlug(
+    all.filter(
+      (caseStudy) =>
+        caseStudy.relatedServiceSlugs?.some((slug) => serviceSlugs.includes(slug)) ||
+        forwardSlugs.includes(caseStudy.slug),
+    ),
   )
 }
 
@@ -103,9 +111,17 @@ export async function getCaseStudiesForService(serviceSlug: string): Promise<Wit
 
 export async function getInsightsForServices(serviceSlugs: string[]): Promise<WithContent<Insight>[]> {
   if (serviceSlugs.length === 0) return []
+  const allServices = await services.getAll()
+  const matchedServices = allServices.filter((s) => serviceSlugs.includes(s.slug))
+  const forwardSlugs = mergeRelationSlugs(...matchedServices.map((s) => s.relatedInsights))
+
   const all = await insights.getAll()
-  return all.filter((insight) =>
-    insight.relatedServiceSlugs?.some((slug) => serviceSlugs.includes(slug)),
+  return uniqueBySlug(
+    all.filter(
+      (insight) =>
+        insight.relatedServiceSlugs?.some((slug) => serviceSlugs.includes(slug)) ||
+        forwardSlugs.includes(insight.slug),
+    ),
   )
 }
 

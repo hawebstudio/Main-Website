@@ -4,8 +4,10 @@ import { Separator } from '@/components/ui/separator'
 import { footerNav } from '@/config/navigation'
 import { routes } from '@/config/routes'
 import { siteConfig } from '@/config/site'
-import { SiteSearch } from '@/components/search/site-search'
+import { SiteSearchLazy } from '@/components/search/site-search-lazy'
 import { featuredSocialProfiles } from '@/lib/business/company'
+import { CookieSettingsButton } from '@/components/consent/cookie-settings-button'
+import Image from 'next/image'
 
 const legalLinks = [
   { label: 'Privacy Policy', href: routes.privacy() },
@@ -24,15 +26,25 @@ export function SiteFooter() {
           <div className="flex max-w-xs flex-col gap-3">
             <Link
               href={routes.home()}
-              className="text-sm font-semibold tracking-tight text-foreground"
+              aria-label={siteConfig.name}
+              className="site-wordmark flex items-center gap-0.5 sm:gap-1"
             >
-              {siteConfig.name}
+              <Image
+                src="/ha-web-studio-logo.webp"
+                width={1152}
+                height={768}
+                className="size-10 shrink-0 rounded-xl object-contain"
+                alt="HA Web Studio logo"
+              />
+              <span className="site-wordmark__name">
+                <span className="site-wordmark__descriptor">Web Studio</span>
+              </span>
             </Link>
             <p className="text-sm leading-relaxed text-muted-foreground">
               {siteConfig.description}
             </p>
             <div className="pt-3">
-              <SiteSearch
+              <SiteSearchLazy
                 variant="footer"
                 placeholder="Search services, technologies, case studies..."
                 className="max-w-sm"
@@ -80,6 +92,9 @@ export function SiteFooter() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <CookieSettingsButton />
+              </li>
             </ul>
           </div>
           <ul className="flex items-center gap-4">
@@ -95,14 +110,7 @@ export function SiteFooter() {
                 </a>
               </li>
             ))}
-            <li>
-              <Link
-                href={routes.socials()}
-                className="text-xs text-muted-foreground transition-colors hover:text-foreground"
-              >
-                All socials
-              </Link>
-            </li>
+
           </ul>
         </div>
       </Container>
